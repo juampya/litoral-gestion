@@ -1,0 +1,12 @@
+customValues:"Reposo|1
+Reintegro|2
+Visita Domiciliaria|3
+Visita Consultorio|4
+Sin Contacto|5
+Visita Cancelada|6
+",
+name:"vl_accion_informe",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"C19A4478-FC42-4B8F-87F7-BAF2E77E0497"

@@ -1,0 +1,11 @@
+addEmptyValue:1,
+customValues:"Pendiente|0
+Atendido|1
+Cancelado|2 
+Ausente|3
+Retiro|4",
+name:"cli_turno_estados",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"92539733-4421-40BA-8176-336CB261E2D1"

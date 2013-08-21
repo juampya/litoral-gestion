@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/medico",
+items:[
+{foreignColumnName:"medico_id",primaryDataProviderID:"medico_id",typeid:23,uuid:"CC0BA66A-9379-48F3-BE68-F952FEDF0F4C"}
+],
+joinType:1,
+name:"visita_to_medico",
+primaryDataSource:"db:/sistemas/visita",
+typeid:22,
+uuid:"DD3899F3-0CFD-45D9-9865-295B86C9545B"

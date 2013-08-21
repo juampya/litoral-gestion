@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/visita_informe",
+items:[
+{foreignColumnName:"visita_id",primaryDataProviderID:"visita_id",typeid:23,uuid:"805EA130-7BEA-4D5A-A37C-1303192BE38A"}
+],
+joinType:1,
+name:"visita_to_visita_informe",
+primaryDataSource:"db:/sistemas/visita",
+typeid:22,
+uuid:"F9C0FC5B-9ADC-4D41-AC72-65C082B7E593"

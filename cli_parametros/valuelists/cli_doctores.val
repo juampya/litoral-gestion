@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"medico_id",
+dataProviderID2:"medico_apellido",
+dataProviderID3:"medico_nombre",
+dataSource:"db:/sistemas/medico",
+name:"cli_doctores",
+returnDataProviders:1,
+showDataProviders:6,
+typeid:34,
+uuid:"5EC8F976-206C-40DA-BD6F-E3ACF4FBDFB5",
+valueListType:1

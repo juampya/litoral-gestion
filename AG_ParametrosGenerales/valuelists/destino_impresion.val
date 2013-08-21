@@ -1,0 +1,14 @@
+addEmptyValue:1,
+customValues:"0-Impresora Predeterminada|0
+1-Otra Impresora DOS|1
+2-Archivo|2
+3-Controlador Fiscal|3
+4-Elije Impresora en el momento|4
+5-Otra Impresora de RED|5
+
+",
+name:"destino_impresion",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"2F150DDF-1A12-45A7-9EF9-F5E1BA4956AF"

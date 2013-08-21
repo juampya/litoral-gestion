@@ -1,0 +1,17 @@
+addEmptyValue:1,
+customValues:"FAC
+REC
+REM
+CRE
+DEB
+MUL
+PED
+PRE
+TIC
+TIF
+STK",
+name:"cod_comprobante",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"C770E67A-EF13-490F-9815-843FB2B7AD51"

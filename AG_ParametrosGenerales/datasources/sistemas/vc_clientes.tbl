@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/vc_clientes",
+items:[
+{
+dataProviderIDToAggregate:"condivta_id",
+name:"aggr_condivta",
+typeid:40,
+uuid:"F90BE4C0-A46B-4392-B4F5-5999B2439AE2"
+}
+],
+typeid:39,
+uuid:"A9DDD1A2-5FFB-4E66-813C-9046B9269400"

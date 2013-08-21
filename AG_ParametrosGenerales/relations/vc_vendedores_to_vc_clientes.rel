@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_clientes",
+items:[
+{foreignColumnName:"vendedor_id",primaryDataProviderID:"vendedor_id",typeid:23,uuid:"67CCB5C5-CE6B-42C8-B459-E47821D1CEAE"}
+],
+joinType:1,
+name:"vc_vendedores_to_vc_clientes",
+primaryDataSource:"db:/sistemas/vc_vendedores",
+typeid:22,
+uuid:"420420B4-21C9-4D7F-9ED3-0296EFA7DFB7"

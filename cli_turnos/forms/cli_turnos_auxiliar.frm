@@ -1,0 +1,15 @@
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"7677B1CF-EFFE-4AC8-8935-9EA1007F08DD"
+}
+],
+name:"cli_turnos_auxiliar",
+navigatorID:"-1",
+onShowMethodID:"-1",
+showInMenu:true,
+styleName:"id_style",
+typeid:3,
+uuid:"49D7D415-6369-49D8-A83A-22A25479EAEF"

@@ -502,7 +502,7 @@ function SacarMenu()
 function BuscaPermisos(p_menu_id)
 {
 	/** @type {JSFoundset<db:/Sistemas/accesos>}*/
-	var fs_accesos = databaseManager.getFoundSet('Argento','accesos')	
+	var fs_accesos = databaseManager.getFoundSet('Sistemas','accesos')	
 		fs_accesos.find()
 		fs_accesos.menu_id = p_menu_id
 		fs_accesos.modulo_id = scopes.globals.mx_modulo_id

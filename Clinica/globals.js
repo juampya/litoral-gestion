@@ -6,6 +6,7 @@
  */
 function onSolutionOpen()
 {
+	plugins.DateUtils.register( "Litoral Software", "Ym13NcZOW8jx6WSqs1ap68svHE6Jaiu9I/LfY9Dn20t3FW7CFR7gdSAuqRvTMgq/" )
 	globals.InicializaParametros() //Esta en id_parametrosGenerales
 
     globals.mx_modulo_nombre = application.getSolutionName() //Nombre que tiene en el administrator.

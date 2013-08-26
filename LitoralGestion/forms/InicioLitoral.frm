@@ -247,7 +247,7 @@ uuid:"3C0BFAE9-C197-438F-9955-D8A6B3BF9316"
 },
 {
 anchors:11,
-background:"#8080ff",
+background:"#6bb75e",
 formIndex:-3,
 location:"0,90",
 mediaOptions:14,

@@ -159,7 +159,7 @@ function onActionEjecutar(event) {
  * @properties={typeid:24,uuid:"3BD14641-4258-43DA-B103-CFC50880ABCF"}
  */
 function onActionSalir(event) {
-	security.logout('Argento','InicializaArgento')
+	security.logout('LitoralGestion','InicializaArgento')
 }
 
 /**
@@ -173,7 +173,7 @@ function onActionPassword(event)
 	var win1 = application.createWindow("Dialog", JSWindow.MODAL_DIALOG)
 		win1.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
 		win1.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-		win1.title= 'Argento';
+		win1.title= 'Litoral Gestion';
 		win1.show(forms.Clave_Usuario);
  }
 
@@ -190,7 +190,7 @@ function onActionMiPerfil(event) {
 	var win = application.createWindow("Dialog", JSWindow.MODAL_DIALOG);
 	win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
 	win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-    win.title= 'Argento';
+    win.title= 'Litoral Gestion';
     win.show(forms.Litoral_perfil_usuario);
 	
 }

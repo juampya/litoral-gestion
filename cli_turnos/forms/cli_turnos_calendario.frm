@@ -954,7 +954,7 @@ showInMenu:true,
 size:"2061,374",
 styleClass:"table",
 styleName:"id_style",
-transparent:true,
+transparent:false,
 typeid:3,
 uuid:"20B9C4C4-C1B4-4D32-8B13-388768A323E5",
 view:3

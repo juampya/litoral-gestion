@@ -235,6 +235,7 @@ navigatorID:"-1",
 onShowMethodID:"829E31DF-320C-4F97-98B3-2814CA261C3A",
 showInMenu:true,
 size:"801,577",
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"2F568064-6999-4A13-BCA2-5C770A9C1EDC"

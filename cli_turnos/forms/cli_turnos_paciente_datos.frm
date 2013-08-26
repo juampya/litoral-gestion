@@ -207,13 +207,13 @@ typeid:7,
 uuid:"B03E63DD-9AD2-4386-BD9D-872E8B4801C0"
 },
 {
-background:"#80ff80",
 dataProviderID:"paciente_id",
 editable:false,
 horizontalAlignment:4,
 location:"127,116",
 name:"paciente_id",
 size:"69,20",
+styleClass:"disable",
 text:"Paciente Id",
 typeid:4,
 uuid:"CBE90681-4882-4FE1-A747-31A605270477"
@@ -319,6 +319,7 @@ uuid:"FC4CA72C-4F4F-490F-A64A-46F5C028852A"
 name:"cli_turnos_paciente_datos",
 navigatorID:"-1",
 showInMenu:true,
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"3279EC5A-1973-4942-ACB7-C5F82865DA82"

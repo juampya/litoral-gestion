@@ -106,7 +106,7 @@ uuid:"F128F578-4ED7-409F-B418-830ACF056772"
 anchors:11,
 location:"0,0",
 size:"1000,80",
-styleClass:"bannerMenu",
+styleClass:"banner",
 text:"Tratamientos",
 transparent:true,
 typeid:7,

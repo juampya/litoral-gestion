@@ -71,13 +71,13 @@ typeid:4,
 uuid:"43F54C2D-E112-493B-9A9D-1CBDCE210EDA"
 },
 {
-background:"#ffff8a",
 dataProviderID:"agenda_parametros_to_medico.calc_nombre_apellido_medico",
 editable:false,
 formIndex:2,
 location:"151,130",
 name:"medico_id",
 size:"408,20",
+styleClass:"disable",
 text:"Medico Id",
 typeid:4,
 uuid:"4B1EF14A-D81B-4C8D-808D-9062C2098681"
@@ -327,6 +327,7 @@ uuid:"F5E47EBF-8DEC-4C48-A727-5ADBD13780BF"
 name:"cli_agenda_config_param",
 navigatorID:"-1",
 showInMenu:true,
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"1783AB26-DFC4-4858-AEEE-707AA34CCAA4"

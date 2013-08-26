@@ -137,7 +137,7 @@ uuid:"A5384CCC-7724-46F7-88F5-363DACC158E0"
 anchors:11,
 location:"-5,0",
 size:"1000,80",
-styleClass:"bannerMenu",
+styleClass:"banner",
 text:"Médicos",
 transparent:true,
 typeid:7,

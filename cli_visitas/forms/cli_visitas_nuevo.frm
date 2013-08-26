@@ -213,6 +213,7 @@ name:"cli_visitas_nuevo",
 navigatorID:"-1",
 onShowMethodID:"391CE877-BD27-455E-87D5-598D4BE40545",
 showInMenu:true,
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"E7BD5473-578D-474E-B158-B0E055B4179F"

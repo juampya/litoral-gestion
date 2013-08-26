@@ -123,6 +123,7 @@ name:"cli_visitas_detalle_informe",
 navigatorID:"-1",
 showInMenu:true,
 size:"850,311",
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"0845ACEC-C30C-4542-B1D0-DD7123DD58FC"

@@ -59,6 +59,7 @@ typeid:7,
 uuid:"40D968FF-7BAA-42F2-B65C-8D5970B938DC"
 },
 {
+background:"#6bb75e",
 formIndex:7,
 location:"1,5",
 size:"36,20",
@@ -92,6 +93,7 @@ uuid:"4837F75E-1B31-4D59-A69F-6810D507EE40"
 },
 {
 anchors:11,
+background:"#6bb75e",
 fontType:"Verdana,1,12",
 formIndex:6,
 horizontalAlignment:2,
@@ -238,6 +240,7 @@ typeid:7,
 uuid:"DCDF803F-4EC4-48EF-83C4-A0EF3F337122"
 },
 {
+background:"#6bb75e",
 formIndex:7,
 location:"1,27",
 size:"36,20",
@@ -261,6 +264,7 @@ valuelistID:"67E1D3AB-AC58-4ADE-9E16-82830F181512"
 },
 {
 anchors:11,
+background:"#6bb75e",
 fontType:"Verdana,1,12",
 formIndex:5,
 horizontalAlignment:2,

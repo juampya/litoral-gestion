@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/usuarios",
+items:[
+{foreignColumnName:"emp_id",primaryDataProviderID:"emp_id",typeid:23,uuid:"28617E00-EA8B-42B9-9F34-23641C458177"}
+],
+joinType:1,
+name:"empresas_to_usuarios",
+primaryDataSource:"db:/sistemas/empresas",
+typeid:22,
+uuid:"BC50A059-6773-45D5-AEB7-E703101427FB"

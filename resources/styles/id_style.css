@@ -42,7 +42,7 @@ label.banner
 {
 	border-style: solid;
 	border-width: 0px 0px 5px 0px;
-	border-color: #8080ff; 
+	border-color: #6bb75e; 
 	font: bold italic 20pt Verdana; 
 	color: #444444;
 	text-align: left;
@@ -55,7 +55,7 @@ label.banner_pie
 {
 	border-style: solid;
 	border-width: 3px 0px 0px 0px;
-	border-color: #8080ff;
+	border-color: #6bb75e;
 	font: bold italic 20pt Verdana; 
 	color: #444444;
 	text-align: right;
@@ -86,20 +86,20 @@ form.navigator
 	background-color: #CADCEB; 
 	border-style: inset; 
 	border-width: 0px 0px 2px 0px;
-	border-color: #004080 #004080 #004080 #004080;
+	border-color: #6bb75e #6bb75e #6bb75e #6bb75e;
 }
 
 form.formulario
 {
-	background-color: #E1EBF2; 
+	background-color: #d9ecd5; 
 	border-style: inset; 
 	border-width: 0px 0px 2px 0px;
-	border-color: #004080 #004080 #004080 #004080;
+	border-color: #6bb75e #6bb75e #6bb75e #6bb75e;
 }
 
 form.table
 {
-   background-color: #f5f5f5;
+   background-color: #d9ecd5;
    border-style: solid;
    border-width: 1;
    border-color: #cccccc;
@@ -110,11 +110,11 @@ form.table odd
 }
 form.table even
 {
-   background-color: #edf3fe;
+   background-color: #e6ffe6;
 }
 form.table selected
 {
-   background-color: #ccccff;
+   background-color: #a4ffa4;
 }
 
 portal

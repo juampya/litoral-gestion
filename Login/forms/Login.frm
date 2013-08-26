@@ -150,7 +150,7 @@ uuid:"8731D380-FEB5-4F93-8F43-C057B7FA02E3"
 },
 {
 anchors:11,
-background:"#8080ff",
+background:"#6bb75e",
 borderType:"EmptyBorder,0,0,0,0",
 horizontalAlignment:0,
 location:"0,588",

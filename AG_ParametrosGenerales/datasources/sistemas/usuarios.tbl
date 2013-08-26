@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/usuarios",
+items:[
+{
+dataProviderIDToAggregate:"usu_id",
+name:"aggr_cant_usuarios",
+typeid:40,
+uuid:"DE9831F5-905D-4E84-A437-F5BC128677BD"
+}
+],
+typeid:39,
+uuid:"F7D01D75-3976-4288-81A8-2BCBCA240673"

@@ -1,0 +1,8 @@
+addEmptyValue:1,
+customValues:"Activo|1\r
+Inactivo|0",
+name:"estados_usuarios",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"C739742B-BB92-4AB9-9DDD-513F31B9E009"

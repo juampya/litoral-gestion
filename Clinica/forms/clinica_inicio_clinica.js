@@ -45,3 +45,19 @@ function onActionConfig(event)
 {
 	forms.cli_inicio.controller.show()
 }
+
+
+/**
+ * @properties={typeid:24,uuid:"36A394EF-C171-46FA-8EB2-7E80CC2714EE"}
+ */
+function Salir()
+{
+	if(application.isInDeveloper())
+	{
+		application.exit()
+	}
+	else
+	{
+		application.closeSolution('LitoralGestion','InicializaArgento')
+	}
+}

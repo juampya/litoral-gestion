@@ -46,3 +46,20 @@ function onShow(firstShow, event)
 		controller.newRecord(false)
 	}
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"25291282-B072-4DE5-8D4B-3F56BB664260"}
+ */
+function onActionAgregarMenu(event) 
+{
+	modulos_to_menus.newRecord(false)
+	var win = application.createWindow("Dialog", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.title= 'Crea Menu - Litoral Gestion';
+		win.show(forms.admin_lg_modulos_menus_detalle);
+}

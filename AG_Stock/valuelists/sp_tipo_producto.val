@@ -1,0 +1,11 @@
+addEmptyValue:1,
+customValues:"Materia Prima|1\r
+Insumo|2\r
+Semi Eleborado|3\r
+Virtual|4\r
+Producto Terminado|5",
+name:"sp_tipo_producto",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"39B6AF3C-C4F9-42A4-830A-2B5013BF2AEB"

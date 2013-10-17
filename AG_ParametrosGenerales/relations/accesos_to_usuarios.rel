@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/usuarios",
+items:[
+{foreignColumnName:"usu_id",primaryDataProviderID:"usu_id",typeid:23,uuid:"4001FA0F-5E9A-4C0F-8654-13332FF360D1"}
+],
+joinType:1,
+name:"accesos_to_usuarios",
+primaryDataSource:"db:/sistemas/accesos",
+typeid:22,
+uuid:"6C190398-3F53-4357-A721-102879D122D9"

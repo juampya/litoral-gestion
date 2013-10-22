@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"alicuota_id",
+dataProviderID2:"alicuota_descripcion",
+dataSource:"db:/sistemas/alicuotas",
+name:"alicuotas",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"2348A360-CC3F-4661-97EA-F780D4EFEBF9",
+valueListType:1

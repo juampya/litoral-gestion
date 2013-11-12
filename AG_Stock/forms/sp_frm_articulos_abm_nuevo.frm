@@ -58,7 +58,7 @@ horizontalAlignment:4,
 location:"512,318",
 size:"80,20",
 styleClass:"label_black",
-text:"Provee.:",
+text:"Proveedor:",
 typeid:7,
 uuid:"0A358EAA-ED8B-41AF-861E-F5C4B11C5B0F"
 },
@@ -326,7 +326,7 @@ uuid:"85A5D1D5-0B87-4DBA-B088-919770D19317"
 {
 dataProviderID:"articulo_ean",
 formIndex:15,
-format:"###############|15",
+format:"###############|raw",
 horizontalAlignment:0,
 location:"602,136",
 size:"159,20",
@@ -335,11 +335,14 @@ uuid:"86326D8A-41AD-4686-9CA3-0A9C39068427"
 },
 {
 dataProviderID:"articulo_unidad",
+displayType:2,
+editable:false,
 formIndex:37,
 location:"134,326",
 size:"126,20",
 typeid:4,
-uuid:"8D02B799-0B45-477D-A29D-27FE54C3D5C7"
+uuid:"8D02B799-0B45-477D-A29D-27FE54C3D5C7",
+valuelistID:"CB08BF5C-1B21-47FD-9431-B533CDCF3F9D"
 },
 {
 dataProviderID:"cta_ctb_id",
@@ -433,7 +436,6 @@ uuid:"A70E0152-7100-46F0-ABCC-F059AA2A4DA8"
 {
 dataProviderID:"provee_id",
 formIndex:4,
-format:"#,##0.000",
 horizontalAlignment:4,
 location:"597,318",
 size:"164,20",

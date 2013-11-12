@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"uni_id",
+dataProviderID2:"uni_descripcion",
+dataSource:"db:/sistemas/sp_unidades",
+name:"sp_unidades",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"CB08BF5C-1B21-47FD-9431-B533CDCF3F9D",
+valueListType:1

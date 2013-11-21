@@ -1,7 +1,7 @@
 addEmptyValue:1,
 customValues:"Menu Principal|1\r
-SubMenu|2\r
-Formulario|3\r
+Formulario|2\r
+SubMenu|3\r
 ",
 name:"tipo_menu",
 returnDataProviders:1,

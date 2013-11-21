@@ -9,6 +9,25 @@
 function onActionGrabar(event) 
 {
 	databaseManager.saveData(foundset.modulos_to_menus.getSelectedRecord())
+	
+	/** @type {JSFoundset<db:/Sistemas/usuarios>}*/
+	var fs_usuarios = databaseManager.getFoundSet('Sistemas','usuarios')
+	/** @type {JSFoundset<db:/Sistemas/accesos>}*/
+	var fs_accesos = databaseManager.getFoundSet('Sistemas','accesos')
+	
+	for (var i=1; i<=fs_usuarios.getSize(); i++) 
+	{
+		var rec_usuario= fs_usuarios.getRecord(i)
+		if(rec_usuario.usu_estado == 1)
+		{
+			fs_accesos.newRecord()
+			fs_accesos.modulo_id = modulo_id
+			fs_accesos.menu_id   = foundset.modulos_to_menus.getSelectedRecord().menu_id
+			fs_accesos.usu_id	 = rec_usuario.usu_id
+			fs_accesos.acc_si_no = 0
+		}
+	}
+	
 	application.getWindow().hide()
 }
 

@@ -104,8 +104,8 @@ function login(usuario,password,saas) {
  */
 function LogLogin(usuario_id, usuario, password, mensaje, modulo, empresa){
 
-	/** @type {JSFoundset<db:/Sistemas/sys_use>} */
-	var fs_dev = databaseManager.getFoundSet('Sistemas', 'sys_use')
+	/** @type {JSFoundset<db:/sistemas/sys_use>} */
+	var fs_dev = databaseManager.getFoundSet('sistemas', 'sys_use')
 	fs_dev.newRecord()
  	fs_dev.sys_use_login = usuario
 	fs_dev.sys_use_ip = application.getIPAddress()

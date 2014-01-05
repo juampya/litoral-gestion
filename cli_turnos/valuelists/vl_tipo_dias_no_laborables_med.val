@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Vacaciones|2\r
+Congresos/Cursos|3\r
+Franco/Licencias|5",
+name:"vl_tipo_dias_no_laborables_med",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"904F89D9-478F-4134-8BD5-3F429F29A50F"

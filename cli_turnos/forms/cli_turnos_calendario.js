@@ -1,3 +1,43 @@
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"33C5DB17-0276-44F6-BA23-C528D13B7637"}
+ */
+var	vl_turno_naranja
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"ADD3146C-1FE6-4A66-8B26-B5B392EA7157"}
+ */
+var	vl_turno_celeste
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"CB316D5E-CFE6-42BE-8A98-11849F490719"}
+ */
+var	vl_turno_violeta
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"8088BC82-1A89-48C2-8830-1FC729D22F3F"}
+ */
+var	vl_turno_fuxia
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"A907E308-4839-4810-BFAA-E7D483EA0062"}
+ */
+var vl_turno_rosado = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"463336B0-F742-4748-9556-A5CB59DD4717"}
+ */
+var vl_turno_gris = null;
+
 /**
  * @type {String}
  *
@@ -268,8 +308,6 @@ var vl_mes = null;
  */
 function onShow(firstShow, event) 
 {
-	scopes.globals.SacarMenu()
-	
 	if(firstShow)
 	{	
 		vl_anio = application.getServerTimeStamp().getFullYear()
@@ -277,9 +315,15 @@ function onShow(firstShow, event)
 		filtrar()
 	}
 
-	vl_turnos_verde = '#97ff97'
+	vl_turnos_verde = '#97ff97' 
 	vl_turno_amarillo = '#ffff80'
 	vl_turno_rojo = '#ff8888'
+	vl_turno_gris = '#c0c0c0' //No atiende
+	vl_turno_rosado = '#ff80ff' // Feriado
+	vl_turno_naranja = '#ff9f71' // Vacaciones
+	vl_turno_celeste = '#80ffff' //Cursos y Congresos
+	vl_turno_violeta =	'#9e9ecf' // Franco/Licencia
+	vl_turno_fuxia = '#f900f9' // No Laborable
 		
 	vl_borde = 'LineBorder,2,#000000'
 
@@ -297,7 +341,6 @@ function filtrar()
 	cal_turno_anio = vl_anio
 	controller.search()
 	setDias()
-	calc_turnos_libres() 
 }
 
 /**
@@ -309,43 +352,8 @@ function filtrar()
  */
 function onRender1(event) 
 {
-	/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/	
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_1))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
 
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_1.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_1.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_1.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_1.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-	}
+	render(1,event)
 }
 
 /**
@@ -355,43 +363,7 @@ function onRender1(event)
  */
 function onRender2(event) 
 {
-	/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/	
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_2))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_2.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_2.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_2.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_2.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-	}
+	render(2,event)
 }
 
 /**
@@ -401,44 +373,7 @@ function onRender2(event)
  */
 function onRender3(event) 
 {
-	/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_3))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_3.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_3.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_3.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_3.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}			
+	render(3,event)
 }
 
 /**
@@ -448,44 +383,7 @@ function onRender3(event)
  */
 function onRender4(event) 
 {
-	/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_4))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_4.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_4.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_4.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_4.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(4,event)
 }
 
 /**
@@ -495,44 +393,7 @@ function onRender4(event)
  */
 function onRender5(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_5))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_5.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_5.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_5.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_5.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(5,event)
 }
 
 /**
@@ -542,44 +403,7 @@ function onRender5(event)
  */
 function onRender6(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_6))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_6.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_6.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_6.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_6.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}	
+	render(6,event)
 }
 
 /**
@@ -589,44 +413,7 @@ function onRender6(event)
  */
 function onRender7(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_7))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_7.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_7.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_7.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_7.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(7,event)
 }
 
 /**
@@ -636,44 +423,7 @@ function onRender7(event)
  */
 function onRender8(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_8))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_8.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_8.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_8.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_8.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(8,event)
 }
 
 /**
@@ -684,44 +434,7 @@ function onRender8(event)
  */
 function onRender9(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_9))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_9.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_9.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_9.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_9.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(9,event)
 }
 
 /**
@@ -731,44 +444,7 @@ function onRender9(event)
  */
 function onRender10(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_10))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_10.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_10.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_10.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_10.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(10,event)
 }
 
 /**
@@ -778,44 +454,7 @@ function onRender10(event)
  */
 function onRender11(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_11))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_11.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_11.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_11.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_11.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+render(11,event)
 }
 
 /**
@@ -825,44 +464,7 @@ function onRender11(event)
  */
 function onRender12(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_12))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_12.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_12.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_12.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_12.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(12,event)
 }
 
 /**
@@ -872,44 +474,7 @@ function onRender12(event)
  */
 function onRender13(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_13))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_13.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_13.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_13.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_13.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(13,event)
 }
 
 /**
@@ -919,44 +484,7 @@ function onRender13(event)
  */
 function onRender14(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_14))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_14.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_14.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_14.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_14.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(14,event)
 }
 
 /**
@@ -966,44 +494,7 @@ function onRender14(event)
  */
 function onRender15(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_15))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_15.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_15.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_15.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_15.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(15,event)
 }
 
 /**
@@ -1013,44 +504,7 @@ function onRender15(event)
  */
 function onRender16(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_16))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_16.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_16.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_16.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_16.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(16,event)
 }
 
 /**
@@ -1060,44 +514,7 @@ function onRender16(event)
  */
 function onRender17(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_17))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_17.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_17.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_17.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_17.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(17,event)
 }
 
 /**
@@ -1107,44 +524,7 @@ function onRender17(event)
  */
 function onRender18(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_18))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_18.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_18.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_18.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_18.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(18,event)
 }
 
 /**
@@ -1154,44 +534,7 @@ function onRender18(event)
  */
 function onRender19(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_19))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_19.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_19.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_19.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_19.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(19,event)
 }
 
 /**
@@ -1201,44 +544,7 @@ function onRender19(event)
  */
 function onRender20(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_20))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_20.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_20.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_20.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_20.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(20,event)
 }
 
 /**
@@ -1248,44 +554,7 @@ function onRender20(event)
  */
 function onRender21(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_21))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_21.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_21.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_21.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_21.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(21,event)
 }
 
 /**
@@ -1295,44 +564,7 @@ function onRender21(event)
  */
 function onRender22(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_22))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_22.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_22.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_22.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_22.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(22,event)
 }
 
 /**
@@ -1343,44 +575,7 @@ function onRender22(event)
  */
 function onRender23(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_23))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_23.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_23.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_23.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_23.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(23,event)
 }
 
 /**
@@ -1391,44 +586,7 @@ function onRender23(event)
  */
 function onRender24(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_24))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_24.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_24.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_24.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_24.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(24,event)
 }
 
 /**
@@ -1438,44 +596,7 @@ function onRender24(event)
  */
 function onRender25(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_25))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_25.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_25.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_25.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_25.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(25,event)
 }
 
 /**
@@ -1485,44 +606,7 @@ function onRender25(event)
  */
 function onRender26(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_26))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_26.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_26.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_26.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_26.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}	
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(26,event)
 }
 
 /**
@@ -1532,44 +616,7 @@ function onRender26(event)
  */
 function onRender27(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_27))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_27.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_27.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_27.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_27.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(27,event)
 }
 
 /**
@@ -1579,44 +626,7 @@ function onRender27(event)
  */
 function onRender28(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_28))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_28.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_28.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_28.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_28.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(28,event)
 }
 
 /**
@@ -1626,44 +636,7 @@ function onRender28(event)
  */
 function onRender29(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_29))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_29.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_29.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_29.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_29.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(29,event)
 }
 
 /**
@@ -1673,44 +646,7 @@ function onRender29(event)
  */
 function onRender30(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_30))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_30.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_30.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_30.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_30.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(30,event)
 }
 
 /**
@@ -1720,44 +656,7 @@ function onRender30(event)
  */
 function onRender31(event) 
 {
-		/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/		
-	var record = event.getRecord()
-	if(utils.hasRecords(record.cli_turno_calendario_to_cli_turno_calendario_dia_31))
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_31.calc_cant_turnos_libres > 10)
-		{
-			event.getRenderable().bgcolor = vl_turnos_verde
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_31.calc_cant_turnos_libres < 10)
-		{
-			event.getRenderable().bgcolor = vl_turno_amarillo
-		}
-		if(record.cli_turno_calendario_to_cli_turno_calendario_dia_31.calc_cant_turnos_libres == 0)
-		{
-			event.getRenderable().bgcolor = vl_turno_rojo
-		}			
-		var borde = event.getRenderable().border
-		switch (record.cli_turno_calendario_to_cli_turno_calendario_dia_31.cli_turno_dia_fecha.getDay()) 
-		{
-		case 0:
-			event.getRenderable().border = vl_borde	
-			break;
-		case 6:
-		event.getRenderable().border = vl_borde	
-		break;		
-		default:
-		event.getRenderable().border = borde		
-			break;
-		}
-		event.getRenderable().fgcolor = '#000000'
-	}
-	else
-	{
-		event.getRenderable().bgcolor = '#ffffff'
-		if(event.isRecordSelected()){event.getRenderable().bgcolor = '#3a3a3a'}
-	}
+	render(31,event)
 }
 
 /**
@@ -1803,10 +702,17 @@ function generarPlanilla()
 			medico_id = myRecord.medico_id
 			cal_turno_mes = vl_mes
 			cal_turno_anio = vl_anio
+			for(var j=1;j<=scopes.globals.ultimoDiaMes(vl_mes,vl_anio);j++)
+			{
+				var nombre = 'cal_turno_id_' + j
+				foundset[nombre] = verDiaDisponible(j,vl_mes,vl_anio,myRecord.medico_id)
+			}
 			databaseManager.saveData(foundset)
 		}	
 	}
 	filtrar()
+	plugins.busy.unblock()
+
 }
 
 /**
@@ -1818,7 +724,6 @@ function generarPlanilla()
  */
 function onActionVolver(event) 
 {
-	scopes.globals.CargarMenu()
 	forms['clinica_inicio_clinica'].controller.show()
 }
 
@@ -1888,51 +793,10 @@ function setDias()
 		break;
 		}
 	}
-	
 }
 
-/**
- * @properties={typeid:24,uuid:"6F0594C9-2222-4900-9735-A0A1D0254C24"}
- */
-function calc_turnos_libres() 
-{
-	for(var i=1;i<=foundset.getSize();i++)
-	{
-		var reg = foundset.getRecord(i)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_1.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,1,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_1)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_2.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,2,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_2)
-	    reg.cli_turno_calendario_to_cli_turno_calendario_dia_3.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,3,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_3)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_4.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,4,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_4)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_5.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,5,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_5)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_6.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,6,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_6)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_7.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,7,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_7)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_8.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,8,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_8)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_9.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,9,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_9)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_10.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,10,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_10)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_11.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,11,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_11)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_12.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,12,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_12)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_13.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,13,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_13)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_14.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,14,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_14)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_15.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,15,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_15)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_16.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,16,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_16)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_17.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,17,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_17)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_18.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,18,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_18)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_19.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,19,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_19)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_20.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,20,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_20)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_21.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,21,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_21)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_22.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,22,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_22)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_23.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,23,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_23)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_24.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,24,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_24)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_25.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,25,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_25)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_26.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,26,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_26)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_27.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,27,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_27)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_28.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,28,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_28)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_29.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,29,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_29)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_30.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,30,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_30)
-		reg.cli_turno_calendario_to_cli_turno_calendario_dia_31.calc_cant_turnos_libres = forms.cli_turnos_auxiliar.calcularTurnosLibres(reg.medico_id,31,vl_mes, vl_anio,reg.cal_turno_id,reg.cal_turno_id_31)
-		
-	}
-}
+
+
 
 /**
  * Perform the element right-click action.
@@ -1943,194 +807,300 @@ function calc_turnos_libres()
  */
 function onRightClick(event) 
 {
-	switch (event.getElementName()) 
+	var menu = plugins.window.createPopupMenu();
+
+	var item1 = menu.addMenuItem("Ver Turnos del Dia",verDia,"media:///16x16/zoom.png",null);
+	var item2 = menu.addMenuItem("Habilitar Dia",habilitarDia,"media:///16x16/add.png",null);
+	var item3 = menu.addMenuItem("Dehabilitar Dia",deshabilitarDia,"media:///16x16/cancel.png",null);	
+	item1.methodArguments = [event.getElementName()]
+	item2.methodArguments = [event.getElementName()]
+	item3.methodArguments = [event.getElementName()]
+	var dato = foundset.getSelectedRecord()[event.getElementName()]
+	if(dato == 'NA'||dato == 'FE'||dato == 'VA'||dato == 'CC'||dato == 'NL'||dato == 'FL')
 	{
-	case 'asist_detalle_id_1':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,1)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_2':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,2)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_3':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,3)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_4':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,4)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_5':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,5)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_6':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,6)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_7':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,7)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_8':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,8)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_9':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,9)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_10':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,10)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_11':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,11)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_12':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,12)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_13':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,13)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_14':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,14)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_15':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,15)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_16':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,16)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_17':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,17)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_18':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,18)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_19':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,19)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_20':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,20)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_21':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,21)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_22':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,22)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_23':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,23)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_24':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,24)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_25':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,25)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_26':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,26)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_27':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,27)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_28':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,28)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_29':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,29)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_30':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,30)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
-	case 'asist_detalle_id_31':
-	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
-	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,31)
-	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
-	forms.cli_turnos_lst_x_dia.controller.show()		
-		break;
+		item1.enabled = false
+		item2.enabled = true
+		item3.enabled = false
 	}
+	else
+	{
+		item1.enabled = true
+		item2.enabled = false
+		item3.enabled = true		
+	}
+	menu.show()
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param dia
+ * @param {JSRenderEvent} event the render event
+ * @properties={typeid:24,uuid:"911B61AF-9057-4B2B-A750-128521D2D912"}
+ */
+function render(dia, event)
+{
+	/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/	
+	var record = event.getRecord()
+	var nombre = 'cal_turno_id_' + dia
+	{
+		event.getRenderable().bgcolor = '#ffffff'
+
+		if(record[nombre] > 10 && record[nombre]!=null)
+		{
+			event.getRenderable().bgcolor = vl_turnos_verde
+		}
+		if(record[nombre] < 10 && record[nombre]!=null)
+		{
+			event.getRenderable().bgcolor = vl_turno_amarillo
+		}
+		if(record[nombre] == 0 && record[nombre]!=null)
+		{
+			event.getRenderable().bgcolor = vl_turno_rojo
+		}
+		if(record[nombre] == 'NA')
+		{		
+			event.getRenderable().bgcolor = vl_turno_gris		
+		}
+		if(record[nombre] == 'FE')
+		{		
+			event.getRenderable().bgcolor = vl_turno_rosado		
+		}
+		if(record[nombre] == 'VA')
+		{		
+			event.getRenderable().bgcolor = vl_turno_naranja		
+		}
+		if(record[nombre] == 'CC')
+		{		
+			event.getRenderable().bgcolor = vl_turno_celeste		
+		}
+		if(record[nombre] == 'NL')
+		{		
+			event.getRenderable().bgcolor = vl_turno_fuxia		
+		}
+		if(record[nombre] == 'FL')
+		{		
+			event.getRenderable().bgcolor = vl_turno_violeta		
+		}		
+		var borde = event.getRenderable().border
+		var fecha = new Date(vl_anio, vl_mes - 1, dia)
+		switch (fecha.getDay()) 
+		{
+		case 0:
+			event.getRenderable().border = vl_borde	
+			break;
+		case 6:
+		event.getRenderable().border = vl_borde	
+		break;		
+		default:
+		event.getRenderable().border = borde		
+			break;
+		}
+		event.getRenderable().fgcolor = '#000000'
+	}
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"5D9B4942-8C0D-4F36-8A3E-7CA434823FE2"}
+ */
+function verDia()
+{
+	/**@type {String}*/
+	var dia = arguments[5]
+	/**@type {Array<String>}*/
+	var separator = dia.split('_')
+	var diaNumber = utils.stringToNumber(separator[3])
+	forms.cli_turnos_lst_x_dia.foundset.clear()
+	forms.cli_turnos_lst_x_dia.limpiarCantidades()
+	forms.cli_turnos_lst_x_dia.vl_cli_turno_id = foundset.getSelectedRecord().cal_turno_id
+	forms.cli_turnos_lst_x_dia.vl_dia = new Date(vl_anio,vl_mes - 1,diaNumber)
+	forms.cli_turnos_lst_x_dia.vl_medico = foundset.getSelectedRecord().medico_id
+	forms.cli_turnos_lst_x_dia.controller.show()	
+}
+
+/**
+ * @properties={typeid:24,uuid:"7C14489E-DC47-4F77-91D2-2A061D2E0392"}
+ */
+function habilitarDia()
+{
+	/**@type {String}*/
+	var dia = arguments[5]
+	foundset.getSelectedRecord()[dia] = foundset.getSelectedRecord().cli_turno_calendario_to_medico.medico_to_agenda_parametros.age_cantidad_turnos
+	databaseManager.saveData(foundset.getSelectedRecord())
+}
+
+/**
+ * @properties={typeid:24,uuid:"ACD54C11-A7E0-4C1A-8076-2F60F25116B4"}
+ * @AllowToRunInFind
+ */
+function deshabilitarDia()
+{
+	/**@type {String}*/
+	var dia = arguments[5]
+	/**@type {Array<String>}*/
+	var separator = dia.split('_')
+	var diaNumber = utils.stringToNumber(separator[3])	
+	
+	/** @type {JSFoundset<db:/sistemas/turno>}*/
+	var fs_tur = databaseManager.getFoundSet('sistemas','turno')
+	fs_tur.find()	
+	fs_tur.turno_dia = new Date(vl_anio,vl_mes - 1,diaNumber)
+	fs_tur.medico_id = foundset.getSelectedRecord().medico_id
+	fs_tur.search()
+	fs_tur.deleteAllRecords()
+	foundset.getSelectedRecord()[dia] = 'NA'
+	databaseManager.saveData(foundset.getSelectedRecord())	
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param dia
+ * @param mes
+ * @param anio
+ * @param medico
+ * @properties={typeid:24,uuid:"F9ECD423-6110-4EB1-B395-4A2267500C35"}
+ * @AllowToRunInFind
+ */
+function verDiaDisponible(dia,mes,anio,medico)
+{
+	var fecha = new Date(anio,mes - 1,dia)
+	/** @type {JSRecord<db:/sistemas/agenda_excepciones>}*/	
+	var fs_exp = databaseManager.getFoundSet('sistemas','agenda_excepciones')
+	fs_exp.find()
+	fs_exp.excep_fecha = fecha
+	fs_exp.medico_id = medico
+	var cant = fs_exp.search()
+	if(cant <= 0)
+	{
+		fs_exp.find()
+		fs_exp.excep_fecha = fecha
+		fs_exp.medico_id = 0
+		cant = fs_exp.search()
+		if(cant > 0)
+		{		
+			return fs_exp.excep_mascara
+		}
+	}
+	else
+	{
+		return fs_exp.excep_mascara
+	}
+	/** @type {JSRecord<db:/sistemas/agenda_parametros>}*/	
+	var fs_par = databaseManager.getFoundSet('sistemas','agenda_parametros')
+	fs_par.find()
+	fs_par.medico_id = medico
+	cant = fs_par.search()
+	if(cant > 0)
+	{
+		switch (fecha.getDay()) 
+		{
+		case 0:
+		if(fs_par.age_domingo == 0)
+		{
+			return 'NA'
+		}
+		break;			
+		case 1:
+		if(fs_par.age_lunes == 0)
+		{
+			return 'NA'
+		}			
+		break;
+		case 2:
+		if(fs_par.age_martes == 0)
+		{
+			return 'NA'
+		}			
+		break;
+		case 3:
+		if(fs_par.age_miercoles == 0)
+		{
+			return 'NA'
+		}			
+		break;
+		case 4:
+		if(fs_par.age_jueves == 0)
+		{
+			return 'NA'
+		}		
+		break;
+		case 5:
+		if(fs_par.age_viernes == 0)
+		{
+			return 'NA'
+		}		
+		break;
+		case 6:
+		if(fs_par.age_sabado == 0)
+		{
+			return 'NA'
+		}		
+		break;
+		}
+		
+	}
+	if(fs_par.age_cantidad_turnos == null)
+	{
+		fs_par.age_cantidad_turnos = forms.cli_turnos_auxiliar.calcularCantTurnoXDia(medico,fecha)
+	}
+	
+	return (utils.numberFormat(fs_par.age_cantidad_turnos,'#'))
+}
+/**
+ * Perform the element right-click action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"5A346532-C27B-4E17-B601-93A6B169B335"}
+ */
+function onRightClickMenuGral(event) 
+{
+	var menu = plugins.window.createPopupMenu();
+
+	menu.addMenuItem("Eliminar Registro",eliminarRegDoctor,"media:///16x16/document_red.png",null);
+	menu.show()
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"3C8AF3D0-ECA2-49B3-813A-E6B9431CC8E5"}
+ */
+function eliminarRegDoctor()
+{
+	foundset.getSelectedRecord().cli_turno_calendario_to_turno.deleteAllRecords()
+	foundset.deleteRecord(foundset.getSelectedRecord())
+
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"AABC2120-535B-476F-ACCC-45F3BFB19256"}
+ */
+function onActionGeneralPlanilla(event) 
+{
+	// call the block() function with a javascript object containing all the parameters
+	// - processFunctionName: (mandatory) the name (as string) of the function that will contains the 'lengthy' process, will be called by the plugin
+	// - form: (mandatory if called from a tabPanel and the processFunction is in the form contained) the form that contains the 'process' function, usually=this (default=null)
+	// - dialogName: (mandatory if called from a dialog) the name of the dialog
+	// - message: the message to show (optional, i18n compatible, default=null)
+	// - opacity: a float value (0..1), where 0=transparent, 1=totally opaque (optional, default=0.5)
+	// - paneColor: a color value, (optional, default=black='#000000')
+	// - showCancelButton: shows a cancel button which will trigger the callback function (optional, default=false)
+	// - cancelButtonText: text of the cancel button (optional, i18n compatible, default='Cancel')
+	// - callBackFunction: the javascript function (as a function) used for callback when using the cancel button (optional, default=null)
+
+	// for example:
+	var params = {
+		processFunctionName: 'generarPlanilla',
+		message: 'Generando Planilla... espere un momento por favor.',
+		opacity: 0.5,
+		paneColor: '#000000',
+		showCancelButton: false,
+		cancelButtonText: 'Stop!'
+	};
+	plugins.busy.block(params);
 
 }

@@ -1,4 +1,4 @@
-dataSource:"db:/sistemas/medico",
+dataSource:"db:/sistemas/agenda_parametros",
 items:[
 {
 height:490,
@@ -33,6 +33,17 @@ typeid:7,
 uuid:"74B9B4C4-F7B2-4BC0-BEC8-C67AE359F696"
 },
 {
+formIndex:32,
+location:"176,53",
+onActionMethodID:"24D16683-8B53-4D75-9ADB-0C848EE91F08",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"152,27",
+text:"Fechas No Laborables",
+typeid:7,
+uuid:"81051D04-8A95-4BC9-A39A-33E9F48984B8"
+},
+{
 labelFor:"medico_apellido",
 location:"70,118",
 name:"medico_apellido_label",
@@ -54,7 +65,7 @@ typeid:7,
 uuid:"A3AC7C5A-CA59-447B-B771-ADE1F419F428"
 },
 {
-dataProviderID:"medico_nombre",
+dataProviderID:"agenda_parametros_to_medico.medico_nombre",
 editable:false,
 location:"305,138",
 name:"medico_nombre",
@@ -80,12 +91,26 @@ typeid:19,
 uuid:"DABFEB9B-FDB9-474F-ADC0-0E39BB2DAD9C"
 },
 {
+formIndex:10,
+location:"343,53",
+onActionMethodID:"-1",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"122,27",
+text:"Avisos",
+typeid:7,
+uuid:"ED590384-7314-4888-AF8A-5CE8BBBF5787",
+visible:false
+},
+{
 formIndex:11,
-imageMediaID:"AFDB1DBE-C562-4E9F-BA53-17FBEB5EB5B2",
+imageMediaID:"51F23BCF-6C60-461F-B058-E8B09B480F88",
 location:"0,139",
+mediaOptions:1,
 onActionMethodID:"0FB16245-A3CD-4FA4-9FFF-E9C6166CD3BC",
 showClick:false,
 size:"22,19",
+text:"",
 toolTipText:"Configurar Agenda",
 typeid:7,
 uuid:"EEE3909D-FC53-4607-874B-4EF791943C05"
@@ -101,7 +126,7 @@ typeid:4,
 uuid:"F49E8499-C1C6-4D19-8E67-FC1F9FC2921D"
 },
 {
-dataProviderID:"medico_apellido",
+dataProviderID:"agenda_parametros_to_medico.medico_apellido",
 editable:false,
 location:"70,138",
 name:"medico_apellido",
@@ -112,7 +137,6 @@ uuid:"FA81A2FB-F214-4128-A432-EFBF577CE663"
 }
 ],
 name:"cli_agenda",
-onShowMethodID:"3ED6CBB5-5B10-4297-A994-091402C08E44",
 showInMenu:true,
 styleClass:"table",
 styleName:"id_style",

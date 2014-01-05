@@ -7,7 +7,6 @@
  */
 function onActionVolver(event) 
 {
-	scopes.globals.CargarMenu()
 	forms['clinica_inicio_clinica'].controller.show()
 }
 
@@ -21,21 +20,17 @@ function onActionVolver(event)
  */
 function onActionConfigAge(event) 
 {
-	forms.cli_agenda_config_param.foundset.find()
-	forms.cli_agenda_config_param.medico_id = medico_id
-	forms.cli_agenda_config_param.foundset.search()
 	forms.cli_agenda_config_param.controller.show()
 }
 
 /**
- * Callback method for when form is shown.
+ * Perform the element default action.
  *
- * @param {Boolean} firstShow form is shown first time after load
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"3ED6CBB5-5B10-4297-A994-091402C08E44"}
+ * @properties={typeid:24,uuid:"24D16683-8B53-4D75-9ADB-0C848EE91F08"}
  */
-function onShow(firstShow, event) 
+function onActionFechas(event) 
 {
-	scopes.globals.SacarMenu()
+	forms.cli_agenda_no_laborable_gral.controller.show()
 }

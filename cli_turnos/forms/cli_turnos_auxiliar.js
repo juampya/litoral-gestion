@@ -62,9 +62,8 @@ function generarTurno(doctor, dia, id)
 		fs_turno.turno_hora = fec
 		fs_turno.turno_dia_estado = 0
 		fs_turno.medico_id = doctor
+		fs_turno.cal_turno_id = id
 		databaseManager.saveData(fs_turno)
-		crearDetalleDia(fs_turno.turno_id, id,dia) 
-		
 		
 		vDateTime.add(periodo)
 		if(vDateTime.hours >= myRec.age_param_hora_final &&  vDateTime.minutes >= myRec.age_param_minuto_final)
@@ -77,13 +76,15 @@ function generarTurno(doctor, dia, id)
 			fs_turno.turno_hora = fec
 			fs_turno.turno_dia_estado = 0
 			fs_turno.medico_id = doctor
-			cond = false
+			fs_turno.cal_turno_id = id	
+			cond = false			
 			databaseManager.saveData(fs_turno)
-			crearDetalleDia(fs_turno.turno_id, id,dia)			
 		}
 	}
 	
 }
+
+
 
 /**
  *@param {Number} doctor
@@ -131,78 +132,3 @@ function calcularCantTurnoXDia(doctor, dia)
 	return cantidad
 }
 
-/**
- * @properties={typeid:24,uuid:"BD27152E-82BE-4D7A-B1D7-81151974C977"}
- * @AllowToRunInFind
- */
-function calcularTurnosOcupados(dia, id,idDia) 
-{
-	var cant = 0
-	/** @type {JSFoundSet<db:/sistemas/cli_turno_calendario_dia>} */
-	var fs_tur = databaseManager.getFoundSet('sistemas','cli_turno_calendario_dia')
-	fs_tur.find()
-	fs_tur.cli_turno_id = id
-	fs_tur.cli_turno_dia_id = idDia
-	fs_tur.search()
-	for(var i=1;i<=fs_tur.getSize();i++)
-	{
-		var reg = fs_tur.getRecord(i)
-		if(reg.cli_turno_calendario_dia_to_turno.turno_dia_estado != 0)
-		{
-			cant++
-		}
-	}
-	return cant
-}
-
-/**
- * @properties={typeid:24,uuid:"54867ABE-DCB8-4F1D-A842-26D9C2753702"}
- */
-function calcularTurnosLibres(doctor, dia,mes,anio, id,idDia) 
-{
-	var fecha = new Date(anio,mes,dia)
-	var txd = calcularCantTurnoXDia(doctor,fecha)
-	var to = calcularTurnosOcupados(dia,id,idDia)
-	return (txd - to)
-}
-
-/**
- * @param {Number} turno
- * @param {Number} id
- * @param {Date} dia 
- * @properties={typeid:24,uuid:"FF9B89F3-8C8C-4122-A25F-5747E2D544D9"}
- */
-function crearDetalleDia(turno, id,dia) 
-{
-	/**@type {String}*/
-	var idString = new String(id) + new String(dia.getDate())
-	var nuevoId = new Number(idString)
-	/** @type {JSFoundSet<db:/sistemas/cli_turno_calendario_dia>} */
-	var fs_cal_dia = databaseManager.getFoundSet('sistemas','cli_turno_calendario_dia')
-	fs_cal_dia.newRecord()
-	fs_cal_dia.cli_turno_dia_id = nuevoId
-	fs_cal_dia.cli_turno_dia_turno = turno
-	fs_cal_dia.cli_turno_id = id
-	fs_cal_dia.turno_id = turno
-	fs_cal_dia.empresa_id = 1
-	fs_cal_dia.cli_turno_dia_fecha = dia
-	databaseManager.saveData(fs_cal_dia)
-	actualizarIdDia(id,dia, nuevoId)
-}
-
-/**
- * @param {Number} id
- * @param {Date} dia
- * @param {Number} nuevoId  
- * @properties={typeid:24,uuid:"CD6A0AFE-9357-4158-9E46-298E5211F54F"}
- */
-function actualizarIdDia(id,dia, nuevoId) 
-{
-
-	var campo = 'cal_turno_id_' + dia.getDate()
-	/** @type {JSFoundSet<db:/sistemas/cli_turno_calendario>} */
-	var fs_cal = databaseManager.getFoundSet('sistemas','cli_turno_calendario')	
-	fs_cal.loadRecords(id)
-	fs_cal[campo] = nuevoId
-	databaseManager.saveData(fs_cal)
-}

@@ -1,6 +1,34 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"F680C7FF-EF2C-42CA-ABD2-96A5F709BD99",variableType:4}
+ */
+var vl_turnos_no_atiende = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"3A35EDED-F3F6-41E5-9140-CA651F9E00AE",variableType:4}
+ */
+var vl_turnos_confirmados = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"92F54F09-42FE-4E36-BAE6-C6991864C355",variableType:4}
+ */
+var vl_turnos_ocupados = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"6A5B7895-A643-43F3-8E73-96C6CB28CA9A",variableType:4}
+ */
+var vl_turnos_libre = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"75A5B604-9AB8-4303-B5CF-7CF30570C36C",variableType:4}
  */
 var vl_cli_turno_id = null;
@@ -37,7 +65,15 @@ var vl_dia = null;
  */
 function onShow(firstShow, event) 
 {
-	cargaTurno()
+	var params = {
+		processFunctionName: 'cargaTurnos',
+		message: 'Cargando Turnos... espere un momento por favor.',
+		opacity: 0.5,
+		paneColor: '#000000',
+		showCancelButton: false,
+		cancelButtonText: 'Stop!'
+	};
+	plugins.busy.block(params);
 
 }
 
@@ -50,14 +86,22 @@ function onShow(firstShow, event)
  */
 function onActionVolver(event) 
 {
-	if(databaseManager.getEditedRecords(foundset).length > 0)
+	var cant=0
+	for(var i=1;i<=foundset.getSize();i++)
 	{
-		//databaseManager.getEditedRecords(foundset)
-		forms.cli_turnos_calendario.filtrar()
+		var rec = foundset.getRecord(i)
+		if(rec.turno_dia_estado == 0)
+		{
+			cant++
+		}
+		var nombre = 'cal_turno_id_' + vl_dia.getDate()
+		forms.cli_turnos_calendario.foundset.getSelectedRecord()[nombre]=utils.numberFormat(cant,'#')
+		databaseManager.saveData(forms.cli_turnos_calendario.foundset.getSelectedRecord())
 	}
 	forms.cli_turnos_calendario.controller.show()
 
 }
+
 
 /**
  * @AllowToRunInFind
@@ -74,9 +118,10 @@ function Filtro()
 
 /**
  * @properties={typeid:24,uuid:"7B1DC414-8F6B-4F4F-9E37-F34D53778CD6"}
+ * @public 
  * @AllowToRunInFind
  */
-function cargaTurno() 
+function cargaTurnos() 
 {
 	forms.cli_turnos_auxiliar.generarTurno(vl_medico, vl_dia,vl_cli_turno_id)
 	
@@ -91,7 +136,11 @@ function cargaTurno()
 	
 	elements.lbl_fecha.text = "Turnos del dia: " + utils.dateFormat(vl_dia,'yyyy-MM-dd');
 	elements.lbl_medico.text = "Doctor/a: " + fs_medico.calc_nombre_apellido_medico + '.'
+	calcularCantTurnos()
+	plugins.busy.unblock();
+
 }
+
 
 /**
  * Handle changed data.
@@ -107,17 +156,18 @@ function cargaTurno()
 function onDataChangeDocumento(oldValue, newValue, event) 
 {
 	cargarDatos(newValue)
+	calcularCantTurnos()
 	return true
 }
 
 /**
- * TODO generated, please specify type and doc for the params
  * @param {Number} doc
  * @properties={typeid:24,uuid:"CCF2AAAF-CDC5-4B6E-BE02-F96C7908C7CE"}
  * @AllowToRunInFind
  */
 function cargarDatos(doc)
 {
+	var record = null
 	/** @type {JSFoundSet<db:/sistemas/paciente>} */
 	var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
 	fs_pac.find()
@@ -125,6 +175,8 @@ function cargarDatos(doc)
 	var cant = fs_pac.search()
 	if(cant <= 0)
 	{
+		record = foundset.getSelectedRecord()
+		record.turno_dia_estado = 1
 		return
 	}
 	if(cant > 1)
@@ -134,14 +186,14 @@ function cargarDatos(doc)
 	if(cant == 1)
 	{
 		
-		var record = foundset.getSelectedRecord()
+		record = foundset.getSelectedRecord()
 		record.turno_paciente_nombre = fs_pac.getRecord(1).calc_nombre_apellido_paciente
 		record.turno_paciente_tel = fs_pac.getRecord(1).paciente_telefono_1
 		record.turno_paciente_obra_social = fs_pac.getRecord(1).obsoc_id_1
+		record.turno_dia_estado = 1
 	}	
 	
 }
-
 /**
  * Called before the form component is rendered.
  *
@@ -207,14 +259,118 @@ function onRenderHora(event)
 }
 
 /**
- * Perform the element default action.
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"14CFFEC2-A13B-4D99-B1A2-0402D8E2C9A2"}
+ * @AllowToRunInFind
+ */
+function onDataChangeCambioEstado(oldValue, newValue, event) 
+{
+	var record = foundset.getSelectedRecord()
+	if(record.turno_dia_estado == 0 || record.turno_dia_estado == 2)
+	{
+		record.turno_paciente_nombre = null
+		record.turno_paciente_tel = null
+		record.turno_paciente_obra_social = null
+		record.turno_paciente_nro_docu = null
+		record.turno_estado = null
+	}
+	calcularCantTurnos()
+	return true
+}
+
+/**
+ * @properties={typeid:24,uuid:"81B37451-D0E4-4530-B762-EDFD9599899E"}
+ */
+function calcularCantTurnos()
+{
+	vl_turnos_libre = 0
+	vl_turnos_ocupados = 0
+	vl_turnos_confirmados = 0
+	vl_turnos_no_atiende = 0
+	for(var i=1;i<=foundset.getSize();i++)
+	{
+		var record = foundset.getRecord(i)
+		if(record.turno_dia_estado == 0)
+		{
+			vl_turnos_libre++
+		}
+		if(record.turno_dia_estado == 1)
+		{
+		
+			if(record.turno_estado == 1)
+			{
+				vl_turnos_confirmados++
+			}
+			else
+			{
+				vl_turnos_ocupados++	
+			}
+		}
+		if(record.turno_dia_estado == 2)
+		{
+			vl_turnos_no_atiende++	
+		}
+	}
+}
+
+/**
+ * Perform the element right-click action.
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"ABE75342-70AC-4A20-B6FE-C27FBE69A7BF"}
- * @AllowToRunInFind
+ * @properties={typeid:24,uuid:"0F5CB543-AD4E-446B-8666-BA9D92765ECD"}
  */
-function onActionConfirmarTurno(event) 
+function onRightClick(event) 
+{
+	// alternatively create a popup menu
+	var menu = plugins.window.createPopupMenu();
+
+	var item1 = menu.addMenuItem("Confirmar Turno",llamada,"media:///16x16/accept.png",null);
+	var item2 = menu.addMenuItem("Completar Datos",llamada,"media:///16x16/pencil_add.png",null);
+	item1.methodArguments = [0]
+	item2.methodArguments = [1]	
+	var record = foundset.getSelectedRecord()
+	if(record.turno_dia_estado == 0 || record.turno_dia_estado == 2)
+	{
+		item1.enabled = false
+		item2.enabled = false
+	}
+	if(record.turno_dia_estado == 1)
+	{
+		item1.enabled = true
+		item2.enabled = false
+		if(record.turno_estado == 1)
+		{
+			item1.enabled = false
+			item2.enabled = true			
+		}
+	}	
+	menu.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"EDFF9B5C-88F6-4C46-9A09-CF8EA3DE27BE"}
+ */
+function completarDatos()
+{
+	var paciente = foundset.getSelectedRecord().paciente_id
+	forms.cli_turnos_paciente_datos.foundset.loadRecords(paciente)
+	forms.cli_turnos_paciente_datos.controller.show()
+}
+
+/**
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"F22A3B25-878D-4610-81E0-3C94CC8FC637"}
+ */
+function confirmarTurno()
 {
 	var record = foundset.getSelectedRecord()
 	if(record.turno_paciente_nro_docu != 0 && record.turno_paciente_nro_docu != null)
@@ -241,6 +397,7 @@ function onActionConfirmarTurno(event)
 		if(cant >= 1)
 		{
 			record.turno_estado = 1
+			record.paciente_id = fs_pac.paciente_id
 			databaseManager.saveData(record)			
 			return
 		}
@@ -249,73 +406,25 @@ function onActionConfirmarTurno(event)
 }
 
 /**
- * Called before the form component is rendered.
- *
- * @param {JSRenderEvent} event the render event
- *
- * @properties={typeid:24,uuid:"F356CCA4-2A2D-4DD0-BD35-2638758AB5E8"}
+ * @properties={typeid:24,uuid:"17006424-7702-4890-8415-33E9B90E16B6"}
  */
-function onRenderCompletar(event) 
+function llamada()
 {
-	/** @type {JSFoundSet<db:/sistemas/turno>} */
-	var record = event.getRecord()
-	event.getRenderable().enabled = false	
-	if(record.turno_dia_estado == 0)
+
+	switch (arguments[5]) 
 	{
-		event.getRenderable().enabled = false
-	}
-	if(record.turno_dia_estado == 1)
-	{
-		if(record.turno_estado == 1)
-		{
-			event.getRenderable().enabled = true
-		}
-	}
-	if(record.turno_dia_estado == 2)
-	{
-		event.getRenderable().enabled = false
+	    case 0: confirmarTurno(); break;
+	    case 1: completarDatos(); break;
 	}
 }
 
 /**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"EB076DC5-1A28-4451-93DC-DC25CA93DF18"}
+ * @properties={typeid:24,uuid:"E2DE7F56-D702-43F0-9DD6-00D3F2949CA5"}
  */
-function onActionCompletar(event) 
+function limpiarCantidades()
 {
-	forms.cli_turnos_paciente_datos.foundset.loadRecords(foundset.getSelectedRecord().paciente_id)
-	forms.cli_turnos_paciente_datos.controller.show()
-}
-
-/**
- * Called before the form component is rendered.
- *
- * @param {JSRenderEvent} event the render event
- *
- * @properties={typeid:24,uuid:"C4AD4887-A5CB-48A9-9C83-173D3F687D46"}
- */
-function onRenderConfirmar(event) 
-{
-	/** @type {JSFoundSet<db:/sistemas/turno>} */
-	var record = event.getRecord()
-	event.getRenderable().enabled = true	
-	if(record.turno_dia_estado == 0)
-	{
-		event.getRenderable().enabled = false
-	}
-	if(record.turno_dia_estado == 1)
-	{
-		event.getRenderable().enabled = true
-		if(record.turno_estado == 1)
-		{
-			event.getRenderable().enabled = false
-		}
-	}
-	if(record.turno_dia_estado == 2)
-	{
-		event.getRenderable().enabled = false
-	}
+	vl_turnos_confirmados = 0
+	vl_turnos_libre = 0
+	vl_turnos_no_atiende = 0
+	vl_turnos_ocupados = 0
 }

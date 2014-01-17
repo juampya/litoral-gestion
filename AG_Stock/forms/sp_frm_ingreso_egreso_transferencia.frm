@@ -162,7 +162,7 @@ uuid:"695BD243-D62A-43D4-AD3A-513838653E45"
 location:"0,215",
 name:"tabs",
 printable:false,
-size:"642,265",
+size:"640,265",
 transparent:true,
 typeid:16,
 uuid:"B7C7EE7F-4267-40BD-B2B4-7E2D3F953281"

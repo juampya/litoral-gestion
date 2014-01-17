@@ -14,8 +14,7 @@ var vl_frm_anterior = null;
  */
 function onShow(firstShow, event) 
 {
-	plugins.window.getMenuBar().removeAllMenus()
-	plugins.window.setToolBarAreaVisible(false)	
+	scopes.globals.SacarMenu()
 }
 
 /**

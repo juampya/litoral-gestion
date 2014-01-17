@@ -1,4 +1,11 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"67352030-9DC7-4372-A91A-08F0E378ECD4",variableType:4}
+ */
+var vg_sp_tipo_movimiento = null;
+
+/**
  * @properties={typeid:35,uuid:"BE57D497-7C39-44E2-8311-94219E709461",variableType:-4}
  */
 var vg_archivo_imagen = null;

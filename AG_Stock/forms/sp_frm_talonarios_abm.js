@@ -11,11 +11,16 @@ var vl_frm_anterior = null;
  * @param {Object} event
  *
  * @properties={typeid:24,uuid:"C0FB5C62-B73E-4767-BE06-DEF41075DC21"}
+ * @AllowToRunInFind
  */
 function onShow(firstShow, event) 
 {
 	plugins.window.getMenuBar().removeAllMenus()
 	plugins.window.setToolBarAreaVisible(false)	
+	
+	controller.find()
+	talonario_cod_comp = 'STK'
+	controller.search()
 }
 
 /**
@@ -40,6 +45,7 @@ function onActionNuevo(event)
 {
 	forms.sp_frm_talonarios_abm_nuevo.vl_frm_anterior = controller.getName()
 	forms.sp_frm_talonarios_abm_nuevo.vl_nuevo = 1
+	
 	forms.sp_frm_talonarios_abm_nuevo.controller.show() 
 }
 

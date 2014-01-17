@@ -17,5 +17,5 @@ function onSolutionOpen() {
  * @properties={typeid:24,uuid:"0CA51AEA-780A-4FAC-B0C5-8480AE0B1F7E"}
  */
 function InicializaArgento(){
-    globals.cargarMetodoInicioIntegra()
+   
 }

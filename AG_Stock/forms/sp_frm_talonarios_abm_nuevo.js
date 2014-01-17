@@ -51,7 +51,7 @@ function onShow(firstShow, event)
 		emp_id=1
 		suc_id=1
 		talonario_destino_impresion=0
-		talonario_cod_comp="FAC"
+		talonario_cod_comp="STK"
 		talonario_tipo_comp="A"	
 		talonario_nro_intems=10
 		talonario_nro_interacciones=1

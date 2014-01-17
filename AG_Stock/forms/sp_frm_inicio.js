@@ -54,8 +54,8 @@ function Talonarios()
  */
 function Parametros() 
 {
-	forms.sp_frm_parametros.vl_frm_anterior = controller.getName()
-	forms.sp_frm_parametros.controller.show()
+	//forms.sp_frm_parametros.vl_frm_anterior = controller.getName()
+	//forms.sp_frm_parametros.controller.show()
 }
 
 /**
@@ -69,4 +69,14 @@ function Parametros()
 function onShow(firstShow, event) 
 {
 	
+}
+
+/**
+ * @properties={typeid:24,uuid:"EE84BAAE-1C81-446B-811F-7F88B07BFFFF"}
+ */
+function IngresarMovimiento() 
+{
+	scopes.globals.vg_sp_tipo_movimiento = 115
+	forms.sp_frm_ingreso_egreso_transferencia.vl_frm_anterior = controller.getName()
+	forms.sp_frm_ingreso_egreso_transferencia.controller.show()
 }

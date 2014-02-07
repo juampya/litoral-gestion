@@ -80,3 +80,33 @@ function IngresarMovimiento()
 	forms.sp_frm_ingreso_egreso_transferencia.vl_frm_anterior = controller.getName()
 	forms.sp_frm_ingreso_egreso_transferencia.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"0ADBE58D-B93F-4AAA-BDF1-9F0416ECC017"}
+ */
+function EgresarMovimiento() 
+{
+	scopes.globals.vg_sp_tipo_movimiento = 116
+	forms.sp_frm_ingreso_egreso_transferencia.vl_frm_anterior = controller.getName()
+	forms.sp_frm_ingreso_egreso_transferencia.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"8E9FD900-E693-430C-9F46-EA3B56155E0F"}
+ */
+function TrasnferenciaMovimiento() 
+{
+	scopes.globals.vg_sp_tipo_movimiento = 117
+	forms.sp_frm_ingreso_egreso_transferencia.vl_frm_anterior = controller.getName()
+	forms.sp_frm_ingreso_egreso_transferencia.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"6442D3D6-71AC-482C-9E5F-BB47BA0894E7"}
+ */
+function AjustarMovimiento() 
+{
+	scopes.globals.vg_sp_tipo_movimiento = 118
+	forms.sp_frm_ingreso_egreso_transferencia.vl_frm_anterior = controller.getName()
+	forms.sp_frm_ingreso_egreso_transferencia.controller.show()
+}

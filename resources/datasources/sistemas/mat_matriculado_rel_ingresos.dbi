@@ -22,6 +22,12 @@ name:"mat_id"
 },
 {
 allowNull:true,
+creationOrderIndex:8,
+dataType:4,
+name:"rel_aplica_vigencia"
+},
+{
+allowNull:true,
 compatibleColumnTypes:"[[3,7,2]]",
 creationOrderIndex:6,
 dataType:3,

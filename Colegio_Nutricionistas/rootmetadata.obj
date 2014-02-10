@@ -1,5 +1,5 @@
 fileVersion:42,
-mustAuthenticate:false,
+mustAuthenticate:true,
 name:"Colegio_Nutricionistas",
 protectionPassword:"D7emduhlgcYdBXXRDCJKFA==",
 solutionType:1,

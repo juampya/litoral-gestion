@@ -95,6 +95,12 @@ name:"mat_estado_civil"
 },
 {
 allowNull:true,
+creationOrderIndex:26,
+dataType:93,
+name:"mat_fecha_baja"
+},
+{
+allowNull:true,
 creationOrderIndex:19,
 dataType:93,
 name:"mat_fecha_graduacion"

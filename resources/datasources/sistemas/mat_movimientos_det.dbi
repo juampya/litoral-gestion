@@ -35,6 +35,12 @@ allowNull:true,
 creationOrderIndex:1,
 dataType:4,
 name:"mov_id"
+},
+{
+allowNull:true,
+creationOrderIndex:5,
+dataType:4,
+name:"res_id"
 }
 ],
 name:"mat_movimientos_det",

@@ -13,7 +13,8 @@ function generar_cuotas_mensuales(mes, anio)
 	fs_matriculados.mat_estado = 1 //Busca todos los matriculados activos
 	fs_matriculados.search()
 	
-	for (var i = 1; i <= fs_matriculados.getSize(); i++) //Por cada Matriculado Activo
+	//Por cada Matriculado Activo ---------------------------------------------------------------------
+	for (var i = 1; i <= fs_matriculados.getSize(); i++) 
 	{
 		var rec = fs_matriculados.getRecord(i)
 
@@ -28,9 +29,9 @@ function generar_cuotas_mensuales(mes, anio)
 		fs_movim_aux.mov_estado = 0 //Deuda
 		fs_movim_aux.mov_fecha_emision = application.getServerTimeStamp()
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
-		
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------
+		
 		//Busca Los ingresos del matriculado-----------------------------------------------------------
 		/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
 		var fs_rel_ing = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')
@@ -43,8 +44,8 @@ function generar_cuotas_mensuales(mes, anio)
 				
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos_det_aux>} */
 		var fs_detalle = null	
-		
 		var acumImporte = 0
+		
 		//Graba Detalle del Movimiento--------------------------------------------------------------------------------------------------------
 		for (var j = 1; j <= fs_rel_ing.getSize(); j++) //Por cada ingreso asociado al matriculado
 		{
@@ -79,6 +80,7 @@ function generar_cuotas_mensuales(mes, anio)
 			}
 		}
 		//Fin Graba Detalle del Movimiento--------------------------------------------------------------------------------------------------------
+		
 		//Busca cuotas con deuda-------------------------------------------------------------------------------
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
@@ -102,6 +104,7 @@ function generar_cuotas_mensuales(mes, anio)
 		databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 		acumImporte += fs_detalle.det_importe
 		//Fin Busca cuotas con deuda-------------------------------------------------------------------------------
+		
 		//Calcula Interes sobre deuda-----------------------------------------------------------------
 		/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
 		var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
@@ -118,6 +121,29 @@ function generar_cuotas_mensuales(mes, anio)
 		databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 		acumImporte += fs_detalle.det_importe		
 		//Fin Calcula Interes sobre deuda-----------------------------------------------------------------
+		
+		//Busca devoluciones-------------------------------------------------------------------------------
+		/** @type {JSFoundSet<db:/sistemas/mat_resarcimientos>} */
+		var fs_res = databaseManager.getFoundSet('sistemas','mat_resarcimientos')
+		fs_res.find()	
+		fs_res.res_anio_aplicacion = anio
+		fs_res.res_mes_aplicacion = mes
+		fs_res.mat_id = rec.mat_id
+		fs_res.search()
+		for(var g=1;g<=fs_mov.getSize();g++)
+		{
+			var rec3 = fs_res.getRecord(g)
+			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
+			fs_detalle.newRecord()
+			fs_detalle.ingr_id = rec3.ingr_id
+			fs_detalle.mov_id = fs_movim_aux.mov_id
+			fs_detalle.det_importe = rec3.res_importe * -1
+			fs_detalle.det_importe_original = rec3.res_importe * -1
+			fs_detalle.res_id = fs_res.res_id
+			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
+			acumImporte += fs_detalle.det_importe			
+		}
+		//Fin Busca devoluciones-----------------------------------------------------------------
 		
 		//Regraba importe del movimiento-----------------------------------------------------
 		fs_movim_aux.mov_importe = acumImporte

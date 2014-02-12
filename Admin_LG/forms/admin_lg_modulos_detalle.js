@@ -14,6 +14,7 @@ var vl_nuevo = null;
  */
 function onActionGrabar(event) 
 {
+	emp_id = 1
 	databaseManager.saveData()
 	forms.admin_lg_modulos.controller.show()
 }

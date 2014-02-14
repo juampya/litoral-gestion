@@ -18,5 +18,5 @@ function Salir()
  */
 function generarCuota()
 {
-	scopes.globals.generar_cuotas_mensuales(5,2014)
+	scopes.globals.generar_cuotas_mensuales(1,2014)
 }

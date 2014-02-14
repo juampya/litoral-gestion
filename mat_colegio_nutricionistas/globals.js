@@ -1,4 +1,18 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"EDF1CA9C-6FB7-4E5B-9F37-ACA2408F0B1C",variableType:4}
+ */
+var vg_mat_anio_final = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"6B638C4E-9476-437E-ADCA-62692B83B2BA",variableType:4}
+ */
+var vg_mat_anio_inicial = null;
+
+/**
  * @AllowToRunInFind
  * @param mes
  * @param anio
@@ -27,7 +41,7 @@ function generar_cuotas_mensuales(mes, anio)
 		fs_movim_aux.mov_anio_emision = anio
 		fs_movim_aux.mov_descripcion = "Cuota Mensual " + mes + "/" + anio
 		fs_movim_aux.mov_estado = 0 //Deuda
-		fs_movim_aux.mov_fecha_emision = application.getServerTimeStamp()
+		fs_movim_aux.mov_fecha_emision = new Date(anio, mes - 1, 15)
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------

@@ -5,16 +5,16 @@ function crearFormulario()
 {
 
 	/** @type {JSDataSet<mes:number, anio:number, nom:text, pendiente:number, cobrado:number, total:number, alta:text, ope:text>}*/
-	var ds = databaseManager.getDataSetByQuery('socios', getQuery(), new Array(), -1);
+	var ds = databaseManager.getDataSetByQuery('sistemas', getQuery(), new Array(), -1);
 
 	
-	var success = history.removeForm("socios")
-	if(success) {solutionModel.removeForm("socios")}
+	var success = history.removeForm("matriculados")
+	if(success) {solutionModel.removeForm("matriculados")}
 	
- 	var uri = ds.createDataSource('_tmp_socios', [JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.TEXT,JSColumn.TEXT]);
+ 	var uri = ds.createDataSource('_tmp_matriculados', [JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.TEXT,JSColumn.TEXT]);
 	
-	var myForm = solutionModel.newForm('socios', uri, null, true, 800, 600);
-	myForm.extendsForm = 'soc_cuota_liquidacion_sm'
+	var myForm = solutionModel.newForm('matriculados', uri, null, true, 800, 600);
+	myForm.extendsForm = 'mat_liquidacion_sm'
 	myForm.navigator = SM_DEFAULTS.NONE
 	myForm.styleClass = 'table'
 	myForm.styleName = 'id_style'
@@ -77,21 +77,22 @@ function crearFormulario()
 
 
 	
-	var tmp_total_pendiente 	= 0
-	var tmp_total_cobrado 		= 0
-	var tmp_total				= 0
-	for(var i=1; i<=ds.getMaxRowIndex();i++){
-		ds.rowIndex = i
-		tmp_total_pendiente 	+= ds.pendiente
-		tmp_total_cobrado 		+= ds.cobrado
-		tmp_total 				+= ds.total
-	}
-	forms['socios']['vl_cantidad']	=ds.getMaxRowIndex()
-	forms['socios']['vl_total']		=tmp_total
-	forms['socios']['vl_pendiente']	=tmp_total_pendiente
-	forms['socios']['vl_cobrado']	=tmp_total_cobrado
+//	var tmp_total_pendiente 	= 0
+//	var tmp_total_cobrado 		= 0
+//	var tmp_total				= 0
+//	for(var i=1; i<=ds.getMaxRowIndex();i++){
+//		ds.rowIndex = i
+//		tmp_total_pendiente 	+= ds.pendiente
+//		tmp_total_cobrado 		+= ds.cobrado
+//		tmp_total 				+= ds.total
+//	}
+	
+//	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
+//	forms['matriculados']['vl_total']		=tmp_total
+//	forms['matriculados']['vl_pendiente']	=tmp_total_pendiente
+//	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
 		
-	forms['socios'].controller.show();
+	forms['matriculados'].controller.show();
 
 }
 
@@ -101,11 +102,11 @@ function crearFormulario()
  */
 function getQuery()
 {
-	if(globals.vg_soc_anio_inicial == null){
-		globals.vg_soc_anio_inicial 	= application.getServerTimeStamp().getFullYear()
+	if(globals.vg_mat_anio_inicial == null){
+		globals.vg_mat_anio_inicial 	= application.getServerTimeStamp().getFullYear()
 	}
-	if(globals.vg_soc_anio_final == null){
-		globals.vg_soc_anio_final 		= application.getServerTimeStamp().getFullYear()
+	if(globals.vg_mat_anio_final == null){
+		globals.vg_mat_anio_final 		= application.getServerTimeStamp().getFullYear()
 	}
 	
 	var meses = 
@@ -130,12 +131,12 @@ function getQuery()
 	"( " +
 	"(SELECT MONTH(grupo_fecha_emision) as mes, YEAR(grupo_fecha_emision) as anio,  sum(grupo_importe) as pendiente, 0 as cobrado, grupo_grab_fec, grupo_grab_ope  " +
 	"FROM socios.soc_cuotas_grupos " +
-	"where grupo_estado = 0 AND YEAR(grupo_fecha_emision)>="+globals.vg_soc_anio_inicial+" AND YEAR(grupo_fecha_emision)<="+globals.vg_soc_anio_final +" "+
+	"where grupo_estado = 0 AND YEAR(grupo_fecha_emision)>="+globals.vg_mat_anio_inicial+" AND YEAR(grupo_fecha_emision)<="+globals.vg_mat_anio_final +" "+
 	"group by MONTH(grupo_fecha_emision),YEAR(grupo_fecha_emision) order by YEAR(grupo_fecha_emision) asc,MONTH(grupo_fecha_emision) asc) " +
 	"union " +
 	"(SELECT MONTH(grupo_fecha_emision) as mes, YEAR(grupo_fecha_emision) as anio,  0 as pendiente, sum(grupo_importe) as cobrado, grupo_grab_fec, grupo_grab_ope  " +
 	"FROM socios.soc_cuotas_grupos " + 
-	"where grupo_estado = 1 AND YEAR(grupo_fecha_emision)>="+globals.vg_soc_anio_inicial+" AND YEAR(grupo_fecha_emision)<="+globals.vg_soc_anio_final +" "+
+	"where grupo_estado = 1 AND YEAR(grupo_fecha_emision)>="+globals.vg_mat_anio_inicial+" AND YEAR(grupo_fecha_emision)<="+globals.vg_mat_anio_final +" "+
 	"group by MONTH(grupo_fecha_emision),YEAR(grupo_fecha_emision) order by YEAR(grupo_fecha_emision) asc,MONTH(grupo_fecha_emision) asc) " +
 	") as aux, Interdata.adn_usuarios where grupo_grab_ope = us_id group by mes, anio order by anio asc, mes asc " 
 	
@@ -152,5 +153,10 @@ function getQuery()
  */
 function onShow(firstShow, event) 
 {
+	if(firstShow)
+	{
+		globals.vg_mat_anio_inicial = application.getServerTimeStamp().getFullYear()
+		globals.vg_mat_anio_final = application.getServerTimeStamp().getFullYear()
+	}
 	crearFormulario() 
 }

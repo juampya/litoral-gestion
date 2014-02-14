@@ -95,33 +95,35 @@ function generar_cuotas_mensuales(mes, anio)
 			var rec2 = fs_mov.getRecord(k)
 			deuda += rec2.mov_importe
 		}
-		fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
-		fs_detalle.newRecord()
-		fs_detalle.ingr_id = 999 //Deuda Acumulada
-		fs_detalle.mov_id = fs_movim_aux.mov_id
-		fs_detalle.det_importe = deuda
-		fs_detalle.det_importe_original = deuda
-		databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
-		acumImporte += fs_detalle.det_importe
-		//Fin Busca cuotas con deuda-------------------------------------------------------------------------------
-		
-		//Calcula Interes sobre deuda-----------------------------------------------------------------
-		/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
-		var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
-		fs_conf.loadAllRecords()
-		fs_conf.getRecord(1)
-		var interes = deuda * fs_conf.conf_interes_cuota_impaga / 100
-		
-		fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
-		fs_detalle.newRecord()
-		fs_detalle.ingr_id = 998 //Interes
-		fs_detalle.mov_id = fs_movim_aux.mov_id
-		fs_detalle.det_importe = interes
-		fs_detalle.det_importe_original = interes
-		databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
-		acumImporte += fs_detalle.det_importe		
-		//Fin Calcula Interes sobre deuda-----------------------------------------------------------------
-		
+		if(deuda > 0)
+		{
+			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
+			fs_detalle.newRecord()
+			fs_detalle.ingr_id = 999 //Deuda Acumulada
+			fs_detalle.mov_id = fs_movim_aux.mov_id
+			fs_detalle.det_importe = deuda
+			fs_detalle.det_importe_original = deuda
+			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
+			acumImporte += fs_detalle.det_importe
+			//Fin Busca cuotas con deuda-------------------------------------------------------------------------------
+			
+			//Calcula Interes sobre deuda-----------------------------------------------------------------
+			/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
+			var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
+			fs_conf.loadAllRecords()
+			fs_conf.getRecord(1)
+			var interes = deuda * fs_conf.conf_interes_cuota_impaga / 100
+			
+			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
+			fs_detalle.newRecord()
+			fs_detalle.ingr_id = 998 //Interes
+			fs_detalle.mov_id = fs_movim_aux.mov_id
+			fs_detalle.det_importe = interes
+			fs_detalle.det_importe_original = interes
+			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
+			acumImporte += fs_detalle.det_importe		
+			//Fin Calcula Interes sobre deuda-----------------------------------------------------------------
+		}
 		//Busca devoluciones-------------------------------------------------------------------------------
 		/** @type {JSFoundSet<db:/sistemas/mat_resarcimientos>} */
 		var fs_res = databaseManager.getFoundSet('sistemas','mat_resarcimientos')
@@ -130,7 +132,7 @@ function generar_cuotas_mensuales(mes, anio)
 		fs_res.res_mes_aplicacion = mes
 		fs_res.mat_id = rec.mat_id
 		fs_res.search()
-		for(var g=1;g<=fs_mov.getSize();g++)
+		for(var g=1;g<=fs_res.getSize();g++)
 		{
 			var rec3 = fs_res.getRecord(g)
 			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')

@@ -12,3 +12,11 @@ function Salir()
 		application.closeSolution('LitoralGestion','InicializaArgento')
 	}
 }
+
+/**
+ * @properties={typeid:24,uuid:"043AA580-DA71-420E-8D4C-18ACCF009085"}
+ */
+function generarCuota()
+{
+	scopes.globals.generar_cuotas_mensuales(5,2014)
+}

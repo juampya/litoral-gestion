@@ -62,8 +62,7 @@ name:"mov_mes_emision"
 {
 allowNull:true,
 creationOrderIndex:9,
-dataType:12,
-length:45,
+dataType:4,
 name:"mov_tipo_de_movimiento"
 }
 ],

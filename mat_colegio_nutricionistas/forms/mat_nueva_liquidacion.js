@@ -34,10 +34,12 @@ function onActionLiquidar(event)
 	
 	if(cant > 0)
 	{
+		forms.mat_liquidacion_resumen.vl_es_reliquidacion = 1
 		reliquidar()
 	}
 	else
 	{
+		forms.mat_liquidacion_resumen.vl_es_reliquidacion = 0
 		generarCuotas()
 		
 	}	
@@ -104,9 +106,12 @@ function reliquidar()
 	fs_mov.mov_mes_emision = vl_mes
 	fs_mov.mov_anio_emision = vl_anio
 	fs_mov.mov_estado = 1
-	if(fs_mov.search()!=0){
+	if(fs_mov.search()!=0)
+	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'En el período que desea reliquidar ya se cobraron cuotas, no se puede reliquidar!', 'info', controller.getName(), 'Aceptar',null,null,null, null, null, null, null) 
-	}else{	
+	}
+	else
+	{	
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'Ya se liquidaron las cuotas del periodo seleccionado, desea continuar???', 'question', controller.getName(), 'No', '', 'Si', 'generarCuotas', null, null, null, null) 
 	}
 }
@@ -118,5 +123,7 @@ function generarCuotas()
 {
 	globals.generar_cuotas_mensuales(vl_mes,vl_anio,null)
 	application.getWindow("generarLiquidacion").hide()
-	forms.mat_liquidacion.controller.show()
+	forms.mat_liquidacion_resumen.vl_anio = vl_anio
+	forms.mat_liquidacion_resumen.vl_mes = vl_mes	
+	forms.mat_liquidacion_resumen.controller.show()
 }

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_movimientos_det",
+items:[
+{foreignColumnName:"mov_id",primaryDataProviderID:"mov_id",typeid:23,uuid:"743A35B4-7752-4D89-97FC-FEEA1F6A6CA1"}
+],
+joinType:1,
+name:"mat_movimientos_to_mat_movimientos_det",
+primaryDataSource:"db:/sistemas/mat_movimientos",
+typeid:22,
+uuid:"5C1A8D85-1C53-406B-8879-E6E27818DE23"

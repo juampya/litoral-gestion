@@ -62,6 +62,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		fs_movim_aux.mov_fecha_emision = new Date(anio, mes - 1, 15)
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
 		fs_movim_aux.tmp_id = globals.vg_nro_tmp
+		fs_movim_aux.mov_grab_fec = application.getServerTimeStamp()
+		fs_movim_aux.mov_grab_ope = globals.ag_usuariovigente.usu_id
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------
 		
@@ -128,7 +130,10 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		for(var k=1;k<=fs_mov.getSize();k++)
 		{
 			var rec2 = fs_mov.getRecord(k)
-			deuda += rec2.mov_importe
+			if(rec2.mov_fecha_emision < fs_movim_aux.mov_fecha_emision)
+			{	
+				deuda += rec2.mov_importe
+			}
 		}
 		if(deuda > 0)
 		{

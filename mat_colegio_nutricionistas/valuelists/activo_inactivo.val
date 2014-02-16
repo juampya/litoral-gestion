@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Activo|1\r
+Inactivo|0\r
+",
+name:"activo_inactivo",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"F0987F03-82AB-4EB2-8504-E0B4ACAB734E"

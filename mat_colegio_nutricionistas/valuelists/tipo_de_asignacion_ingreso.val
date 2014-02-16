@@ -1,0 +1,8 @@
+addEmptyValue:1,
+customValues:"Asignacion Automatica|0\r
+Asignacion Manual|1",
+name:"tipo_de_asignacion_ingreso",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"FE918CA5-858A-436B-8837-2E1E4DCB52D1"

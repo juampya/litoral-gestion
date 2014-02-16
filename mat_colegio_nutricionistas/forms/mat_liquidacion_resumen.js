@@ -76,6 +76,9 @@ function onShow(firstShow, event)
 		elements.bnr_reliq.text = "Reliquidacion"	
 	}
 	calcularTotales()
+	elements.tabs.removeAllTabs()
+	crearFormularioConceptos()
+	crearFormularioDevoluciones()
 }
 
 /**
@@ -185,3 +188,153 @@ function onActionConfirmar(event)
 	foundset.deleteAllRecords()
 	forms.mat_liquidacion.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"AE0C7C7C-FB1E-4F65-83AD-F4E357753AE2"}
+ */
+function crearFormularioConceptos() 
+{
+
+	
+	var qry = 
+		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
+		"from mat_movimientos_det_aux as a, mat_ingresos as b " +
+		"where a.ingr_id = b.ingr_id ant tmp_id = " + globals.vg_nro_tmp +
+		" group by a.ingr_id " 
+
+	/** @type {JSDataSet<concepto:number, cantidad:number, total:text>}*/
+	var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
+
+	
+	var success = history.removeForm("totConceptos")
+	if(success) {solutionModel.removeForm("totConceptos")}
+	
+ 	var uri = ds.createDataSource('_tmp_totConceptos', [JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
+	
+	var myForm = solutionModel.newForm('totConceptos', uri, null, true, 800, 600);
+	myForm.extendsForm = 'mat_liquidacion_conceptos_sm'
+	myForm.navigator = SM_DEFAULTS.NONE
+	myForm.styleClass = 'table'
+	myForm.styleName = 'id_style'
+
+
+	
+	var sg_mes = myForm.newTextField('concepto', 20, 200, 120, 20)
+	sg_mes.editable = false
+	sg_mes.horizontalAlignment = SM_ALIGNMENT.LEFT
+	sg_mes.titleText = 'Concepto'	
+	sg_mes.anchors = SM_ANCHOR.ALL
+	sg_mes.styleClass = 'table_field'	
+	
+	var sg_anio = myForm.newTextField('cantidad', 20, 200, 120, 20)
+	sg_anio.editable = false
+	sg_anio.horizontalAlignment = SM_ALIGNMENT.RIGHT
+	sg_anio.titleText = 'Cantidad'	
+	sg_anio.anchors = SM_ANCHOR.ALL
+	sg_anio.styleClass = 'table_field'
+	
+	var sg_pendiente = myForm.newTextField('total', 50, 200, 120, 20)
+	sg_pendiente.editable = false
+	sg_pendiente.horizontalAlignment = SM_ALIGNMENT.RIGHT
+	sg_pendiente.titleText = 'Total'
+	sg_pendiente.anchors = SM_ANCHOR.ALL
+	sg_pendiente.styleClass = 'table_field'	
+	sg_pendiente.format = "#,###.00"	
+		
+
+
+	
+//	var tmp_total_pendiente 	= 0
+//	var tmp_total_cobrado 		= 0
+//	var tmp_total				= 0
+//	for(var i=1; i<=ds.getMaxRowIndex();i++){
+//		ds.rowIndex = i
+//		tmp_total_pendiente 	+= ds.pendiente
+//		tmp_total_cobrado 		+= ds.cobrado
+//		tmp_total 				+= ds.total
+//	}
+	
+//	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
+//	forms['matriculados']['vl_total']		=tmp_total
+//	forms['matriculados']['vl_pendiente']	=tmp_total_pendiente
+//	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
+		
+	elements.tabs.addTab(forms['totConceptos'], "Total a Cobrar por Concepto")
+
+}
+
+/**
+ * @properties={typeid:24,uuid:"63019C21-D0D9-4C01-9D00-DE8895FD11C1"}
+ */
+function crearFormularioDevoluciones() 
+{
+
+	
+	var qry = 
+		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
+		"from mat_movimientos_det_aux as a, mat_ingresos as b " +
+		"where a.ingr_id = b.ingr_id ant tmp_id = " + globals.vg_nro_tmp + " and res_id > 0 " +
+		" group by a.ingr_id " 
+
+	/** @type {JSDataSet<concepto:text, cantidad:number, total:number>}*/
+	var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
+
+	
+	var success = history.removeForm("totDevoluciones")
+	if(success) {solutionModel.removeForm("totDevoluciones")}
+	
+ 	var uri = ds.createDataSource('_tmp_totDevoluciones', [JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
+	
+	var myForm = solutionModel.newForm('totDevoluciones', uri, null, true, 800, 600);
+	myForm.extendsForm = 'mat_liquidacion_devolucion_sm'
+	myForm.navigator = SM_DEFAULTS.NONE
+	myForm.styleClass = 'table'
+	myForm.styleName = 'id_style'
+
+
+	
+	var sg_mes = myForm.newTextField('concepto', 20, 200, 120, 20)
+	sg_mes.editable = false
+	sg_mes.horizontalAlignment = SM_ALIGNMENT.LEFT
+	sg_mes.titleText = 'Concepto'	
+	sg_mes.anchors = SM_ANCHOR.ALL
+	sg_mes.styleClass = 'table_field'	
+	
+	var sg_anio = myForm.newTextField('cantidad', 20, 200, 120, 20)
+	sg_anio.editable = false
+	sg_anio.horizontalAlignment = SM_ALIGNMENT.RIGHT
+	sg_anio.titleText = 'Cantidad'	
+	sg_anio.anchors = SM_ANCHOR.ALL
+	sg_anio.styleClass = 'table_field'
+	
+	var sg_pendiente = myForm.newTextField('total', 50, 200, 120, 20)
+	sg_pendiente.editable = false
+	sg_pendiente.horizontalAlignment = SM_ALIGNMENT.RIGHT
+	sg_pendiente.titleText = 'Total'
+	sg_pendiente.anchors = SM_ANCHOR.ALL
+	sg_pendiente.styleClass = 'table_field'	
+	sg_pendiente.format = "#,###.00"	
+		
+
+
+	
+//	var tmp_total_pendiente 	= 0
+//	var tmp_total_cobrado 		= 0
+//	var tmp_total				= 0
+//	for(var i=1; i<=ds.getMaxRowIndex();i++){
+//		ds.rowIndex = i
+//		tmp_total_pendiente 	+= ds.pendiente
+//		tmp_total_cobrado 		+= ds.cobrado
+//		tmp_total 				+= ds.total
+//	}
+	
+//	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
+//	forms['matriculados']['vl_total']		=tmp_total
+//	forms['matriculados']['vl_pendiente']	=tmp_total_pendiente
+//	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
+		
+	elements.tabs.addTab(forms['totDevoluciones'],"Devoluciones Realizadas")
+	
+}
+
+

@@ -7,6 +7,8 @@ uuid:"F1EA98A5-DACD-4CEC-9A9F-0924881BFCA3"
 }
 ],
 name:"mat_liquidacion",
+navigatorID:"-1",
+onShowMethodID:"37E4B6FA-033D-4F9C-99D2-A978A1F35C95",
 showInMenu:true,
 styleName:"id_style",
 typeid:3,

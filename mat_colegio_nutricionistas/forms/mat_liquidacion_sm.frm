@@ -15,6 +15,7 @@ uuid:"08092224-4F06-404C-8B00-88F366FA5374",
 valuelistID:"97C211F8-7C9E-41D2-8890-E4EDB38B2F2A"
 },
 {
+anchors:11,
 location:"0,456",
 size:"998,34",
 styleClass:"banner_pie",
@@ -50,6 +51,7 @@ typeid:19,
 uuid:"584993C4-9FAF-4B75-A27E-EF36195FAF0D"
 },
 {
+anchors:11,
 location:"0,0",
 size:"998,81",
 styleClass:"banner",
@@ -60,7 +62,7 @@ uuid:"5B3F9E6D-C34D-4FAC-9682-775BA088CBF7"
 },
 {
 location:"190,36",
-onActionMethodID:"-1",
+onActionMethodID:"9973C152-E922-48FC-9FA1-DE93A25D5F23",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"150,30",
@@ -69,8 +71,18 @@ typeid:7,
 uuid:"5C797951-B365-4CAF-8A4C-7866F99D5625"
 },
 {
+location:"351,36",
+onActionMethodID:"4EB698EF-FFCD-4BD9-B872-B02D93075F4D",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"130,30",
+text:"Actualizar",
+typeid:7,
+uuid:"63E2A700-7F82-449F-BE43-6D8DDE370477"
+},
+{
 location:"45,36",
-onActionMethodID:"-1",
+onActionMethodID:"1FB04F7B-DF46-432A-A6EC-A475320D1877",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
@@ -108,8 +120,10 @@ uuid:"F0731054-D6A4-4333-864C-FCA2D261A538"
 }
 ],
 name:"mat_liquidacion_sm",
+navigatorID:"-1",
 showInMenu:true,
 size:"998,480",
 styleName:"id_style",
 typeid:3,
-uuid:"73129CB5-3D12-4B4E-AE59-BF3462588668"
+uuid:"73129CB5-3D12-4B4E-AE59-BF3462588668",
+view:3

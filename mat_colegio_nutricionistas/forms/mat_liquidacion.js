@@ -66,7 +66,6 @@ function crearFormulario()
 	sg_alta.titleText = 'Grabacion'
 	sg_alta.anchors = SM_ANCHOR.ALL
 	sg_alta.styleClass = 'table_field'
-
 		
 	var sg_operador = myForm.newTextField('ope', 60, 200, 120, 20)
 	sg_operador.editable = false
@@ -127,18 +126,22 @@ function getQuery()
 	
 	
 	var qry = 
-	"select mes, anio, " + meses + ", sum(pendiente) as pendiente, sum(cobrado) as cobrado, (sum(pendiente) + sum(cobrado)) as total ,DATE_FORMAT(grupo_grab_fec,'%d-%m-%Y') as alta, us_nombre as ope from " + 
+	"select mes, anio, " + meses + ", sum(pendiente) as pendiente, sum(cobrado) as cobrado, (sum(pendiente) + sum(cobrado)) as total ,DATE_FORMAT(mov_grab_fec,'%d-%m-%Y') as alta, usu_nombre as ope from " + 
 	"( " +
-	"(SELECT MONTH(grupo_fecha_emision) as mes, YEAR(grupo_fecha_emision) as anio,  sum(grupo_importe) as pendiente, 0 as cobrado, grupo_grab_fec, grupo_grab_ope  " +
-	"FROM socios.soc_cuotas_grupos " +
-	"where grupo_estado = 0 AND YEAR(grupo_fecha_emision)>="+globals.vg_mat_anio_inicial+" AND YEAR(grupo_fecha_emision)<="+globals.vg_mat_anio_final +" "+
-	"group by MONTH(grupo_fecha_emision),YEAR(grupo_fecha_emision) order by YEAR(grupo_fecha_emision) asc,MONTH(grupo_fecha_emision) asc) " +
+	"( " +
+	"SELECT mov_mes_emision as mes, mov_anio_emision as anio,  sum(mov_importe) as pendiente, 0 as cobrado, mov_grab_fec, mov_grab_ope " +
+	"FROM mat_movimientos " +
+	"where mov_estado = 0 AND mov_anio_emision>=" + globals.vg_mat_anio_inicial + " AND mov_anio_emision<="+ globals.vg_mat_anio_final + 
+	" group by mov_mes_emision,mov_anio_emision order by mov_anio_emision asc,mov_mes_emision asc " +
+	") " +
 	"union " +
-	"(SELECT MONTH(grupo_fecha_emision) as mes, YEAR(grupo_fecha_emision) as anio,  0 as pendiente, sum(grupo_importe) as cobrado, grupo_grab_fec, grupo_grab_ope  " +
-	"FROM socios.soc_cuotas_grupos " + 
-	"where grupo_estado = 1 AND YEAR(grupo_fecha_emision)>="+globals.vg_mat_anio_inicial+" AND YEAR(grupo_fecha_emision)<="+globals.vg_mat_anio_final +" "+
-	"group by MONTH(grupo_fecha_emision),YEAR(grupo_fecha_emision) order by YEAR(grupo_fecha_emision) asc,MONTH(grupo_fecha_emision) asc) " +
-	") as aux, Interdata.adn_usuarios where grupo_grab_ope = us_id group by mes, anio order by anio asc, mes asc " 
+ 	"( " +
+	"SELECT mov_mes_emision as mes, mov_anio_emision as anio, 0  as pendiente, sum(mov_importe) as cobrado, mov_grab_fec, mov_grab_ope " +
+	"FROM mat_movimientos " +
+	"where mov_estado = 1 AND mov_anio_emision>=" + globals.vg_mat_anio_inicial + " AND mov_anio_emision<=" + globals.vg_mat_anio_final +  
+	" group by mov_mes_emision,mov_anio_emision order by mov_anio_emision asc,mov_mes_emision asc " +
+	") " +
+	") as aux, usuarios where mov_grab_ope = usu_id group by mes, anio order by anio asc, mes asc "  
 	
 	return qry
 	

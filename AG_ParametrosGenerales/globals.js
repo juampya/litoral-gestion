@@ -560,3 +560,16 @@ function BuscaPermisos(p_menu_id)
 
 
 
+
+/**
+ * Devuelve un numero aleatorio de 8 digitos
+ * @return {Number}
+ * @properties={typeid:24,uuid:"D8D3804E-4B75-4492-B8BF-B37B32A66AB3"}
+ */
+function tmpRandomNumber() 
+{
+	var rnd = Math.random().toFixed(8)
+	var nro = utils.stringToNumber(rnd.substr(2))
+	var resultado = Math.abs(nro)
+	return resultado
+}

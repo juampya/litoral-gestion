@@ -144,7 +144,8 @@ label
 }
 label.table_label
 {
-	background-color: #ffffff; 
+	text-align: center;
+	background-color: #6bb75e;
 	color: #000000;
 	border-style: solid;
 	border-width: 0px 1px 1px 0px;
@@ -153,8 +154,9 @@ label.table_label
 }
 label.label_black
 {
+	text-align: right;
 	color: #ffffff;
-	background-color: #666666;
+	background-color: #6bb75e;
 }
 label.label_border
 {

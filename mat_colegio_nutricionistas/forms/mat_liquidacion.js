@@ -148,7 +148,7 @@ function getQuery()
 }
 
 /**
- * TODO generated, please specify type and doc for the params
+ * 
  * @param firstShow
  * @param event
  *

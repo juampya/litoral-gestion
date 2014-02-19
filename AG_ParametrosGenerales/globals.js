@@ -81,7 +81,7 @@ function Cerrar_Solucion()
 /**
  * @AllowToRunInFind
  * 
- * TODO generated, please specify type and doc for the params
+ * 
  * @param empresa
  * @param pto_vta
  * @param com_cod
@@ -154,7 +154,7 @@ function Cerrar_Solucion()
 /**
  * @AllowToRunInFind
  * 
- * TODO generated, please specify type and doc for the params
+ * 
  * @param moneda_id
  *
  * @properties={typeid:24,uuid:"FF2BDA4C-9A3F-4B1E-B7DB-416250050662"}
@@ -179,7 +179,7 @@ function Cerrar_Solucion()
 //}
 
 /**
- * TODO generated, please specify type and doc for the params
+ * 
  * @param record
  *
  * @properties={typeid:24,uuid:"C3BAFBC6-6CE8-4717-8068-07378BF09550"}
@@ -226,7 +226,7 @@ function Ir_a_Home() {
 
 
 /**
- * TODO generated, please specify type and doc for the params
+ * 
  * @param dataset
  *
  * @properties={typeid:24,uuid:"E4F37365-FCB9-4BDB-BAE6-42DF405787C4"}
@@ -257,7 +257,7 @@ function Ir_a_Home() {
 //}
 
 /**
- * TODO generated, please specify type and doc for the params
+ * 
  * @param imagen_id
  *
  * @properties={typeid:24,uuid:"726C04C0-F927-4860-B72C-97D9299AF1CE"}
@@ -291,7 +291,7 @@ function Ir_a_Home() {
 //}
 
 /**
- * TODO generated, please specify type and doc for the params
+ * 
  * @param filename
  *
  * @properties={typeid:24,uuid:"0A667B33-1DFB-422D-ACCD-77B9399A6D54"}
@@ -342,7 +342,7 @@ function Ir_a_Home() {
 //}
 
 /**
- * TODO generated, please specify type and doc for the params
+ * 
  * @param usuario
  * @param titulo
  * @param mensaje

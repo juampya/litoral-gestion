@@ -50,7 +50,6 @@ function resarcimientos()
  */
 function saldosGlobales()
 {
-	//TODO Generar informe de saldos globales
+	forms.mat_saldos_globales.controller.show()
 	//TODO Ver xq no agrega pestaña el detalle
-	//TODO Ver detalle de liquidacion realizada
 }

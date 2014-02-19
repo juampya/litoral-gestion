@@ -78,10 +78,4 @@ function validaDatos()
 	
 }
 
-/**
- * @properties={typeid:24,uuid:"7EC530C4-853C-4525-9D9C-0189532FC79D"}
- */
-function asignarATodos() 
-{
-	//TODO q un resarcimiento se pueda asignar a todos los matriculados
-}
+

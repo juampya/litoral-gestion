@@ -102,6 +102,16 @@ typeid:7,
 uuid:"DC9E429F-35C6-4CB2-B54C-6E970E5F8278"
 },
 {
+imageMediaID:"BF1011D8-5F37-4FBC-84C9-6B464492EB6A",
+location:"0,196",
+onActionMethodID:"A00CC111-D3EE-4A05-9E5C-13916DAAF2EA",
+showClick:false,
+size:"16,16",
+text:"",
+typeid:7,
+uuid:"E3133215-4584-4352-B3A1-56E6B038E9D8"
+},
+{
 horizontalAlignment:0,
 labelFor:"vl_fec_ini",
 location:"24,94",

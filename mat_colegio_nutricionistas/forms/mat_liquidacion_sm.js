@@ -34,3 +34,15 @@ function onActionVolver(event)
 {
 	forms["mat_inicio"].controller.show()
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"A00CC111-D3EE-4A05-9E5C-13916DAAF2EA"}
+ */
+function onActionDetalle(event) 
+{
+	// TODO Ver detalle de liquidacion realizada
+}

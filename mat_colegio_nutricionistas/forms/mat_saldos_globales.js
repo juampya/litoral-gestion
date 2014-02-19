@@ -32,7 +32,7 @@ function crearFormulario()
 	sg_matricula.anchors = SM_ANCHOR.ALL
 	sg_matricula.styleClass = 'table_field'	
 	
-	var sg_matriculado = myForm.newTextField('nombre', 20, 200, 120, 20)
+	var sg_matriculado = myForm.newTextField('nombre', 20, 200, 250, 20)
 	sg_matriculado.editable = false
 	sg_matriculado.horizontalAlignment = SM_ALIGNMENT.LEFT
 	sg_matriculado.titleText = 'Matriculado'	
@@ -42,7 +42,7 @@ function crearFormulario()
 	var sg_pendiente = myForm.newTextField('saldo', 50, 200, 120, 20)
 	sg_pendiente.editable = false
 	sg_pendiente.horizontalAlignment = SM_ALIGNMENT.RIGHT
-	sg_pendiente.titleText = 'Pendiente'
+	sg_pendiente.titleText = 'Saldo'
 	sg_pendiente.anchors = SM_ANCHOR.ALL
 	sg_pendiente.styleClass = 'table_field'
 	sg_pendiente.format = "#,###.00"		

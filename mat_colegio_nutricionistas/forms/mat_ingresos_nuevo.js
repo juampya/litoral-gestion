@@ -10,7 +10,7 @@
 function onShow(firstShow, event) 
 {
 	controller.newRecord()
-	ingr_estado = 0
+	ingr_estado = 1
 }
 
 /**

@@ -18,6 +18,29 @@ function Salir()
  */
 function generarCuota()
 {
-	application.output("pasoooo!!!!")
 	forms.mat_liquidacion.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"5012ACCF-B4B3-4ABE-8AA1-784BAC28359D"}
+ */
+function parametros()
+{
+	forms.mat_parametros.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"28C2BD21-4004-4B82-A4D4-421AD6FC12C6"}
+ */
+function conceptos()
+{
+	forms.mat_ingresos_abm.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"6AA80D2D-D1CA-4BCF-8611-4D6F487D32A9"}
+ */
+function resarcimientos() 
+{
+	forms.mat_resarcimientos_abm.controller.show()
 }

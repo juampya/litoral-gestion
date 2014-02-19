@@ -98,6 +98,7 @@ typeid:4,
 uuid:"A100DFFC-9486-4B67-80CB-3EB9A8866D87"
 },
 {
+anchors:11,
 location:"0,0",
 size:"640,106",
 styleClass:"banner",
@@ -110,7 +111,6 @@ uuid:"CE27C64E-25F2-4326-94C2-F992BE225A8A"
 dataProviderID:"res_mes_aplicacion",
 displayType:2,
 editable:false,
-horizontalAlignment:4,
 location:"148,189",
 name:"res_mes_aplicacion",
 size:"140,20",

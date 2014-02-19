@@ -64,3 +64,41 @@ function asignarATodos()
 {
 	//TODO q se pueda asignar a todos los matriculados
 }
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"07601AC9-8B2A-405B-B7DE-8F2A3D43A075"}
+ */
+function onActionBorrar(event) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "Desea Borrar el Registro", 'info', controller.getName(), 'No',null,"Si","borrarRegistro", null, null, null, null) 
+
+}
+
+/**
+ * @properties={typeid:24,uuid:"56A08112-0861-42A2-B408-866C7D5FD7B3"}
+ * @AllowToRunInFind
+ */
+function borrarRegistro()
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_movimientos_det>} */
+	var fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
+	fs_detalle.find()
+	fs_detalle.ingr_id = ingr_id
+	var cant = fs_detalle.search()
+	if(cant == 0)
+	{
+		mat_ingresos_to_mat_matriculado_rel_ingresos.deleteAllRecords()
+		mat_ingresos_to_mat_resarcimientos.deleteAllRecords()
+		controller.deleteRecord()
+		forms.mat_ingresos_abm.controller.show()
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "El Registro no se puede Borrar.\n Existen movimientos asociados al mismo", 'info', controller.getName(), 'Aceptar',null,null,null, null, null, null, null) 
+		
+	}
+		
+}

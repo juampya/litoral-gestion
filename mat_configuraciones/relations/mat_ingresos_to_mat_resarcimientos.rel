@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_resarcimientos",
+items:[
+{foreignColumnName:"ingr_id",primaryDataProviderID:"ingr_id",typeid:23,uuid:"49C1CCDD-2485-4A3F-832F-1EE9D0C326F3"}
+],
+joinType:1,
+name:"mat_ingresos_to_mat_resarcimientos",
+primaryDataSource:"db:/sistemas/mat_ingresos",
+typeid:22,
+uuid:"C85A95DB-FEF8-4922-9572-5DBB8C261695"

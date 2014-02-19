@@ -83,7 +83,9 @@ uuid:"89BF503A-4377-4110-945A-EB65C94DF1EE"
 },
 {
 dataProviderID:"ingr_observaciones",
+displayType:1,
 location:"149,282",
+scrollbars:32,
 size:"297,55",
 typeid:4,
 uuid:"A999699E-0402-457B-ADE2-2E90FFC2B7D8"
@@ -109,6 +111,7 @@ typeid:7,
 uuid:"B3671F77-FC92-401A-A489-4C44FF145187"
 },
 {
+anchors:11,
 location:"0,0",
 size:"640,106",
 styleClass:"banner",

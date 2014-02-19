@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_matriculado_rel_ingresos",
+items:[
+{foreignColumnName:"ingr_id",primaryDataProviderID:"ingr_id",typeid:23,uuid:"1953153E-E68C-4820-9FDE-87E85EE62619"}
+],
+joinType:1,
+name:"mat_ingresos_to_mat_matriculado_rel_ingresos",
+primaryDataSource:"db:/sistemas/mat_ingresos",
+typeid:22,
+uuid:"BFD3ED7B-4AD7-4AEB-9D85-42EAEBD2CBC4"

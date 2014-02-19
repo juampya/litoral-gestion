@@ -25,10 +25,11 @@ typeid:7,
 uuid:"1C631C9A-A7C3-43EC-9B18-42452E8AB020"
 },
 {
+anchors:11,
 location:"0,0",
 size:"1029,103",
 styleClass:"banner",
-text:"Conceptos de Ingresos",
+text:"Resarcimientos",
 transparent:true,
 typeid:7,
 uuid:"2036C991-8129-4795-8D86-8C595F106E2F"
@@ -98,7 +99,7 @@ location:"298,137",
 name:"res_fecha_emision_label",
 size:"140,20",
 styleClass:"label_black",
-text:"Res Fecha Emision",
+text:"Fecha Emision",
 typeid:7,
 uuid:"8C4FDE10-32A6-4083-937C-0698CFA77588"
 },
@@ -244,8 +245,10 @@ uuid:"F9E7631D-3E97-406C-AE20-1A83F24407C8"
 }
 ],
 name:"mat_resarcimientos_abm",
+navigatorID:"-1",
 showInMenu:true,
 size:"1029,480",
+styleClass:"table",
 styleName:"id_style",
 typeid:3,
 uuid:"8C5B4995-32E0-4713-98CD-640A81AD32F2",

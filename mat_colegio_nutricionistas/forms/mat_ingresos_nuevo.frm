@@ -51,7 +51,7 @@ location:"149,194",
 size:"140,20",
 typeid:4,
 uuid:"553A63DE-3793-4B4E-B8F0-4D27618E4962",
-valuelistID:"FE918CA5-858A-436B-8837-2E1E4DCB52D1"
+valuelistID:"397116E5-0E3C-4DA3-928E-DDA2AF6F0B48"
 },
 {
 horizontalAlignment:4,

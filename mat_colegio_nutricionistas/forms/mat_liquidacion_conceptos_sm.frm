@@ -1,5 +1,6 @@
 items:[
 {
+anchors:11,
 location:"0,0",
 size:"640,53",
 styleClass:"banner",
@@ -22,7 +23,9 @@ uuid:"AFADF8F2-CB78-4894-B301-940B78AC0B37"
 }
 ],
 name:"mat_liquidacion_conceptos_sm",
+navigatorID:"-1",
 showInMenu:true,
 styleName:"id_style",
 typeid:3,
-uuid:"EDCBA72C-14FE-40F2-B968-051F7E9E5000"
+uuid:"EDCBA72C-14FE-40F2-B968-051F7E9E5000",
+view:3

@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"ingr_id",
+dataProviderID2:"ingr_nombre",
+dataSource:"db:/sistemas/mat_ingresos",
+name:"conceptos",
+returnDataProviders:1,
+separator:" -  ",
+showDataProviders:3,
+typeid:34,
+uuid:"5F4BF39A-BC0E-447D-A37F-E3392E0B35C1",
+valueListType:1

@@ -86,7 +86,7 @@ size:"140,20",
 text:"Ingr Estado",
 typeid:4,
 uuid:"569BDF58-7E06-49CC-8E43-8E2C33F266C0",
-valuelistID:"F0987F03-82AB-4EB2-8504-E0B4ACAB734E"
+valuelistID:"3B1B177E-FAE2-410C-BDBA-F701383F4FF9"
 },
 {
 anchors:11,

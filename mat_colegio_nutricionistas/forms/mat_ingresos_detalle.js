@@ -9,7 +9,7 @@
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords()
-	//forms.mat_ingresos_abm.controller.show()
+	forms.mat_ingresos_abm.controller.show()
 }
 
 /**
@@ -21,6 +21,46 @@ function onActionVolver(event)
  */
 function onActionGrabar(event) 
 {
-	databaseManager.saveData(foundset)
-	//forms.mat_ingresos_abm.controller.show()
+	if(validaDatos())
+	{
+		databaseManager.saveData(foundset)
+		forms.mat_ingresos_abm.controller.show()
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', globals.vg_mensaje_de_error, 'info', controller.getName(), 'Aceptar',null,null,null, null, null, null, null) 
+	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"BD68DA0C-E546-4D72-95E7-3754498E6DC9"}
+ */
+function validaDatos()
+{
+	if(ingr_nombre == null || ingr_nombre.length == 0)
+	{
+		globals.vg_mensaje_de_error = "Debe Especificar Un Nombre"
+			return false
+	}
+	if(ingr_importe == null || ingr_importe == 0)
+	{
+		globals.vg_mensaje_de_error = "Debe Especificar Un Importe"
+			return false
+	}
+	if(ingr_tipo_asignacion == null)
+	{
+		globals.vg_mensaje_de_error = "Debe especificar el tipo de asignacion"
+			return false
+	}
+
+	return true
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"DED69879-8F66-4929-BD5A-6128F150E336"}
+ */
+function asignarATodos()
+{
+	//TODO q se pueda asignar a todos los matriculados
 }

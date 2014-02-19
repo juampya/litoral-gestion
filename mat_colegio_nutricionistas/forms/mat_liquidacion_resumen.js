@@ -199,7 +199,7 @@ function crearFormularioConceptos()
 	var qry = 
 		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
 		"from mat_movimientos_det_aux as a, mat_ingresos as b " +
-		"where a.ingr_id = b.ingr_id ant tmp_id = " + globals.vg_nro_tmp +
+		"where a.ingr_id = b.ingr_id and tmp_id = " + globals.vg_nro_tmp +
 		" group by a.ingr_id " 
 
 	/** @type {JSDataSet<concepto:number, cantidad:number, total:text>}*/
@@ -211,7 +211,7 @@ function crearFormularioConceptos()
 	
  	var uri = ds.createDataSource('_tmp_totConceptos', [JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
 	
-	var myForm = solutionModel.newForm('totConceptos', uri, null, true, 800, 600);
+	var myForm = solutionModel.newForm('totConceptos', uri, null, true, elements.tabs.getWidth(), elements.tabs.getHeight());
 	myForm.extendsForm = 'mat_liquidacion_conceptos_sm'
 	myForm.navigator = SM_DEFAULTS.NONE
 	myForm.styleClass = 'table'
@@ -273,7 +273,7 @@ function crearFormularioDevoluciones()
 	var qry = 
 		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
 		"from mat_movimientos_det_aux as a, mat_ingresos as b " +
-		"where a.ingr_id = b.ingr_id ant tmp_id = " + globals.vg_nro_tmp + " and res_id > 0 " +
+		"where a.ingr_id = b.ingr_id and tmp_id = " + globals.vg_nro_tmp + " and res_id > 0 " +
 		" group by a.ingr_id " 
 
 	/** @type {JSDataSet<concepto:text, cantidad:number, total:number>}*/
@@ -285,7 +285,7 @@ function crearFormularioDevoluciones()
 	
  	var uri = ds.createDataSource('_tmp_totDevoluciones', [JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
 	
-	var myForm = solutionModel.newForm('totDevoluciones', uri, null, true, 800, 600);
+	var myForm = solutionModel.newForm('totDevoluciones', uri, null, true, elements.tabs.getWidth(), elements.tabs.getHeight());
 	myForm.extendsForm = 'mat_liquidacion_devolucion_sm'
 	myForm.navigator = SM_DEFAULTS.NONE
 	myForm.styleClass = 'table'

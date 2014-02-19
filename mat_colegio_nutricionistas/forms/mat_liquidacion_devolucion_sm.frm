@@ -1,5 +1,6 @@
 items:[
 {
+anchors:11,
 location:"0,0",
 size:"640,53",
 styleClass:"banner",
@@ -22,7 +23,9 @@ uuid:"8E921EBA-77BF-4818-90FD-A9391A63153E"
 }
 ],
 name:"mat_liquidacion_devolucion_sm",
+navigatorID:"-1",
 showInMenu:true,
 styleName:"id_style",
 typeid:3,
-uuid:"632B903B-7A80-452B-B499-157F43323FFF"
+uuid:"632B903B-7A80-452B-B499-157F43323FFF",
+view:3

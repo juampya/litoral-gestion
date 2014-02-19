@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"D3E6AE60-06DD-4928-A207-1E2E576F7EFD"}
+ */
+var vg_mensaje_de_error = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"67352030-9DC7-4372-A91A-08F0E378ECD4",variableType:4}

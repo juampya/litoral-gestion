@@ -44,3 +44,13 @@ function resarcimientos()
 {
 	forms.mat_resarcimientos_abm.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"CEC2983A-4A27-48BD-B181-CE7068FE0C0F"}
+ */
+function saldosGlobales()
+{
+	//TODO Generar informe de saldos globales
+	//TODO Ver xq no agrega pestaña el detalle
+	//TODO Ver detalle de liquidacion realizada
+}

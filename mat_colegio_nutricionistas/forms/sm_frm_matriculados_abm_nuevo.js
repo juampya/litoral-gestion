@@ -56,3 +56,14 @@ function onShow(firstShow, event)
 		controller.duplicateRecord(false)
 	}
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"40F717E0-7D4D-4DBD-88B5-BE2FAC861504"}
+ */
+function onActionEnviarMail(event) {
+	// TODO Auto-generated method stub
+}

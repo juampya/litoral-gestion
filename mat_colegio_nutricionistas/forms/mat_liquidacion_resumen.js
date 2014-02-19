@@ -77,6 +77,7 @@ function onShow(firstShow, event)
 	}
 	calcularTotales()
 	elements.tabs.removeAllTabs()
+	elements.tabs_1.removeAllTabs()
 	crearFormularioConceptos()
 	crearFormularioDevoluciones()
 }
@@ -333,7 +334,7 @@ function crearFormularioDevoluciones()
 //	forms['matriculados']['vl_pendiente']	=tmp_total_pendiente
 //	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
 		
-	elements.tabs.addTab(forms['totDevoluciones'],"Devoluciones Realizadas")
+	elements.tabs_1.addTab(forms['totDevoluciones'],"Devoluciones Realizadas")
 	
 }
 

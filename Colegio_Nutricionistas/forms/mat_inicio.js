@@ -51,5 +51,4 @@ function resarcimientos()
 function saldosGlobales()
 {
 	forms.mat_saldos_globales.controller.show()
-	//TODO Ver xq no agrega pestaña el detalle
 }

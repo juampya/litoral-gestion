@@ -56,11 +56,11 @@ typeid:4,
 uuid:"68930148-0CB0-40FA-A333-3B4360D5B374"
 },
 {
-anchors:15,
+anchors:13,
 location:"0,191",
 name:"tabs",
 printable:false,
-size:"999,289",
+size:"422,289",
 transparent:true,
 typeid:16,
 uuid:"6C88B2A6-C8D0-4063-987E-B5AB54533B11"
@@ -164,6 +164,16 @@ size:"158,30",
 text:"Confirmar Liquidacion",
 typeid:7,
 uuid:"B24D91AE-B183-4DF2-B92D-369C6E7D50A7"
+},
+{
+anchors:13,
+location:"432,191",
+name:"tabs_1",
+printable:false,
+size:"421,289",
+transparent:true,
+typeid:16,
+uuid:"B8CF96DB-9B4E-40CB-9380-0C1294356F58"
 },
 {
 horizontalAlignment:0,

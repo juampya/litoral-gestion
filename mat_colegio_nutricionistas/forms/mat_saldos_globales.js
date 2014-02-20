@@ -4,9 +4,9 @@
 function crearFormulario() 
 {
 	var qry = 
-	"select b.mat_id as id, b.mat_nro_matricula as matricula, CONCAT(b.mat_apellido, ', ', b.mat_nombre) as nombre, sum(a.mov_importe) as saldo, 0 as chk " +
+	"select b.mat_id as id, b.mat_nro_matricula as matricula, b.mat_nombre as nombre, sum(a.mov_importe) as saldo, 0 as chk " +
 	"from mat_movimientos as a, mat_matriculados as b " +
-	"where a.mov_estado = 0 and b.mat_estado != 2  group by b.mat_id "
+	"where a.mov_estado = 0 and b.mat_estado != 2  and a.mat_id = b.mat_id  group by b.mat_id"
 
 	/** @type {JSDataSet<id:number, matricula:number, nombre:text, saldo:number, chk:number>}*/
 	var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);

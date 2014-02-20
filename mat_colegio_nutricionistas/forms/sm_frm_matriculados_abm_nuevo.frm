@@ -191,6 +191,7 @@ uuid:"48D9E875-D33D-427E-B662-E76FD666932C"
 dataProviderID:"mat_fecha_graduacion",
 displayType:5,
 formIndex:47,
+horizontalAlignment:0,
 location:"134,248",
 size:"140,20",
 tabSeq:15,
@@ -262,7 +263,7 @@ formIndex:51,
 format:"dd/MM/yyyy|mask",
 horizontalAlignment:0,
 location:"631,32",
-size:"140,20",
+size:"106,20",
 tabSeq:27,
 typeid:4,
 uuid:"5E83FBCB-D8DF-4F0A-913A-93C3CC7D3312"
@@ -704,8 +705,9 @@ uuid:"EFDE5895-E865-41CB-8879-647D6090B835"
 {
 dataProviderID:"mat_dni",
 formIndex:37,
+horizontalAlignment:0,
 location:"631,7",
-size:"140,20",
+size:"106,20",
 tabSeq:26,
 typeid:4,
 uuid:"F0A9BD27-E37D-4D38-A118-980610754499"

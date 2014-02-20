@@ -13,6 +13,7 @@ uuid:"0F60D040-4D9A-4C30-AF61-0E4CFA9E18DD"
 },
 {
 dataProviderID:"mat_telefono_fijo",
+editable:false,
 formIndex:18,
 horizontalAlignment:0,
 location:"844,137",
@@ -37,6 +38,7 @@ uuid:"16A05A5E-FA5A-44A8-B42D-7FCC0D79CAB8"
 },
 {
 dataProviderID:"mat_circunscripcion",
+editable:false,
 formIndex:12,
 horizontalAlignment:0,
 location:"563,137",
@@ -80,6 +82,7 @@ uuid:"5CE94840-A746-4F09-B77D-B7F7DC5069DD"
 },
 {
 dataProviderID:"mat_nro_matricula",
+editable:false,
 formIndex:20,
 format:"##########",
 horizontalAlignment:0,
@@ -112,6 +115,7 @@ uuid:"6F424B6B-6982-46C1-A352-1757F4F4515F"
 },
 {
 dataProviderID:"mat_estado",
+editable:false,
 formIndex:14,
 horizontalAlignment:0,
 location:"704,137",
@@ -221,6 +225,7 @@ uuid:"DFD5B881-AA34-44AD-9648-B8D9450BD10A"
 },
 {
 dataProviderID:"mat_e_mail",
+editable:false,
 formIndex:16,
 horizontalAlignment:0,
 location:"984,137",
@@ -231,6 +236,7 @@ uuid:"EB821473-2243-4499-9BEE-BABA5EEC9A2B"
 },
 {
 dataProviderID:"mat_nombre",
+editable:false,
 formIndex:10,
 location:"164,137",
 name:"mat_nombre",

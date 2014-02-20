@@ -64,6 +64,18 @@ label.banner_pie
 	background-color: #ffffff;
 }
 
+label.sub_banner
+{
+	border-style: solid;
+	border-width: 0px 0px 2px 0px;
+	border-color: #6bb75e; 
+	font: bold italic 14pt Verdana; 
+	color: #444444;
+	text-align: left;
+	vertical-align: top;
+	margin: 2px 12px 2px 2px;
+	background-color: #ffffff;
+}
 portal
 {
 	background-color: #ffffff; 
@@ -115,6 +127,7 @@ form.table even
 form.table selected
 {
    background-color: #a4ffa4;
+   font-weight: bold;
 }
 
 portal

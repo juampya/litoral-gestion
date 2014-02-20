@@ -72,7 +72,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		var fs_rel_ing = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')
 		fs_rel_ing.find()
 		fs_rel_ing.mat_id = rec.mat_id
-		fs_rel_ing.rel_estado = 0 //Activo para ese matriculado
+		fs_rel_ing.rel_estado = 1 //Activo para ese matriculado
 		fs_rel_ing.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_estado = 1 //Activo en general
 		fs_rel_ing.search()
 		//fin Busca Los ingresos del matriculado-----------------------------------------------------------
@@ -269,7 +269,49 @@ function asociaIngresosPorDefecto(matriculado)
 		fs_rel_ing.mat_id = matriculado
 		fs_rel_ing.ingr_id = rec.ingr_id
 		fs_rel_ing.rel_aplica_vigencia = 0
-		fs_rel_ing.rel_estado = 0
+		fs_rel_ing.rel_estado = 1
 		databaseManager.saveData(fs_rel_ing)
 	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"F20D6531-FFBA-4C7E-B922-5DE841E60117"}
+ * @AllowToRunInFind
+ */
+function asignarIngresosATodos(ingreso_id,fec_ini,fec_fin,vigencia) 
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_matriculados>} */
+	var fs_mat = databaseManager.getFoundSet('sistemas','mat_matriculados')
+	fs_mat.find()
+	fs_mat.mat_estado = 1
+	fs_mat.search()
+	for (var i= 1; i <= fs_mat.getSize(); i++) 
+	{
+		var rec = fs_mat.getRecord(i)
+		/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
+		var fs_rel_ing = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')
+		fs_rel_ing.newRecord()
+		fs_rel_ing.mat_id = rec.mat_id
+		fs_rel_ing.ingr_id = ingreso_id
+		fs_rel_ing.rel_fec_inicial = fec_ini
+		fs_rel_ing.rel_fec_final = fec_fin
+		fs_rel_ing.rel_aplica_vigencia = vigencia
+		fs_rel_ing.rel_estado = 0
+		databaseManager.saveData(fs_rel_ing)		
+	}
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"5BBCF223-BBEB-4942-819F-6752B0FA9C18"}
+ * @AllowToRunInFind
+ */
+function desasignarIngresosATodos(ingreso_id)
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
+	var fs_rel_ing = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')
+	fs_rel_ing.find()
+	fs_rel_ing.ingr_id = ingreso_id
+	fs_rel_ing.search()	
+	fs_rel_ing.deleteAllRecords()
 }

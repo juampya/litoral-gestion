@@ -48,7 +48,7 @@ dataProviderID:"ingr_tipo_asignacion",
 displayType:2,
 editable:false,
 location:"149,194",
-size:"140,20",
+size:"196,20",
 typeid:4,
 uuid:"553A63DE-3793-4B4E-B8F0-4D27618E4962",
 valuelistID:"397116E5-0E3C-4DA3-928E-DDA2AF6F0B48"
@@ -140,7 +140,7 @@ dataProviderID:"ingr_primer_movimiento",
 displayType:4,
 location:"149,224",
 size:"297,20",
-text:"Se Agrega en el movimeinto de alta",
+text:"Se Agrega en el movimiento de alta",
 typeid:4,
 uuid:"FA419D6F-92F1-4954-9B2D-A10F6601BD4C"
 }

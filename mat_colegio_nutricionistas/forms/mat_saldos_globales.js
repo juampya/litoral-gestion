@@ -4,18 +4,18 @@
 function crearFormulario() 
 {
 	var qry = 
-	"select b.mat_nro_matricula as matricula, CONCAT(b.mat_apellido, ', ', b.mat_nombre) as nombre, sum(a.mov_importe) as saldo, 0 as chk " +
+	"select b.mat_id as id, b.mat_nro_matricula as matricula, CONCAT(b.mat_apellido, ', ', b.mat_nombre) as nombre, sum(a.mov_importe) as saldo, 0 as chk " +
 	"from mat_movimientos as a, mat_matriculados as b " +
 	"where a.mov_estado = 0 and b.mat_estado != 2  group by b.mat_id "
 
-	/** @type {JSDataSet<matricula:number, nombre:text, saldo:number, chk:number>}*/
+	/** @type {JSDataSet<id:number, matricula:number, nombre:text, saldo:number, chk:number>}*/
 	var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
 
 	
 	var success = history.removeForm("saldosGlobales")
 	if(success) {solutionModel.removeForm("saldosGlobales")}
 	
- 	var uri = ds.createDataSource('_tmp_saldosGlobales', [JSColumn.NUMBER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
+ 	var uri = ds.createDataSource('_tmp_saldosGlobales', [JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
 	
 	var myForm = solutionModel.newForm('saldosGlobales', uri, null, true, 800, 600);
 	myForm.extendsForm = 'mat_saldos_globales_sm'
@@ -27,7 +27,7 @@ function crearFormulario()
 	
 	var sg_matricula = myForm.newTextField('matricula', 20, 200, 120, 20)
 	sg_matricula.editable = false
-	sg_matricula.horizontalAlignment = SM_ALIGNMENT.LEFT
+	sg_matricula.horizontalAlignment = SM_ALIGNMENT.RIGHT
 	sg_matricula.titleText = 'Nro. Matricula'	
 	sg_matricula.anchors = SM_ANCHOR.ALL
 	sg_matricula.styleClass = 'table_field'	

@@ -33,6 +33,11 @@ function onActionCancelar(event) {
 function onActionAceptar(event) 
 {
 	databaseManager.saveData(foundset)
+	if(vl_nuevo == 1)
+	{
+		globals.asociaIngresosPorDefecto(mat_id)
+		globals.grabarPrimerMovimiento(mat_id,application.getServerTimeStamp().getMonth() + 1,application.getServerTimeStamp().getFullYear())
+	}
 	forms[vl_frm_anterior].controller.show()
 }
 

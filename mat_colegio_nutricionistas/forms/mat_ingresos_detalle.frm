@@ -47,7 +47,7 @@ dataProviderID:"ingr_primer_movimiento",
 displayType:4,
 location:"149,224",
 size:"297,20",
-text:"Se Agrega en el movimeinto de alta",
+text:"Se Agrega en el movimiento de alta",
 typeid:4,
 uuid:"285492B6-3627-41BA-B980-3A6CD2F9D296"
 },
@@ -134,7 +134,7 @@ dataProviderID:"ingr_tipo_asignacion",
 displayType:2,
 editable:false,
 location:"149,194",
-size:"140,20",
+size:"214,20",
 typeid:4,
 uuid:"8E8AC7E0-22CC-49FA-92A5-DD937AAA0B36",
 valuelistID:"397116E5-0E3C-4DA3-928E-DDA2AF6F0B48"
@@ -168,7 +168,7 @@ typeid:4,
 uuid:"B5EFCC11-D2FD-4D7B-B006-538B1C52FA2C"
 },
 {
-location:"325,52",
+location:"329,52",
 onActionMethodID:"07601AC9-8B2A-405B-B7DE-8F2A3D43A075",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -195,6 +195,16 @@ location:"149,253",
 size:"140,20",
 typeid:4,
 uuid:"FD1EFB90-9DF8-4E69-84A1-47CA0B7963B1"
+},
+{
+location:"475,52",
+onActionMethodID:"39051DF4-F715-4283-A91D-65801902269E",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"130,30",
+text:"Asignacion global",
+typeid:7,
+uuid:"FFBDA979-A514-4A72-BD4D-6C34C799CAB8"
 }
 ],
 name:"mat_ingresos_detalle",

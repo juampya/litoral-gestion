@@ -45,5 +45,7 @@ function onActionVolver(event)
  */
 function onActionDetalle(event) 
 {
-	// TODO Ver detalle de liquidacion realizada
+	forms.mat_liquidacion_resumen_detalle.vl_mes = forms['matriculados'].mes
+	forms.mat_liquidacion_resumen_detalle.vl_anio = forms['matriculados'].anio
+	forms.mat_liquidacion_resumen_detalle.controller.show()
 }

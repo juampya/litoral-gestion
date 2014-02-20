@@ -21,5 +21,7 @@ function onActionVolver(event)
  */
 function onActionDetalle(event) 
 {
-	// TODO Detalle de saldos pendiente
+	forms.mat_saldos_globales_movimientos.vl_matriculado_id = forms["saldosGlobales"].id
+	forms.mat_saldos_globales_movimientos.controller.show()
+	//TODO Habilitar pago de saldo
 }

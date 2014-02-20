@@ -58,13 +58,6 @@ function validaDatos()
 }
 
 /**
- * @properties={typeid:24,uuid:"DED69879-8F66-4929-BD5A-6128F150E336"}
- */
-function asignarATodos()
-{
-	//TODO q se pueda asignar a todos los matriculados
-}
-/**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
@@ -101,4 +94,22 @@ function borrarRegistro()
 		
 	}
 		
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"39051DF4-F715-4283-A91D-65801902269E"}
+ */
+function onActionAsignar(event) 
+{
+	forms.mat_ingresos_asignar_global.vl_ingreso = ingr_id
+	var win1 = application.createWindow("asignacion", JSWindow.MODAL_DIALOG);
+	win1.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+	win1.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+	win1.resizable = false
+	win1.title= 'Asignacion global';
+	win1.show(forms.mat_ingresos_asignar_global);
 }

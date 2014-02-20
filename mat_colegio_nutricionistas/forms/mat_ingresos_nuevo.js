@@ -73,10 +73,3 @@ function validaDatos()
 	
 }
 
-/**
- * @properties={typeid:24,uuid:"4911ECC4-AFA7-4873-90B4-377E696C38CB"}
- */
-function asignarATodos()
-{
-	//TODO q se pueda asignar a todos los matriculados
-}

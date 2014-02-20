@@ -15,7 +15,7 @@ dataType:4,
 name:"pais_cod_aip"
 },
 {
-allowNull:false,
+allowNull:true,
 creationOrderIndex:3,
 dataType:12,
 length:45,

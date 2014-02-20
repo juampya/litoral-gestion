@@ -3,6 +3,7 @@ items:[
 {
 formIndex:11,
 horizontalAlignment:0,
+labelFor:"mat_circunscripcion",
 location:"563,119",
 size:"140,20",
 styleClass:"table_label",
@@ -13,7 +14,9 @@ uuid:"0F60D040-4D9A-4C30-AF61-0E4CFA9E18DD"
 {
 dataProviderID:"mat_telefono_fijo",
 formIndex:18,
+horizontalAlignment:0,
 location:"844,137",
+name:"mat_telefono_fijo",
 size:"140,20",
 typeid:4,
 uuid:"1380B290-7A88-4521-A6A4-B42D288B9564"
@@ -35,7 +38,9 @@ uuid:"16A05A5E-FA5A-44A8-B42D-7FCC0D79CAB8"
 {
 dataProviderID:"mat_circunscripcion",
 formIndex:12,
+horizontalAlignment:0,
 location:"563,137",
+name:"mat_circunscripcion",
 size:"140,20",
 typeid:4,
 uuid:"2666615E-56B2-4EE9-9AE0-03B0B79F3D5D"
@@ -43,6 +48,7 @@ uuid:"2666615E-56B2-4EE9-9AE0-03B0B79F3D5D"
 {
 formIndex:15,
 horizontalAlignment:0,
+labelFor:"mat_e_mail",
 location:"984,119",
 size:"233,20",
 styleClass:"table_label",
@@ -53,6 +59,7 @@ uuid:"351BE849-59C6-4ACB-87A5-C65805C505DF"
 {
 formIndex:5,
 horizontalAlignment:0,
+labelFor:"mat_id",
 location:"24,119",
 size:"90,20",
 styleClass:"table_label",
@@ -63,6 +70,7 @@ uuid:"414318E3-F65B-4AA3-A755-79512A09C84E"
 {
 formIndex:17,
 horizontalAlignment:0,
+labelFor:"mat_telefono_fijo",
 location:"844,119",
 size:"140,20",
 styleClass:"table_label",
@@ -73,7 +81,10 @@ uuid:"5CE94840-A746-4F09-B77D-B7F7DC5069DD"
 {
 dataProviderID:"mat_nro_matricula",
 formIndex:20,
+format:"##########",
+horizontalAlignment:0,
 location:"444,137",
+name:"mat_nro_matricula",
 size:"114,20",
 typeid:4,
 uuid:"63EDB028-3DE7-4C61-865D-35045E2CC543"
@@ -91,6 +102,7 @@ uuid:"64E3B271-D309-4456-98CA-CDC047F8FE19"
 {
 formIndex:9,
 horizontalAlignment:0,
+labelFor:"mat_nombre",
 location:"164,119",
 size:"279,20",
 styleClass:"table_label",
@@ -101,10 +113,13 @@ uuid:"6F424B6B-6982-46C1-A352-1757F4F4515F"
 {
 dataProviderID:"mat_estado",
 formIndex:14,
+horizontalAlignment:0,
 location:"704,137",
-size:"140,20",
+name:"mat_estado",
+size:"111,20",
 typeid:4,
-uuid:"7778B5E4-418B-47E1-9D2C-066864C88FF7"
+uuid:"7778B5E4-418B-47E1-9D2C-066864C88FF7",
+valuelistID:"F27D9BA8-5351-4518-AE28-F48E2C8A147F"
 },
 {
 formIndex:2,
@@ -123,6 +138,7 @@ uuid:"81A9128A-B21C-45A3-A989-6601778DA1F3"
 {
 formIndex:19,
 horizontalAlignment:0,
+labelFor:"mat_nro_matricula",
 location:"444,119",
 size:"114,20",
 styleClass:"table_label",
@@ -135,6 +151,7 @@ dataProviderID:"mat_id",
 editable:false,
 formIndex:6,
 location:"25,137",
+name:"mat_id",
 size:"89,20",
 typeid:4,
 uuid:"9699F8DB-3037-4026-805D-648F9961D8A0"
@@ -176,8 +193,9 @@ uuid:"BCA9B298-C192-4F4B-940C-CEA3422EF32A"
 {
 formIndex:13,
 horizontalAlignment:0,
+labelFor:"mat_estado",
 location:"704,119",
-size:"140,20",
+size:"111,20",
 styleClass:"table_label",
 text:"Estado",
 typeid:7,
@@ -204,7 +222,9 @@ uuid:"DFD5B881-AA34-44AD-9648-B8D9450BD10A"
 {
 dataProviderID:"mat_e_mail",
 formIndex:16,
+horizontalAlignment:0,
 location:"984,137",
+name:"mat_e_mail",
 size:"233,20",
 typeid:4,
 uuid:"EB821473-2243-4499-9BEE-BABA5EEC9A2B"
@@ -213,6 +233,7 @@ uuid:"EB821473-2243-4499-9BEE-BABA5EEC9A2B"
 dataProviderID:"mat_nombre",
 formIndex:10,
 location:"164,137",
+name:"mat_nombre",
 size:"279,20",
 typeid:4,
 uuid:"FCA234AD-E72E-467C-A906-887A44878285"

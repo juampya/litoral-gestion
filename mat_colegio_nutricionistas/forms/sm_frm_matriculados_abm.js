@@ -35,9 +35,9 @@ function onActionVolver(event)
  */
 function onActionNuevo(event) 
 {
-	forms.sm_frm_matriculados_abm_nuevo.vl_frm_anterior = controller.getName()
-	forms.sm_frm_matriculados_abm_nuevo.vl_nuevo = 1
-	forms.sm_frm_matriculados_abm_nuevo.controller.show() 
+	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
+	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 1
+	forms.sm_frm_matriculados_tabpanel.controller.show() 
 }
 
 /**
@@ -57,9 +57,9 @@ function onActionRefrescar(event)
  */
 function onActionDetalle(event) 
 {
-	forms.sm_frm_matriculados_abm_nuevo.vl_frm_anterior = controller.getName()
-	forms.sm_frm_matriculados_abm_nuevo.vl_nuevo = 0
-	forms.sm_frm_matriculados_abm_nuevo.controller.show() 
+	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
+	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 0
+	forms.sm_frm_matriculados_tabpanel.controller.show() 
 }
 
 /**
@@ -71,7 +71,7 @@ function onActionDetalle(event)
  */
 function onActionCopiar(event) 
 {
-	forms.sm_frm_matriculados_abm_nuevo.vl_frm_anterior = controller.getName()
-	forms.sm_frm_matriculados_abm_nuevo.vl_nuevo = 2
-	forms.sm_frm_matriculados_abm_nuevo.controller.show() 
+	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
+	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 2
+	forms.sm_frm_matriculados_tabpanel.controller.show() 
 }

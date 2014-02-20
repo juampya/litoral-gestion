@@ -18,6 +18,7 @@ function Salir()
  */
 function generarCuota()
 {
+	scopes.globals.SacarMenu()
 	forms.mat_liquidacion.controller.show()
 }
 
@@ -26,6 +27,7 @@ function generarCuota()
  */
 function parametros()
 {
+	scopes.globals.SacarMenu()
 	forms.mat_parametros.controller.show()
 }
 
@@ -34,6 +36,7 @@ function parametros()
  */
 function conceptos()
 {
+	scopes.globals.SacarMenu()
 	forms.mat_ingresos_abm.controller.show()
 }
 
@@ -42,6 +45,7 @@ function conceptos()
  */
 function resarcimientos() 
 {
+	scopes.globals.SacarMenu()
 	forms.mat_resarcimientos_abm.controller.show()
 }
 
@@ -50,5 +54,16 @@ function resarcimientos()
  */
 function saldosGlobales()
 {
+	scopes.globals.SacarMenu()
 	forms.mat_saldos_globales.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"868DA1EB-679C-4D5E-B102-0BE61EECA5D9"}
+ */
+function matriculados()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_matriculados_abm.vl_frm_anterior = controller.getName()
+	forms.sm_frm_matriculados_abm.controller.show()
 }

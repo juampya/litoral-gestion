@@ -498,6 +498,14 @@ function CargarMenu()
 	}
 }
 
+
+/**
+ * @properties={typeid:24,uuid:"B0935BAC-6271-4A60-A0AD-71FCF09ECACD"}
+ */
+function CargarMenuWeb()
+{
+	
+}
 /**
  * @properties={typeid:24,uuid:"2BEAB674-25C0-49D7-8F8B-6D7882CD4419"}
  */

@@ -32,5 +32,6 @@ function onActionNuevo(event)
  */
 function onActionVolver(event) 
 {
+	scopes.globals.CargarMenu()
 	forms["mat_inicio"].controller.show()
 }

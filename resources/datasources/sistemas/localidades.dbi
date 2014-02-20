@@ -30,7 +30,7 @@ length:45,
 name:"localidad_nombre"
 },
 {
-allowNull:false,
+allowNull:true,
 creationOrderIndex:4,
 dataType:4,
 name:"provincia_id"

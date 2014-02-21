@@ -45,8 +45,7 @@ name:"ingr_observaciones"
 {
 allowNull:true,
 creationOrderIndex:7,
-dataType:12,
-length:45,
+dataType:4,
 name:"ingr_primer_movimiento"
 },
 {

@@ -178,6 +178,7 @@ uuid:"F48B31CD-65E5-4985-9555-0FCEC402D111"
 }
 ],
 name:"sm_frm_universidades",
+namedFoundSet:"separate",
 showInMenu:true,
 size:"731,480",
 styleClass:"table",

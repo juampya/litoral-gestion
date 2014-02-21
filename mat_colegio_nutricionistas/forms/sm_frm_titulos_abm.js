@@ -1,36 +1,35 @@
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"86495F80-EB74-4182-BB2D-E09F9BF71260"}
+ * @properties={typeid:35,uuid:"79D2F0EE-188E-46A7-B36C-D410F1D3F5F8"}
  */
 var vl_titulo = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"CA495FF0-C1D4-40C3-96EF-36151DCD5FD2",variableType:4}
+ * @properties={typeid:35,uuid:"C2BD0E70-1FFB-4273-9DF6-709B41953D20",variableType:4}
  */
 var vl_nuevo = null;
 
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"EC7A1049-079A-467C-956B-0B45D45910ED"}
+ * @properties={typeid:35,uuid:"E5B820A4-A7A6-4603-BD7B-FC34F903C9FC"}
  */
 var vl_frm_anterior = null;
-
 
 /**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"FC940C40-CC42-4CEA-B8C9-4C787DE16E96"}
+ * @properties={typeid:24,uuid:"F01AA8E8-BE84-449A-9DAA-FF40522B5DED"}
  */
 function onActionAceptar(event) 
 {
 	databaseManager.saveData(foundset)
-	application.getWindow("universidades").hide()
+	application.getWindow("titulos").hide()
 }
 
 /**
@@ -38,12 +37,12 @@ function onActionAceptar(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"E705E86F-CD7B-43D3-8D98-065C9DAC6977"}
+ * @properties={typeid:24,uuid:"51331E02-FEB5-405E-8424-07A81D6E025A"}
  */
 function onActionCancelar(event) 
 {
 	databaseManager.revertEditedRecords()
-	application.getWindow("universidades").hide()
+	application.getWindow("titulos").hide()
 }
 
 /**
@@ -52,7 +51,7 @@ function onActionCancelar(event)
  * @param {Boolean} firstShow form is shown first time after load
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"6FD85BF8-53DA-4086-940B-EFD2080DC076"}
+ * @properties={typeid:24,uuid:"415A76FD-54F0-4153-A0A7-54BEB365F3B7"}
  * @AllowToRunInFind
  */
 function onShow(firstShow, event) 
@@ -77,7 +76,7 @@ function onShow(firstShow, event)
  *
  * @returns {Boolean}
  *
- * @properties={typeid:24,uuid:"5F460DAC-272D-453C-BE42-312D0F37E86B"}
+ * @properties={typeid:24,uuid:"C6E9AE2E-310C-4828-81D5-A2CF397FE504"}
  */
 function onHide(event) 
 {

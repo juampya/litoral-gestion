@@ -23,9 +23,16 @@ function onActionVolver(event)
  */
 function onActionNuevo(event) 
 {
-	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
-	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 1
-	forms.sm_frm_matriculados_tabpanel.controller.show() 
+	forms.sm_frm_universidades_abm.vl_frm_anterior = controller.getName()
+	forms.sm_frm_universidades_abm.vl_nuevo = 1
+	forms.sm_frm_universidades_abm.vl_titulo = "Nueva"
+	
+	var win = application.createWindow("universidades", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+		win.title= 'Litoral Gestion';
+		win.show(forms.sm_frm_universidades_abm);	
 }
 
 /**
@@ -45,9 +52,17 @@ function onActionRefrescar(event)
  */
 function onActionDetalle(event) 
 {
-	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
-	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 0
-	forms.sm_frm_matriculados_tabpanel.controller.show() 
+	forms.sm_frm_universidades_abm.vl_frm_anterior = controller.getName()
+	forms.sm_frm_universidades_abm.vl_nuevo = 0
+	forms.sm_frm_universidades_abm.vl_titulo = "Modifica"
+	forms.sm_frm_universidades_abm.controller.loadRecords(uni_id)
+	
+	var win = application.createWindow("universidades", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+		win.title= 'Litoral Gestion';
+		win.show(forms.sm_frm_universidades_abm);	
 }
 
 /**
@@ -59,7 +74,13 @@ function onActionDetalle(event)
  */
 function onActionCopiar(event) 
 {
-	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
-	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 2
-	forms.sm_frm_matriculados_tabpanel.controller.show() 
+	forms.sm_frm_universidades_abm.vl_frm_anterior = controller.getName()
+	forms.sm_frm_universidades_abm.vl_nuevo = 2
+	
+	var win = application.createWindow("universidades", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+		win.title= 'Litoral Gestion';
+		win.show(forms.sm_frm_universidades_abm);	
 }

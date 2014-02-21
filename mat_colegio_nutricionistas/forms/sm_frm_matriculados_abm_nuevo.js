@@ -64,6 +64,11 @@ function onShow(firstShow, event)
  *
  * @properties={typeid:24,uuid:"40F717E0-7D4D-4DBD-88B5-BE2FAC861504"}
  */
-function onActionEnviarMail(event) {
-	// TODO Auto-generated method stub
+function onActionEnviarMail(event) 
+{
+	if(utils.stringMiddle(application.getOSName(),1,7) == "Windows")
+	{
+		application.executeProgram('rundll32', 'url.dll,FileProtocolHandler', 'mailto:'+mat_e_mail)
+	}
+	
 }

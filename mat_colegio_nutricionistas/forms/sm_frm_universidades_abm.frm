@@ -164,7 +164,6 @@ uuid:"74428CAE-BE04-449D-A770-6577CFC1B2AC"
 },
 {
 dataProviderID:"uni_telefono1",
-editable:false,
 formIndex:18,
 horizontalAlignment:0,
 location:"164,141",
@@ -201,10 +200,11 @@ uuid:"B1CC0400-5137-467F-897B-A2F17A58F5E6"
 },
 {
 anchors:11,
+displaysTags:true,
 location:"0,0",
 size:"408,31",
 styleClass:"sub_banner",
-text:"Universidades",
+text:"%%vl_titulo%% Universidades",
 transparent:true,
 typeid:7,
 uuid:"BA453293-1129-4EBC-82BF-48762A4E07FA"
@@ -251,6 +251,9 @@ uuid:"EF3FD257-74AB-4072-98CA-1D369AD82A46"
 }
 ],
 name:"sm_frm_universidades_abm",
+navigatorID:"-1",
+onHideMethodID:"5F460DAC-272D-453C-BE42-312D0F37E86B",
+onShowMethodID:"6FD85BF8-53DA-4086-940B-EFD2080DC076",
 showInMenu:true,
 size:"408,480",
 styleClass:"table",

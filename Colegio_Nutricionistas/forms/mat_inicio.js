@@ -67,3 +67,23 @@ function matriculados()
 	forms.sm_frm_matriculados_abm.vl_frm_anterior = controller.getName()
 	forms.sm_frm_matriculados_abm.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"07189E7A-B42A-43CC-A5B9-D3B3A3933583"}
+ */
+function universidades()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_universidades.vl_frm_anterior = controller.getName()
+	forms.sm_frm_universidades.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"34461ED5-A320-45B4-98CF-A59255F87071"}
+ */
+function titulos()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_titulos.vl_frm_anterior = controller.getName()
+	forms.sm_frm_titulos.controller.show()
+}

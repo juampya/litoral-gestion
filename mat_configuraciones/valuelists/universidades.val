@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"uni_id",
+dataProviderID2:"uni_nombre",
+dataSource:"db:/sistemas/mat_universidades",
+name:"universidades",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"53232492-7BC5-41D5-867E-4E4BDA4C2CD2",
+valueListType:1

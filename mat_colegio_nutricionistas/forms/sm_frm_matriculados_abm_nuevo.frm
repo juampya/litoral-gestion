@@ -32,7 +32,8 @@ location:"379,275",
 size:"233,20",
 tabSeq:17,
 typeid:4,
-uuid:"068ACD2C-23B8-4C09-A7B1-84F2FB37A54A"
+uuid:"068ACD2C-23B8-4C09-A7B1-84F2FB37A54A",
+valuelistID:"53232492-7BC5-41D5-867E-4E4BDA4C2CD2"
 },
 {
 dataProviderID:"mat_conyugue",
@@ -428,7 +429,8 @@ location:"134,275",
 size:"140,20",
 tabSeq:16,
 typeid:4,
-uuid:"908ED2EE-5A4D-401D-886A-1F1929AF742D"
+uuid:"908ED2EE-5A4D-401D-886A-1F1929AF742D",
+valuelistID:"E3CC3831-2C5A-466E-8C2C-A26AC3168F15"
 },
 {
 formIndex:60,
@@ -480,16 +482,18 @@ typeid:7,
 uuid:"9F5D3130-7286-486D-9AC4-D929742A00C3"
 },
 {
+borderType:"EmptyBorder,0,0,0,0",
 formIndex:80,
 imageMediaID:"C4CC0326-CC5A-42B2-B518-53DA4532F9AA",
-location:"395,140",
+location:"392,142",
 mediaOptions:1,
 onActionMethodID:"40F717E0-7D4D-4DBD-88B5-BE2FAC861504",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"24,20",
 tabSeq:32,
-toolTipText:"Enviar Mail",
+toolTipText:"Crear E-Mail",
+transparent:true,
 typeid:7,
 uuid:"A26CBB77-7068-4F2E-A8D3-45E06C161CE3",
 verticalAlignment:0

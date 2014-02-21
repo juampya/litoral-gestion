@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"titulo_id",
+dataProviderID2:"titulo_descripcion",
+dataSource:"db:/sistemas/mat_titulos",
+name:"titulos",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"E3CC3831-2C5A-466E-8C2C-A26AC3168F15",
+valueListType:1

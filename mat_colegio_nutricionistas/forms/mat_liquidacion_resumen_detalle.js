@@ -277,7 +277,47 @@ function crearFormularioDevoluciones()
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"066BC398-CD9C-45EC-9461-CBE907AB15C4"}
+ * @AllowToRunInFind
  */
-function onActionBorrar(event) {
-	// TODO Borrar liquidacion si no hay ninguna pagada
+function onActionBorrar(event) 
+{
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+	var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
+	fs_mov.find()
+	fs_mov.mov_anio_emision = vl_anio 
+	fs_mov.mov_mes_emision = vl_mes
+	fs_mov.mov_tipo_de_movimiento = 0
+	fs_mov.mov_estado = 1
+	var cant = fs_mov.search()
+	if(cant > 0)
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'Esta liquidacion tiene cuotas pagadas.\n No se puede borrar.', 'question', controller.getName(), 'No', '', 'Si', 'borrarLiquidacion', null, null, null, null)		
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'Desea borrar la Liquidacion?', 'question', controller.getName(), 'No', '', 'Si', 'borrarLiquidacion', null, null, null, null)
+	}	
+
+}
+
+/**
+ * @properties={typeid:24,uuid:"6713FA1E-F1BE-4F11-A04C-A7CA702C7E98"}
+ * @AllowToRunInFind
+ */
+function borrarLiquidacion()
+{
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+	var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
+	fs_mov.find()
+	fs_mov.mov_anio_emision = vl_anio 
+	fs_mov.mov_mes_emision = vl_mes
+	fs_mov.mov_tipo_de_movimiento = 0
+	fs_mov.search()
+	for(var i=1;i<=fs_mov.getSize();i++)
+	{
+		var rec = fs_mov.getRecord(i)
+		rec.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
+	}
+	fs_mov.deleteAllRecords()
+	forms.mat_liquidacion.controller.show()
 }

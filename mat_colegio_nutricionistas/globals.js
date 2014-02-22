@@ -33,9 +33,17 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
 	if(matriculado == null)
 	{
-		fs_matriculados.find()
-		fs_matriculados.mat_estado = 1 //Busca todos los matriculados activos
-		fs_matriculados.search()
+		//busca todos los matriculados q no tienen primer movimiento y q estan activos en mes y anio
+		
+		var qry = 		
+		"SELECT * FROM mat_matriculados as a " +
+		"where a.mat_estado = 1 and a.mat_id not in (select mat_id from mat_movimientos as b where b.mov_anio_emision = " + anio + " and b.mov_mes_emision =" + mes + " and b.mov_tipo_de_movimiento = 1) "
+		
+		/** @type {JSDataSet<id:number>}*/
+		var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
+		
+		fs_matriculados.loadRecords(ds)
+
 	}
 	else
 	{

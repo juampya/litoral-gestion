@@ -170,7 +170,7 @@ function onActionConfirmar(event)
 		fs_mov.mov_grab_fec = rec.mov_grab_fec
 		fs_mov.mov_grab_ope = rec.mov_grab_ope
 		databaseManager.saveData(fs_mov)
-		for(var j = 1; j <= foundset.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
+		for(var j = 1; j <= rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
 		{
 			var rec1 = foundset.mat_movimientos_aux_to_mat_movimientos_det_aux.getRecord(j)
 			/** @type {JSFoundset<db:/sistemas/mat_movimientos_det>}*/

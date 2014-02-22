@@ -30,6 +30,7 @@ function onActionLiquidar(event)
 	fs_mov.find()
 	fs_mov.mov_mes_emision = vl_mes
 	fs_mov.mov_anio_emision = vl_anio
+	fs_mov.mov_tipo_de_movimiento = 0
 	var cant = fs_mov.search()
 	
 	if(cant > 0)
@@ -106,6 +107,7 @@ function reliquidar()
 	fs_mov.mov_mes_emision = vl_mes
 	fs_mov.mov_anio_emision = vl_anio
 	fs_mov.mov_estado = 1
+	fs_mov.mov_tipo_de_movimiento = 0
 	if(fs_mov.search()!=0)
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'En el período que desea reliquidar ya se cobraron cuotas, no se puede reliquidar!', 'info', controller.getName(), 'Aceptar',null,null,null, null, null, null, null) 

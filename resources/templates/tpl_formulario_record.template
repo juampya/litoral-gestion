@@ -4,12 +4,15 @@
 location:"0,0",
 size:"640,106",
 styleClass:"banner",
-text:"Nuevo Concepto",
+text:"Type",
 transparent:true,
 typeid:7
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"35,52",
+mediaOptions:1,
+onActionMethodID:"onActionVolver",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
@@ -17,7 +20,10 @@ text:"Volver",
 typeid:7
 },
 {
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
 location:"180,52",
+mediaOptions:1,
+onActionMethodID:"onActionGrabar",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
@@ -34,7 +40,10 @@ typeid:19
 "form":{
 items:[
 {
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
 location:"180,52",
+mediaOptions:1,
+onActionMethodID:"onActionGrabar",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
@@ -45,7 +54,7 @@ typeid:7
 location:"0,0",
 size:"640,106",
 styleClass:"banner",
-text:"Nuevo Concepto",
+text:"Type",
 transparent:true,
 typeid:7
 },
@@ -55,7 +64,10 @@ partType:5,
 typeid:19
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"35,52",
+mediaOptions:1,
+onActionMethodID:"onActionVolver",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
@@ -63,9 +75,9 @@ text:"Volver",
 typeid:7
 }
 ],
-name:"mat_ingresos",
-navigatorID:"-1",
+name:"template_formulario_record",
 showInMenu:true,
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3
 },

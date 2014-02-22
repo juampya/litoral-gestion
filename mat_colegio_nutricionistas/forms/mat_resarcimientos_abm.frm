@@ -187,10 +187,10 @@ uuid:"D15A87CA-CFDD-4030-8893-A750EF58E426"
 },
 {
 anchors:11,
-dataProviderID:"mat_resarcimientos_to_mat_matriculados.calc_apellido_nombre",
+dataProviderID:"mat_resarcimientos_to_mat_matriculados.mat_nombre",
 editable:false,
 location:"517,157",
-name:"calc_apellido_nombre",
+name:"mat_nombre",
 size:"226,20",
 text:"Calc Apellido Nombre",
 typeid:4,

@@ -1,7 +1,7 @@
 addEmptyValue:1,
 dataProviderID1:"mat_id",
 dataProviderID2:"mat_nro_matricula",
-dataProviderID3:"mat_apellido",
+dataProviderID3:"mat_nombre",
 dataSource:"db:/sistemas/mat_matriculados",
 name:"matriculados",
 returnDataProviders:1,

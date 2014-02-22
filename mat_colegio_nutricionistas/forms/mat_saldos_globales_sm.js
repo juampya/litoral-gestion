@@ -60,6 +60,7 @@ function cancelarSaldo()
 			{
 				var rec1 = fs_mov.getRecord(j)
 				rec1.mov_estado = 1
+				rec1.mov_fecha_cobro = application.getServerTimeStamp()
 				databaseManager.saveData(rec1)
 			}
 			

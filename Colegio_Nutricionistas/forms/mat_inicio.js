@@ -87,3 +87,11 @@ function titulos()
 	forms.sm_frm_titulos.vl_frm_anterior = controller.getName()
 	forms.sm_frm_titulos.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"46AC2DD9-3A40-41FC-9C02-AF21E56BF89F"}
+ */
+function movimientos()
+{
+	forms.mat_movimientos.controller.show()
+}

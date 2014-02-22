@@ -1,0 +1,10 @@
+addEmptyValue:1,
+customValues:"Pendiente|0\r
+Pagada|1\r
+Anulada|2\r
+Todos|3",
+name:"estado_del_movimiento",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"13D4CF52-26B6-4520-AAEF-27D8E77D4D59"

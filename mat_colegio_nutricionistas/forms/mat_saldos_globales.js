@@ -45,7 +45,15 @@ function crearFormulario()
 	sg_pendiente.titleText = 'Saldo'
 	sg_pendiente.anchors = SM_ANCHOR.ALL
 	sg_pendiente.styleClass = 'table_field'
-	sg_pendiente.format = "#,###.00"		
+	sg_pendiente.format = "#,###.00"	
+		
+	var sg_chk = myForm.newCheck('chk',60,200,50,20)
+	sg_chk.editable = true
+	sg_chk.horizontalAlignment = SM_ALIGNMENT.CENTER
+	sg_chk.titleText = 'Pagar'
+	sg_chk.anchors = SM_ANCHOR.ALL
+	sg_chk.styleClass = 'table_field'
+		
 
 		
 //	var sg_total = myForm.newTextField('total', 60, 200, 120, 20)

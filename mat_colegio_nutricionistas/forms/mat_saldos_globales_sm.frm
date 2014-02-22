@@ -31,6 +31,16 @@ typeid:19,
 uuid:"891A0716-1AAC-4FFD-8F29-E80B2CB090FD"
 },
 {
+location:"178,47",
+onActionMethodID:"47B991DA-9F33-4E6E-9BBC-F5F5DE260FF7",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"130,30",
+text:"Cobrar",
+typeid:7,
+uuid:"A8EAC344-2357-453A-81E7-3FD29DD9C5C6"
+},
+{
 location:"28,47",
 onActionMethodID:"FE4982E0-5E7A-4A9D-BE06-0FD66468FA9A",
 onDoubleClickMethodID:"-1",

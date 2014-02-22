@@ -88,7 +88,8 @@ function calcularTotales()
 	vl_importe_total = 0
 	controller.find()
 	mov_anio_emision = vl_anio
-	mov_mes_emision = vl_mes		
+	mov_mes_emision = vl_mes	
+	mov_tipo_de_movimiento = 0
 	var cant = controller.search()
 	if(cant > 0)
 	{
@@ -133,7 +134,7 @@ function crearFormularioConceptos()
 	var qry = 
 		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
 		"from mat_movimientos_det as a, mat_ingresos as b, mat_movimientos as c " +
-		"where a.ingr_id = b.ingr_id and  a.mov_id = c.mov_id and c.mov_mes_emision = " + vl_mes + " and c.mov_anio_emision = " + vl_anio +
+		"where a.ingr_id = b.ingr_id and  a.mov_id = c.mov_id and c.mov_tipo_de_movimiento = 0 and c.mov_mes_emision = " + vl_mes + " and c.mov_anio_emision = " + vl_anio +
 		" group by a.ingr_id " 
 
 	/** @type {JSDataSet<concepto:number, cantidad:number, total:text>}*/
@@ -207,7 +208,7 @@ function crearFormularioDevoluciones()
 	var qry = 
 		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
 		"from mat_movimientos_det as a, mat_ingresos as b, mat_movimientos as c " +
-		"where a.ingr_id = b.ingr_id and res_id > 0 and  a.mov_id = c.mov_id and c.mov_mes_emision = " + vl_mes + " and c.mov_anio_emision = " + vl_anio +
+		"where a.ingr_id = b.ingr_id and res_id > 0 and c.mov_tipo_de_movimiento = 0 and a.mov_id = c.mov_id and c.mov_mes_emision = " + vl_mes + " and c.mov_anio_emision = " + vl_anio +
 		" group by a.ingr_id " 
 
 	/** @type {JSDataSet<concepto:text, cantidad:number, total:number>}*/

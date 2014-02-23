@@ -13,7 +13,10 @@ uuid:"1DA4A7EF-BDD2-4CA4-99C3-BB9CF748CD45",
 valuelistID:"97C211F8-7C9E-41D2-8890-E4EDB38B2F2A"
 },
 {
+formIndex:1,
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
 location:"180,52",
+mediaOptions:1,
 onActionMethodID:"5641F025-B2B6-44F0-AF10-CEEDD1C270DB",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -23,7 +26,10 @@ typeid:7,
 uuid:"26C8CB9A-1B47-4387-801F-771B13C870B7"
 },
 {
+formIndex:2,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"35,52",
+mediaOptions:1,
 onActionMethodID:"BDA67E9C-8680-4B73-B040-68B87B8A3ED8",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

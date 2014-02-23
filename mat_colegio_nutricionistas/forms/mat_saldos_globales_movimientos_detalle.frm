@@ -118,7 +118,9 @@ typeid:4,
 uuid:"6C43ACE2-9C83-4F0E-B485-E6CE400630F6"
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"28,47",
+mediaOptions:1,
 onActionMethodID:"C39CCA3B-D43C-48C8-A004-837B6E5189AF",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

@@ -214,7 +214,9 @@ uuid:"E3ECE97D-1D12-4A62-80D9-30F33E9CB264",
 valuelistID:"F6D88DD2-B460-48B8-9EC5-BF53D194215F"
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"28,47",
+mediaOptions:1,
 onActionMethodID:"082C7DA2-E53D-41AB-84F0-81D6707D494B",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

@@ -28,7 +28,9 @@ uuid:"0EE4B4C2-03B7-4DC5-8F5D-04AA6FDBCBD6"
 },
 {
 formIndex:2,
+imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
 location:"201,36",
+mediaOptions:1,
 onActionMethodID:"066BC398-CD9C-45EC-9461-CBE907AB15C4",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -179,7 +181,9 @@ uuid:"D87C0921-1967-4DAB-B146-4AB3A2061D99"
 },
 {
 formIndex:1,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"45,36",
+mediaOptions:1,
 onActionMethodID:"22B589F0-A797-4FE6-9052-00666CFDDFC5",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

@@ -1,7 +1,9 @@
 items:[
 {
 formIndex:1,
+imageMediaID:"CFB44961-878A-4765-A443-DA4AF67E3B33",
 location:"186,37",
+mediaOptions:1,
 onActionMethodID:"25EBA0EC-073D-4A32-9981-A4596601B720",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -35,7 +37,9 @@ uuid:"755F65F0-06E6-45BA-B0D3-BEA6E6B38543"
 },
 {
 formIndex:2,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"44,37",
+mediaOptions:1,
 onActionMethodID:"F8E6FF4C-3B7B-4334-9948-4CE5F23E0088",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

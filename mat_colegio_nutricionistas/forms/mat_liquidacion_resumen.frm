@@ -33,7 +33,9 @@ typeid:7,
 uuid:"41FE61C6-FCCE-43E4-84B9-25836AF25989"
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"45,36",
+mediaOptions:1,
 onActionMethodID:"B2BD4FD9-CB3E-466F-B531-35F8C295F220",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -156,11 +158,13 @@ typeid:7,
 uuid:"9AE6ABA1-414A-4CAC-BB6C-207A23144027"
 },
 {
+imageMediaID:"77B3503E-2FCC-4AD9-9889-F5F1F007091A",
 location:"190,36",
+mediaOptions:1,
 onActionMethodID:"5FB39FAC-9503-4713-9869-510A26E1A1D6",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"158,30",
+size:"178,30",
 text:"Confirmar Liquidacion",
 typeid:7,
 uuid:"B24D91AE-B183-4DF2-B92D-369C6E7D50A7"

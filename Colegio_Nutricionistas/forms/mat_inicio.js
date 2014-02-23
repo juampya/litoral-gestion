@@ -98,3 +98,4 @@ function movimientos()
 
 /** TODO AAAgregar sacar menu y poner menu*/
 /** TODO AAAHabilitar Editar movimiento*/
+/** TODO AAATerminar de Agregar dibujos a los botones*/

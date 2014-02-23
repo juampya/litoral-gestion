@@ -8,6 +8,7 @@
  */
 function onActionVolver(event) 
 {
+	databaseManager.revertEditedRecords(foundset)
 	forms.mat_movimientos.controller.show()
 }
 
@@ -31,4 +32,41 @@ function anularMovim()
 	foundset.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
 	controller.deleteRecord()
 	forms.mat_movimientos.controller.show()
+}
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"363FF588-41B6-4A5B-95C9-6F332244B97F"}
+ */
+function onActionGrabar(event) 
+{
+	databaseManager.saveData(foundset)
+	forms.mat_movimientos.controller.show()
+}
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"99040980-9327-4C3A-85BA-188B1696CF3B"}
+ */
+function onDataChangeEstado(oldValue, newValue, event) 
+{
+	if(mov_estado == 1)
+	{
+		elements.mov_fecha_cobro.enabled = true
+	}
+	else
+	{
+		elements.mov_fecha_cobro.enabled = false
+		mov_fecha_cobro = null
+	}
+	return true
 }

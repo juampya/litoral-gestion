@@ -93,9 +93,9 @@ function titulos()
  */
 function movimientos()
 {
+	scopes.globals.SacarMenu()
 	forms.mat_movimientos.controller.show()
 }
 
 /** TODO AAAgregar sacar menu y poner menu*/
-/** TODO AAAHabilitar Editar movimiento*/
 /** TODO AAATerminar de Agregar dibujos a los botones*/

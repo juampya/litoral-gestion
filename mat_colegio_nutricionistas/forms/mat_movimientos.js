@@ -48,6 +48,7 @@ var vl_tipo_movim = 0
  */
 function onActionVolver(event) 
 {
+	globals.CargarMenu()
 	forms['mat_inicio'].controller.show()
 }
 
@@ -135,4 +136,16 @@ function onDataChangeTipoFecha(oldValue, newValue, event)
 		elements.vl_fec_fin.format = "MM-yyyy"	
 	}
 	return true
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"22A2EAF7-8C5C-4A63-9AA6-19D81D634B50"}
+ */
+function onActionNuevo(event) 
+{
+	globals.ventanaFormulario("nuevoMovim","Litoral Gestion",forms.mat_movimientos_nuevo.controller.getName())
 }

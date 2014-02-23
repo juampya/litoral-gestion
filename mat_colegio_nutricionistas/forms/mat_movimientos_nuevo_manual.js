@@ -28,7 +28,7 @@ function onActionVolver(event)
 function onActionGrabar(event) 
 {
 	mov_fecha_emision = new Date(mov_anio_emision,mov_mes_emision - 1,15)
-	mov_importe = mat_movimientos_to_mat_movimientos_det.ag_total_importe
+	mov_importe = vl_importe
 	mov_grab_fec = application.getServerTimeStamp()
 	mov_grab_ope = globals.ag_usuariovigente.usu_id
 	databaseManager.saveData(foundset)

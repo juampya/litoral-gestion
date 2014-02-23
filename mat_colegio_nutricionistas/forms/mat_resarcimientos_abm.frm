@@ -171,11 +171,14 @@ typeid:19,
 uuid:"CBF8750F-F258-49AD-B8B4-DE4BAE16BC0A"
 },
 {
+imageMediaID:"0E4EAC8B-534A-4773-A300-0556D9E21A1A",
 location:"0,157",
+mediaOptions:10,
 onActionMethodID:"02189668-B48F-46D9-B88B-AAF0ABA57E43",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"26,20",
+showClick:false,
+size:"16,16",
 typeid:7,
 uuid:"CC7145E1-3257-4C10-9D02-B4642887C594"
 },
@@ -209,7 +212,7 @@ uuid:"E1A49543-3D60-435D-B766-F5A9A0141CE0"
 {
 anchors:11,
 horizontalAlignment:2,
-labelFor:"calc_apellido_nombre",
+labelFor:"mat_nombre",
 location:"517,137",
 name:"calc_apellido_nombre_label",
 size:"226,20",

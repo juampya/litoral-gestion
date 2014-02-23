@@ -114,11 +114,14 @@ typeid:7,
 uuid:"6556F495-D0CF-406C-A8FC-8003929D6464"
 },
 {
-location:"5,147",
+imageMediaID:"0E4EAC8B-534A-4773-A300-0556D9E21A1A",
+location:"12,151",
+mediaOptions:10,
 onActionMethodID:"26FEE9B1-865D-432A-BFDC-4DA1DC656ED5",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"26,20",
+showClick:false,
+size:"16,16",
 typeid:7,
 uuid:"67CEE66C-553F-438B-9C70-BB8B3D7C38F2"
 },

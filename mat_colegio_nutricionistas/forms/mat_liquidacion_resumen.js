@@ -172,7 +172,7 @@ function onActionConfirmar(event)
 		databaseManager.saveData(fs_mov)
 		for(var j = 1; j <= rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
 		{
-			var rec1 = foundset.mat_movimientos_aux_to_mat_movimientos_det_aux.getRecord(j)
+			var rec1 = rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getRecord(j)
 			/** @type {JSFoundset<db:/sistemas/mat_movimientos_det>}*/
 			var fs_det = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 			fs_det.newRecord()

@@ -1,4 +1,29 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"E8923236-6E22-4552-8B92-DE4223AF5C5F",variableType:4}
+ */
+var vl_cantidad = 0
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"FE2019B0-0E62-422B-87D9-BBACE9CC95A4",variableType:8}
+ */
+var vl_total_total = 0.0
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"51A681B0-7514-4644-9904-E33BBE792EFB",variableType:8}
+ */
+var vl_total_cobrado = 0.0
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"1B048438-11DA-43DC-AFB1-0E827B2D7DF9",variableType:8}
+ */
+var vl_total_pendiente = 0.0
+
+/**
  * @properties={typeid:24,uuid:"4EB698EF-FFCD-4BD9-B872-B02D93075F4D"}
  */
 function filtrar()

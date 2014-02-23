@@ -292,7 +292,7 @@ function onActionBorrar(event)
 	var cant = fs_mov.search()
 	if(cant > 0)
 	{
-		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'Esta liquidacion tiene cuotas pagadas.\n No se puede borrar.', 'question', controller.getName(), 'No', '', 'Si', 'borrarLiquidacion', null, null, null, null)		
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'Esta liquidacion tiene cuotas pagadas.\n No se puede borrar.', 'question', controller.getName(), 'Aceptar', '', null, null, null, null, null, null)		
 	}
 	else
 	{

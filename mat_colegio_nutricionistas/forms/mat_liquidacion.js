@@ -76,20 +76,20 @@ function crearFormulario()
 
 
 	
-//	var tmp_total_pendiente 	= 0
-//	var tmp_total_cobrado 		= 0
-//	var tmp_total				= 0
-//	for(var i=1; i<=ds.getMaxRowIndex();i++){
-//		ds.rowIndex = i
-//		tmp_total_pendiente 	+= ds.pendiente
-//		tmp_total_cobrado 		+= ds.cobrado
-//		tmp_total 				+= ds.total
-//	}
+	var tmp_total_pendiente 	= 0
+	var tmp_total_cobrado 		= 0
+	var tmp_total				= 0
+	for(var i=1; i<=ds.getMaxRowIndex();i++){
+		ds.rowIndex = i
+		tmp_total_pendiente 	+= ds.pendiente
+		tmp_total_cobrado 		+= ds.cobrado
+		tmp_total 				+= ds.total
+	}
 	
-//	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
-//	forms['matriculados']['vl_total']		=tmp_total
-//	forms['matriculados']['vl_pendiente']	=tmp_total_pendiente
-//	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
+	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
+	forms['matriculados']['vl_total_total']		=tmp_total
+	forms['matriculados']['vl_total_pendiente']	=tmp_total_pendiente
+	forms['matriculados']['vl_total_cobrado']	=tmp_total_cobrado
 		
 	forms['matriculados'].controller.show();
 

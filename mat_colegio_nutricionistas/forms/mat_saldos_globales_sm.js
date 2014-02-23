@@ -1,4 +1,15 @@
-
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"4C385256-DFC3-4CD2-9CB0-589972A729B3",variableType:8}
+ */
+var vl_total_saldo = 0.0
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"DD4B461F-837D-436B-9974-91416446BDEB",variableType:4}
+ */
+var vl_cantidad = 0
 /**
  * Perform the element default action.
  *

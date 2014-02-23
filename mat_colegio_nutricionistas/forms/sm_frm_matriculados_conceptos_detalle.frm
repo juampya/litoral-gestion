@@ -50,7 +50,8 @@ size:"125,20",
 styleClass:"label_black",
 text:"Descuento:",
 typeid:7,
-uuid:"72F267B2-313C-48DC-8F60-B7B1082FB225"
+uuid:"72F267B2-313C-48DC-8F60-B7B1082FB225",
+visible:false
 },
 {
 anchors:11,
@@ -117,7 +118,8 @@ location:"135,93",
 name:"rel_descuento",
 size:"80,20",
 typeid:4,
-uuid:"B5CA6914-0428-4A4F-9827-7A98CCD46B1D"
+uuid:"B5CA6914-0428-4A4F-9827-7A98CCD46B1D",
+visible:false
 },
 {
 height:50,

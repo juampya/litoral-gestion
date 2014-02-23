@@ -56,28 +56,18 @@ function crearFormulario()
 		
 
 		
-//	var sg_total = myForm.newTextField('total', 60, 200, 120, 20)
-//	sg_total.editable = false
-//	sg_total.horizontalAlignment = SM_ALIGNMENT.RIGHT
-//	sg_total.titleText = 'Total'
-//	sg_total.anchors = SM_ANCHOR.ALL
-//	sg_total.styleClass = 'table_field'
-//	sg_total.format = "#,###.00"	
-		
-//	var tmp_total_pendiente 	= 0
-//	var tmp_total_cobrado 		= 0
-//	var tmp_total				= 0
-//	for(var i=1; i<=ds.getMaxRowIndex();i++){
-//		ds.rowIndex = i
-//		tmp_total_pendiente 	+= ds.pendiente
-//		tmp_total_cobrado 		+= ds.cobrado
-//		tmp_total 				+= ds.total
-//	}
+	var tmp_total_pendiente 	= 0
+
+	for(var i=1; i<=ds.getMaxRowIndex();i++)
+	{
+		ds.rowIndex = i
+		tmp_total_pendiente 	+= ds.saldo
+
+	}
 	
-//	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
-//	forms['matriculados']['vl_total']		=tmp_total
-//	forms['matriculados']['vl_pendiente']	=tmp_total_pendiente
-//	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
+	forms['saldosGlobales']['vl_cantidad']	= ds.getMaxRowIndex()
+	forms['saldosGlobales']['vl_total_saldo']	= tmp_total_pendiente
+
 		
 	forms['saldosGlobales'].controller.show();
 }

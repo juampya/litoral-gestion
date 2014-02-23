@@ -225,7 +225,7 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 	fs_movim.mov_anio_emision = anio
 	fs_movim.mov_descripcion = "Cuota Mensual " + mes + "/" + anio
 	fs_movim.mov_estado = 1 //Pagado
-	fs_movim.mov_fecha_emision = application.getServerTimeStamp()
+	fs_movim.mov_fecha_emision = new Date(anio, mes - 1, 15)
 	fs_movim.mov_tipo_de_movimiento = 1 // Primer Movimiento
 	
 	databaseManager.saveData(fs_movim)	

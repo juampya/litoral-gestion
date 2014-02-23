@@ -172,7 +172,9 @@ typeid:4,
 uuid:"C499EFB8-B4E2-474A-B095-A02B920C67BD"
 },
 {
+imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
 location:"173,47",
+mediaOptions:1,
 onActionMethodID:"247BDAD7-E112-4216-B5A7-EC4E961C0661",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -182,7 +184,9 @@ typeid:7,
 uuid:"D63E866E-57FB-4C7E-8330-ABF6350B92B5"
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"28,47",
+mediaOptions:1,
 onActionMethodID:"6952ECA5-0A45-4CD9-BA0D-FCDFFDAB2EB7",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

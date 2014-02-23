@@ -1,7 +1,10 @@
 dataSource:"db:/sistemas/mat_configuraciones",
 items:[
 {
+formIndex:1,
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
 location:"174,45",
+mediaOptions:1,
 onActionMethodID:"6DBA1F4B-1C61-4DA4-97CA-AAD05E8E1E7D",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -143,7 +146,10 @@ typeid:7,
 uuid:"C89D0ED5-F48E-4C1E-9680-7F332D424067"
 },
 {
+formIndex:2,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"29,45",
+mediaOptions:1,
 onActionMethodID:"F5241D06-31B6-4171-B04E-CBC34A1E548F",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

@@ -8,6 +8,7 @@
  */
 function onActionVolver(event) 
 {
+	scopes.globals.CargarMenu()
 	databaseManager.revertEditedRecords(foundset)
 	forms["mat_inicio"].controller.show()
 }
@@ -21,6 +22,7 @@ function onActionVolver(event)
  */
 function onActionGrabar(event) 
 {
+	scopes.globals.CargarMenu()
 	databaseManager.saveData(foundset)
 	forms["mat_inicio"].controller.show()
 }

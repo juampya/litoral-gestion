@@ -11,7 +11,9 @@ typeid:7,
 uuid:"037E32AF-CF03-4C8F-AEC8-7A794067F6C5"
 },
 {
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
 location:"180,52",
+mediaOptions:1,
 onActionMethodID:"55CCA076-8B0E-44C9-97D5-AF285C29759D",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -120,7 +122,9 @@ typeid:7,
 uuid:"717766E3-065B-4AC9-91F9-C950D5EA01E9"
 },
 {
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"35,52",
+mediaOptions:1,
 onActionMethodID:"8210911B-BD93-4153-B55F-93B04C567597",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -168,7 +172,9 @@ typeid:4,
 uuid:"B5EFCC11-D2FD-4D7B-B006-538B1C52FA2C"
 },
 {
+imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
 location:"329,52",
+mediaOptions:1,
 onActionMethodID:"07601AC9-8B2A-405B-B7DE-8F2A3D43A075",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -197,11 +203,13 @@ typeid:4,
 uuid:"FD1EFB90-9DF8-4E69-84A1-47CA0B7963B1"
 },
 {
+imageMediaID:"513FB1E5-3480-4651-9740-112DC70CC341",
 location:"475,52",
+mediaOptions:1,
 onActionMethodID:"39051DF4-F715-4283-A91D-65801902269E",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"130,30",
+size:"150,30",
 text:"Asignacion global",
 typeid:7,
 uuid:"FFBDA979-A514-4A72-BD4D-6C34C799CAB8"

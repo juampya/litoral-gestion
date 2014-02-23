@@ -91,7 +91,10 @@ typeid:4,
 uuid:"A999699E-0402-457B-ADE2-2E90FFC2B7D8"
 },
 {
+formIndex:2,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"35,52",
+mediaOptions:1,
 onActionMethodID:"B3583152-CB20-48C6-87FF-792547D8A300",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -101,7 +104,10 @@ typeid:7,
 uuid:"AC4576A5-F39D-47F8-81FA-EFF0AAA1885A"
 },
 {
+formIndex:1,
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
 location:"180,52",
+mediaOptions:1,
 onActionMethodID:"B694DDB3-44C3-406E-B1BF-C61DE8B7CAA8",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -113,6 +119,7 @@ uuid:"B3671F77-FC92-401A-A489-4C44FF145187"
 {
 anchors:11,
 location:"0,0",
+mediaOptions:1,
 size:"640,106",
 styleClass:"banner",
 text:"Nuevo Concepto",

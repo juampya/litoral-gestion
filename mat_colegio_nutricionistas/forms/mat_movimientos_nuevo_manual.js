@@ -13,8 +13,7 @@ var vl_importe = 0.0
  */
 function onActionVolver(event) 
 {
-	databaseManager.revertEditedRecords(foundset.mat_movimientos_to_mat_movimientos_det)
-	databaseManager.revertEditedRecords(foundset)
+	databaseManager.revertEditedRecords()
 	forms.mat_movimientos.controller.show()
 }
 
@@ -31,8 +30,7 @@ function onActionGrabar(event)
 	mov_importe = vl_importe
 	mov_grab_fec = application.getServerTimeStamp()
 	mov_grab_ope = globals.ag_usuariovigente.usu_id
-	databaseManager.saveData(foundset)
-	databaseManager.saveData(foundset.mat_movimientos_to_mat_movimientos_det)
+	databaseManager.saveData()
 	forms.mat_movimientos.controller.show()
 }
 
@@ -52,4 +50,6 @@ function onShow(firstShow, event)
 	mov_tipo_de_movimiento = forms.mat_movimientos_nuevo.vl_tipo_movim
 	mov_estado = 0
 	mat_id = forms.mat_movimientos_nuevo.vl_matriculado
+	vl_importe = 0
+	
 }

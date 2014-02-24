@@ -339,3 +339,10 @@ function crearFormularioDevoluciones()
 }
 
 
+/**
+ * @properties={typeid:24,uuid:"98000B8B-CD4C-498F-851A-01CBBFF5916D"}
+ */
+function verMovimientos()
+{
+	//TODO AAA Ver los movimientos de la liquidacion... filtrar por matriculado
+}

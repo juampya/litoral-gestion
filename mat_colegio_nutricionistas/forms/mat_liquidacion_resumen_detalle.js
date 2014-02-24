@@ -322,3 +322,11 @@ function borrarLiquidacion()
 	fs_mov.deleteAllRecords()
 	forms.mat_liquidacion.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"6036765F-CD8F-4DDB-85E8-F608EA6CDBE7"}
+ */
+function verMovimientos()
+{
+	//TODO AAA Ver los movimientos de la liquidacion... filtrar por matriculado
+}

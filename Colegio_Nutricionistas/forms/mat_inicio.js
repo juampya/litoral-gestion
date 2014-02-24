@@ -97,5 +97,4 @@ function movimientos()
 	forms.mat_movimientos.controller.show()
 }
 
-/** TODO AAAgregar sacar menu y poner menu*/
 /** TODO AAATerminar de Agregar dibujos a los botones*/

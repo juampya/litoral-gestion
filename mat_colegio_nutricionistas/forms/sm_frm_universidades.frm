@@ -9,7 +9,7 @@ uuid:"1AB18F71-EC51-43BC-9366-60F28D195798"
 {
 formIndex:2,
 horizontalAlignment:2,
-imageMediaID:"F289AB77-A474-471C-BCA9-CD3C9E9E5C36",
+imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
 location:"114,37",
 mediaOptions:1,
 onActionMethodID:"027FB7A7-B897-464A-8192-8EF473019511",
@@ -45,7 +45,7 @@ uuid:"3C92D56A-BE2E-49E8-9AF2-B00BAD00B77D"
 {
 formIndex:3,
 horizontalAlignment:2,
-imageMediaID:"70F24F92-1E1B-47AB-8406-C7959112C131",
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"5,37",
 mediaOptions:1,
 onActionMethodID:"B7F3808C-D695-498D-87B2-47EDE66E1CCD",
@@ -75,7 +75,7 @@ uuid:"91A1BCD3-CCF7-4C29-B8E3-AA42D41717BB"
 {
 formIndex:1,
 horizontalAlignment:2,
-imageMediaID:"AB9ADF4E-8884-434F-8B84-73BCE5180AE2",
+imageMediaID:"215F84EA-D58C-4A1C-9C79-A197FBA32FAE",
 location:"224,37",
 mediaOptions:1,
 onActionMethodID:"6FAB62BC-2BAC-47BF-AF43-33B772E8135A",
@@ -89,7 +89,7 @@ uuid:"9656D16A-2608-4009-A9A1-E0A791EBE1BE"
 {
 formIndex:1,
 horizontalAlignment:2,
-imageMediaID:"FC7F8770-60DE-4393-9600-AD1F3020A75E",
+imageMediaID:"2B60F448-AFEE-4D01-A8F7-F7E8B7EB6164",
 location:"334,37",
 mediaOptions:1,
 onActionMethodID:"E53D4498-7D6F-447F-A9EF-E11AB2077B53",
@@ -133,14 +133,16 @@ typeid:7,
 uuid:"B4365166-E29A-4DD0-AF91-3FB35B8393E3"
 },
 {
+borderType:"EmptyBorder,0,0,0,0",
 formIndex:4,
-imageMediaID:"E3DB3DA5-F5CA-4C55-BA3A-3BE4A61704BD",
+imageMediaID:"0E4EAC8B-534A-4773-A300-0556D9E21A1A",
 location:"0,137",
-mediaOptions:14,
+mediaOptions:1,
 onActionMethodID:"0B5A794D-75DC-47C9-B6CE-139E7C628E79",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"24,20",
+transparent:true,
 typeid:7,
 uuid:"D01FEF0C-0E9D-4F00-B360-808113D1E105"
 },

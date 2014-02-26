@@ -1,0 +1,8 @@
+addEmptyValue:1,
+customValues:"Ingreso|0\r
+Egreso|1",
+name:"tipo_caja_ingreso_egreso",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"C83ACCCE-2850-41D9-B70B-FF443647051C"

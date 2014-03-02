@@ -323,10 +323,15 @@ function borrarLiquidacion()
 	forms.mat_liquidacion.controller.show()
 }
 
+
 /**
- * @properties={typeid:24,uuid:"6036765F-CD8F-4DDB-85E8-F608EA6CDBE7"}
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"FE4C081F-2AE6-4A50-A36E-E4419D3171B7"}
  */
-function verMovimientos()
+function onActionMovimientos(event) 
 {
-	//TODO AAA Ver los movimientos de la liquidacion... filtrar por matriculado
+	forms.mat_liquidacion_resumen_detalle_movim.controller.show()
 }

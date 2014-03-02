@@ -31,7 +31,7 @@ uuid:"8D9BD1EA-56D5-48C5-9BCF-F0846BEF5ADE"
 {
 formIndex:3,
 horizontalAlignment:2,
-imageMediaID:"5D44F125-DCD6-45DF-B049-171B05A05C3F",
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"5,37",
 mediaOptions:1,
 onActionMethodID:"B655101A-6AF5-4300-9DC1-E9CCB7B3CD8C",
@@ -51,7 +51,8 @@ mediaOptions:1,
 onActionMethodID:"7283643F-6926-4219-9358-DA2392D30F0E",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"24,20",
+showClick:false,
+size:"16,16",
 transparent:true,
 typeid:7,
 uuid:"A04473F7-58E8-484C-827C-0D4178E24ACE"

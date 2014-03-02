@@ -338,11 +338,14 @@ function crearFormularioDevoluciones()
 	
 }
 
-
 /**
- * @properties={typeid:24,uuid:"98000B8B-CD4C-498F-851A-01CBBFF5916D"}
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"7B08BD20-BFC5-43CF-BBB9-EF424A83708B"}
  */
-function verMovimientos()
+function onActionMovimientos(event) 
 {
-	//TODO AAA Ver los movimientos de la liquidacion... filtrar por matriculado
+	forms.mat_liquidacion_resumen_movim.controller.show()
 }

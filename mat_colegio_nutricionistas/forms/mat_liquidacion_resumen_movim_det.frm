@@ -35,17 +35,6 @@ typeid:4,
 uuid:"2698B809-FD79-41F6-8E42-89193AB2D8E1"
 },
 {
-horizontalAlignment:4,
-labelFor:"mov_fecha_cobro",
-location:"40,313",
-name:"mov_fecha_cobro_label",
-size:"80,20",
-styleClass:"label_black",
-text:"Fecha Cobro:",
-typeid:7,
-uuid:"26AA3B6E-86B6-49CF-91F7-274DC0247FAB"
-},
-{
 background:"#ffffa4",
 dataProviderID:"mov_mes_emision",
 editable:false,
@@ -95,19 +84,6 @@ uuid:"5A3894E2-B307-4658-A6EB-C0FBCCCD7622"
 },
 {
 background:"#ffffa4",
-dataProviderID:"mov_estado",
-editable:false,
-location:"130,283",
-name:"mov_estado",
-onDataChangeMethodID:"-1",
-size:"140,20",
-text:"Mov Estado",
-typeid:4,
-uuid:"64777894-1D4C-4441-88D1-983C8F34EC7B",
-valuelistID:"13D4CF52-26B6-4520-AAEF-27D8E77D4D59"
-},
-{
-background:"#ffffa4",
 dataProviderID:"mov_descripcion",
 editable:false,
 location:"204,129",
@@ -116,18 +92,6 @@ size:"541,20",
 text:"Mov Descripcion",
 typeid:4,
 uuid:"6CEAE5E2-2C5B-4064-826F-C16B146C02BC"
-},
-{
-background:"#ffffa4",
-dataProviderID:"mov_tipo_de_movimiento",
-editable:false,
-location:"130,343",
-name:"mov_tipo_de_movimiento",
-size:"140,20",
-text:"Mov Tipo De Movimiento",
-typeid:4,
-uuid:"786CA704-027C-41FC-B821-5DE717C04843",
-valuelistID:"833115B4-B73A-4179-834D-2BB5CCA5888E"
 },
 {
 horizontalAlignment:4,
@@ -139,41 +103,6 @@ styleClass:"label_black",
 text:"Movimiento:",
 typeid:7,
 uuid:"8DBFBD8C-8867-4339-9E8A-262BA724B9A6"
-},
-{
-horizontalAlignment:4,
-labelFor:"mov_estado",
-location:"40,283",
-name:"mov_estado_label",
-size:"80,20",
-styleClass:"label_black",
-text:"Estado:",
-typeid:7,
-uuid:"9B8D999B-BCF5-489D-9F82-7E44DE54AF69"
-},
-{
-horizontalAlignment:4,
-labelFor:"mov_tipo_de_movimiento",
-location:"40,343",
-name:"mov_tipo_de_movimiento_label",
-size:"80,20",
-styleClass:"label_black",
-text:"Tipo Movim.:",
-typeid:7,
-uuid:"9DD8497F-C0D6-4011-A2EB-84E4969F5E09"
-},
-{
-background:"#ffffa4",
-dataProviderID:"mov_fecha_cobro",
-editable:false,
-format:"dd-MM-yyyy|mask",
-horizontalAlignment:4,
-location:"130,313",
-name:"mov_fecha_cobro",
-size:"140,20",
-text:"Mov Fecha Cobro",
-typeid:4,
-uuid:"A4970D48-FEB8-4484-A474-7FA653B4DB05"
 },
 {
 background:"#ffca95",
@@ -203,6 +132,9 @@ uuid:"169D4980-31B6-4EB1-A93E-A1C4E6E0F8FC"
 },
 {
 dataProviderID:"mat_movimientos_aux_to_mat_movimientos_det_aux.det_importe",
+editable:false,
+format:"#,###.00",
+horizontalAlignment:4,
 location:"562,240",
 name:"det_importe",
 size:"94,20",
@@ -212,6 +144,8 @@ uuid:"9C5A35A7-6EAD-4AC2-B2F2-AC943C1C23A6"
 },
 {
 dataProviderID:"mat_movimientos_aux_to_mat_movimientos_det_aux.res_id",
+editable:false,
+horizontalAlignment:4,
 location:"659,242",
 name:"res_id",
 size:"72,20",
@@ -221,6 +155,7 @@ uuid:"D546ECD6-4550-4FEF-B309-AC9FEC18D785"
 },
 {
 dataProviderID:"mat_movimientos_aux_to_mat_movimientos_det_aux.mat_movimientos_det_aux_to_mat_ingresos.ingr_nombre",
+editable:false,
 location:"289,242",
 name:"ingr_id",
 size:"271,20",

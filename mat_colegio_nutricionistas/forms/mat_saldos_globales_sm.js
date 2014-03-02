@@ -1,6 +1,12 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"E8B12018-3A6C-40E3-93FA-9EC41B25443D",variableType:4}
+ */
+var vl_tilde = 0
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"4C385256-DFC3-4CD2-9CB0-589972A729B3",variableType:8}
  */
 var vl_total_saldo = 0.0
@@ -78,5 +84,42 @@ function cancelarSaldo()
 		}
 		
 	}
+	forms.mat_saldos_globales.controller.show()
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"469579A0-9611-431D-BA84-9BDC79150ACC"}
+ */
+function onActionTildar(event) 
+{
+	var proximo = 0
+	for(var i = 1;i<=forms['saldosGlobales'].foundset.getSize();i++)
+	{
+	
+		var rec = forms['saldosGlobales'].foundset.getRecord(i)
+		if(vl_tilde == 0)
+		{
+			proximo = 1
+			rec['chk'] = 1
+		}
+		else
+		{
+			proximo = 0
+			rec['chk'] = 0			
+		}
+		
+	}
+	vl_tilde = proximo
+}
+
+/**
+ * @properties={typeid:24,uuid:"BD752CBF-633C-4BD2-AE1A-05E25ABD46BC"}
+ */
+function filtrar()
+{
 	forms.mat_saldos_globales.controller.show()
 }

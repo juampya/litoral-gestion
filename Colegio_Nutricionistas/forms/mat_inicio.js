@@ -97,4 +97,10 @@ function movimientos()
 	forms.mat_movimientos.controller.show()
 }
 
-
+/**
+ * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}
+ */
+function test()
+{
+	forms.mat_form_aux_test.carga1000Matriculados()
+}

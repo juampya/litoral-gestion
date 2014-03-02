@@ -65,17 +65,6 @@ typeid:4,
 uuid:"1F09C108-656A-4C1C-8012-55FDC34903B8"
 },
 {
-anchors:11,
-dataProviderID:"mov_tipo_de_movimiento",
-location:"1268,198",
-name:"mov_tipo_de_movimiento",
-size:"140,20",
-text:"Mov Tipo De Movimiento",
-typeid:4,
-uuid:"276E806E-B212-407F-9D43-2E7953BFDFE5",
-valuelistID:"833115B4-B73A-4179-834D-2BB5CCA5888E"
-},
-{
 background:"#ffffb3",
 dataProviderID:"ag_cantidad",
 editable:false,
@@ -92,30 +81,6 @@ height:128,
 partType:1,
 typeid:19,
 uuid:"2FE88D1E-7FCF-478B-9F14-E33A7C08ED7E"
-},
-{
-anchors:11,
-dataProviderID:"mov_fecha_cobro",
-editable:false,
-format:"dd-MM-yyyy",
-location:"1127,198",
-name:"mov_fecha_cobro",
-size:"140,20",
-text:"Mov Fecha Cobro",
-typeid:4,
-uuid:"3DA62E62-0495-4B4F-8F49-EBD25C8739BF"
-},
-{
-anchors:11,
-horizontalAlignment:2,
-labelFor:"mov_estado",
-location:"985,178",
-name:"mov_estado_label",
-size:"140,20",
-styleClass:"label_black",
-text:"Estado",
-typeid:7,
-uuid:"3F8EB2A6-39E5-43A8-B9A0-1A4377939971"
 },
 {
 anchors:11,
@@ -183,18 +148,6 @@ uuid:"62EFE74A-5D4B-4703-81DA-D08C82A201DB"
 },
 {
 anchors:11,
-dataProviderID:"mov_estado",
-editable:false,
-location:"985,198",
-name:"mov_estado",
-size:"140,20",
-text:"Mov Estado",
-typeid:4,
-uuid:"67D75FB7-E71C-4F5A-B2D0-B1CFB3FFDD3A",
-valuelistID:"13D4CF52-26B6-4520-AAEF-27D8E77D4D59"
-},
-{
-anchors:11,
 dataProviderID:"mov_mes_emision",
 editable:false,
 location:"186,198",
@@ -206,18 +159,6 @@ uuid:"79AFAA2E-D2E8-47E7-A43B-AF0E8008E3D6",
 valuelistID:"D30961D6-B67C-49E0-87BD-6E7EEBD46F2A"
 },
 {
-anchors:11,
-horizontalAlignment:2,
-labelFor:"mov_tipo_de_movimiento",
-location:"1268,178",
-name:"mov_tipo_de_movimiento_label",
-size:"140,20",
-styleClass:"label_black",
-text:"Tipo De Movimiento",
-typeid:7,
-uuid:"7B0D4F28-2313-4600-BB93-A515B0CEC48D"
-},
-{
 horizontalAlignment:0,
 labelFor:"ag_importe",
 location:"130,86",
@@ -227,6 +168,17 @@ styleClass:"label_black",
 text:"Importe Total",
 typeid:7,
 uuid:"96772E66-C2F6-4AFE-9B08-37AF3A175C5A"
+},
+{
+horizontalAlignment:0,
+labelFor:"vl_matriculado",
+location:"275,86",
+name:"vl_matriculado_label",
+size:"353,20",
+styleClass:"label_black",
+text:"Matriculado",
+typeid:7,
+uuid:"9C102317-E3C8-4423-9D29-AD058741B4E8"
 },
 {
 anchors:11,
@@ -296,16 +248,16 @@ typeid:7,
 uuid:"E4DE28A1-8D77-4749-AA5C-5AA9E5605013"
 },
 {
-anchors:11,
-horizontalAlignment:2,
-labelFor:"mov_fecha_cobro",
-location:"1127,178",
-name:"mov_fecha_cobro_label",
-size:"140,20",
-styleClass:"label_black",
-text:"Fecha Cobro",
-typeid:7,
-uuid:"F4899885-3CBF-468E-A11A-AF03BBC86D26"
+dataProviderID:"vl_matriculado",
+displayType:10,
+location:"275,106",
+name:"vl_matriculado",
+onDataChangeMethodID:"87F8264D-4F5C-4BED-A3E0-AE82EFD54514",
+size:"353,20",
+text:"Vl Matriculado",
+typeid:4,
+uuid:"E60153C8-D477-4314-92EB-7C0FA5A57487",
+valuelistID:"F6D88DD2-B460-48B8-9EC5-BF53D194215F"
 },
 {
 anchors:11,

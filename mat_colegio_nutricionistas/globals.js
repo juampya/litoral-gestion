@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"5186A86D-2D27-4ABE-A93C-2BA8832CC41D",variableType:4}
+ */
+var vg_matriculado = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"34929AC2-D19B-4D74-B06F-ADEA7B13590D",variableType:4}
  */
 var vg_nro_tmp = null;

@@ -251,6 +251,18 @@ typeid:19,
 uuid:"AF6A1318-2A5C-4CFC-80B3-C7E112E0ED47"
 },
 {
+dataProviderID:"vl_matriculado",
+displayType:10,
+location:"278,106",
+name:"vl_matriculado",
+onDataChangeMethodID:"FF9A8238-AB18-450E-BC00-F89C708CC65F",
+size:"353,20",
+text:"Vl Matriculado",
+typeid:4,
+uuid:"B4EA2E7E-0A5F-4EC4-BF0E-6D64A696AD64",
+valuelistID:"F6D88DD2-B460-48B8-9EC5-BF53D194215F"
+},
+{
 anchors:11,
 dataProviderID:"mat_movimientos_to_mat_matriculados.mat_nombre",
 editable:false,
@@ -302,6 +314,17 @@ size:"99,20",
 text:"Mov Anio Emision",
 typeid:4,
 uuid:"DFF8AFAC-F8E7-46E1-B3F4-4F6D794F0E7D"
+},
+{
+horizontalAlignment:0,
+labelFor:"vl_matriculado",
+location:"278,86",
+name:"vl_matriculado_label",
+size:"353,20",
+styleClass:"label_black",
+text:"Matriculado",
+typeid:7,
+uuid:"E5DB9E16-66AA-40DC-BABC-08096D27B915"
 },
 {
 anchors:11,

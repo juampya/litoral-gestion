@@ -1,0 +1,13 @@
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"C53E83CE-81EF-4779-82C0-D91C95FE8EA6"
+}
+],
+name:"mat_form_aux_test",
+showInMenu:true,
+styleName:"id_style",
+typeid:3,
+uuid:"B39ADD65-1B29-4746-9D95-D0C9C9CAF389"

@@ -1,3 +1,11 @@
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"59D92510-3D54-43BB-BAB9-126B31F4DF38",variableType:4}
+ */
+var vl_matriculado = null
+
 /**
  * Perform the element default action.
  *
@@ -21,6 +29,7 @@ function filtrar()
 	mov_anio_emision = forms.mat_liquidacion_resumen.vl_anio 
 	mov_mes_emision = 	forms.mat_liquidacion_resumen.vl_mes
 	tmp_id = globals.vg_nro_tmp
+	mat_id = vl_matriculado
 	controller.search()
 }
 
@@ -34,7 +43,7 @@ function filtrar()
  */
 function onShow(firstShow, event) 
 {
-
+	vl_matriculado = null
 		filtrar()
 
 

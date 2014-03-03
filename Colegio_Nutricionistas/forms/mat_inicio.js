@@ -102,5 +102,5 @@ function movimientos()
  */
 function test()
 {
-	forms.mat_form_aux_test.carga1000Matriculados()
+
 }

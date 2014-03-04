@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_ingresos",
+items:[
+{foreignColumnName:"ingr_id",primaryDataProviderID:"ingr_id",typeid:23,uuid:"60A8EEBF-D091-4AD8-AF9C-9E4C606B5D89"}
+],
+joinType:1,
+name:"mat_caja_to_mat_ingresos",
+primaryDataSource:"db:/sistemas/mat_caja",
+typeid:22,
+uuid:"BA1F686D-AFCB-49EB-BEB3-A61B4304F3EA"

@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Ingresos|0\r
+Egresos|1\r
+Todos|2",
+name:"tipo_caja_filtro",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"85D4F690-C487-4D0B-A36D-470FBAFC8FCF"

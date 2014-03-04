@@ -110,5 +110,6 @@ function test()
  */
 function caja()
 {
+	scopes.globals.SacarMenu()
 	forms.sm_frm_caja.controller.show()
 }

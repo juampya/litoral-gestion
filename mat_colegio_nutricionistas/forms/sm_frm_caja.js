@@ -1,9 +1,61 @@
 /**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"E57D6E38-DE03-485F-94DF-A9C0CE90C368",variableType:93}
+ */
+var vl_fec_ini = null
+/**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"C0950F9C-2647-4B24-BA49-52BAD945FB93",variableType:93}
+ */
+var vl_fec_fin = null
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"A2242639-2ADD-4B65-8670-4BCA1434F334",variableType:4}
+ */
+var vl_tipo_caja = null
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"07A45333-0557-4532-B41D-F1C6EDDBA3F2",variableType:4}
+ */
+var vl_matriculado = null
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"2D056B14-04F3-4787-827B-11094DC17AF2",variableType:4}
+ */
+var vl_concepto = null
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"A7DB81D0-99DA-4F4E-B57A-B8489BA60CCE"}
  */
 var vl_frm_anterior = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"72684E23-4C6E-4BAB-AC2F-B565D0566DC0",variableType:8}
+ */
+var vl_total_debe = null
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"4995CC45-8082-4F30-B5AE-CA69AA60BCD2",variableType:8}
+ */
+var vl_total_haber = null
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"D3793423-476F-4706-B3D4-811B8D06C36E",variableType:8}
+ */
+var vl_total_saldo = null
 
 /**
  * @param {Object} event
@@ -13,7 +65,7 @@ var vl_frm_anterior = null;
 function onActionVolver(event) 
 {
 	scopes.globals.CargarMenu()
-	forms[vl_frm_anterior].controller.show()
+	forms['mat_inicio'].controller.show()
 }
 
 /**
@@ -42,7 +94,10 @@ function onActionNuevoIngreso(event)
  */
 function onActionRefrescar(event) 
 {
-	
+	vl_concepto = null
+	vl_matriculado = null
+	vl_tipo_caja = 2
+	filtrar()	
 }
 
 /**
@@ -81,4 +136,59 @@ function onActionNuevoEgreso(event)
 		win.resizable = false
 		win.title= 'Litoral Gestion';
 		win.show(forms.sm_frm_caja_abm);	
+}
+
+/**
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"84586BFD-9718-43AE-8A1F-A0FB53F57264"}
+ */
+function filtrar()
+{
+	controller.find()
+	ingr_id = vl_concepto
+	if(vl_tipo_caja != 2)
+	{caja_tipo = vl_tipo_caja}
+	caja_fecha = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-28')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+	controller.search()
+	calcularTotales()
+}
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"F7825C6D-EA66-46C9-8205-AA60570601D0"}
+ */
+function onShow(firstShow, event) 
+{
+	if(firstShow)
+	{
+		vl_concepto = null
+		vl_fec_fin = application.getServerTimeStamp()
+		vl_fec_ini = application.getServerTimeStamp()
+		vl_matriculado = null
+		vl_tipo_caja = 2
+		filtrar()
+	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"E36303B8-803C-4166-8B30-9C347D7E4D1F"}
+ */
+function calcularTotales()
+{
+	vl_total_debe = 0
+	vl_total_haber = 0
+	vl_total_saldo = 0
+	
+	for (var i = 1; i <= foundset.getSize(); i++) 
+	{
+		var rec = foundset.getRecord(i)
+		vl_total_debe += rec.calc_caja_debe
+		vl_total_haber += rec.calc_caja_haber
+	}
+	vl_total_saldo = vl_total_debe - vl_total_haber
 }

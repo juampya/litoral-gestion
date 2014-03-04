@@ -1,3 +1,11 @@
 dataSource:"db:/sistemas/mat_caja",
+items:[
+{
+dataProviderIDToAggregate:"caja_id",
+name:"ag_cantidad",
+typeid:40,
+uuid:"D790549C-D5A9-4581-AE93-B9049733A203"
+}
+],
 typeid:39,
 uuid:"5A9AC869-D5C3-49EB-BE4E-8816A79526CE"

@@ -30,6 +30,7 @@ function onActionAceptar(event)
 {
 	databaseManager.saveData(foundset)
 	application.getWindow("caja").hide()
+	forms.sm_frm_caja.filtrar()
 }
 
 /**
@@ -69,6 +70,13 @@ function onShow(firstShow, event)
 		emp_id = scopes.globals.mx_empresa_id
 		caja_tipo=1
 	}
+	elements.btn_delete.visible = false
+	elements.caja_tipo.enabled = false
+	if(vl_nuevo==0)
+	{
+		elements.btn_delete.visible = true
+		elements.caja_tipo.enabled = true
+	}
 }
 
 /**
@@ -84,4 +92,26 @@ function onHide(event)
 {
 	databaseManager.revertEditedRecords()
 	return true
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"2C7FF9FA-45B5-4901-A63F-638CE3B438D5"}
+ */
+function onActionBorrar(event) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","Desea borrar el Registro??","atention",controller.getName(),"No",null,"Si","borrarRegistro",null,null,null,null)
+}
+
+/**
+ * @properties={typeid:24,uuid:"9DF9B035-A36A-48E6-99B4-E99D68FDC85F"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+	application.getWindow("caja").hide()
+	forms.sm_frm_caja.filtrar()
 }

@@ -34,10 +34,11 @@ function onActionGrabar(event)
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"99ACC1CC-BA6B-4C34-8C6F-943C84BA708D"}
+ * @AllowToRunInFind
  */
 function onShow(firstShow, event) 
 {
-	if(!foundset.loadAllRecords())
+	if(!utils.hasRecords(foundset))
 	{
 		controller.newRecord()
 	}

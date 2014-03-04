@@ -20,7 +20,7 @@ var vl_nuevo = null;
  */
 function onActionCancelar(event) 
 {
-	if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos))
+	if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos)||vl_nuevo == 1)
 	{	
 		databaseManager.revertEditedRecords(foundset)
 		forms[vl_frm_anterior].controller.show()

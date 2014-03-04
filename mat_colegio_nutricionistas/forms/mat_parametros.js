@@ -26,3 +26,19 @@ function onActionGrabar(event)
 	databaseManager.saveData(foundset)
 	forms["mat_inicio"].controller.show()
 }
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"99ACC1CC-BA6B-4C34-8C6F-943C84BA708D"}
+ */
+function onShow(firstShow, event) 
+{
+	if(!foundset.loadAllRecords())
+	{
+		controller.newRecord()
+	}
+}

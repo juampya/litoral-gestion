@@ -197,6 +197,7 @@ uuid:"F7FF273A-6B41-4EFC-9F03-44140BF44F0D"
 ],
 name:"mat_parametros",
 navigatorID:"-1",
+onShowMethodID:"99ACC1CC-BA6B-4C34-8C6F-943C84BA708D",
 showInMenu:true,
 styleName:"id_style",
 typeid:3,

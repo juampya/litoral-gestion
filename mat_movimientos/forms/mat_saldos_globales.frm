@@ -1,0 +1,14 @@
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"8B12D265-B5F5-4CD6-97C4-55EAF04AA517"
+}
+],
+name:"mat_saldos_globales",
+onShowMethodID:"29CAD7FF-5F4D-4C68-849C-4064DC2549F4",
+showInMenu:true,
+styleName:"id_style",
+typeid:3,
+uuid:"084488AC-2BE8-41C9-8B23-25771A42C081"

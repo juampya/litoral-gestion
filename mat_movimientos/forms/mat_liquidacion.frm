@@ -1,0 +1,15 @@
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"3DDD8F92-5174-4835-86DE-60704399F6F8"
+}
+],
+name:"mat_liquidacion",
+navigatorID:"-1",
+onShowMethodID:"84B88426-82A1-444A-9A5B-CAF1F439944C",
+showInMenu:true,
+styleName:"id_style",
+typeid:3,
+uuid:"44BCEC5D-9A01-4F8D-804E-F9DDA7ADB098"

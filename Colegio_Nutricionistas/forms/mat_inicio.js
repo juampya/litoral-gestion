@@ -104,3 +104,11 @@ function test()
 {
 
 }
+
+/**
+ * @properties={typeid:24,uuid:"EB833268-18F4-482A-8F9B-29317A9EC9A9"}
+ */
+function caja()
+{
+	forms.sm_frm_caja.controller.show()
+}

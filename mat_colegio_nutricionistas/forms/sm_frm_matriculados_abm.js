@@ -1,4 +1,23 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"16BB5741-E178-4D56-A68A-3203BD7344D9",variableType:4}
+ */
+var vl_estado = null
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"61FE3B7B-97D2-4B65-A7B7-F66E7B535453",variableType:4}
+ */
+var vl_matriculado = null
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"235B8210-8CDF-49A8-9BA2-F8C6B2D689C4",variableType:4}
+ */
+var vl_documento = null
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"35C2E4C7-BD63-4AFC-B1F3-6BF8C64F3A00"}
@@ -13,6 +32,10 @@ var vl_frm_anterior = null;
  */
 function onShow(firstShow, event) 
 {
+	if(firstShow)
+	{
+		filtrar()
+	}
 	plugins.window.getMenuBar().removeAllMenus()
 	plugins.window.setToolBarAreaVisible(false)	
 }
@@ -47,7 +70,10 @@ function onActionNuevo(event)
  */
 function onActionRefrescar(event) 
 {
-	
+	vl_documento = null
+	vl_estado = null
+	vl_matriculado = null
+	filtrar()
 }
 
 /**
@@ -74,4 +100,17 @@ function onActionCopiar(event)
 	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
 	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 2
 	forms.sm_frm_matriculados_tabpanel.controller.show() 
+}
+
+/**
+ * @properties={typeid:24,uuid:"8225D3AB-AC12-40BF-B7D4-0E1BC8952225"}
+ * @AllowToRunInFind
+ */
+function filtrar()
+{
+	controller.find()
+	mat_id = vl_matriculado
+	mat_dni = vl_documento
+	mat_estado = vl_estado
+	controller.search()
 }

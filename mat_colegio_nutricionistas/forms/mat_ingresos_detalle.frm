@@ -108,7 +108,7 @@ dataProviderID:"ingr_observaciones",
 displayType:1,
 location:"149,282",
 scrollbars:32,
-size:"297,55",
+size:"297,98",
 typeid:4,
 uuid:"6430F42F-45B3-44DF-9EC0-FF968CA2CB2F"
 },
@@ -119,7 +119,8 @@ size:"118,20",
 styleClass:"label_black",
 text:"Fecha Vto:",
 typeid:7,
-uuid:"717766E3-065B-4AC9-91F9-C950D5EA01E9"
+uuid:"717766E3-065B-4AC9-91F9-C950D5EA01E9",
+visible:false
 },
 {
 imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
@@ -200,7 +201,8 @@ horizontalAlignment:4,
 location:"149,253",
 size:"140,20",
 typeid:4,
-uuid:"FD1EFB90-9DF8-4E69-84A1-47CA0B7963B1"
+uuid:"FD1EFB90-9DF8-4E69-84A1-47CA0B7963B1",
+visible:false
 },
 {
 imageMediaID:"513FB1E5-3480-4651-9740-112DC70CC341",

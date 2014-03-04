@@ -19,7 +19,8 @@ location:"357,61",
 name:"rel_descuento",
 size:"80,20",
 typeid:4,
-uuid:"2DA14E91-ED92-4FF1-9BCB-C956A5E711DE"
+uuid:"2DA14E91-ED92-4FF1-9BCB-C956A5E711DE",
+visible:false
 },
 {
 labelFor:"ingr_id",
@@ -148,7 +149,8 @@ size:"80,20",
 styleClass:"table_label",
 text:"Descuento",
 typeid:7,
-uuid:"E3203EFC-43BC-4BA6-A5B6-A483F7FD507E"
+uuid:"E3203EFC-43BC-4BA6-A5B6-A483F7FD507E",
+visible:false
 },
 {
 labelFor:"rel_aplica_vigencia",

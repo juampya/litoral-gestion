@@ -1,3 +1,11 @@
 dataSource:"db:/sistemas/mat_matriculados",
+items:[
+{
+dataProviderIDToAggregate:"mat_id",
+name:"ag_cantidad",
+typeid:40,
+uuid:"4A7632D8-3110-4442-B001-1924F2DF493E"
+}
+],
 typeid:39,
 uuid:"4F1BE55B-AA63-465E-8A2F-E8EB634EC90B"

@@ -56,18 +56,21 @@ function onActionCancelar(event)
  */
 function onShow(firstShow, event) 
 {
+
 	if(vl_nuevo==1)
 	{	
 		controller.newRecord(false)
 		rel_descuento = 0
 		rel_estado = 1
 		mat_id = forms.sm_frm_matriculados_tabpanel.mat_id
+		elements.btn_borrar.visible = false
 	}
 	else
 	{
 		controller.find()
 		rel_id=vl_rel_id
 		controller.search()
+		elements.btn_borrar.visible = true		
 	}
 }
 
@@ -116,4 +119,26 @@ function onDataChange_AplicaVigencia(oldValue, newValue, event)
 	}
 	
 	return true
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"182AD21C-4108-4E81-A185-B8C0FBBC2D97"}
+ */
+function onActionBorrar(event) 
+{
+	globals.ventanaSiNo("Desea Borrar el Registro","borrarRegistro","",controller.getName())
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"635227F9-657E-4372-85EB-E64A7634F112"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+	application.getWindow("mat_conceptos").hide()
 }

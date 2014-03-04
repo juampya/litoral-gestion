@@ -58,7 +58,6 @@ function onActionAceptar(event)
 		else
 		{
 			globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","No Existen Conceptos para asociar al Matriculado","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
-			
 		}
 	}
 	else
@@ -87,20 +86,23 @@ function onActionAceptar(event)
  */
 function onShow(firstShow, event) 
 {
+	elements.btn_borrar.visible = true
+	elements.tabs.setTabEnabledAt(2,true)
 	if(vl_nuevo==1)
 	{	
 		controller.newRecord(false)
 		emp_id=1
-			
+		elements.btn_borrar.visible = false
+		elements.tabs.setTabEnabledAt(2,false)			
 	}
 	if(vl_nuevo==2)
 	{
+		elements.btn_borrar.visible = false
 		controller.duplicateRecord(false)
+		elements.tabs.setTabEnabledAt(2,false)
 	}
-	//TODO AAA Borrar concepto
-	//TODO AAA Borrar matriculado
-	//TODO AAA controlar q pasa si en nuevo se agrega un concepto
-	//TODO AAA Semaforo de Deuda
+
+	verificarDeuda()
 }
 
 /**
@@ -113,3 +115,60 @@ function onShow(firstShow, event)
 function onActionEnviarMail(event) {
 	// TODO Auto-generated method stub
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"C9DD57BF-7D9F-4409-8361-4D8AE02402A1"}
+ */
+function onActionBorrar(event) 
+{
+	globals.ventanaSiNo("Desea Borrar el Registro?","BorrarRegistro","",controller.getName())
+}
+
+/**
+ * @properties={typeid:24,uuid:"7D812533-638F-4718-9C1E-E1A5915718FA"}
+ */
+function BorrarRegistro()
+{
+	if(utils.hasRecords(mat_matriculados_to_mat_movimientos))
+	{
+		globals.ventanaAceptar("El Matriculado tiene movimientos Registrados.\n No se Puede Borrar",controller.getName())
+	}
+	else
+	{
+		if(utils.hasRecords(mat_matriculados_to_mat_resarcimientos))
+		{
+			mat_matriculados_to_mat_resarcimientos.deleteAllRecords()
+		}
+		if(utils.hasRecords(mat_matriculados_to_mat_matriculado_rel_ingresos))
+		{
+			mat_matriculados_to_mat_matriculado_rel_ingresos.deleteAllRecords()
+		}
+		controller.deleteRecord()
+		forms[vl_frm_anterior].controller.show()
+	}
+}
+
+/**
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"C5477B5E-500E-4DCB-BD18-00935026019F"}
+ */
+function verificarDeuda()
+{
+	mat_matriculados_to_mat_movimientos.find()
+	mat_matriculados_to_mat_movimientos.mov_estado = 0
+	var cant = mat_matriculados_to_mat_movimientos.search()
+	if(cant > 0)
+	{
+		forms.sm_frm_matriculados_abm_nuevo.elements.btn_light.imageURL = "media:///red_light.png"
+	}
+	else
+	{
+		forms.sm_frm_matriculados_abm_nuevo.elements.btn_light.imageURL = "media:///green_light.png"		
+	}
+}
+

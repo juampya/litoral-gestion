@@ -596,3 +596,23 @@ function desasignarIngresosATodos(ingreso_id)
 	fs_rel_ing.deleteAllRecords()
 }
 
+
+/**
+ * @properties={typeid:24,uuid:"63C7598A-606A-443C-8F2C-268F284FD69F"}
+ */
+function ventanaSiNo(mensaje,metodoSi,MetodoNo,formulario) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion",mensaje,"atention",formulario,"No",MetodoNo,"Si",metodoSi,null,null,null,null)
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param mensaje
+ * @param formulario
+ *
+ * @properties={typeid:24,uuid:"102BDEC8-8F61-47A7-93EF-3795B8E9A17E"}
+ */
+function ventanaAceptar(mensaje,formulario) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion",mensaje,"atention",formulario,"Aceptar","",null,null,null,null,null,null)
+}

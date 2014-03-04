@@ -36090,6 +36090,12 @@ typeid:37,
 uuid:"C42818B8-7012-47A6-82D5-280F603B251B"
 },
 {
+mimeType:"image/png",
+name:"green_light.png",
+typeid:37,
+uuid:"B8A2C151-86EF-4999-8A3B-0AEAE4E5CFB4"
+},
+{
 mimeType:"image/gif",
 name:"home.gif",
 typeid:37,
@@ -36178,6 +36184,12 @@ mimeType:"image/gif",
 name:"question.gif",
 typeid:37,
 uuid:"DA465960-04A4-4633-AFBE-D3934084D491"
+},
+{
+mimeType:"image/png",
+name:"red_light.png",
+typeid:37,
+uuid:"38A0368D-051C-4122-A459-667B479A2407"
 },
 {
 mimeType:"image/gif",

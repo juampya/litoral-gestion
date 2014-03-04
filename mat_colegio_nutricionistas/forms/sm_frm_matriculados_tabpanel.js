@@ -37,23 +37,44 @@ function onActionCancelar(event)
  * @param {Object} event
  *
  * @properties={typeid:24,uuid:"C52C6B40-9228-4FC1-BA01-F073C71C6840"}
+ * @AllowToRunInFind
  */
 function onActionAceptar(event) 
 {
-	if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos))
-	{	
-		databaseManager.saveData(foundset)
-		if(vl_nuevo == 1)
-		{
+	if(vl_nuevo == 1)
+	{
+		/** @type {JSFoundSet<db:/sistemas/mat_ingresos>} */
+		var fs_ingr = databaseManager.getFoundSet('sistemas','mat_ingresos')
+		fs_ingr.find()
+		fs_ingr.ingr_tipo_asignacion = 0
+		var cant = fs_ingr.search()
+		if(cant > 0)
+		{	
+			databaseManager.saveData(foundset)
 			globals.asociaIngresosPorDefecto(mat_id)
 			globals.grabarPrimerMovimiento(mat_id,application.getServerTimeStamp().getMonth() + 1,application.getServerTimeStamp().getFullYear())
+			forms[vl_frm_anterior].controller.show()
 		}
-		forms[vl_frm_anterior].controller.show()
+		else
+		{
+			globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","No Existen Conceptos para asociar al Matriculado","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+			
+		}
 	}
 	else
 	{
-		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado debe tener asociado al menos un Concepto","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos))
+		{	
+			databaseManager.saveData(foundset)
+			forms[vl_frm_anterior].controller.show()
+		}
+		else
+		{
+			globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado debe tener asociado al menos un Concepto","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		}		
 	}
+
+
 	
 }
 

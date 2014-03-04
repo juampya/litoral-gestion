@@ -97,6 +97,9 @@ function onShow(firstShow, event)
 	{
 		controller.duplicateRecord(false)
 	}
+	//TODO Borrar concepto
+	//TODO Borrar matriculado
+	//TODO controlar q pasa si en nuevo se agrega un concepto
 }
 
 /**

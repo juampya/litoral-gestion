@@ -9,7 +9,7 @@ function Salir()
 	}
 	else
 	{
-		application.closeSolution('LitoralGestion','InicializaArgento')
+		application.exit()
 	}
 }
 
@@ -102,7 +102,7 @@ function movimientos()
  */
 function test()
 {
-
+	forms.mat_form_aux_test.carga1000Matriculados()
 }
 
 /**

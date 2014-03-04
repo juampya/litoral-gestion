@@ -18,10 +18,18 @@ var vl_nuevo = null;
  *
  * @properties={typeid:24,uuid:"1FF0465A-20BC-411E-9976-E529C31FF26E"}
  */
-function onActionCancelar(event) {
-	
-	databaseManager.revertEditedRecords(foundset)
-	forms[vl_frm_anterior].controller.show()
+function onActionCancelar(event) 
+{
+	if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos))
+	{	
+		databaseManager.revertEditedRecords(foundset)
+		forms[vl_frm_anterior].controller.show()
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado debe tener asociado al menos un Concepto","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+	}	
+
 }
 
 /**
@@ -32,13 +40,21 @@ function onActionCancelar(event) {
  */
 function onActionAceptar(event) 
 {
-	databaseManager.saveData(foundset)
-	if(vl_nuevo == 1)
-	{
-		globals.asociaIngresosPorDefecto(mat_id)
-		globals.grabarPrimerMovimiento(mat_id,application.getServerTimeStamp().getMonth() + 1,application.getServerTimeStamp().getFullYear())
+	if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos))
+	{	
+		databaseManager.saveData(foundset)
+		if(vl_nuevo == 1)
+		{
+			globals.asociaIngresosPorDefecto(mat_id)
+			globals.grabarPrimerMovimiento(mat_id,application.getServerTimeStamp().getMonth() + 1,application.getServerTimeStamp().getFullYear())
+		}
+		forms[vl_frm_anterior].controller.show()
 	}
-	forms[vl_frm_anterior].controller.show()
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado debe tener asociado al menos un Concepto","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+	}
+	
 }
 
 /**

@@ -40,15 +40,29 @@ function filtrar()
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"4B42680D-A649-437D-99F4-646A98B97250"}
+ * @AllowToRunInFind
  */
 function onActionGenerarCuotas(event) 
 {
-	var win1 = application.createWindow("generarLiquidacion", JSWindow.MODAL_DIALOG);
-	win1.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
-	win1.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-	win1.resizable = false
-	win1.title= 'Liquidacion.';
-	win1.show(forms.mat_nueva_liquidacion);
+	
+	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
+	var fs_mat = databaseManager.getFoundSet('sistemas','mat_matriculados')
+	fs_mat.find()
+	fs_mat.mat_estado = 1
+	var cant = fs_mat.search()
+	if(cant > 0)
+	{
+		var win1 = application.createWindow("generarLiquidacion", JSWindow.MODAL_DIALOG);
+		win1.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win1.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win1.resizable = false
+		win1.title= 'Liquidacion.';
+		win1.show(forms.mat_nueva_liquidacion);
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'No Existe ningun Matriculado Activo.\n Verifique.', 'question', controller.getName(), 'Aceptar', null, null, null, null, null, null, null) 
+	}
 }
 
 /**

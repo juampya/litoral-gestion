@@ -41,10 +41,8 @@ function filtrar()
  */
 function onShow(firstShow, event) 
 {
-		vl_matriculado = null
-		filtrar()
-
-
+	vl_matriculado = null
+	filtrar()
 }
 
 /**

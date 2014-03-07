@@ -3,7 +3,7 @@
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"63BACD58-6CB4-4DB4-9A27-230C31182D3F"}
+ * @properties={typeid:24,uuid:"7352EA1A-9E4F-49D9-840C-C22B50A2A68F"}
  */
 function onActionVolver(event) 
 {
@@ -16,7 +16,7 @@ function onActionVolver(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"8F795844-C43D-4722-BCDC-0FFAA688D62E"}
+ * @properties={typeid:24,uuid:"9342C393-2153-4606-9A82-17CA3ECF2E04"}
  */
 function onActionAnular(event) 
 {
@@ -24,7 +24,7 @@ function onActionAnular(event)
 }
 
 /**
- * @properties={typeid:24,uuid:"075E542A-D377-44D9-807C-6635B8C6BD64"}
+ * @properties={typeid:24,uuid:"42DBFD43-B7FD-4B6E-9EDB-4009C4FDEE1F"}
  */
 function anularMovim()
 {
@@ -38,7 +38,7 @@ function anularMovim()
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"FB8CC65C-9B43-48F0-9E60-2E6206E9B80D"}
+ * @properties={typeid:24,uuid:"40A3B9B8-045E-4135-B1D7-DF973F85B8B4"}
  */
 function onActionGrabar(event) 
 {
@@ -55,7 +55,7 @@ function onActionGrabar(event)
  *
  * @returns {Boolean}
  *
- * @properties={typeid:24,uuid:"2A1E1D39-D86F-4F98-87C4-133304683094"}
+ * @properties={typeid:24,uuid:"DB378CB5-B333-49C2-B937-F611B28FEF40"}
  */
 function onDataChangeEstado(oldValue, newValue, event) 
 {
@@ -76,10 +76,8 @@ function onDataChangeEstado(oldValue, newValue, event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"7362B32F-467D-4628-B9F8-EE0990E2AD67"}
+ * @properties={typeid:24,uuid:"9ECEF0C1-AAA1-45F2-AF76-81BAA20A8076"}
  */
-function onActionImprimir(event) 
-{
-	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
-	forms.mat_boleta_de_pago.controller.print()
+function onActionImprimir(event) {
+	// TODO Auto-generated method stub
 }

@@ -30,7 +30,7 @@ function procesar(max, min,val)
     elements.progress.value = val
     //application.sleep(10)//simulates time needed to perform a loop
     percentage = elements.progress.getPercentComplete()
-    elements.progress.string = "Procesando "+val+" Registros. Completado "+parseInt(percentage*100)+"%. "
+    elements.progress.string = "Procesando "+val+" Registros. Completado "+parseInt((percentage*100).toString())+"%. "
     application.updateUI() //refresh user interface
 
 	if(val == elements.progress.maximum)
@@ -100,6 +100,8 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		fs_mov.mov_estado = rec.mov_estado
 		fs_mov.mov_fecha_cobro = rec.mov_fecha_cobro
 		fs_mov.mov_fecha_emision = rec.mov_fecha_emision
+		fs_mov.mov_fec_vto1 = rec.mov_fec_vto1
+		fs_mov.mov_fec_vto2 = rec.mov_fec_vto2
 		fs_mov.mat_id = rec.mat_id
 		fs_mov.mov_importe = rec.mov_importe
 		fs_mov.mov_mes_emision = rec.mov_mes_emision

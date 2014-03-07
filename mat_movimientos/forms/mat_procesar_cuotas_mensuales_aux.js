@@ -31,7 +31,7 @@ function progressBar()
        elements.progress.value = i
        //application.sleep(10)//simulates time needed to perform a loop
        percentage = elements.progress.getPercentComplete()
-       elements.progress.string = "Looped through "+i+" records.Completed "+parseInt(percentage*100)+"%. "
+       elements.progress.string = "Looped through "+i+" records.Completed "+parseInt((percentage*100).toString())+"%. "
        application.updateUI() //refresh user interface
     }
     elements.progress.string = "Script Completed"
@@ -52,7 +52,7 @@ function procesar(max, min,val)
     elements.progress.value = val
     //application.sleep(10)//simulates time needed to perform a loop
     percentage = elements.progress.getPercentComplete()
-    elements.progress.string = "Procesando "+val+" Registros. Completado "+parseInt(percentage*100)+"%. "
+    elements.progress.string = "Procesando "+val+" Registros. Completado "+parseInt((percentage*100).toString())+"%. "
     application.updateUI() //refresh user interface
 
 	if(val == elements.progress.maximum)
@@ -93,6 +93,11 @@ function inicializar()
  */
 function generar_cuotas_mensuales(mes, anio, matriculado) 
 {
+	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
+	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
+		fs_conf.loadAllRecords()
+		fs_conf.getRecord(1)
+	
 	/** @type {JSFoundSet<db:/sistemas/mat_matriculados>} */
 	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
 	if(matriculado == null)
@@ -133,6 +138,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		fs_movim_aux.mov_descripcion = "Cuota Mensual " + mes + "/" + anio
 		fs_movim_aux.mov_estado = 0 //Deuda
 		fs_movim_aux.mov_fecha_emision = new Date(anio, mes - 1, 15)
+		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_conf.conf_venc_cuota_1_dia)
+		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_conf.conf_venc_cuota_2_dia)
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
 		fs_movim_aux.tmp_id = globals["vg_nro_tmp"]
 		fs_movim_aux.mov_grab_fec = application.getServerTimeStamp()
@@ -210,11 +217,6 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		}
 		if(deuda > 0)
 		{
-			/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
-			var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
-			fs_conf.loadAllRecords()
-			fs_conf.getRecord(1)
-			
 			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
 			fs_detalle.newRecord()
 			fs_detalle.ingr_id = fs_conf.conf_cuota_impaga_ingr_id //Deuda Acumulada

@@ -71,6 +71,7 @@ typeid:7,
 uuid:"5BF7A30D-57AF-4A5F-B6BA-C4444EAA48D8"
 },
 {
+formIndex:1,
 imageMediaID:"3A3DBD3D-F34F-40C2-8757-44A0DB2E2520",
 location:"184,36",
 mediaOptions:1,
@@ -135,6 +136,7 @@ typeid:7,
 uuid:"8D399F65-D6DF-462E-92D2-AAED202258AC"
 },
 {
+formIndex:3,
 imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"45,36",
 mediaOptions:1,
@@ -173,6 +175,7 @@ typeid:4,
 uuid:"BAA9EC7F-4CF7-44CB-B7FB-0727B65C8875"
 },
 {
+formIndex:2,
 imageMediaID:"215F84EA-D58C-4A1C-9C79-A197FBA32FAE",
 location:"372,36",
 mediaOptions:1,

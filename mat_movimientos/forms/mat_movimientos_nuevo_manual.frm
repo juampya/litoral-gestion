@@ -34,8 +34,9 @@ typeid:7,
 uuid:"1C512E63-DF48-48ED-B8DD-C64C1CD2BAC1"
 },
 {
-background:"#ffff95",
 dataProviderID:"mov_tipo_de_movimiento",
+displayType:2,
+editable:false,
 location:"641,116",
 name:"mov_tipo_de_movimiento",
 size:"158,20",

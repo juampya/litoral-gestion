@@ -200,7 +200,7 @@ uuid:"947F5052-7FE1-4935-A362-FC210B04D54F"
 },
 {
 horizontalAlignment:4,
-labelFor:"mov_fecha_cobro",
+labelFor:"",
 location:"40,287",
 name:"mov_fec_vto1_label",
 size:"80,20",
@@ -290,7 +290,7 @@ uuid:"E67E7A0D-1C15-4740-BFC9-74B79712A4C9"
 },
 {
 horizontalAlignment:4,
-labelFor:"mov_fecha_cobro",
+labelFor:"",
 location:"40,312",
 name:"mov_fec_vto2_label",
 size:"80,20",

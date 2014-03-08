@@ -28,6 +28,7 @@ function filtrar()
 	mov_anio_emision = forms.mat_liquidacion_resumen_detalle.vl_anio 
 	mov_mes_emision = 	forms.mat_liquidacion_resumen_detalle.vl_mes
 	mat_id = vl_matriculado
+	mov_tipo_de_movimiento = 0
 	controller.search()
 }
 

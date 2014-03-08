@@ -56,9 +56,16 @@ var vl_cant_devol = 0;
  */
 function onActionVolver(event) 
 {
-	foundset.mat_movimientos_aux_to_mat_movimientos_det_aux.deleteAllRecords()
-	foundset.deleteAllRecords()
-	forms.mat_liquidacion.controller.show()
+	if(utils.hasRecords(foundset.mat_movimientos_aux_to_mat_movimientos_det_aux))
+	{
+		foundset.mat_movimientos_aux_to_mat_movimientos_det_aux.deleteAllRecords()
+		foundset.deleteAllRecords()
+		forms.mat_liquidacion.controller.show()
+	}
+	else
+	{
+		forms.mat_liquidacion.controller.show()
+	}
 }
 
 /**
@@ -190,10 +197,17 @@ function onActionConfirmar(event)
 //	foundset.deleteAllRecords()
 //	forms.mat_liquidacion.controller.show()
 
-	forms.mat_procesar_cuotas_mensuales_conf.vl_anio = vl_anio
-	forms.mat_procesar_cuotas_mensuales_conf.vl_mes = vl_mes
-	forms.mat_procesar_cuotas_mensuales_conf.vl_reliquidacion = vl_es_reliquidacion	
-	globals.ventanaFormulario("confirmarCuotas","Litoral Getion",forms.mat_procesar_cuotas_mensuales_conf.controller.getName())
+	if(utils.hasRecords(foundset))
+	{
+		forms.mat_procesar_cuotas_mensuales_conf.vl_anio = vl_anio
+		forms.mat_procesar_cuotas_mensuales_conf.vl_mes = vl_mes
+		forms.mat_procesar_cuotas_mensuales_conf.vl_reliquidacion = vl_es_reliquidacion	
+		globals.ventanaFormulario("confirmarCuotas","Litoral Getion",forms.mat_procesar_cuotas_mensuales_conf.controller.getName())
+	}
+	else
+	{
+		globals.ventanaAceptar("No Existen Movimientos para Confirmar",controller.getName())
+	}
 }
 
 /**

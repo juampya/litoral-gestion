@@ -123,6 +123,14 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 	}
 
 	var maximo = databaseManager.getFoundSetCount(fs_matriculados)
+	
+	if(maximo <= 0)
+	{
+		 application.getWindow("cuotaMensual").hide()
+		globals.ventanaAceptar("No Existen Matriculados Activos o Todos los matriculados tienen generados movimientos de Alta para este mes.\n Verifique",controller.getName())
+		return
+	}
+	
 	//Por cada Matriculado Activo ---------------------------------------------------------------------
 	for (var i = 1; i <= fs_matriculados.getSize(); i++) 
 	{

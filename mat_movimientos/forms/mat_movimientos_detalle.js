@@ -81,5 +81,8 @@ function onDataChangeEstado(oldValue, newValue, event)
 function onActionImprimir(event) 
 {
 	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
-	forms.mat_boleta_de_pago.controller.print()
+	forms.mat_boleta_de_pago.vl_importe_vto1 = forms.mat_boleta_de_pago.mov_importe
+	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*15)/100
+	forms.mat_boleta_de_pago.controller.showPrintPreview()
+	
 }

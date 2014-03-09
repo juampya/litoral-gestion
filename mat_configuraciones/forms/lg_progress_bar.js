@@ -18,7 +18,7 @@ function progressBar()
        elements.progress.value = i
        //application.sleep(10)//simulates time needed to perform a loop
        percentage = elements.progress.getPercentComplete()
-       elements.progress.string = "Looped through "+i+" records.Completed "+parseInt(percentage*100)+"%. "
+       elements.progress.string = "Looped through "+i+" records.Completed "+parseInt((percentage*100).toString())+"%. "
        application.updateUI() //refresh user interface
     }
     elements.progress.string = "Script Completed"
@@ -52,7 +52,7 @@ function progressBar2(max, min, val)
        elements.progress.value = val
        //application.sleep(10)//simulates time needed to perform a loop
        percentage = elements.progress.getPercentComplete()
-       elements.progress.string = "Looped through "+val+" records.Completed "+parseInt(percentage*100)+"%. "
+       elements.progress.string = "Looped through "+val+" records.Completed "+parseInt((percentage*100).toString())+"%. "
        application.updateUI() //refresh user interface
 
 	  if(val == max)

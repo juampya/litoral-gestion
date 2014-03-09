@@ -30,7 +30,7 @@ function procesar(max, min,val)
     elements.progress.value = val
     //application.sleep(10)//simulates time needed to perform a loop
     percentage = elements.progress.getPercentComplete()
-    elements.progress.string = "Procesando "+val+" Registros. Completado "+parseInt(percentage*100)+"%. "
+    elements.progress.string = "Procesando "+val+" Registros. Completado "+parseInt((percentage*100).toString())+"%. "
     application.updateUI() //refresh user interface
 
 	if(val == elements.progress.maximum)

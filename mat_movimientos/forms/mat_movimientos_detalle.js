@@ -80,9 +80,14 @@ function onDataChangeEstado(oldValue, newValue, event)
  */
 function onActionImprimir(event) 
 {
+	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
+	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
+	fs_conf.loadAllRecords()
+	fs_conf.getRecord(1)
+		
 	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
 	forms.mat_boleta_de_pago.vl_importe_vto1 = forms.mat_boleta_de_pago.mov_importe
-	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*15)/100
+	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*fs_conf.conf_interes_x_atraso)/100
 	forms.mat_boleta_de_pago.controller.showPrintPreview()
 	
 }

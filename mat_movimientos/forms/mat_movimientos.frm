@@ -441,6 +441,7 @@ uuid:"ED8E5CAB-C7F1-494A-9EED-819282E7AD3A"
 {
 anchors:11,
 dataProviderID:"mov_tipo_de_movimiento",
+editable:false,
 location:"1268,198",
 name:"mov_tipo_de_movimiento",
 size:"140,20",

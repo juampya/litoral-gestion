@@ -72,3 +72,24 @@ function onActionEnviarMail(event)
 	}
 	
 }
+
+/**
+ * Handle changed data.
+ *
+ * @param oldValue old value
+ * @param newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"B4F22E93-86F5-4A7E-9F2D-197F3329FF81"}
+ */
+function onDataChangeFoto(oldValue, newValue, event) 
+{
+	if((plugins.images.getImage(mat_foto).getWidth() > 200) || (plugins.images.getImage(mat_foto).getHeight() > 200))
+	{
+		mat_foto = null
+		globals.ventanaAceptar("La foto debe tener un tamaño menor o igual que 200x200 pixeles",controller.getName())
+	}
+	return true
+}

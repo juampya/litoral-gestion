@@ -571,7 +571,7 @@ function asignarIngresosATodos(ingreso_id,fec_ini,fec_fin,vigencia)
 		fs_rel_ing.rel_fec_inicial = fec_ini
 		fs_rel_ing.rel_fec_final = fec_fin
 		fs_rel_ing.rel_aplica_vigencia = vigencia
-		fs_rel_ing.rel_estado = 0
+		fs_rel_ing.rel_estado = 1
 		databaseManager.saveData(fs_rel_ing)		
 	}
 	

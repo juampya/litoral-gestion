@@ -95,12 +95,6 @@ function onShow(firstShow, event)
 		elements.btn_borrar.visible = false
 		elements.tabs.setTabEnabledAt(2,false)			
 	}
-	if(vl_nuevo==2)
-	{
-		elements.btn_borrar.visible = false
-		controller.duplicateRecord(false)
-		elements.tabs.setTabEnabledAt(2,false)
-	}
 
 	verificarDeuda()
 }

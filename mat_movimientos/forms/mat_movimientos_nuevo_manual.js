@@ -31,7 +31,7 @@ function onActionGrabar(event)
 	mov_importe = vl_importe
 	mov_grab_fec = application.getServerTimeStamp()
 	mov_grab_ope = globals.ag_usuariovigente.usu_id
-	if(mov_tipo_de_movimiento == 2)
+	if(mov_tipo_de_movimiento == 1)
 	{
 		if(mov_estado != 1)
 		{mov_estado = 1}
@@ -75,7 +75,7 @@ function onShow(firstShow, event)
  */
 function onDataChangeTipo(oldValue, newValue, event) 
 {
-	if(mov_tipo_de_movimiento == 2)
+	if(mov_tipo_de_movimiento == 1)
 	{
 		mov_estado = 1
 		mov_fecha_cobro = application.getServerTimeStamp()

@@ -192,6 +192,7 @@ uuid:"48D9E875-D33D-427E-B662-E76FD666932C"
 dataProviderID:"mat_fecha_graduacion",
 displayType:5,
 formIndex:47,
+format:"dd-MM-yyyy|mask",
 horizontalAlignment:0,
 location:"134,248",
 size:"140,20",

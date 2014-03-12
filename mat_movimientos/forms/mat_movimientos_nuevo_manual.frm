@@ -25,6 +25,7 @@ typeid:7,
 uuid:"0D5EACCE-B210-4885-A0C1-8FC51ECA4793"
 },
 {
+anchors:11,
 location:"0,0",
 size:"810,106",
 styleClass:"banner",

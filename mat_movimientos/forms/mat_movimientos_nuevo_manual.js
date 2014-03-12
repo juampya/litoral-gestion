@@ -31,6 +31,13 @@ function onActionGrabar(event)
 	mov_importe = vl_importe
 	mov_grab_fec = application.getServerTimeStamp()
 	mov_grab_ope = globals.ag_usuariovigente.usu_id
+	if(mov_tipo_de_movimiento == 2)
+	{
+		if(mov_estado != 1)
+		{mov_estado = 1}
+		if(mov_fecha_cobro == null)
+		{mov_fecha_cobro = application.getServerTimeStamp()}
+	}	
 	databaseManager.saveData()
 	forms.mat_movimientos.controller.show()
 }
@@ -53,4 +60,30 @@ function onShow(firstShow, event)
 	mat_id = forms.mat_movimientos_nuevo.vl_matriculado
 	vl_importe = 0
 	
+}
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"98DD2570-A127-4B29-8BAD-88C825194BAE"}
+ */
+function onDataChangeTipo(oldValue, newValue, event) 
+{
+	if(mov_tipo_de_movimiento == 2)
+	{
+		mov_estado = 1
+		mov_fecha_cobro = application.getServerTimeStamp()
+	}
+	else
+	{
+		mov_estado = 0
+		mov_fecha_cobro = null
+	}
+	return true
 }

@@ -434,7 +434,7 @@ function CargarMenu()
 			titulo.text = record.menu_titulo
 			titulo.setEnabled(BuscaPermisos(record.menu_id))
 			titulo.setMnemonic(record.menu_teclas_rapidas)
-				
+			
 		/** @type {JSFoundset<db:/Sistemas/menus>}*/
 		var fs_submenu = databaseManager.getFoundSet('Sistemas','menus')	
 			fs_submenu.find()
@@ -501,10 +501,28 @@ function CargarMenu()
 
 /**
  * @properties={typeid:24,uuid:"B0935BAC-6271-4A60-A0AD-71FCF09ECACD"}
+ * @AllowToRunInFind
  */
 function CargarMenuWeb()
 {
+	/** @type {Array} */
+	var menu_principal	= forms[globals.mx_modulo_inicio].elements.allnames
 	
+	/** @type {JSFoundset<db:/Sistemas/menus>}*/
+	var fs_menus = databaseManager.getFoundSet('Sistemas','menus')	
+		fs_menus.find()
+		fs_menus.modulo_id = scopes.globals.mx_modulo_id
+		fs_menus.menu_principal = 1
+		fs_menus.search()
+		fs_menus.sort('menu_orden asc')
+		
+	for(var i=1; i<=fs_menus.getSize();i++)
+	{
+		var record = fs_menus.getRecord(i)
+		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].text=record.menu_titulo
+		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].fgcolor='#ffffff'
+		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].font= 'Microsoft Sans Serif,1,11'
+	}	
 }
 /**
  * @properties={typeid:24,uuid:"2BEAB674-25C0-49D7-8F8B-6D7882CD4419"}

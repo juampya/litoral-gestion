@@ -1,3 +1,8 @@
+/**
+ * @properties={typeid:35,uuid:"E4DCC138-2971-4537-A484-D240CD6686F6",variableType:-4}
+ */
+var menu_html = null;
+
 
 /**
  * Callback method for when solution is opened.
@@ -13,7 +18,28 @@ function onSolutionOpen()
     globals.mx_modulo_nivel = 0 // Siempre cero.	
     globals.mx_modulo_id = 14
 	globals.mx_modulo_inicio = ag_solucionvigente.modulo_form_start
-	scopes.globals.CargarMenu()
-	
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+	{
+		forms.mat_inicio.elements.titulo_lbl.visible = true
+		forms.mat_inicio.elements.btn_menu1.visible  = true
+		forms.mat_inicio.elements.btn_menu2.visible  = true
+		forms.mat_inicio.elements.btn_menu3.visible  = true
+		forms.mat_inicio.elements.btn_menu4.visible  = true
+		forms.mat_inicio.elements.btn_menu5.visible  = true
+		forms.mat_inicio.elements.btn_menu6.visible  = true
+		scopes.globals.CargarMenuWeb()
+	}
+	else
+	{
+		forms.mat_inicio.elements.titulo_lbl.visible = false
+		forms.mat_inicio.elements.btn_menu1.visible  = false
+		forms.mat_inicio.elements.btn_menu2.visible  = false
+		forms.mat_inicio.elements.btn_menu3.visible  = false
+		forms.mat_inicio.elements.btn_menu4.visible  = false
+		forms.mat_inicio.elements.btn_menu5.visible  = false
+		forms.mat_inicio.elements.btn_menu6.visible  = false
+		scopes.globals.CargarMenu()
+	}
 	//plugins.busy.unblock();
 }
+

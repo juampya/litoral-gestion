@@ -505,8 +505,17 @@ function CargarMenu()
  */
 function CargarMenuWeb()
 {
-	/** @type {Array} */
-	var menu_principal	= forms[globals.mx_modulo_inicio].elements.allnames
+	var menu_principal = new Array()
+	var name = ''
+	for(var k=0; k<forms[globals.mx_modulo_inicio].elements.allnames.length;k++)
+	{
+		var name_btn = forms[globals.mx_modulo_inicio].elements.allnames[k];
+		name = name_btn.substr(0,8)
+		if(name=='btn_menu')
+		{
+			menu_principal.push(name_btn)
+		}
+	}	
 	
 	/** @type {JSFoundset<db:/Sistemas/menus>}*/
 	var fs_menus = databaseManager.getFoundSet('Sistemas','menus')	
@@ -524,6 +533,64 @@ function CargarMenuWeb()
 		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].font= 'Microsoft Sans Serif,1,11'
 	}	
 }
+
+/**
+ * @properties={typeid:24,uuid:"95D7AE03-95E4-4897-914C-D59835529EBD"}
+ * @AllowToRunInFind
+ */
+function CargarSubMenuWeb(p_orden)
+{
+	var vl_submenu = new Array()
+	var name = ''
+
+	for(var k=0; k<forms[globals.mx_modulo_inicio].elements.allnames.length;k++)
+	{
+		var name_btn = forms[globals.mx_modulo_inicio].elements.allnames[k];
+		name = name_btn.substr(0,11)
+		if(name=='btn_submenu')
+		{
+			vl_submenu.push(name_btn)
+		}
+	}
+	
+	for(var j=0; j<vl_submenu.length;j++)
+	{
+		forms[globals.mx_modulo_inicio].elements[vl_submenu[j]].text=null
+		forms[globals.mx_modulo_inicio].elements[vl_submenu[j]].visible = false
+	}
+	
+	/** @type {JSFoundset<db:/Sistemas/menus>}*/
+	var fs_menus = databaseManager.getFoundSet('Sistemas','menus')	
+		fs_menus.find()
+		fs_menus.modulo_id = scopes.globals.mx_modulo_id
+		fs_menus.menu_principal = 1
+		fs_menus.menu_orden = p_orden
+		fs_menus.search()
+		fs_menus.sort('menu_orden asc')
+	
+	/** @type {JSFoundset<db:/Sistemas/menus>}*/
+	var fs_submenu = databaseManager.getFoundSet('Sistemas','menus')	
+		fs_submenu.find()
+		fs_submenu.menu_dependencia = fs_menus.menu_id
+		fs_submenu.search()	
+		fs_submenu.sort('menu_orden asc')
+	if(fs_submenu.getSize()>0)
+	{
+		for(var i=1; i<=fs_submenu.getSize();i++)
+		{
+			var record_submenu = fs_submenu.getRecord(i)
+			if(record_submenu.menu_titulo!="Salir")
+			{
+				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].text=record_submenu.menu_titulo
+				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].fgcolor='#ffffff'
+				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].font= 'Microsoft Sans Serif,1,11'
+				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].visible  = true
+			}	
+		}
+	}	
+}
+
+
 /**
  * @properties={typeid:24,uuid:"2BEAB674-25C0-49D7-8F8B-6D7882CD4419"}
  */

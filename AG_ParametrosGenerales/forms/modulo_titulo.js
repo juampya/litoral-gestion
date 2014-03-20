@@ -15,3 +15,32 @@ function onShow(firstShow, event)
 	modulo_id = globals.mx_modulo_id
 	controller.search()
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"F354BB38-D630-4804-BA6C-ECF374BCB715"}
+ */
+function onActionSalir(event) 
+{
+	if(application.isInDeveloper())
+	{
+		if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+		{
+			databaseManager.revertEditedRecords()
+			var solucion = application.getSolutionName()
+			security.logout(solucion)
+		}
+		else
+		{
+			application.exit()
+		}
+		
+	}
+	else
+	{
+		application.exit()
+	}
+}

@@ -5,7 +5,17 @@ function Salir()
 {
 	if(application.isInDeveloper())
 	{
-		application.exit()
+		if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+		{
+			databaseManager.revertEditedRecords()
+			var solucion = application.getSolutionName()
+			security.logout(solucion)
+		}
+		else
+		{
+			application.exit()
+		}
+		
 	}
 	else
 	{
@@ -112,4 +122,77 @@ function caja()
 {
 	scopes.globals.SacarMenu()
 	forms.sm_frm_caja.controller.show()
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"CC1C8823-6119-4285-9D42-0E9550267291"}
+ * @AllowToRunInFind
+ */
+function onActionMenu1(event) 
+{	
+	scopes.globals.CargarSubMenuWeb(1)
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"2AB73E0B-DE9B-4C61-A780-36A7A9510694"}
+ */
+function onActionMenu2(event) 
+{
+	scopes.globals.CargarSubMenuWeb(2)
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"65417E83-504C-4994-85F3-8D82CB6AC5D9"}
+ */
+function onActionMenu3(event) 
+{
+	scopes.globals.CargarSubMenuWeb(3)
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"9A6F3E0E-2D8E-4CA8-8F8C-4BA73AF74C1B"}
+ */
+function onActionMenu4(event) 
+{
+	scopes.globals.CargarSubMenuWeb(4)
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"C192AF41-A17B-4F1B-AD98-B728C3812461"}
+ */
+function onActionMenu5(event) 
+{
+	scopes.globals.CargarSubMenuWeb(5)
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"D386AD15-C29C-4963-B395-722E26215E67"}
+ */
+function onActionMenu6(event) 
+{
+	scopes.globals.CargarSubMenuWeb(6)
 }

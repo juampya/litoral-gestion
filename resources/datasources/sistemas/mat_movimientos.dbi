@@ -22,6 +22,13 @@ name:"mov_anio_emision"
 },
 {
 allowNull:true,
+creationOrderIndex:14,
+dataType:-4,
+length:16777215,
+name:"mov_cod_barra"
+},
+{
+allowNull:true,
 creationOrderIndex:7,
 dataType:12,
 length:45,

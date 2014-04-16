@@ -18,14 +18,14 @@ name:"localidad_id"
 allowNull:true,
 creationOrderIndex:3,
 dataType:12,
-length:45,
+length:6,
 name:"localidad_caracter"
 },
 {
 allowNull:true,
 creationOrderIndex:1,
 dataType:12,
-length:45,
+length:4,
 name:"localidad_cod_postal"
 },
 {

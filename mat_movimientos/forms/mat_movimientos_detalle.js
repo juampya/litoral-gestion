@@ -54,7 +54,7 @@ function onActionGrabar(event)
 	var cod_barra_vto2			   = calcularFechaJuliana(mov_fec_vto2,mov_fec_vto2.getFullYear())
 	var cod_barra_imp2			   = utils.numberFormat(mov_importe,'000000')
 		cod_barra = cod_barra_SAM+ cod_barra_ENTE+cod_barra_disenio+cod_barra_id_contribuyente+cod_barra_moneda+cod_barra_vto1+cod_barra_imp1+cod_barra_vto2+cod_barra_imp2
-	var cod_barra_digverif 		   = DigitoVerificadorModulo10(cod_barra)
+	var cod_barra_digverif 		   = DigitoVerificadorModulo1(cod_barra)
 		cod_barra = cod_barra+cod_barra_digverif+cod_barra_imp1+cod_barra_vto2
 		
 		
@@ -94,7 +94,7 @@ function onActionGrabar(event)
  *
  * @properties={typeid:24,uuid:"F5058B05-DA84-4884-B17E-0D3607F3F23C"}
  */
-function DigitoVerificadorModulo10(pcodigo) 
+function DigitoVerificadorModulo1(pcodigo) 
 {
 	var p = 1
 	var x = 1

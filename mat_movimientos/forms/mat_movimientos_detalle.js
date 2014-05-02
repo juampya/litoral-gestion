@@ -50,28 +50,28 @@ function onActionGrabar(event)
 	var cod_barra_id_contribuyente = '03318011710000011285'
 	var cod_barra_moneda 		   = '1'	
 	var cod_barra_vto1			   = calcularFechaJuliana(mov_fec_vto1,mov_fec_vto1.getFullYear()) 
-	var cod_barra_imp1			   = utils.numberFormat(mov_importe,'000000')
+	var cod_barra_imp1			   = utils.numberFormat(mov_importe,'0000.00').substr(0,4)+utils.numberFormat(mov_importe,'0000.00').substr(5,2)
 	var cod_barra_vto2			   = calcularFechaJuliana(mov_fec_vto2,mov_fec_vto2.getFullYear())
-	var cod_barra_imp2			   = utils.numberFormat(mov_importe,'000000')
+	var cod_barra_imp2			   = utils.numberFormat(mov_importe_2vto,'0000.00').substr(0,4)+utils.numberFormat(mov_importe_2vto,'0000.00').substr(5,2)
 		cod_barra = cod_barra_SAM+ cod_barra_ENTE+cod_barra_disenio+cod_barra_id_contribuyente+cod_barra_moneda+cod_barra_vto1+cod_barra_imp1+cod_barra_vto2+cod_barra_imp2
 	var cod_barra_digverif 		   = DigitoVerificadorModulo1(cod_barra)
 		cod_barra = cod_barra+cod_barra_digverif+cod_barra_imp1+cod_barra_vto2
 		
 		
-	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
-	{
-			/**@type {String}*/
-	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=421&type=I25&width=480&height=60&xres=1&font=2'
-
-	    mov_cod_barra =  plugins.http.getMediaData(url)
-	}
-	else
-	{
+//	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+//	{
+//			/**@type {String}*/
+//	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=421&type=I25&width=480&height=60&xres=1&font=2'
+//
+//	    mov_cod_barra =  plugins.http.getMediaData(url)
+//	}
+//	else
+//	{
 		/**@type {String}*/
-	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=2'
+	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
 
 	    mov_cod_barra =  plugins.http.getMediaData(url)
-	}
+//	}
 //		// Creates a Code 3 of 9 (Code 39) linear barcode...
 //		// Define the code you want to use
 //		// IMPORTANT: not all types of barcodes can show alphanumeric characters
@@ -86,6 +86,8 @@ function onActionGrabar(event)
 //	}		
 	databaseManager.saveData(foundset)
 	forms.mat_movimientos.controller.show()
+	
+	globals.mx_empresa_id
 }
 
 /**
@@ -200,11 +202,11 @@ function onActionImprimir(event)
 		
 	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
 	
-	
-	
 	forms.mat_boleta_de_pago.vl_importe_vto1 = forms.mat_boleta_de_pago.mov_importe
 	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*fs_conf.conf_interes_x_atraso)/100
-	forms.mat_boleta_de_pago.controller.showPrintPreview()
+	//forms.mat_boleta_de_pago.controller.showPrintPreview()
+	plugins.jasperPluginRMI.pluginVersion
+	plugins.jasperPluginRMI.runReport('Sistemas','boleta_de_pago.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmov_id:mov_id})
 	
 }
 

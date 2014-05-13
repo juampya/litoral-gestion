@@ -47,6 +47,12 @@ allowNull:true,
 creationOrderIndex:2,
 dataType:4,
 name:"conf_venc_cuota_2_dia"
+},
+{
+allowNull:true,
+creationOrderIndex:7,
+dataType:4,
+name:"emp_id"
 }
 ],
 name:"mat_configuraciones",

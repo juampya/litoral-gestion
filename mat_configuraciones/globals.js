@@ -475,6 +475,7 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 	/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 	var fs_movim = databaseManager.getFoundSet('sistemas','mat_movimientos')
 	fs_movim.newRecord()
+	fs_movim.emp_id = scopes.globals.mx_empresa_id
 	fs_movim.mat_id = matriculado
 	fs_movim.mov_mes_emision = mes
 	fs_movim.mov_anio_emision = anio
@@ -482,6 +483,7 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 	fs_movim.mov_estado = 1 //Pagado
 	fs_movim.mov_fecha_emision = new Date(anio, mes - 1, 15)
 	fs_movim.mov_tipo_de_movimiento = 1 // Primer Movimiento
+	
 	
 	databaseManager.saveData(fs_movim)	
 	

@@ -95,6 +95,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.newRecord()
+		fs_mov.emp_id = scopes.globals.mx_empresa_id
 		fs_mov.mov_anio_emision = rec.mov_anio_emision
 		fs_mov.mov_descripcion = rec.mov_descripcion
 		fs_mov.mov_estado = rec.mov_estado

@@ -56,7 +56,6 @@ function inicializar()
     elements.progress.stringPainted = true // enables showing strings inside the progres bar
     elements.progress.string = "Comenzando Proceso..."
     elements.progress.value =0 // initialise value of the progres bar
-
 }
 
 /**
@@ -95,20 +94,22 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.newRecord()
-		fs_mov.emp_id = scopes.globals.mx_empresa_id
-		fs_mov.mov_anio_emision = rec.mov_anio_emision
-		fs_mov.mov_descripcion = rec.mov_descripcion
-		fs_mov.mov_estado = rec.mov_estado
-		fs_mov.mov_fecha_cobro = rec.mov_fecha_cobro
-		fs_mov.mov_fecha_emision = rec.mov_fecha_emision
-		fs_mov.mov_fec_vto1 = rec.mov_fec_vto1
-		fs_mov.mov_fec_vto2 = rec.mov_fec_vto2
-		fs_mov.mat_id = rec.mat_id
-		fs_mov.mov_importe = rec.mov_importe
-		fs_mov.mov_mes_emision = rec.mov_mes_emision
+		fs_mov.emp_id 				  = scopes.globals.mx_empresa_id
+		fs_mov.mov_anio_emision 	  = rec.mov_anio_emision
+		fs_mov.mov_descripcion 		  = rec.mov_descripcion
+		fs_mov.mov_estado 			  = rec.mov_estado
+		fs_mov.mov_fecha_cobro 		  = rec.mov_fecha_cobro
+		fs_mov.mov_fecha_emision 	  = rec.mov_fecha_emision
+		fs_mov.mov_fec_vto1 		  = rec.mov_fec_vto1
+		fs_mov.mov_fec_vto2 		  = rec.mov_fec_vto2
+		fs_mov.mat_id 				  = rec.mat_id
+		fs_mov.mov_importe 			  = rec.mov_importe
+		fs_mov.mov_importe_2vto 	  = rec.mov_importe_2vto
+		fs_mov.mov_recargo 			  = rec.mov_recargo
+		fs_mov.mov_mes_emision 		  = rec.mov_mes_emision
 		fs_mov.mov_tipo_de_movimiento = rec.mov_tipo_de_movimiento
-		fs_mov.mov_grab_fec = rec.mov_grab_fec
-		fs_mov.mov_grab_ope = rec.mov_grab_ope
+		fs_mov.mov_grab_fec 		  = rec.mov_grab_fec
+		fs_mov.mov_grab_ope 		  = rec.mov_grab_ope
 		databaseManager.saveData(fs_mov)
 		for(var j = 1; j <= rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
 		{
@@ -116,20 +117,18 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 			/** @type {JSFoundset<db:/sistemas/mat_movimientos_det>}*/
 			var fs_det = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 			fs_det.newRecord()
-			fs_det.det_importe = rec1.det_importe
+			fs_det.det_importe 			= rec1.det_importe
 			fs_det.det_importe_original = rec1.det_importe_original
-			fs_det.ingr_id = rec1.ingr_id
-			fs_det.mov_id = fs_mov.mov_id
-			fs_det.res_id = rec1.res_id
+			fs_det.ingr_id 				= rec1.ingr_id
+			fs_det.mov_id 				= fs_mov.mov_id
+			fs_det.res_id 				= rec1.res_id
 			databaseManager.saveData(fs_det)
-
 		}
 		procesar(cantidad,0,i)
 	}
 	fs_movim_aux.mat_movimientos_aux_to_mat_movimientos_det_aux.deleteAllRecords()
 	fs_movim_aux.deleteAllRecords()
 	forms.mat_liquidacion.controller.show()
-
 }
 
 /**

@@ -483,7 +483,8 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 	fs_movim.mov_estado = 1 //Pagado
 	fs_movim.mov_fecha_emision = new Date(anio, mes - 1, 15)
 	fs_movim.mov_tipo_de_movimiento = 1 // Primer Movimiento
-	
+	fs_movim.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
+	fs_movim.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
 	
 	databaseManager.saveData(fs_movim)	
 	
@@ -508,6 +509,8 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 		acumImporte += fs_detalle.det_importe		
 	}
 	fs_movim.mov_importe = acumImporte
+	fs_movim.mov_importe_2vto = fs_movim.mov_importe+(fs_movim.mov_importe*fs_movim.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
+	
 	databaseManager.saveData(fs_movim) // Graba importe del movimiento
 }
 

@@ -110,7 +110,6 @@ function calcularTotales()
 			var rec = foundset.getRecord(i)
 			vl_cant++
 			vl_importe_total = vl_importe_total + rec.mov_importe
-			
 		}
 		
 		/** @type {JSFoundset<db:/sistemas/mat_movimientos_det_aux>}*/
@@ -126,12 +125,9 @@ function calcularTotales()
 				var rec1 = fs_res.getRecord(j)
 				vl_cant_devol++
 				vl_importe_devolucion = vl_importe_devolucion + rec1.det_importe
-				
 			}			
 		}
 	}
-	
-	
 }
 
 /**
@@ -238,8 +234,6 @@ function crearFormularioConceptos()
 	myForm.styleClass = 'table'
 	myForm.styleName = 'id_style'
 
-
-	
 	var sg_mes = myForm.newTextField('concepto', 20, 200, 120, 20)
 	sg_mes.editable = false
 	sg_mes.horizontalAlignment = SM_ALIGNMENT.LEFT
@@ -261,9 +255,6 @@ function crearFormularioConceptos()
 	sg_pendiente.anchors = SM_ANCHOR.ALL
 	sg_pendiente.styleClass = 'table_field'	
 	sg_pendiente.format = "#,###.00"	
-		
-
-
 	
 //	var tmp_total_pendiente 	= 0
 //	var tmp_total_cobrado 		= 0
@@ -281,7 +272,6 @@ function crearFormularioConceptos()
 //	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
 		
 	elements.tabs.addTab(forms['totConceptos'], "Total a Cobrar por Concepto")
-
 }
 
 /**
@@ -289,17 +279,13 @@ function crearFormularioConceptos()
  */
 function crearFormularioDevoluciones() 
 {
-
-	
-	var qry = 
-		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
-		"from mat_movimientos_det_aux as a, mat_ingresos as b " +
-		"where a.ingr_id = b.ingr_id and tmp_id = " + globals.vg_nro_tmp + " and res_id > 0 " +
-		" group by a.ingr_id " 
+	var qry = "select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
+			  "from mat_movimientos_det_aux as a, mat_ingresos as b " +
+			  "where a.ingr_id = b.ingr_id and tmp_id = " + globals.vg_nro_tmp + " and res_id > 0 " +
+			  " group by a.ingr_id " 
 
 	/** @type {JSDataSet<concepto:text, cantidad:number, total:number>}*/
 	var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
-
 	
 	var success = history.removeForm("totDevoluciones")
 	if(success) {solutionModel.removeForm("totDevoluciones")}
@@ -312,8 +298,6 @@ function crearFormularioDevoluciones()
 	myForm.styleClass = 'table'
 	myForm.styleName = 'id_style'
 
-
-	
 	var sg_mes = myForm.newTextField('concepto', 20, 200, 120, 20)
 	sg_mes.editable = false
 	sg_mes.horizontalAlignment = SM_ALIGNMENT.LEFT
@@ -336,9 +320,6 @@ function crearFormularioDevoluciones()
 	sg_pendiente.styleClass = 'table_field'	
 	sg_pendiente.format = "#,###.00"	
 		
-
-
-	
 //	var tmp_total_pendiente 	= 0
 //	var tmp_total_cobrado 		= 0
 //	var tmp_total				= 0
@@ -355,7 +336,6 @@ function crearFormularioDevoluciones()
 //	forms['matriculados']['vl_cobrado']	=tmp_total_cobrado
 		
 	elements.tabs_1.addTab(forms['totDevoluciones'],"Devoluciones Realizadas")
-	
 }
 
 /**

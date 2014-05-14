@@ -148,6 +148,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		fs_movim_aux.mov_fecha_emision = new Date(anio, mes - 1, 15)
 		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_conf.conf_venc_cuota_1_dia)
 		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_conf.conf_venc_cuota_2_dia)
+		fs_movim_aux.mov_recargo = fs_conf.conf_interes_x_atraso
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
 		fs_movim_aux.tmp_id = globals["vg_nro_tmp"]
 		fs_movim_aux.mov_grab_fec = application.getServerTimeStamp()
@@ -276,6 +277,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		
 		//Regraba importe del movimiento-----------------------------------------------------
 		fs_movim_aux.mov_importe = acumImporte
+		fs_movim_aux.mov_importe_2vto = fs_movim_aux.mov_importe+((fs_movim_aux.mov_importe*fs_movim_aux.mov_recargo)/100)
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
 
 		procesar(maximo,0,i)

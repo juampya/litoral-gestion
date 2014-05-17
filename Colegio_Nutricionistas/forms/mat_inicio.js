@@ -98,6 +98,17 @@ function titulos()
 	forms.sm_frm_titulos.controller.show()
 }
 
+
+/**
+ * @properties={typeid:24,uuid:"DF52DFE9-102D-488A-907B-0CAA8183DBB9"}
+ */
+function localidades()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_localidades.vl_frm_anterior = controller.getName()
+	forms.sm_frm_localidades.controller.show()
+}
+
 /**
  * @properties={typeid:24,uuid:"46AC2DD9-3A40-41FC-9C02-AF21E56BF89F"}
  */

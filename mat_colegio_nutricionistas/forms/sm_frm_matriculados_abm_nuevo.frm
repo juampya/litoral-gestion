@@ -224,6 +224,15 @@ typeid:7,
 uuid:"4214DB63-3639-45A7-B382-B372C33D3961"
 },
 {
+dataProviderID:"mat_dni",
+formIndex:37,
+horizontalAlignment:0,
+location:"759,5",
+size:"106,20",
+typeid:4,
+uuid:"4218240B-5DAC-4682-9313-D34074197A1C"
+},
+{
 borderType:"TitledBorder,Auditoría,4,0",
 location:"631,337",
 shapeType:1,
@@ -294,6 +303,15 @@ styleClass:"label_black",
 text:"Nombre del Cónyug.:",
 typeid:7,
 uuid:"4FB699CD-08F9-4B68-A407-FACA454CBCB6"
+},
+{
+formIndex:36,
+location:"699,5",
+size:"55,20",
+styleClass:"label_black",
+text:"Número:",
+typeid:7,
+uuid:"51DE1776-C9CF-4343-A85F-EF2C62185F91"
 },
 {
 dataProviderID:"mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion",
@@ -384,6 +402,15 @@ styleClass:"label_black",
 text:"Usuario:",
 typeid:7,
 uuid:"64F8FAE3-75CD-4966-BF93-1ED16D59FDC3"
+},
+{
+formIndex:52,
+location:"282,173",
+size:"49,20",
+styleClass:"label_black",
+text:"Sexo:",
+typeid:7,
+uuid:"69EB7273-4795-42EC-B8A1-6F468021A012"
 },
 {
 formIndex:30,
@@ -587,6 +614,18 @@ styleClass:"label_black",
 text:"Código Postal Prof.:",
 typeid:7,
 uuid:"9F5D3130-7286-486D-9AC4-D929742A00C3"
+},
+{
+dataProviderID:"mat_sexo",
+displayType:2,
+editable:false,
+formIndex:53,
+horizontalAlignment:0,
+location:"333,173",
+size:"100,20",
+typeid:4,
+uuid:"9FE63B68-876C-401F-94C0-80213AE4EBDD",
+valuelistID:"782D69BD-19D5-4D03-96C2-01618A630AF3"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
@@ -793,7 +832,7 @@ formIndex:36,
 location:"502,5",
 size:"125,20",
 styleClass:"label_black",
-text:"DNI:",
+text:"Tipo Documento:",
 typeid:7,
 uuid:"EFBA4E9F-37CB-4DA0-BC1A-AFDC2C968F9D"
 },
@@ -816,14 +855,16 @@ typeid:7,
 uuid:"EFDE5895-E865-41CB-8879-647D6090B835"
 },
 {
-dataProviderID:"mat_dni",
+dataProviderID:"docu_id",
+displayType:2,
+editable:false,
 formIndex:37,
-horizontalAlignment:0,
 location:"631,5",
-size:"106,20",
+size:"63,20",
 tabSeq:26,
 typeid:4,
-uuid:"F0A9BD27-E37D-4D38-A118-980610754499"
+uuid:"F0A9BD27-E37D-4D38-A118-980610754499",
+valuelistID:"6FB42780-9413-495F-9460-BBEF434677ED"
 },
 {
 dataProviderID:"mat_nombre",

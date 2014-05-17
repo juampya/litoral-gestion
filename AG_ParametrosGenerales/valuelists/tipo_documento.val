@@ -1,0 +1,9 @@
+dataProviderID1:"docu_id",
+dataProviderID2:"docu_descripcion",
+dataSource:"db:/sistemas/documentos",
+name:"tipo_documento",
+returnDataProviders:1,
+showDataProviders:2,
+typeid:34,
+uuid:"6FB42780-9413-495F-9460-BBEF434677ED",
+valueListType:1

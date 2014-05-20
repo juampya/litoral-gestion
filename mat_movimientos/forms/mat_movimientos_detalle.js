@@ -55,7 +55,7 @@ function onActionGrabar(event)
 	var cod_barra_imp2			   = utils.numberFormat(mov_importe_2vto,'0000.00').substr(0,4)+utils.numberFormat(mov_importe_2vto,'0000.00').substr(5,2)
 		cod_barra = cod_barra_SAM+ cod_barra_ENTE+cod_barra_disenio+cod_barra_id_contribuyente+cod_barra_moneda+cod_barra_vto1+cod_barra_imp1+cod_barra_vto2+cod_barra_imp2
 	var cod_barra_digverif 		   = DigitoVerificadorModulo1(cod_barra)
-		cod_barra = cod_barra+cod_barra_digverif+cod_barra_imp1+cod_barra_vto2
+		cod_barra = cod_barra+cod_barra_digverif
 		
 		
 //	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
@@ -68,8 +68,9 @@ function onActionGrabar(event)
 //	else
 //	{
 		/**@type {String}*/
-	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
-
+	    //var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
+	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
+	
 	    mov_cod_barra =  plugins.http.getMediaData(url)
 //	}
 //		// Creates a Code 3 of 9 (Code 39) linear barcode...

@@ -99,10 +99,10 @@ function onActionGrabar(event)
  */
 function DigitoVerificadorModulo1(pcodigo) 
 {
-	var p = 1
+	var p = 0
 	var x = 1
 	var total1 = 0
-	for(var i=p;i<=50;i++)
+	for(var i=p;i<=48;i++)
 	{
 	//AVANZO DE A UN DIGITO DEL CODIGO DE LA BOLETA
 	//LO MULTIPLICO POR EL VALOR DE LA BANDERA (1,3,5,7,9,3,5,7,9,3,5,...etc)
@@ -153,11 +153,13 @@ function DigitoVerificadorModulo1(pcodigo)
 
 	//LE SACO LA PARTE ENTERA
 
-	verifica = Math.round(verifica)
+	//verifica = Math.round(verifica)
+	verifica = parseInt(verifica.toString())
+	
 
 	//Y OBTENGO EL RESTO DE LA DIVISION POR 10
 
-	verifica = 10-(verifica%10)
+	verifica = verifica%10
 
 	return utils.numberFormat(verifica,'#')	
 }
@@ -196,15 +198,15 @@ function onDataChangeEstado(oldValue, newValue, event)
  */
 function onActionImprimir(event) 
 {
-	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
-	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
-	fs_conf.loadAllRecords()
-	fs_conf.getRecord(1)
-		
-	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
-	
-	forms.mat_boleta_de_pago.vl_importe_vto1 = forms.mat_boleta_de_pago.mov_importe
-	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*fs_conf.conf_interes_x_atraso)/100
+//	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
+//	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
+//	fs_conf.loadAllRecords()
+//	fs_conf.getRecord(1)
+//		
+//	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
+//	
+//	forms.mat_boleta_de_pago.vl_importe_vto1 = forms.mat_boleta_de_pago.mov_importe
+//	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*fs_conf.conf_interes_x_atraso)/100
 
 	plugins.jasperPluginRMI.runReport('Sistemas','boleta_de_pago.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmov_id:mov_id})
 	

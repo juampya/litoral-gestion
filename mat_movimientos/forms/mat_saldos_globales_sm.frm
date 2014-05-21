@@ -82,7 +82,7 @@ imageMediaID:"0E4EAC8B-534A-4773-A300-0556D9E21A1A",
 location:"0,191",
 onActionMethodID:"6049B060-D2DD-4EF9-B12E-FD3A8303F31A",
 showClick:false,
-size:"16,16",
+size:"20,20",
 text:"",
 typeid:7,
 uuid:"43D1321C-C664-4010-87D2-BB8F6004149F"

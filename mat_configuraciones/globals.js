@@ -621,3 +621,107 @@ function ventanaAceptar(mensaje,formulario)
 {
 	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion",mensaje,"atention",formulario,"Aceptar","",null,null,null,null,null,null)
 }
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param lnk_fecha
+ * @param lnk_anio_base
+ *
+ * @properties={typeid:24,uuid:"1D4B3038-99E2-4C4C-AFF6-A8A67417E1CD"}
+ */
+function calcularFechaJuliana(lnk_fecha, lnk_anio_base) {
+	var num_days = new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+	var year = lnk_fecha.getFullYear()
+	var month = lnk_fecha.getMonth() + 1
+	var day = lnk_fecha.getDate();
+
+	if (year % 4 == 0) {
+		num_days[1] = 29
+	}
+
+	var diaJuliano = 0
+	var anioJuliano = 0
+	for (var i=1; i <= 12; i++) {
+		if (i == month) {
+			diaJuliano = diaJuliano + day
+			break
+		} else {
+			diaJuliano = diaJuliano + num_days[i -1]
+		}
+	}
+	
+	diaJuliano = utils.numberFormat(diaJuliano + ((year - lnk_anio_base) * 365),'000')
+	anioJuliano = lnk_anio_base.toString().substr(3,1)
+	return anioJuliano+diaJuliano
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param pcodigo
+ *
+ * @properties={typeid:24,uuid:"D6EB4F07-5115-41AB-AF05-9633621CDFD9"}
+ */
+function DigitoVerificadorModulo1(pcodigo) 
+{
+	var p = 1
+	var x = 1
+	var total1 = 0
+	for(var i=p;i<=50;i++)
+	{
+	//AVANZO DE A UN DIGITO DEL CODIGO DE LA BOLETA
+	//LO MULTIPLICO POR EL VALOR DE LA BANDERA (1,3,5,7,9,3,5,7,9,3,5,...etc)
+	var MTOTAL = x * utils.stringToNumber(pcodigo.substr(i,1))
+	//VOY SUMANDO TODOS LOS PRODUCTOS DE LAS MULTIPLICACIONES
+
+		total1 = total1 + MTOTAL
+	//CAMBIO LA BANDERA
+
+		if(x==1)
+		{
+			x=3
+		}	
+		else
+		{
+			if(x==3)
+			{
+				x=5
+			}
+			else
+			{
+				if(x==5)
+				{
+					x=7
+				}
+				else
+				{
+					if(x==7)
+					{
+						x=9
+					}
+					else
+					{
+						if(x==9)
+						{
+							x=3
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	
+	//AL TOTAL LO DIVIDO POR 2
+
+	var verifica = total1 / 2
+
+	//LE SACO LA PARTE ENTERA
+
+	verifica = Math.round(verifica)
+
+	//Y OBTENGO EL RESTO DE LA DIVISION POR 10
+
+	verifica = 10-(verifica%10)
+
+	return utils.numberFormat(verifica,'#')	
+}

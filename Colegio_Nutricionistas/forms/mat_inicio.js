@@ -129,6 +129,18 @@ function departamentos()
 	forms.sm_frm_departamentos.controller.show()
 }
 
+
+/**
+ * @properties={typeid:24,uuid:"5B8E9A1C-8331-4C23-8A92-AA5F514066FE"}
+ */
+function solicitudes()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_solicitudes.vl_frm_anterior = controller.getName()
+	forms.sm_frm_solicitudes.controller.show()
+}
+
+
 /**
  * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}
  */

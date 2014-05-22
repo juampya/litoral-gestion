@@ -211,8 +211,6 @@ function onActionConfirmar(event)
  */
 function crearFormularioConceptos() 
 {
-
-	
 	var qry = 
 		"select b.ingr_nombre as concepto, count(*) as cantidad, sum(a.det_importe) as total " +
 		"from mat_movimientos_det_aux as a, mat_ingresos as b " +

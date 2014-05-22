@@ -64,7 +64,7 @@ anchors:11,
 location:"0,0",
 size:"552,85",
 styleClass:"banner",
-text:"Generar Liquidacion",
+text:"Generar Liquidación",
 transparent:true,
 typeid:7,
 uuid:"D175A538-DC5E-4209-B879-D92DC25E3F31"

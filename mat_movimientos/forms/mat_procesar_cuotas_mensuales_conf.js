@@ -110,6 +110,26 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		fs_mov.mov_tipo_de_movimiento = rec.mov_tipo_de_movimiento
 		fs_mov.mov_grab_fec 		  = rec.mov_grab_fec
 		fs_mov.mov_grab_ope 		  = rec.mov_grab_ope
+		
+		// Generación del codigo de barras.
+		var cod_barra = ''
+		var cod_barra_SAM 			   = '000'
+		var cod_barra_ENTE 			   = '0386'
+		var cod_barra_disenio 		   = '1'
+		var cod_barra_id_contribuyente = '03318011710000011285'
+		var cod_barra_moneda 		   = '1'	
+		var cod_barra_vto1			   = scopes.globals.calcularFechaJuliana(fs_mov.mov_fec_vto1,fs_mov.mov_fec_vto1.getFullYear()) 
+		var cod_barra_imp1			   = utils.numberFormat(fs_mov.mov_importe,'0000.00').substr(0,4)+utils.numberFormat(fs_mov.mov_importe,'0000.00').substr(5,2)
+		var cod_barra_vto2			   = scopes.globals.calcularFechaJuliana(fs_mov.mov_fec_vto2,fs_mov.mov_fec_vto2.getFullYear())
+		var cod_barra_imp2			   = utils.numberFormat(fs_mov.mov_importe_2vto,'0000.00').substr(0,4)+utils.numberFormat(fs_mov.mov_importe_2vto,'0000.00').substr(5,2)
+			cod_barra = cod_barra_SAM+cod_barra_ENTE+cod_barra_disenio+cod_barra_id_contribuyente+cod_barra_moneda+cod_barra_vto1+cod_barra_imp1+cod_barra_vto2+cod_barra_imp2
+		var cod_barra_digverif 		   = scopes.globals.DigitoVerificadorModulo1(cod_barra)
+			cod_barra = cod_barra+cod_barra_digverif+cod_barra_imp1+cod_barra_vto2
+		
+		var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
+
+			fs_mov.mov_cod_barra =  plugins.http.getMediaData(url)
+		
 		databaseManager.saveData(fs_mov)
 		for(var j = 1; j <= rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
 		{

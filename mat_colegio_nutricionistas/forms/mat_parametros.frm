@@ -10,21 +10,33 @@ onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
 text:"Grabar",
+toolTipText:"Grabar",
 typeid:7,
 uuid:"00D63CC0-7055-4A81-8901-AD814F872817"
 },
 {
 horizontalAlignment:4,
-labelFor:"conf_venc_cuota_2_dia",
-location:"21,188",
+location:"21,183",
 name:"conf_venc_cuota_2_dia_label",
 size:"192,20",
-text:"Dia del Segundo Vencimiento:",
+text:"Día del Segundo Vencimiento:",
 transparent:true,
 typeid:7,
 uuid:"1537B44E-E593-4067-AA77-CCBB1B19BE15"
 },
 {
+formIndex:3,
+horizontalAlignment:4,
+location:"325,293",
+name:"conf_cod_barra_diseño_label",
+size:"187,20",
+text:"Diseño:",
+transparent:true,
+typeid:7,
+uuid:"23E8731C-5ABB-4FC8-900D-82CDEE89D45F"
+},
+{
+horizontalAlignment:0,
 location:"21,218",
 size:"288,20",
 styleClass:"label_black",
@@ -34,7 +46,6 @@ uuid:"2D06AAFE-4B8D-427B-8509-2A87C72A0D5C"
 },
 {
 horizontalAlignment:4,
-labelFor:"conf_interes_cuota_impaga",
 location:"325,158",
 name:"conf_interes_cuota_impaga_label",
 size:"187,20",
@@ -45,8 +56,7 @@ uuid:"3846A37A-97FA-4C84-B49B-D65FB0185198"
 },
 {
 horizontalAlignment:4,
-labelFor:"conf_interes_ingr_id",
-location:"21,273",
+location:"21,268",
 name:"conf_interes_ingr_id_label",
 size:"192,20",
 text:"Concepto de Int. x Cta. Impag.:",
@@ -55,9 +65,50 @@ typeid:7,
 uuid:"3A8395AB-D610-4433-A07B-3CBB654F901E"
 },
 {
+horizontalAlignment:0,
+location:"325,218",
+size:"288,20",
+styleClass:"label_black",
+text:"Variables Generación Código de Barras Boletas",
+typeid:7,
+uuid:"4DADB98C-2B9E-424F-BA87-68ED035307DE"
+},
+{
+dataProviderID:"conf_cod_barra_diseño",
+format:"A",
+horizontalAlignment:0,
+location:"518,293",
+name:"conf_codigo_diseño",
+size:"95,20",
+text:"Conf Interes X Atraso",
+typeid:4,
+uuid:"721BBBCA-09B4-456C-9BE7-3B3A83F5CC11"
+},
+{
+formIndex:5,
 horizontalAlignment:4,
-labelFor:"conf_interes_x_atraso",
-location:"325,188",
+location:"325,268",
+name:"conf_cod_barra_ente_label",
+size:"187,20",
+text:"ENTE:",
+transparent:true,
+typeid:7,
+uuid:"7F6A03CC-34FB-4595-9E0A-451AEAC0E35D"
+},
+{
+formIndex:7,
+horizontalAlignment:4,
+location:"325,243",
+name:"conf_cod_barra_sam_label",
+size:"187,20",
+text:"SAM:",
+transparent:true,
+typeid:7,
+uuid:"83569704-230B-4DF8-B520-CC600FC46835"
+},
+{
+horizontalAlignment:4,
+location:"325,183",
 name:"conf_interes_x_atraso_label",
 size:"187,20",
 text:"Interes por Atraso(%):",
@@ -78,12 +129,23 @@ uuid:"8981FC70-0F07-4270-AD1A-CF3564AFC93E"
 {
 dataProviderID:"conf_venc_cuota_2_dia",
 horizontalAlignment:4,
-location:"218,188",
+location:"218,183",
 name:"conf_venc_cuota_2_dia",
 size:"91,20",
 text:"Conf Venc Cuota 2 Dia",
 typeid:4,
 uuid:"9AD0916B-5C8D-452D-BA73-B4AB738B7875"
+},
+{
+dataProviderID:"conf_cod_barra_ente",
+format:"AAAA",
+horizontalAlignment:0,
+location:"518,268",
+name:"conf_codigo_ente",
+size:"95,20",
+text:"Conf Interes X Atraso",
+typeid:4,
+uuid:"9DCDB52C-635D-4209-A0FA-A925EF8A83CA"
 },
 {
 dataProviderID:"conf_interes_cuota_impaga",
@@ -100,7 +162,7 @@ uuid:"AC4B929A-6C1A-4EBD-B6D7-D631F3D2BCD7"
 dataProviderID:"conf_interes_x_atraso",
 format:"#,###.00",
 horizontalAlignment:4,
-location:"517,188",
+location:"517,183",
 name:"conf_interes_x_atraso",
 size:"95,20",
 text:"Conf Interes X Atraso",
@@ -108,6 +170,7 @@ typeid:4,
 uuid:"AD80EE9A-A4F4-4A34-84EE-E0E4BEAB5B7A"
 },
 {
+horizontalAlignment:0,
 location:"21,133",
 size:"288,20",
 styleClass:"label_black",
@@ -116,6 +179,7 @@ typeid:7,
 uuid:"B9D289FC-2527-43B4-B63D-9DA6885EFB43"
 },
 {
+horizontalAlignment:0,
 location:"324,133",
 size:"288,20",
 styleClass:"label_black",
@@ -125,7 +189,6 @@ uuid:"BC33622D-2693-4606-B6B6-2FC46B45456B"
 },
 {
 horizontalAlignment:4,
-labelFor:"conf_cuota_impaga_ingr_id",
 location:"21,243",
 name:"conf_cuota_impaga_ingr_id_label",
 size:"192,20",
@@ -136,11 +199,10 @@ uuid:"C7029C82-6AD9-4540-B2B8-37DFE4BABF10"
 },
 {
 horizontalAlignment:4,
-labelFor:"conf_venc_cuota_1_dia",
 location:"21,158",
 name:"conf_venc_cuota_1_dia_label",
 size:"192,20",
-text:"Dia del Primer Vencimiento:",
+text:"Día del Primer Vencimiento:",
 transparent:true,
 typeid:7,
 uuid:"C89D0ED5-F48E-4C1E-9680-7F332D424067"
@@ -155,6 +217,7 @@ onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
 text:"Volver",
+toolTipText:"Volver",
 typeid:7,
 uuid:"C92936BE-DD7E-4A8B-BE90-D0F5DAB6210E"
 },
@@ -173,7 +236,7 @@ anchors:11,
 location:"0,0",
 size:"640,103",
 styleClass:"banner",
-text:"Parametros de Configuracion",
+text:"Parámetros de Configuración",
 transparent:true,
 typeid:7,
 uuid:"E5C5D52F-8F08-4AA2-A750-4C58E3B488E8"
@@ -181,7 +244,7 @@ uuid:"E5C5D52F-8F08-4AA2-A750-4C58E3B488E8"
 {
 dataProviderID:"conf_interes_ingr_id",
 horizontalAlignment:4,
-location:"217,273",
+location:"217,268",
 name:"conf_interes_ingr_id",
 size:"92,20",
 text:"Conf Interes Ingr Id",
@@ -189,7 +252,18 @@ typeid:4,
 uuid:"F5C11E8C-5808-4968-B7D0-B194D43F1F6E"
 },
 {
-height:480,
+dataProviderID:"conf_cod_barra_sam",
+format:"AAA",
+horizontalAlignment:0,
+location:"518,243",
+name:"conf_codigo_sam",
+size:"95,20",
+text:"Conf Interes X Atraso",
+typeid:4,
+uuid:"F7C0FC45-0FA9-4373-8F2C-5BB50B27718E"
+},
+{
+height:324,
 partType:5,
 typeid:19,
 uuid:"F7FF273A-6B41-4EFC-9F03-44140BF44F0D"
@@ -199,6 +273,7 @@ name:"mat_parametros",
 navigatorID:"-1",
 onShowMethodID:"99ACC1CC-BA6B-4C34-8C6F-943C84BA708D",
 showInMenu:true,
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"B7C140F6-D754-493C-A692-2DFC79407F41"

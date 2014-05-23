@@ -222,6 +222,7 @@ navigatorID:"-1",
 onShowMethodID:"214543D2-7382-4508-BCE9-D756C9C240C8",
 showInMenu:true,
 size:"999,480",
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"CACC7AC4-2F79-4B4D-8A1B-1877BEF342FA"

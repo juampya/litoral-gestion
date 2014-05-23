@@ -25,6 +25,7 @@ uuid:"B90C2612-A831-49EA-8962-5E053EBE6904"
 name:"mat_liquidacion_devolucion_sm",
 navigatorID:"-1",
 showInMenu:true,
+styleClass:"table",
 styleName:"id_style",
 typeid:3,
 uuid:"037395B4-8E8E-4907-9E8D-2864D812DEA3",

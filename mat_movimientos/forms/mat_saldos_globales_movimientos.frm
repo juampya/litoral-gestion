@@ -85,9 +85,10 @@ uuid:"451AB43C-6B2C-41AA-8280-E37DB9F34318"
 {
 imageMediaID:"0E4EAC8B-534A-4773-A300-0556D9E21A1A",
 location:"10,181",
+mediaOptions:14,
 onActionMethodID:"1220A14B-D704-4663-B5E4-B0F2D41A8981",
 showClick:false,
-size:"16,16",
+size:"20,20",
 text:"",
 typeid:7,
 uuid:"6431425C-5D83-47A4-955F-D39BF632F91A"

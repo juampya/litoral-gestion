@@ -175,12 +175,13 @@ uuid:"CBF8750F-F258-49AD-B8B4-DE4BAE16BC0A"
 {
 imageMediaID:"0E4EAC8B-534A-4773-A300-0556D9E21A1A",
 location:"0,157",
-mediaOptions:10,
+mediaOptions:6,
 onActionMethodID:"02189668-B48F-46D9-B88B-AAF0ABA57E43",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 showClick:false,
-size:"16,16",
+size:"20,20",
+transparent:true,
 typeid:7,
 uuid:"CC7145E1-3257-4C10-9D02-B4642887C594"
 },

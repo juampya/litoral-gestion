@@ -25,6 +25,7 @@ uuid:"45466248-3264-4EB6-9F53-0536DF57E57B"
 name:"mat_liquidacion_conceptos_sm",
 navigatorID:"-1",
 showInMenu:true,
+styleClass:"table",
 styleName:"id_style",
 typeid:3,
 uuid:"997B1209-B4D1-4B85-B9B3-8362F9A93940",

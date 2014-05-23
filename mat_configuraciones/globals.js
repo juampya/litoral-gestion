@@ -663,10 +663,10 @@ function calcularFechaJuliana(lnk_fecha, lnk_anio_base) {
  */
 function DigitoVerificadorModulo1(pcodigo) 
 {
-	var p = 1
+	var p = 0
 	var x = 1
 	var total1 = 0
-	for(var i=p;i<=50;i++)
+	for(var i=p;i<=48;i++)
 	{
 	//AVANZO DE A UN DIGITO DEL CODIGO DE LA BOLETA
 	//LO MULTIPLICO POR EL VALOR DE LA BANDERA (1,3,5,7,9,3,5,7,9,3,5,...etc)
@@ -710,18 +710,14 @@ function DigitoVerificadorModulo1(pcodigo)
 		}
 	}
 	
-	
 	//AL TOTAL LO DIVIDO POR 2
-
 	var verifica = total1 / 2
 
 	//LE SACO LA PARTE ENTERA
-
-	verifica = Math.round(verifica)
-
+	verifica = parseInt(verifica.toString())
+	
 	//Y OBTENGO EL RESTO DE LA DIVISION POR 10
-
-	verifica = 10-(verifica%10)
+	verifica = verifica%10
 
 	return utils.numberFormat(verifica,'#')	
 }

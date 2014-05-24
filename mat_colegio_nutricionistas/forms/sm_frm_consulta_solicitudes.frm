@@ -35,7 +35,7 @@ size:"119,20",
 text:"Vl Estado",
 typeid:4,
 uuid:"1A136F84-E76A-4577-815A-1A4F4B4CF58C",
-valuelistID:"CA6038B8-0115-4BF5-B907-2E87260CE01C"
+valuelistID:"15C2B019-D947-4F79-88CF-105225E5E114"
 },
 {
 formIndex:19,

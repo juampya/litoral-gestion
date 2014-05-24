@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Pendiente|0\r
+Aprobado|1\r
+No Aprobado|2",
+name:"estados_solicitud_rel_mat",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"15C2B019-D947-4F79-88CF-105225E5E114"

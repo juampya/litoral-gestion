@@ -13,7 +13,6 @@ function Salir()
 		}
 		else
 		{
-			
 			application.exit()
 		}
 		

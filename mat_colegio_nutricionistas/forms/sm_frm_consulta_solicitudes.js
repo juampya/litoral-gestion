@@ -69,7 +69,19 @@ function onActionNuevo(event)
 {
 	forms.sm_frm_consulta_solicitudes_detalle.vl_frm_anterior = controller.getName()
 	forms.sm_frm_consulta_solicitudes_detalle.vl_nuevo = 1
-	forms.sm_frm_consulta_solicitudes_detalle.controller.show() 
+	forms.sm_frm_consulta_solicitudes_detalle.vl_titulo = "Nueva"
+	
+	forms.sm_frm_localidades_abm.vl_frm_anterior = controller.getName()
+	forms.sm_frm_localidades_abm.vl_nuevo = 0
+	forms.sm_frm_localidades_abm.vl_titulo = "Modifica"
+	forms.sm_frm_localidades_abm.controller.loadRecords(rel_id)
+	
+	var win = application.createWindow("consulta_solicitudes", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+		win.title= 'Litoral Gestion';
+		win.show(forms.sm_frm_localidades_abm);	
 }
 
 /**
@@ -92,7 +104,15 @@ function onActionDetalle(event)
 {
 	forms.sm_frm_consulta_solicitudes_detalle.vl_frm_anterior = controller.getName()
 	forms.sm_frm_consulta_solicitudes_detalle.vl_nuevo = 0
-	forms.sm_frm_consulta_solicitudes_detalle.controller.show() 
+	forms.sm_frm_consulta_solicitudes_detalle.vl_titulo = "Modifica"
+	forms.sm_frm_consulta_solicitudes_detalle.controller.loadRecords(rel_id)
+	
+	var win = application.createWindow("consulta_solicitudes", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+		win.title= 'Litoral Gestion';
+		win.show(forms.sm_frm_localidades_abm);	
 }
 
 

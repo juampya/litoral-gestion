@@ -197,6 +197,15 @@ typeid:7,
 uuid:"3A8D514D-6B7F-44A0-89F7-DCA46B98FF82"
 },
 {
+dataProviderID:"mat_web_password",
+displayType:6,
+formIndex:89,
+location:"443,465",
+size:"140,20",
+typeid:4,
+uuid:"3DC3656A-1A38-4895-9476-645ADF2806C0"
+},
+{
 formIndex:24,
 location:"5,221",
 size:"127,20",
@@ -204,6 +213,16 @@ styleClass:"label_black",
 text:"Circunscripción:",
 typeid:7,
 uuid:"3E1CDB9C-98F2-4523-A23D-83C2E0257C9A"
+},
+{
+formIndex:16,
+horizontalAlignment:0,
+location:"443,405",
+size:"140,20",
+styleClass:"label_black",
+text:"Web Login",
+typeid:7,
+uuid:"3EB5F692-F59C-4ACC-9610-B0E7D8A8CF0B"
 },
 {
 formIndex:30,
@@ -445,6 +464,16 @@ uuid:"6F125C9A-1F5B-434B-86B1-6A6454B05A5D",
 valuelistID:"E3E8208D-A9A8-46A8-A644-9C1E57ECA03B"
 },
 {
+formIndex:16,
+horizontalAlignment:0,
+location:"443,448",
+size:"140,20",
+styleClass:"label_black",
+text:"Web Password",
+typeid:7,
+uuid:"707E738E-350C-4FB4-AD6F-A3A30B40E1BA"
+},
+{
 dataProviderID:"mat_fec_crea",
 editable:false,
 formIndex:17,
@@ -455,6 +484,14 @@ styleClass:"disable",
 tabSeq:-2,
 typeid:4,
 uuid:"745C957B-D9D2-4854-913E-CF2239C9F826"
+},
+{
+dataProviderID:"mat_web_login",
+formIndex:87,
+location:"443,425",
+size:"140,20",
+typeid:4,
+uuid:"7695F8AF-0EB3-4028-AFDB-90B66767F378"
 },
 {
 formIndex:50,

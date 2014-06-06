@@ -34,7 +34,7 @@ function onShow(firstShow, event)
 	
 	elements.btn_nuevo_matriculado.enabled = false
 	
-	if(sol_id==1) //Si el tipo de solicitud es "Solicitud de MAtriculacion" 
+	if(sol_id==1 && rel_estado ==1) //Si el tipo de solicitud es "Solicitud de MAtriculacion"  
 	{
 		elements.btn_nuevo_matriculado.enabled = true
 	}
@@ -117,7 +117,7 @@ function CambiaTipoSolicitud(oldValue, newValue, event)
 {
 	elements.btn_nuevo_matriculado.enabled = false
 	
-	if(sol_id==1) //Si el tipo de solicitud es "Solicitud de MAtriculacion" 
+	if(sol_id==1 && rel_estado==1) //Si el tipo de solicitud es "Solicitud de MAtriculacion" 
 	{
 		elements.btn_nuevo_matriculado.enabled = true
 	}

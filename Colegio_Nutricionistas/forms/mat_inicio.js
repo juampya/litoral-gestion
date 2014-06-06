@@ -151,6 +151,16 @@ function consulta_solicitudes()
 }
 
 /**
+ * @properties={typeid:24,uuid:"ABFEC85E-C6B8-413C-A907-0C59A5505139"}
+ */
+function medios_de_cobro()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_medios_cobro.vl_frm_anterior = controller.getName()
+	forms.sm_frm_medios_cobro.controller.show()
+}
+
+/**
  * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}
  */
 function test()

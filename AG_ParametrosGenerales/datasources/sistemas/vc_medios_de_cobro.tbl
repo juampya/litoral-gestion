@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/vc_medios_de_cobro",
+items:[
+{
+dataProviderIDToAggregate:"medios_cobro_id",
+name:"aggr_cant_reg",
+typeid:40,
+uuid:"D9F1955A-917C-4B84-B8D0-D758A077754D"
+}
+],
+typeid:39,
+uuid:"4FDC71D6-88EA-4C37-9246-7DD65D86F396"

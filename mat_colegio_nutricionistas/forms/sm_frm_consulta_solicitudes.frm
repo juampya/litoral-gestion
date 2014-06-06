@@ -38,6 +38,17 @@ uuid:"1A136F84-E76A-4577-815A-1A4F4B4CF58C",
 valuelistID:"15C2B019-D947-4F79-88CF-105225E5E114"
 },
 {
+formIndex:15,
+horizontalAlignment:0,
+labelFor:"sol_id",
+location:"665,142",
+size:"274,20",
+styleClass:"table_label",
+text:"Tipo de Solicitud",
+typeid:7,
+uuid:"1B65BCB7-0BE8-4807-B737-5A4F31052FF4"
+},
+{
 formIndex:19,
 horizontalAlignment:0,
 labelFor:"mat_nro_matricula",
@@ -73,7 +84,7 @@ size:"220,20",
 text:"Vl Estado",
 typeid:4,
 uuid:"3446DAAF-3FC4-4554-96F4-14E4D09FE57A",
-valuelistID:"CA6038B8-0115-4BF5-B907-2E87260CE01C"
+valuelistID:"759F0109-C7C8-4E99-9107-39D714ACD043"
 },
 {
 formIndex:13,
@@ -185,10 +196,11 @@ uuid:"6C173AC1-2C9A-4275-98AD-CDF8E2BE7439"
 dataProviderID:"rel_fec_crea",
 editable:false,
 formIndex:16,
+format:"dd-MM-yyyy",
 horizontalAlignment:0,
 location:"526,160",
 name:"rel_fec_crea",
-size:"135,20",
+size:"138,20",
 styleClass:"table_field",
 typeid:4,
 uuid:"7D0DAA58-C476-453E-A996-CC0A46EFB855"
@@ -227,7 +239,7 @@ size:"111,20",
 styleClass:"table_field",
 typeid:4,
 uuid:"95CB256E-E6BD-4872-A489-CEED0FC5E15C",
-valuelistID:"F27D9BA8-5351-4518-AE28-F48E2C8A147F"
+valuelistID:"15C2B019-D947-4F79-88CF-105225E5E114"
 },
 {
 formIndex:21,
@@ -267,6 +279,17 @@ typeid:4,
 uuid:"C5706D85-9F33-4988-A816-2BCAC12CC626"
 },
 {
+dataProviderID:"mat_rel_mat_sol_to_mat_solicitudes.sol_descripcion",
+editable:false,
+formIndex:16,
+location:"665,160",
+name:"sol_id",
+size:"274,20",
+styleClass:"table_field",
+typeid:4,
+uuid:"D352FC91-A2F8-48B4-B202-3CAB6E24D5F0"
+},
+{
 dataProviderID:"vl_matriculado",
 displayType:10,
 formIndex:24,
@@ -284,7 +307,7 @@ formIndex:15,
 horizontalAlignment:0,
 labelFor:"rel_fec_crea",
 location:"526,142",
-size:"135,20",
+size:"138,20",
 styleClass:"table_label",
 text:"Fecha de Solicitud",
 typeid:7,
@@ -292,6 +315,7 @@ uuid:"FCAC1620-E1A9-4116-A380-144FB7420C98"
 }
 ],
 name:"sm_frm_consulta_solicitudes",
+namedFoundSet:"separate",
 onShowMethodID:"B0291585-BEF0-42D0-8766-06885107BCD5",
 showInMenu:true,
 size:"1261,480",

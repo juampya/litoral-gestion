@@ -1,0 +1,10 @@
+dataProviderID1:"sol_id",
+dataProviderID2:"sol_descripcion",
+dataSource:"db:/sistemas/mat_solicitudes",
+name:"mat_tipo_solicitud",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"759F0109-C7C8-4E99-9107-39D714ACD043",
+valueListType:1

@@ -140,6 +140,15 @@ function solicitudes()
 	forms.sm_frm_solicitudes.controller.show()
 }
 
+/**
+ * @properties={typeid:24,uuid:"F48CBA90-7374-4247-9E63-C96160B85AA2"}
+ */
+function consulta_solicitudes()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_consulta_solicitudes.vl_frm_anterior = controller.getName()
+	forms.sm_frm_consulta_solicitudes.controller.show()
+}
 
 /**
  * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}

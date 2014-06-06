@@ -93,3 +93,33 @@ function onDataChangeFoto(oldValue, newValue, event)
 	}
 	return true
 }
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"910AE5C5-81C4-4019-82E2-35195B1D3357"}
+ * @AllowToRunInFind
+ */
+function ControlaNroMatricula(oldValue, newValue, event) 
+{
+	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
+	var fs_matriculados = databaseManager.getFoundSet('Sistemas','mat_matriculados')
+		fs_matriculados.find()
+		fs_matriculados.mat_nro_matricula = newValue
+		if(fs_matriculados.search()==0)
+		{
+			return true
+		}
+		else
+		{
+			globals.ventanaAceptar("Ese nro de matrícula ya existe.",controller.getName())
+			mat_nro_matricula = oldValue
+			return false
+		}
+}

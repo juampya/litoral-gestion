@@ -117,7 +117,7 @@ name:"sol_estado",
 size:"98,20",
 typeid:4,
 uuid:"75664B10-D225-4E2F-9593-E8A2C681864B",
-valuelistID:"15C2B019-D947-4F79-88CF-105225E5E114"
+valuelistID:"CA6038B8-0115-4BF5-B907-2E87260CE01C"
 },
 {
 formIndex:9,

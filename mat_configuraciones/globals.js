@@ -619,7 +619,7 @@ function ventanaSiNo(mensaje,metodoSi,MetodoNo,formulario)
  */
 function ventanaAceptar(mensaje,formulario) 
 {
-	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion",mensaje,"atention",formulario,"Aceptar","",null,null,null,null,null,null)
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención",mensaje,"atention",formulario,"Aceptar","",null,null,null,null,null,null)
 }
 
 /**

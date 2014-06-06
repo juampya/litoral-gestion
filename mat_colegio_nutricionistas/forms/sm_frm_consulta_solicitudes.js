@@ -92,6 +92,7 @@ function onActionRefrescar()
 	vl_documento = null
 	vl_estado = 0
 	vl_matriculado = null
+	vl_tipo_solicitud = null
 	filtrar()
 }
 
@@ -112,7 +113,7 @@ function onActionDetalle(event)
 		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
 		win.resizable = false
 		win.title= 'Litoral Gestion';
-		win.show(forms.sm_frm_localidades_abm);	
+		win.show(forms.sm_frm_consulta_solicitudes_detalle);	
 }
 
 
@@ -126,5 +127,6 @@ function filtrar()
 	if(vl_matriculado!=null) mat_id = vl_matriculado
 	if(vl_documento!=null) mat_rel_mat_sol_to_mat_matriculados.mat_dni = vl_documento
 	if(vl_estado!=null)rel_estado = vl_estado
+	if(vl_tipo_solicitud!=null)sol_id = vl_tipo_solicitud
 	controller.search()
 }

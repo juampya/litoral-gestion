@@ -1,4 +1,21 @@
 /**
+ * @properties={typeid:35,uuid:"5C1CD375-F16E-4732-B69D-C0C294925D3A",variableType:-4}
+ */
+var vg_auditoria_campo = null;
+
+/**
+ * @properties={typeid:35,uuid:"057E260C-0556-42AE-8B50-A0780AE0603E",variableType:-4}
+ */
+var vg_auditoria_tabla = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"409F787A-3161-440D-A852-C592BCD0EA01",variableType:4}
+ */
+var vg_auditoria_pk = null;
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"D3E6AE60-06DD-4928-A207-1E2E576F7EFD"}
@@ -77,145 +94,6 @@ function Cerrar_Solucion()
 	}
 }
 
-
-/**
- * @AllowToRunInFind
- * 
- * 
- * @param empresa
- * @param pto_vta
- * @param com_cod
- * @param accion
- *
- * @properties={typeid:24,uuid:"113B950F-1A83-4C18-BB20-3E764C983B61"}
- */
-//function pg_leer_numeracion(empresa, pto_vta, com_cod, accion) {
-//
-////	var empresa = arguments[0]
-////	var pto_vta = arguments[1]
-////	var com_cod = arguments[2]
-////	var accion  = arguments[3]
-//	                        
-//	var numero = 0
-//	                      
-//	 /** @type {JSFoundset<db:/Interdata/adn_numeraciones>}*/
-//	var fs_numeraciones = databaseManager.getFoundSet('Interdata', 'adn_numeraciones')
-//	databaseManager.recalculate(fs_numeraciones)
-//	fs_numeraciones.find()
-//	fs_numeraciones.empresa_id = empresa
-//	fs_numeraciones.nc_pto_vta = pto_vta
-//	fs_numeraciones.nc_com_cod = com_cod
-//	fs_numeraciones.search()
-//	var clavePrimaria=fs_numeraciones.nc_id
-//	
-//	var cantidad = databaseManager.getFoundSetCount(fs_numeraciones)
-//	
-//	if (cantidad == 0) {
-//		
-//		numero = 1
-//		
-//		fs_numeraciones.newRecord()
-//		fs_numeraciones.empresa_id = empresa
-//		fs_numeraciones.nc_pto_vta = pto_vta
-//		fs_numeraciones.nc_com_cod = com_cod
-//		fs_numeraciones.nc_ultimo_numero = numero
-//		fs_numeraciones.nc_nombre = 'Generado Automaticamente.'
-//		fs_numeraciones.nc_ult_acc_fec = new Date()
-//		fs_numeraciones.nc_ult_acc_ope = globals.mx_usuario_id
-//		
-//		databaseManager.saveData(fs_numeraciones.getSelectedRecord())
-//	} else {
-//		fs_numeraciones.setSelectedIndex(1)
-//		numero = fs_numeraciones.nc_ultimo_numero + 1 //Leer: Devuelve proximo numero sin actualiar DB			
-//		if (accion == 'A') {
-//			
-//			var contador=0
-//			var bloqueo=databaseManager.acquireLock(fs_numeraciones,0)
-//			while (!bloqueo)
-//			{
-//				bloqueo=databaseManager.acquireLock(fs_numeraciones,0)
-//				contador=contador+1
-//				if(contador==4000)
-//				{
-//					contador=0
-//					globals.VentanaGenerica(0,'Atención', 'Aguarde un momento', 'info', controller.getName(), 'Ok', '',null,null,null,null,null,null)
-//				}
-//			}
-//			fs_numeraciones.loadRecords(clavePrimaria)
-//			numero = fs_numeraciones.nc_ultimo_numero + 1
-//			fs_numeraciones.nc_ultimo_numero=numero
-//			databaseManager.saveData(fs_numeraciones.getSelectedRecord())
-//			databaseManager.releaseAllLocks()
-//		}
-//	}
-//	return numero	
-//}
-
-/**
- * @AllowToRunInFind
- * 
- * 
- * @param moneda_id
- *
- * @properties={typeid:24,uuid:"FF2BDA4C-9A3F-4B1E-B7DB-416250050662"}
- */
-//function pg_leer_cotizacion_me(moneda_id) {
-//	 /** @type {JSFoundset<db:/Interdata/adn_monedas>}*/	
-//	var fs_cotiza = databaseManager.getFoundSet('Interdata', 'adn_monedas')
-//	fs_cotiza.find()
-//	fs_cotiza.mon_id = moneda_id
-//	fs_cotiza.search()
-//	
-//	var tmp_me = new Array()
-//	
-//	if (fs_cotiza.getSize() >= 1) {
-//		tmp_me.push(fs_cotiza.mon_cotiz_imp, fs_cotiza.mon_cotiz_fec)
-//	} else {
-//		tmp_me.push(1, null)
-//	}
-//
-//	return tmp_me
-//	
-//}
-
-/**
- * 
- * @param record
- *
- * @properties={typeid:24,uuid:"C3BAFBC6-6CE8-4717-8068-07378BF09550"}
- */
-//function pg_autidoria_tabla(record) {
-//
-//	 /** @type {JSFoundset<db:/Interdata/adn_auditoria>}*/
-//	var fs_auditoria = databaseManager.getFoundSet('Interdata', 'adn_auditoria')
-//	
-//	var table_name = record.foundset.getDataSource().split('/')[2];
-//	var pk_value_of_the_record = record.getPKs()[0]; //When multi select is not done
-//	var modified_by_user_idx = globals.mx_usuario_id
-//	var modification_date = application.getServerTimeStamp()
-//
-//	/** @type {JSDataSet} */
-//   var dataset = record.getChangedData();//it will return all the changed data of type JSDataSet
-//
-//   //Loop through the modified fields
-//   for( var cnt = 1 ; cnt <= dataset.getMaxRowIndex() ; cnt++ )
-//      {
-//           var field_name = dataset.getValue(cnt, 1);
-//           var old_value = dataset.getValue(cnt, 2);
-//           var new_value = dataset.getValue(cnt, 3);
-//		
-//           fs_auditoria.newRecord()
-//           fs_auditoria.audit_tabla = table_name
-//           fs_auditoria.audit_pk_valor = pk_value_of_the_record
-//           fs_auditoria.audit_usuario = modified_by_user_idx
-//           fs_auditoria.audit_fecha = modification_date
-//           fs_auditoria.audit_campo = field_name
-//           fs_auditoria.audit_valor_anterior = old_value
-//           fs_auditoria.audit_valor_nuevo = new_value
-//           databaseManager.saveData(fs_auditoria.getSelectedRecord())
-//     }
-//}
-
 /**
  * @properties={typeid:24,uuid:"0784A58A-268E-4646-97DC-C14751C4EBB7"}
  */
@@ -223,123 +101,6 @@ function Ir_a_Home() {
 	databaseManager.revertEditedRecords()
 	application.showForm('InicioSolucion')
 }
-
-
-/**
- * 
- * @param dataset
- *
- * @properties={typeid:24,uuid:"E4F37365-FCB9-4BDB-BAE6-42DF405787C4"}
- */
-//function exportarDataset(dataset) {
-//	var csv = dataset.getAsText(';','\r\n',null,true)
-//	var vOS = application.getOSName();
-//	if(utils.stringPatternCount(vOS, 'Windows') == 1){
-//		if (!plugins.file.createFolder('c:/tmp'))
-//			application.output("Carpeta c:/tmp ya creada.");
-//	} else {
-//		if (!plugins.file.createFolder('/home/tmp'))
-//			application.output("Carpeta /home/tmp ya creada.");
-//	}
-//	
-//	var success = null
-//	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT)
-//		{
-//			success = plugins.file.writeTXTFile('/home/tmp/' + controller.getName() + '.csv' ,csv)
-//		}else
-//		{
-//			var file = plugins.file.showFileSaveDialog();
-//				if (file) 
-//				{
-//				success = plugins.file.writeTXTFile(file.getAbsolutePath()+'.csv',csv);
-//				}
-//		}	
-//}
-
-/**
- * 
- * @param imagen_id
- *
- * @properties={typeid:24,uuid:"726C04C0-F927-4860-B72C-97D9299AF1CE"}
- */
-//function archivoAdjuntoMostrar(imagen_id) {
-//	
-//	/** @type {JSFoundset<db:/Interdata/adn_adjuntos>}*/
-//	var fs_adjunto = databaseManager.getFoundSet('Interdata','adn_adjuntos')
-//	fs_adjunto.loadRecords(imagen_id)
-//
-//	var vOS = application.getOSName();
-//
-//	if(utils.stringPatternCount(vOS, 'Windows') == 1){
-//		if (!plugins.file.createFolder('c:/tmp')) {
-//			application.output("Carpeta ya creada.");
-//		}
-//	}
-//
-//	var tempfilename='/tmp/' + fs_adjunto.adjunto_filename
-//	plugins.file.writeFile(tempfilename,fs_adjunto.adjunto_adjunto)
-//	
-//	if(utils.stringPatternCount(vOS, 'Windows') == 1){
-//   		application.executeProgramInBackground( 'rundll32', ['url.dll,FileProtocolHandler', 'c:/'+tempfilename]);
-//	}
-//	else if(utils.stringPatternCount(vOS, 'FreeBSD') == 1 || utils.stringPatternCount(vOS, 'Linux') == 1){
-//   		application.executeProgramInBackground('mozilla', [tempfilename]);
-//	}
-//	else if(utils.stringPatternCount(vOS, 'Mac') == 1){
-//   		application.executeProgramInBackground('open', [tempfilename]);
-//	}	
-//}
-
-/**
- * 
- * @param filename
- *
- * @properties={typeid:24,uuid:"0A667B33-1DFB-422D-ACCD-77B9399A6D54"}
- */
-//function archivoAdjuntoAdjuntar(filename) {
-//	
-//	globals.vg_archivo_id = 0
-//	
-//	if (!filename) {
-//		return
-//	}
-//	
-//	/**@type {plugins.file.JSFile}*/
-//    var datos = filename[0]
-//    var vl_adj_filename 	= datos.getName()
-//    var normalizedFileName 	= "";
-//    normalizedFileName 		= utils.stringReplace(datos.getPath(),'\\','/')    //make windows path like unix path
-//    var vl_adj_filepath 	= normalizedFileName
-//    var a 					= vl_adj_filename.lastIndexOf(".")
-//    var vl_adj_extension 	= vl_adj_filename.substring(a+1)
-//    var vl_adj_size 		= datos.size()
-//    var vl_adj_adjunto 		= plugins.file.readFile(filename)
-// 
-//	if (globals.vg_archivo_nombre == null || globals.vg_archivo_nombre == '') {
-//		globals.vg_archivo_nombre = 'Imagen Principal.'
-//	} 
-//    var vl_adj_descripcion	= globals.vg_archivo_nombre
-//	
-//    //var vl_adj_new			= 1 // Indicar que se va a grabar el adjunto al finalizar.
-//	
-//	 /** @type {JSFoundset<db:/Interdata/adn_adjuntos>}*/
-//	var fs_adj = databaseManager.getFoundSet('Interdata','adn_adjuntos')
-//	fs_adj.newRecord()
-//	fs_adj.adjunto_tabla_id 	= globals.vg_archivo_tabla_id
-//	fs_adj.home_funcion_codigo 	= globals.vg_archivo_funcion_codigo
-//	fs_adj.adjunto_descripcion	= vl_adj_descripcion
-//	fs_adj.adjunto_adjunto 		= vl_adj_adjunto
-//	fs_adj.adjunto_filename 	= vl_adj_filename
-//	fs_adj.adjunto_path 		= vl_adj_filepath
-//	fs_adj.adjunto_size 		= vl_adj_size
-//	fs_adj.adjunto_extension 	= vl_adj_extension
-//	databaseManager.saveData(fs_adj)
-//	
-//	// Seteo de variables globales.
-//	globals.vg_archivo_id 		= fs_adj.adjunto_id
-//	globals.vg_archivo_imagen 	= vl_adj_adjunto
-//	
-//}
 
 /**
  * 
@@ -406,7 +167,6 @@ function VentanaGenerica(usuario,titulo,mensaje,icono,formulario,btn1,metodo1,bt
 
 	}
 
-	
 /**
  * @AllowToRunInFind
  * @properties={typeid:24,uuid:"25370AD7-6902-4805-9FDD-A4F63BD68195"}
@@ -497,7 +257,6 @@ function CargarMenu()
 		}
 	}
 }
-
 
 /**
  * @properties={typeid:24,uuid:"B0935BAC-6271-4A60-A0AD-71FCF09ECACD"}
@@ -590,7 +349,6 @@ function CargarSubMenuWeb(p_orden)
 	}	
 }
 
-
 /**
  * @properties={typeid:24,uuid:"2BEAB674-25C0-49D7-8F8B-6D7882CD4419"}
  */
@@ -658,9 +416,6 @@ function BuscaPermisos(p_menu_id)
 	}
 }
 
-
-
-
 /**
  * Devuelve un numero aleatorio de 8 digitos
  * @return {Number}
@@ -672,4 +427,128 @@ function tmpRandomNumber()
 	var nro = utils.stringToNumber(rnd.substr(2))
 	var resultado = Math.abs(nro)
 	return resultado
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param record
+ *
+ * @properties={typeid:24,uuid:"B3C9C787-0A74-453A-880C-04212354166C"}
+ */
+function Auditoria_tabla(record) 
+{
+
+	 /** @type {JSFoundset<db:/Sistemas/lg_auditoria>}*/
+	var fs_auditoria = databaseManager.getFoundSet('Sistemas', 'lg_auditoria')
+	
+	var table_name = record.foundset.getDataSource().split('/')[2];
+	var pk_value_of_the_record = record.getPKs()[0]; //When multi select is not done
+	var modified_by_user_idx = globals.mx_usuario_id
+	var modification_date = application.getServerTimeStamp()
+
+	/** @type {JSDataSet} */
+   var dataset = record.getChangedData();//it will return all the changed data of type JSDataSet
+
+   //Loop through the modified fields
+   for( var cnt = 1 ; cnt <= dataset.getMaxRowIndex() ; cnt++ )
+      {
+           var field_name = dataset.getValue(cnt, 1);
+           var old_value = dataset.getValue(cnt, 2);
+           var new_value = dataset.getValue(cnt, 3);
+		
+           fs_auditoria.newRecord()
+           fs_auditoria.audit_tabla = table_name
+           fs_auditoria.audit_pk_valor = pk_value_of_the_record
+           fs_auditoria.audit_usuario = modified_by_user_idx
+           fs_auditoria.audit_fecha = modification_date
+           fs_auditoria.audit_campo = field_name
+           fs_auditoria.audit_valor_anterior = old_value
+           fs_auditoria.audit_valor_nuevo = new_value
+           databaseManager.saveData(fs_auditoria)
+     }
+}
+
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param filename
+ *
+ * @properties={typeid:24,uuid:"B82124BA-0FEB-4B55-BC32-33DCD07D6834"}
+ */
+function archivoAdjuntoAdjuntar(filename) 
+{
+	scopes.globals.vg_archivo_id = 0
+	
+	if (!filename) {
+		return
+	}
+	
+	/**@type {plugins.file.JSFile}*/
+    var datos = filename[0]
+    var vl_adj_filename 	= datos.getName()
+    var normalizedFileName 	= "";
+    normalizedFileName 		= utils.stringReplace(datos.getPath(),'\\','/')    //make windows path like unix path
+    var vl_adj_filepath 	= normalizedFileName
+    var a 					= vl_adj_filename.lastIndexOf(".")
+    var vl_adj_extension 	= vl_adj_filename.substring(a+1)
+    var vl_adj_size 		= datos.size()
+    var vl_adj_adjunto 		= plugins.file.readFile(datos)
+ 
+	if (globals.vg_archivo_nombre == null || globals.vg_archivo_nombre == '') {
+		globals.vg_archivo_nombre = 'Imagen Principal.'
+	} 
+    var vl_adj_descripcion	= globals.vg_archivo_nombre
+	
+//    var vl_adj_new			= 1 // Indicar que se va a grabar el adjunto al finalizar.
+	
+	 /** @type {JSFoundset<db:/Sistemas/lg_adjuntos>}*/
+	var fs_adj = databaseManager.getFoundSet('Sistemas','lg_adjuntos')
+	fs_adj.newRecord()
+	fs_adj.adj_tabla_id 	= globals.vg_archivo_tabla_id
+	fs_adj.func_codigo	 	= globals.vg_archivo_funcion_codigo
+	fs_adj.adj_descripcion	= vl_adj_descripcion
+	fs_adj.adj_adjunto 		= vl_adj_adjunto
+	fs_adj.adj_filename 	= vl_adj_filename
+	fs_adj.adj_path 		= vl_adj_filepath
+	fs_adj.adj_size 		= vl_adj_size
+	fs_adj.adj_extension 	= vl_adj_extension
+	databaseManager.saveData(fs_adj)
+	
+	// Seteo de variables globales.
+	globals.vg_archivo_id 		= fs_adj.adj_id
+	globals.vg_archivo_imagen 	= vl_adj_adjunto
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param imagen_id
+ *
+ * @properties={typeid:24,uuid:"D1527F57-2683-4E85-8839-DFA318A9A25B"}
+ */
+function archivoAdjuntoMostrar(imagen_id) 
+{
+	 /** @type {JSFoundset<db:/Sistemas/lg_adjuntos>}*/
+	var fs_adjunto = databaseManager.getFoundSet('Sistemas','lg_adjuntos')
+	fs_adjunto.loadRecords(imagen_id)
+
+	var vOS = application.getOSName();
+
+	if(utils.stringPatternCount(vOS, 'Windows') == 1){
+		if (!plugins.file.createFolder('c:/tmp')) {
+			application.output("Carpeta ya creada.");
+		}
+	}
+
+	var tempfilename='/tmp/' + fs_adjunto.adj_filename
+	plugins.file.writeFile(tempfilename,fs_adjunto.adj_adjunto)
+	
+	if(utils.stringPatternCount(vOS, 'Windows') == 1){
+   		application.executeProgramInBackground( 'rundll32', 'url.dll,FileProtocolHandler', 'c:/'+tempfilename );
+	}
+	else if(utils.stringPatternCount(vOS, 'FreeBSD') == 1 || utils.stringPatternCount(vOS, 'Linux') == 1){
+   		application.executeProgramInBackground('mozilla', tempfilename );
+	}
+	else if(utils.stringPatternCount(vOS, 'Mac') == 1){
+   		application.executeProgramInBackground('open', tempfilename );
+	}	
 }

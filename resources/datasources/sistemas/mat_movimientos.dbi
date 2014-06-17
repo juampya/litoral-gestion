@@ -1,11 +1,5 @@
 columns:[
 {
-allowNull:true,
-creationOrderIndex:17,
-dataType:4,
-name:"emp_id"
-},
-{
 allowNull:false,
 autoEnterSubType:2,
 autoEnterType:2,
@@ -13,6 +7,12 @@ creationOrderIndex:0,
 dataType:4,
 flags:1,
 name:"mov_id"
+},
+{
+allowNull:true,
+creationOrderIndex:17,
+dataType:4,
+name:"emp_id"
 },
 {
 allowNull:true,

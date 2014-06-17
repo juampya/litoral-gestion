@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_medios_de_cobro",
+items:[
+{foreignColumnName:"medios_cobro_id",primaryDataProviderID:"medios_cobro_id",typeid:23,uuid:"0497CC3D-1BB9-46C5-B849-CC155C0E5C8C"}
+],
+joinType:1,
+name:"mat_rendiciones_to_vc_medios_de_cobro",
+primaryDataSource:"db:/sistemas/mat_rendiciones",
+typeid:22,
+uuid:"C10F99DF-2065-4EA8-A687-9F482A7B158E"

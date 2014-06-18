@@ -499,8 +499,6 @@ function archivoAdjuntoAdjuntar(filename)
 	} 
     var vl_adj_descripcion	= globals.vg_archivo_nombre
 	
-//    var vl_adj_new			= 1 // Indicar que se va a grabar el adjunto al finalizar.
-	
 	 /** @type {JSFoundset<db:/Sistemas/lg_adjuntos>}*/
 	var fs_adj = databaseManager.getFoundSet('Sistemas','lg_adjuntos')
 	fs_adj.newRecord()

@@ -161,6 +161,16 @@ function medios_de_cobro()
 }
 
 /**
+ * @properties={typeid:24,uuid:"46AF09EB-6214-49E9-8885-64E2CBEFA738"}
+ */
+function rendiciones()
+{
+	scopes.globals.SacarMenu()
+	forms.mat_rendiciones.vl_frm_anterior = controller.getName()
+	forms.mat_rendiciones.controller.show()
+}
+
+/**
  * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}
  */
 function test()

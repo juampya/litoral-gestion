@@ -1,0 +1,10 @@
+dataProviderID1:"medios_cobro_id",
+dataProviderID2:"medios_cobro_descripcion",
+dataSource:"db:/sistemas/vc_medios_de_cobro",
+name:"vc_medios_cobro",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"A193ADC1-E106-4B67-9729-73428B2920B0",
+valueListType:1

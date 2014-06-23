@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"FDFF483D-8B8B-40A7-8290-9EE41316631E"}
+ */
+var vl_frm_anterior = null;
+
+/**
  * @type {Date}
  *
  * @properties={typeid:35,uuid:"7CDEC058-F652-4DE8-B225-6DB4D1EAF650",variableType:93}
@@ -24,7 +31,7 @@ var vl_tipo_fecha = 0;
  *
  * @properties={typeid:35,uuid:"E79F779E-B297-4D1E-AB3B-23B19E479C7F",variableType:4}
  */
-var vl_matriculado = 0;
+var vl_medio_cobro = 0;
 
 /**
  * @type {Number}
@@ -61,7 +68,7 @@ function onActionVolver(event)
 function filtrar()
 {
 	controller.find()
-	medios_cobro_id = vl_matriculado
+	if(vl_medio_cobro!=null) medios_cobro_id = vl_medio_cobro
 	if(vl_estado != null && vl_estado != 3) ren_estado = vl_estado
 	//ren_fecha_cobro = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 	controller.search()
@@ -79,7 +86,7 @@ function onShow(firstShow, event)
 {
 	if(firstShow)
 	{
-		vl_matriculado = null
+		vl_medio_cobro = null
 		vl_estado = 3
 		vl_tipo_movim = 3
 		vl_tipo_fecha = 0
@@ -99,7 +106,7 @@ function onShow(firstShow, event)
  */
 function onActionDetalle(event) 
 {
-	forms.mat_movimientos_detalle.controller.show()
+	forms.mat_rendiciones_detalle.controller.show()
 }
 
 /**
@@ -138,5 +145,7 @@ function onDataChangeTipoFecha(oldValue, newValue, event)
  */
 function onActionNuevo(event) 
 {
-	globals.ventanaFormulario("nuevoMovim","Litoral Gestion",forms.mat_movimientos_nuevo.controller.getName())
+	globals.ventanaFormulario("nuevarendicion","Litoral Gestion",forms.mat_rendiciones_nueva.controller.getName())
 }
+
+

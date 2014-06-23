@@ -1,6 +1,7 @@
 dataSource:"db:/sistemas/mat_rendiciones",
 items:[
 {
+formIndex:2,
 imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
 location:"173,34",
 mediaOptions:1,
@@ -16,28 +17,30 @@ uuid:"04C7E21A-986C-4BC8-ADEB-103D39F1E3F0"
 {
 horizontalAlignment:2,
 location:"163,129",
-size:"140,20",
+size:"286,20",
 styleClass:"label_black",
-text:"Tipo Movimiento",
+text:"Medio de Cobro",
 typeid:7,
 uuid:"0B9CEFE1-AFA8-460B-8590-8A40F02F3DEF"
 },
 {
 dataProviderID:"ren_estado",
 editable:false,
+horizontalAlignment:0,
 location:"383,198",
 name:"ren_estado",
-size:"121,20",
+size:"141,20",
 styleClass:"table_field",
 typeid:4,
-uuid:"0CC4458B-CC24-4CA7-97DB-60CBBFD8A499"
+uuid:"0CC4458B-CC24-4CA7-97DB-60CBBFD8A499",
+valuelistID:"139FCB69-3CCB-4947-A913-C2A0AA8CCB70"
 },
 {
 horizontalAlignment:0,
 labelFor:"ren_estado",
 location:"383,178",
 name:"ren_estado_label",
-size:"121,20",
+size:"141,20",
 styleClass:"label_black",
 text:"Estado",
 typeid:7,
@@ -67,7 +70,8 @@ uuid:"1664C2CC-C9E3-45EF-A773-B0FE9E0AFAC2"
 {
 dataProviderID:"ren_nro_lote",
 editable:false,
-location:"505,198",
+horizontalAlignment:0,
+location:"539,199",
 name:"ren_nro_lote",
 size:"91,20",
 styleClass:"table_field",
@@ -77,7 +81,7 @@ uuid:"247BCC80-C6FB-4445-8104-65AF612CC6E2"
 {
 horizontalAlignment:0,
 labelFor:"ren_nro_lote",
-location:"505,178",
+location:"539,179",
 name:"ren_nro_lote_label",
 size:"91,20",
 styleClass:"label_black",
@@ -163,7 +167,7 @@ size:"140,20",
 text:"Vl Estado",
 typeid:4,
 uuid:"990FAF93-CD94-4E34-90B5-872601903192",
-valuelistID:"13D4CF52-26B6-4520-AAEF-27D8E77D4D59"
+valuelistID:"139FCB69-3CCB-4947-A913-C2A0AA8CCB70"
 },
 {
 anchors:11,
@@ -206,6 +210,7 @@ typeid:19,
 uuid:"C14D413A-D244-424C-A38A-143935AE987A"
 },
 {
+anchors:11,
 location:"0,447",
 size:"698,43",
 styleClass:"banner_pie",
@@ -216,6 +221,7 @@ uuid:"C25B78EC-56A1-41A5-B04D-19766C13613F"
 {
 dataProviderID:"ren_cant_registros",
 editable:false,
+horizontalAlignment:4,
 location:"302,198",
 name:"ren_cant_registros",
 size:"80,20",
@@ -235,17 +241,17 @@ typeid:7,
 uuid:"CBF74DDB-5CB1-402D-AE73-ACC150A2FC03"
 },
 {
-dataProviderID:"vl_tipo_movim",
+dataProviderID:"vl_medio_cobro",
 displayType:2,
 editable:false,
 location:"163,149",
-name:"vl_tipo_movim",
+name:"vl_medio_cobro",
 onDataChangeMethodID:"63DD2499-698C-40E1-8015-7EDAE976F55C",
-size:"140,20",
+size:"286,20",
 text:"Vl Tipo Movim",
 typeid:4,
 uuid:"D90558F0-2621-414F-A85E-F78A5655E1D5",
-valuelistID:"833115B4-B73A-4179-834D-2BB5CCA5888E"
+valuelistID:"A193ADC1-E106-4B67-9729-73428B2920B0"
 },
 {
 horizontalAlignment:0,
@@ -301,6 +307,7 @@ typeid:19,
 uuid:"FA4D799C-C6BA-4A96-AED5-E1F2141DAD1A"
 },
 {
+formIndex:1,
 imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"26,34",
 mediaOptions:1,
@@ -316,6 +323,7 @@ uuid:"FF466061-2AA2-4B54-8684-DAAE0AF7FF24"
 ],
 name:"mat_rendiciones",
 navigatorID:"-1",
+onHideMethodID:"2F459011-5E86-48FC-900E-91A81A727695",
 onShowMethodID:"6E1EFF84-7947-43CB-AE4C-279ACA11A2D4",
 showInMenu:true,
 size:"698,490",

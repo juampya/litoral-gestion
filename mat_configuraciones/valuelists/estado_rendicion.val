@@ -1,0 +1,10 @@
+addEmptyValue:1,
+customValues:"Importado ERROR|0 \r
+Importado OK|1\r
+Re-Importado|2\r
+",
+name:"estado_rendicion",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"139FCB69-3CCB-4947-A913-C2A0AA8CCB70"

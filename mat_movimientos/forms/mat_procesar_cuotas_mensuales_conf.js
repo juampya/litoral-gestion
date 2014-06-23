@@ -111,12 +111,19 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		fs_mov.mov_grab_fec 		  = rec.mov_grab_fec
 		fs_mov.mov_grab_ope 		  = rec.mov_grab_ope
 		
+		databaseManager.saveData(fs_mov)
+		
+		/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
+		var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
+			fs_conf.loadAllRecords()
+			fs_conf.getRecord(1)	
+		
 		// Generación del codigo de barras.
 		var cod_barra = ''
-		var cod_barra_SAM 			   = '000'
-		var cod_barra_ENTE 			   = '0386'
-		var cod_barra_disenio 		   = '1'
-		var cod_barra_id_contribuyente = '03318011710000011285'
+		var cod_barra_SAM 			   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_sam),'000') //'000'
+		var cod_barra_ENTE 			   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_ente),'0000')//'0386'
+		var cod_barra_disenio 		   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_diseño),'0') //'1'
+		var cod_barra_id_contribuyente = utils.numberFormat(fs_mov.mov_id,'00000000000000000000')
 		var cod_barra_moneda 		   = '1'	
 		var cod_barra_vto1			   = scopes.globals.calcularFechaJuliana(fs_mov.mov_fec_vto1,fs_mov.mov_fec_vto1.getFullYear()) 
 		var cod_barra_imp1			   = utils.numberFormat(fs_mov.mov_importe,'0000.00').substr(0,4)+utils.numberFormat(fs_mov.mov_importe,'0000.00').substr(5,2)
@@ -130,7 +137,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 
 			fs_mov.mov_cod_barra =  plugins.http.getMediaData(url)
 		
-		databaseManager.saveData(fs_mov)
+		
 		for(var j = 1; j <= rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
 		{
 			var rec1 = rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getRecord(j)

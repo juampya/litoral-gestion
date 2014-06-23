@@ -323,7 +323,6 @@ uuid:"FF466061-2AA2-4B54-8684-DAAE0AF7FF24"
 ],
 name:"mat_rendiciones",
 navigatorID:"-1",
-onHideMethodID:"2F459011-5E86-48FC-900E-91A81A727695",
 onShowMethodID:"6E1EFF84-7947-43CB-AE4C-279ACA11A2D4",
 showInMenu:true,
 size:"698,490",

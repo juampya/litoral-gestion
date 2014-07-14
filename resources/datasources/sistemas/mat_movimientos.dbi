@@ -100,6 +100,14 @@ name:"mov_importe_2vto"
 },
 {
 allowNull:true,
+compatibleColumnTypes:"[[3,9,2]]",
+creationOrderIndex:20,
+dataType:3,
+length:9,
+name:"mov_importe_cobrado"
+},
+{
+allowNull:true,
 creationOrderIndex:2,
 dataType:4,
 name:"mov_mes_emision"

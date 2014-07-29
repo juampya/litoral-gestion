@@ -16,6 +16,12 @@ name:"emp_id"
 },
 {
 allowNull:true,
+creationOrderIndex:9,
+dataType:4,
+name:"medios_cobro_codigo_asignado"
+},
+{
+allowNull:true,
 creationOrderIndex:3,
 dataType:12,
 length:100,

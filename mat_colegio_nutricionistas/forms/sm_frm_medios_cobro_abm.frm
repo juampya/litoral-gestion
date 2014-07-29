@@ -23,7 +23,7 @@ uuid:"10FDE112-5CE8-4740-868D-04E3DEFAD95A"
 formIndex:3,
 horizontalAlignment:2,
 imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
-location:"207,148",
+location:"207,164",
 mediaOptions:1,
 onActionMethodID:"63AF559D-7861-456A-8C07-FBAB645DB2CA",
 onDoubleClickMethodID:"-1",
@@ -41,6 +41,24 @@ styleClass:"label_black",
 text:"Estado:",
 typeid:7,
 uuid:"600BA9F6-40BF-4A4F-93F4-DD2549FC8F98"
+},
+{
+dataProviderID:"medios_cobro_codigo_asignado",
+formIndex:10,
+location:"113,116",
+size:"57,20",
+toolTipText:"Codigo de Ente asignado por la entidad",
+typeid:4,
+uuid:"64A9FDF6-C08A-4C75-8310-83F4D3D3651E"
+},
+{
+formIndex:9,
+location:"21,116",
+size:"88,20",
+styleClass:"label_black",
+text:"ENTE:",
+typeid:7,
+uuid:"8829FFC3-A35B-41E9-B2D7-9C3AA0E72D92"
 },
 {
 anchors:11,
@@ -82,7 +100,7 @@ uuid:"B1B01273-9C1B-48AA-B7BC-7AF1DE27DEE5"
 formIndex:2,
 horizontalAlignment:2,
 imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
-location:"90,148",
+location:"90,164",
 mediaOptions:1,
 onActionMethodID:"F9A3C51F-670D-4923-B6EF-73E5A05AA431",
 onDoubleClickMethodID:"-1",

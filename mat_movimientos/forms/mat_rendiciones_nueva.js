@@ -44,8 +44,15 @@ function onShow(firstShow, event)
  */
 function onActionGrabar(event) 
 {
-	databaseManager.saveData()
-	application.getWindow("nuevarendicion").hide()
+	if(vl_archivo !=null)
+	{
+		databaseManager.saveData()
+		application.getWindow("nuevarendicion").hide()
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar("archivo. La primera linea no comienza correctamente.\nPor favor corrobore que el archivo sea el correcto.",controller.getName())
+	}
 }
 
 /**
@@ -76,6 +83,8 @@ function onActionBuscar(event)
 	vl_archivo = plugins.file.showFileOpenDialog()
 	if(vl_archivo!=null)
 	{
+		elements.btn_grabar.enabled=true
+		
 		//
 	    // Use BufferedReader so we don't have to read the whole file into memory
 	    //
@@ -118,9 +127,14 @@ function onActionBuscar(event)
 						if(cant>0)
 						{
 							scopes.globals.ventanaAceptar("Este Lote ya fue Procesado el día: "+ utils.dateFormat(fs_rendiciones.ren_fec_crea,"dd/MM/yyyy"),controller.getName())
-							
+							return
 						}
-						
+		            }
+		            else
+		            {
+		            	scopes.globals.ventanaAceptar("Error en el archivo. La primera linea no comienza correctamente.\nPor favor corrobore que el archivo sea el correcto.",controller.getName())
+						elements.btn_grabar.enabled = false
+						return
 		            }
 	            }
 	            else

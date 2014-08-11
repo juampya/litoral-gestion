@@ -28,9 +28,7 @@ function onActionAnular(event)
  */
 function anularMovim()
 {
-//	foundset.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
-//	controller.deleteRecord()
-//	forms.mat_movimientos.controller.show()
+	controller.deleteRecord()
 }
 
 /**

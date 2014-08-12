@@ -84,6 +84,7 @@ formIndex:21,
 items:[
 {
 dataProviderID:"mat_rendiciones_to_mat_movimientos.mat_id",
+editable:false,
 location:"110,210",
 size:"140,20",
 text:"Matriculado",
@@ -101,6 +102,7 @@ uuid:"34EC681A-5055-4428-8AEE-7FB4B2BA182A"
 },
 {
 dataProviderID:"mat_rendiciones_to_mat_movimientos.mov_anio_emision",
+editable:false,
 location:"368,210",
 size:"112,20",
 text:"Anio Emision",
@@ -109,6 +111,7 @@ uuid:"901F3C76-56F4-4945-AE90-08487E5FF733"
 },
 {
 dataProviderID:"mat_rendiciones_to_mat_movimientos.mov_mes_emision",
+editable:false,
 location:"252,210",
 size:"112,20",
 text:"Mes Emision",
@@ -117,10 +120,12 @@ uuid:"E491E4C6-44C2-47E1-BA60-09BBA4F232EC"
 },
 {
 dataProviderID:"mat_rendiciones_to_mat_movimientos.mov_fecha_cobro",
-displayType:5,
+editable:false,
+format:"dd-MM-yyyy",
+horizontalAlignment:0,
 location:"484,210",
 name:"mov_fecha_cobro",
-size:"140,20",
+size:"99,20",
 text:"Fecha Cobro",
 typeid:4,
 uuid:"FA916D39-155E-475F-AC4D-CAD49D8F0AE0"

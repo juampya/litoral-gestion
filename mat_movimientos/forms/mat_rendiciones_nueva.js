@@ -265,7 +265,7 @@ function ProcesarRapiPago()
     
             if(_nReadLine==1)
             {
-            	if (utils.stringLeft(_sLine,26)=="00000000COLEG DE DIETISTAS") 
+            	if (utils.stringLeft(_sLine,26)=="00000000COLEG DE DIETISTAS") //Primer registro - HEADER 
 	            {
 	            	var captura_anio = utils.stringToNumber(utils.stringMiddle(_sLine,29,4))
 					var captura_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,33,2))-1
@@ -294,17 +294,28 @@ function ProcesarRapiPago()
             }
             else
             {
-            	if (utils.stringLeft(_sLine,8)=="99999999") 
+            	if (utils.stringLeft(_sLine,8)=="99999999") //Ultimo registro - TRAILER
 	            {
 	            	ren_cant_registros=utils.stringToNumber(utils.stringMiddle(_sLine,9,8))
 					ren_importe_total =utils.stringToNumber(utils.stringMiddle(_sLine,17,16))+(utils.stringToNumber(utils.stringMiddle(_sLine,33,2))/100)
 	            }
 	            else
 	            {
-	            	if (utils.stringMiddle(_sLine,1,7)=="TRAILER") 
-		            {
-		            	
-		            }
+	            	//Resgitros detalle de cobro
+	            	var vl_mat_id 		  = utils.stringToNumber(utils.stringMiddle(_sLine,9,5))
+					var vl_mov_id 		  = utils.stringToNumber(utils.stringMiddle(_sLine,14,15))
+					var vl_fec_cobro_anio = utils.stringToNumber(utils.stringLeft(_sLine,4))
+					var vl_fec_cobro_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,5,2))-1
+					var vl_fec_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,7,2))
+					var vl_fec_cobro 	  = new Date(vl_fec_cobro_anio,vl_fec_cobro_mes,vl_fec_cobro_dia)
+	            	var vl_importe_cobro  = utils.stringToNumber(utils.stringMiddle(_sLine,9,13))+(utils.stringToNumber(utils.stringMiddle(_sLine,22,2))/100)
+					
+					/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+					var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
+					fs_movimientos.find()
+					fs_movimientos.mov_id = vl_mov_id
+					fs_movimientos.search()
+					
 	            }	
 	        }
         }

@@ -144,7 +144,7 @@ uuid:"A4F058A1-100F-4375-AAB3-DF86B57E9600"
 {
 formIndex:2,
 imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
-location:"273,242",
+location:"256,242",
 mediaOptions:1,
 name:"btn_grabar",
 onActionMethodID:"7F056075-3AE8-4359-9C8C-FE548F6B6963",
@@ -216,7 +216,7 @@ uuid:"F1EC7A0B-F918-497B-8CA0-A64F54EF214C"
 {
 formIndex:1,
 imageMediaID:"30F5AD34-FE63-4B09-9E92-5545DDFA7392",
-location:"135,242",
+location:"118,242",
 mediaOptions:1,
 name:"btn_cancelar",
 onActionMethodID:"203A6FA2-C2A8-4BB6-BF2D-AE4D2B0EAFC3",

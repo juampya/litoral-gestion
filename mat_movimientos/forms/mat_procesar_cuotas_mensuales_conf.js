@@ -134,8 +134,8 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		var cod_barra_digverif 		   = scopes.globals.DigitoVerificadorModulo1(cod_barra)
 			cod_barra = cod_barra+cod_barra_digverif
 		
-		var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
-
+		//var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
+		var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
 			fs_mov.mov_cod_barra =  plugins.http.getMediaData(url)
 		
 		

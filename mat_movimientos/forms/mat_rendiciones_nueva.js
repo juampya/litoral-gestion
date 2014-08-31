@@ -314,7 +314,14 @@ function ProcesarRapiPago()
 					var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
 					fs_movimientos.find()
 					fs_movimientos.mov_id = vl_mov_id
-					fs_movimientos.search()
+					if(fs_movimientos.search()==1)
+					{
+						var record = fs_movimientos.getSelectedRecord()
+						record.mov_fecha_cobro = vl_fec_cobro
+						record.mov_importe_cobrado = vl_importe_cobro
+						record.mov
+					}
+					
 					
 	            }	
 	        }

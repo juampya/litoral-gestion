@@ -320,6 +320,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 		var fs_movim_aux = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_movim_aux.newRecord()
+		fs_movim_aux.emp_id = scopes.globals.mx_empresa_id
 		fs_movim_aux.mat_id = rec.mat_id
 		fs_movim_aux.mov_mes_emision = mes
 		fs_movim_aux.mov_anio_emision = anio
@@ -453,6 +454,9 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		
 		//Regraba importe del movimiento-----------------------------------------------------
 		fs_movim_aux.mov_importe = acumImporte
+		fs_movim_aux.mov_importe_2vto = fs_movim_aux.mov_importe+(fs_movim_aux.mov_importe*fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
+		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
+		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
 		
 	}

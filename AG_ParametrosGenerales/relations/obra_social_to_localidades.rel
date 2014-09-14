@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/localidades",
+items:[
+{foreignColumnName:"localidad_id",primaryDataProviderID:"localidad_id",typeid:23,uuid:"654E405F-77FB-456B-B75D-15048609F1D3"}
+],
+joinType:1,
+name:"obra_social_to_localidades",
+primaryDataSource:"db:/sistemas/obra_social",
+typeid:22,
+uuid:"C64D5E52-F70E-4649-8CDD-F8FD4920773B"

@@ -29,6 +29,11 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_submenu5.visible  = false
 		forms.mat_inicio.elements.btn_submenu6.visible  = false
 		forms.mat_inicio.elements.btn_submenu7.visible  = false
+		forms.mat_inicio.elements.btn_submenu8.visible  = false
+		forms.mat_inicio.elements.btn_submenu9.visible  = false
+		forms.mat_inicio.elements.btn_submenu10.visible  = false
+		forms.mat_inicio.elements.btn_submenu11.visible  = false
+		forms.mat_inicio.elements.btn_submenu12.visible  = false
 		forms.mat_inicio.elements.btn_form1.visible  = false
 		forms.mat_inicio.elements.btn_form2.visible  = false
 		forms.mat_inicio.elements.btn_form3.visible  = false
@@ -36,7 +41,7 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_form5.visible  = false
 		forms.mat_inicio.elements.btn_form6.visible  = false
 		forms.mat_inicio.elements.btn_form7.visible  = false
-		scopes.globals.CargarMenuWeb()
+		scopes.globals.vg_fs_menu=scopes.globals.CargarMenuWeb()
 	}
 	else
 	{
@@ -55,6 +60,11 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_submenu5.visible  = false
 		forms.mat_inicio.elements.btn_submenu6.visible  = false
 		forms.mat_inicio.elements.btn_submenu7.visible  = false
+		forms.mat_inicio.elements.btn_submenu8.visible  = false
+		forms.mat_inicio.elements.btn_submenu9.visible  = false
+		forms.mat_inicio.elements.btn_submenu10.visible  = false
+		forms.mat_inicio.elements.btn_submenu11.visible  = false
+		forms.mat_inicio.elements.btn_submenu12.visible  = false
 		forms.mat_inicio.elements.btn_form1.visible  = false
 		forms.mat_inicio.elements.btn_form2.visible  = false
 		forms.mat_inicio.elements.btn_form3.visible  = false

@@ -1,4 +1,14 @@
 /**
+ * @properties={typeid:35,uuid:"A4EB65EA-3B7A-469B-B706-CAF8DE1D74FB",variableType:-4}
+ */
+var vg_fs_menu = null;
+
+/**
+ * @properties={typeid:35,uuid:"895FBF89-B0D7-46E9-93AE-9D4DFCAF6259",variableType:-4}
+ */
+var vg_fs_submenu = null;
+
+/**
  * @properties={typeid:35,uuid:"5C1CD375-F16E-4732-B69D-C0C294925D3A",variableType:-4}
  */
 var vg_auditoria_campo = null;
@@ -291,6 +301,8 @@ function CargarMenuWeb()
 		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].fgcolor='#ffffff'
 		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].font= 'Microsoft Sans Serif,1,11'
 	}	
+	
+	return fs_menus
 }
 
 /**
@@ -333,6 +345,7 @@ function CargarSubMenuWeb(p_orden)
 		fs_submenu.menu_dependencia = fs_menus.menu_id
 		fs_submenu.search()	
 		fs_submenu.sort('menu_orden asc')
+	
 	if(fs_submenu.getSize()>0)
 	{
 		for(var i=1; i<=fs_submenu.getSize();i++)
@@ -346,7 +359,9 @@ function CargarSubMenuWeb(p_orden)
 				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].visible  = true
 			}	
 		}
-	}	
+	}
+	
+	return fs_submenu
 }
 
 /**

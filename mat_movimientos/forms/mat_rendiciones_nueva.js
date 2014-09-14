@@ -319,7 +319,7 @@ function ProcesarRapiPago()
 						var record = fs_movimientos.getSelectedRecord()
 						record.mov_fecha_cobro = vl_fec_cobro
 						record.mov_importe_cobrado = vl_importe_cobro
-						record.mov
+						
 					}
 					
 					

@@ -1,4 +1,9 @@
 /**
+ * @properties={typeid:35,uuid:"ABCD7BF8-93C3-46F1-AC48-D14B87939A28",variableType:-4}
+ */
+var fs_submenu = null;
+
+/**
  * @properties={typeid:24,uuid:"3D1B4A55-EC4D-460D-A83A-D32878D16A83"}
  */
 function Salir()
@@ -98,7 +103,6 @@ function titulos()
 	forms.sm_frm_titulos.controller.show()
 }
 
-
 /**
  * @properties={typeid:24,uuid:"DF52DFE9-102D-488A-907B-0CAA8183DBB9"}
  */
@@ -118,7 +122,6 @@ function movimientos()
 	forms.mat_movimientos.controller.show()
 }
 
-
 /**
  * @properties={typeid:24,uuid:"13A91CBB-F8DF-4443-AE0A-D849FD58AB0F"}
  */
@@ -128,7 +131,6 @@ function departamentos()
 	forms.sm_frm_departamentos.vl_frm_anterior = controller.getName()
 	forms.sm_frm_departamentos.controller.show()
 }
-
 
 /**
  * @properties={typeid:24,uuid:"5B8E9A1C-8331-4C23-8A92-AA5F514066FE"}
@@ -171,6 +173,16 @@ function rendiciones()
 }
 
 /**
+ * @properties={typeid:24,uuid:"EBA901FC-5714-40B4-8228-D43D529F9657"}
+ */
+function obrasocial()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_obras_sociales.vl_frm_anterior = controller.getName()
+	forms.sm_frm_obras_sociales.controller.show()
+}
+
+/**
  * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}
  */
 function test()
@@ -195,9 +207,21 @@ function caja()
  * @properties={typeid:24,uuid:"CC1C8823-6119-4285-9D42-0E9550267291"}
  * @AllowToRunInFind
  */
-function onActionMenu1(event) 
+function onActionMenu(event) 
 {	
-	scopes.globals.CargarSubMenuWeb(1)
+//	if (vl_btn_n1_anterior != null) {
+//		elements[vl_btn_n1_anterior].bgcolor = '#0080ff'
+//	}
+//	elements[event.getElementName()].bgcolor = '#ff8000'
+//	vl_btn_n1_anterior = event.getElementName()
+//	
+//	elements[event.getElementName()].bgcolor = '#80ff80'
+		
+	/**@type {Number} */
+	var vl_btn = event.getElementName().substr(8,1)
+	
+	/**@type {JSFoundSet<db:/Sistemas/menus>} */ 
+	scopes.globals.vg_fs_submenu = scopes.globals.CargarSubMenuWeb(vl_btn) 
 }
 
 /**
@@ -205,57 +229,25 @@ function onActionMenu1(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"2AB73E0B-DE9B-4C61-A780-36A7A9510694"}
+ * @properties={typeid:24,uuid:"BF8D50D5-79B1-46ED-B219-86E05316DC61"}
  */
-function onActionMenu2(event) 
+function onActionSubmenu(event) 
 {
-	scopes.globals.CargarSubMenuWeb(2)
+	/**@type {Number} */
+	var vl_submenu_btn= event.getElementName().substr(11,1)
+	
+	/**@type {JSRecord<db:/Sistemas/menus>} */
+	var myRecord = scopes.globals.vg_fs_submenu.getRecord(vl_submenu_btn)
+	
+	if(myRecord.menu_principal == 3)
+	{
+		
+	}
+	else
+	{
+		universidades()
+		forms[globals.mx_modulo_inicio][myRecord.menu_funcion]
+	}
+	
 }
 
-/**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"65417E83-504C-4994-85F3-8D82CB6AC5D9"}
- */
-function onActionMenu3(event) 
-{
-	scopes.globals.CargarSubMenuWeb(3)
-}
-
-/**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"9A6F3E0E-2D8E-4CA8-8F8C-4BA73AF74C1B"}
- */
-function onActionMenu4(event) 
-{
-	scopes.globals.CargarSubMenuWeb(4)
-}
-
-/**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"C192AF41-A17B-4F1B-AD98-B728C3812461"}
- */
-function onActionMenu5(event) 
-{
-	scopes.globals.CargarSubMenuWeb(5)
-}
-
-/**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"D386AD15-C29C-4963-B395-722E26215E67"}
- */
-function onActionMenu6(event) 
-{
-	scopes.globals.CargarSubMenuWeb(6)
-}

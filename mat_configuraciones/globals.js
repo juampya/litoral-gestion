@@ -330,6 +330,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
 		fs_movim_aux.mov_grab_fec = application.getServerTimeStamp()
 		fs_movim_aux.mov_grab_ope = globals.ag_usuariovigente.usu_id
+		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
+		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------
 		
@@ -344,7 +346,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		//fin Busca Los ingresos del matriculado-----------------------------------------------------------
 				
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos_det>} */
-		var fs_detalle = null	
+		var fs_detalle = null
+		/**@type {Number}*/
 		var acumImporte = 0
 		
 		//Graba Detalle del Movimiento--------------------------------------------------------------------------------------------------------
@@ -455,10 +458,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		//Regraba importe del movimiento-----------------------------------------------------
 		fs_movim_aux.mov_importe = acumImporte
 		fs_movim_aux.mov_importe_2vto = fs_movim_aux.mov_importe+(fs_movim_aux.mov_importe*fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
-		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
-		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
-		
 	}
 	
 }

@@ -47,6 +47,8 @@ function onActionGrabar(event)
 		fs_conf.loadAllRecords()
 		fs_conf.getRecord(1)	
 	
+	databaseManager.saveData()
+	
 	// Generación del codigo de barras.
 	var cod_barra = ''
 	var cod_barra_SAM 			   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_sam),'000') //'000'
@@ -90,10 +92,10 @@ function onActionGrabar(event)
 //		//mov_cod_barra = plugins.it2be_barcode.Code3of9(code, checksum, drawtext)
 //		mov_cod_barra = plugins.it2be_barcode.Code2of7(code,drawtext)
 //	}		
-	databaseManager.saveData(foundset)
+	databaseManager.saveData()
 	forms.mat_movimientos.controller.show()
 	
-	globals.mx_empresa_id
+	
 }
 
 /**

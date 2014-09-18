@@ -95,6 +95,10 @@ function onShow(firstShow, event)
 		elements.btn_borrar.visible = false
 		elements.tabs.setTabEnabledAt(2,false)			
 	}
+	
+	globals.vg_auditoria_pk       = mat_id
+    globals.vg_auditoria_tabla    = new Array('mat_matriculados')
+    globals.vg_auditoria_campo    = null
 
 	verificarDeuda()
 }

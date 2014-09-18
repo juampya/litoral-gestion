@@ -446,15 +446,14 @@ function tmpRandomNumber()
 
 /**
  * TODO generated, please specify type and doc for the params
- * @param record
+ * @param {JSRecord} record
  *
  * @properties={typeid:24,uuid:"B3C9C787-0A74-453A-880C-04212354166C"}
  */
 function Auditoria_tabla(record) 
 {
-
-	 /** @type {JSFoundset<db:/Sistemas/lg_auditoria>}*/
-	var fs_auditoria = databaseManager.getFoundSet('Sistemas', 'lg_auditoria')
+	 /** @type {JSFoundset<db:/sistemas/lg_auditoria>}*/
+	var fs_auditoria = databaseManager.getFoundSet('sistemas', 'lg_auditoria')
 	
 	var table_name = record.foundset.getDataSource().split('/')[2];
 	var pk_value_of_the_record = record.getPKs()[0]; //When multi select is not done

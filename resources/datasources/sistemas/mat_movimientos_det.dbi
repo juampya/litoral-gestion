@@ -26,6 +26,13 @@ name:"det_importe_original"
 },
 {
 allowNull:true,
+creationOrderIndex:6,
+dataType:12,
+length:200,
+name:"det_observacion"
+},
+{
+allowNull:true,
 creationOrderIndex:2,
 dataType:4,
 name:"ingr_id"

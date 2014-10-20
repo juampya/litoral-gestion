@@ -31,6 +31,10 @@ function onActionGrabar(event)
 	mov_importe = vl_importe
 	mov_grab_fec = application.getServerTimeStamp()
 	mov_grab_ope = globals.ag_usuariovigente.usu_id
+	mov_fec_vto1 = new Date(mov_anio_emision, mov_mes_emision - 1, mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
+	mov_fec_vto2 = new Date(mov_anio_emision, mov_mes_emision - 1, mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
+	mov_importe_2vto = mov_importe+(mov_importe*mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
+	
 	if(mov_tipo_de_movimiento == 1)
 	{
 		if(mov_estado != 1)
@@ -38,6 +42,7 @@ function onActionGrabar(event)
 		if(mov_fecha_cobro == null)
 		{mov_fecha_cobro = application.getServerTimeStamp()}
 	}	
+	
 	databaseManager.saveData()
 	forms.mat_movimientos.controller.show()
 }
@@ -58,6 +63,7 @@ function onShow(firstShow, event)
 	mov_tipo_de_movimiento = forms.mat_movimientos_nuevo.vl_tipo_movim
 	mov_estado = 0
 	mat_id = forms.mat_movimientos_nuevo.vl_matriculado
+	emp_id = scopes.globals.mx_empresa_id
 	vl_importe = 0
 	
 }

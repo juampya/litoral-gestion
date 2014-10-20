@@ -495,6 +495,7 @@ typeid:19,
 uuid:"F4239668-F92B-4CE4-B592-C4442146B0F3"
 },
 {
+anchors:11,
 location:"0,447",
 size:"1487,43",
 styleClass:"banner_pie",

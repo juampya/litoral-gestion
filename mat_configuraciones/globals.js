@@ -287,6 +287,11 @@ function existeMovimiento(mes, anio, mat, tipo, estado)
  */
 function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado) 
 {
+	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
+	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
+	fs_conf.loadAllRecords()
+	fs_conf.getRecord(1)
+	
 	/** @type {JSFoundSet<db:/sistemas/mat_matriculados>} */
 	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
 	if(matriculado == null)
@@ -366,6 +371,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 						fs_detalle.mov_id = fs_movim_aux.mov_id
 						fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
 						fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+						fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
 						databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
 						acumImporte += fs_detalle.det_importe
 					}
@@ -379,6 +385,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 				fs_detalle.mov_id = fs_movim_aux.mov_id
 				fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
 				fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+				fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
 				databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 				acumImporte += fs_detalle.det_importe
 			}
@@ -404,10 +411,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		}
 		if(deuda > 0)
 		{
-			/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
-			var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
-			fs_conf.loadAllRecords()
-			fs_conf.getRecord(1)
+			
 			
 			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 			fs_detalle.newRecord()
@@ -458,6 +462,28 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		//Regraba importe del movimiento-----------------------------------------------------
 		fs_movim_aux.mov_importe = acumImporte
 		fs_movim_aux.mov_importe_2vto = fs_movim_aux.mov_importe+(fs_movim_aux.mov_importe*fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
+		
+		
+		// Generación del codigo de barras.
+		var cod_barra = ''
+		var cod_barra_SAM 			   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_sam),'000') //'000'
+		var cod_barra_ENTE 			   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_ente),'0000')//'0386'
+		var cod_barra_disenio 		   = utils.numberFormat(utils.stringToNumber(fs_conf.conf_cod_barra_diseño),'0') //'1'
+		var cod_barra_id_contribuyente = utils.numberFormat(fs_movim_aux.mat_id,'00000')
+		var cod_barra_mov_id		   = utils.numberFormat(fs_movim_aux.mov_id,'000000000000000')
+		var cod_barra_moneda 		   = '1'	
+		var cod_barra_vto1			   = scopes.globals.calcularFechaJuliana(fs_movim_aux.mov_fec_vto1,fs_movim_aux.mov_fec_vto1.getFullYear()) 
+		var cod_barra_imp1			   = utils.numberFormat(fs_movim_aux.mov_importe,'0000.00').substr(0,4)+utils.numberFormat(fs_movim_aux.mov_importe,'0000.00').substr(5,2)
+		var cod_barra_vto2			   = scopes.globals.calcularFechaJuliana(fs_movim_aux.mov_fec_vto2,fs_movim_aux.mov_fec_vto2.getFullYear())
+		var cod_barra_imp2			   = utils.numberFormat(fs_movim_aux.mov_importe_2vto,'0000.00').substr(0,4)+utils.numberFormat(fs_movim_aux.mov_importe_2vto,'0000.00').substr(5,2)
+			cod_barra = cod_barra_SAM+cod_barra_ENTE+cod_barra_disenio+cod_barra_id_contribuyente+cod_barra_mov_id+cod_barra_moneda+cod_barra_vto1+cod_barra_imp1+cod_barra_vto2+cod_barra_imp2
+		var cod_barra_digverif 		   = scopes.globals.DigitoVerificadorModulo1(cod_barra)
+			cod_barra = cod_barra+cod_barra_digverif
+			
+		/**@type {String}*/
+	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
+		
+	    fs_movim_aux.mov_cod_barra =  plugins.http.getMediaData(url)
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
 	}
 	
@@ -476,6 +502,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
  */
 function grabarPrimerMovimiento(matriculado, mes, anio)
 {
+	
 	/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 	var fs_movim = databaseManager.getFoundSet('sistemas','mat_movimientos')
 	fs_movim.newRecord()
@@ -509,11 +536,36 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 		fs_detalle.mov_id = fs_movim.mov_id
 		fs_detalle.det_importe = rec.ingr_importe
 		fs_detalle.det_importe_original = rec.ingr_importe
+		if(rec.ingr_id != 9)
+		{
+			fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
+		}
 		databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
 		acumImporte += fs_detalle.det_importe		
 	}
 	fs_movim.mov_importe = acumImporte
 	fs_movim.mov_importe_2vto = fs_movim.mov_importe+(fs_movim.mov_importe*fs_movim.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
+	
+	// Generación del codigo de barras.
+	var cod_barra = ''
+	var cod_barra_SAM 			   = utils.numberFormat(utils.stringToNumber(fs_movim.mat_movimientos_to_mat_configuraciones.conf_cod_barra_sam),'000') //'000'
+	var cod_barra_ENTE 			   = utils.numberFormat(utils.stringToNumber(fs_movim.mat_movimientos_to_mat_configuraciones.conf_cod_barra_ente),'0000')//'0386'
+	var cod_barra_disenio 		   = utils.numberFormat(utils.stringToNumber(fs_movim.mat_movimientos_to_mat_configuraciones.conf_cod_barra_diseño),'0') //'1'
+	var cod_barra_id_contribuyente = utils.numberFormat(fs_movim.mat_id,'00000')
+	var cod_barra_mov_id		   = utils.numberFormat(fs_movim.mov_id,'000000000000000')
+	var cod_barra_moneda 		   = '1'	
+	var cod_barra_vto1			   = scopes.globals.calcularFechaJuliana(fs_movim.mov_fec_vto1,fs_movim.mov_fec_vto1.getFullYear()) 
+	var cod_barra_imp1			   = utils.numberFormat(fs_movim.mov_importe,'0000.00').substr(0,4)+utils.numberFormat(fs_movim.mov_importe,'0000.00').substr(5,2)
+	var cod_barra_vto2			   = scopes.globals.calcularFechaJuliana(fs_movim.mov_fec_vto2,fs_movim.mov_fec_vto2.getFullYear())
+	var cod_barra_imp2			   = utils.numberFormat(fs_movim.mov_importe_2vto,'0000.00').substr(0,4)+utils.numberFormat(fs_movim.mov_importe_2vto,'0000.00').substr(5,2)
+		cod_barra = cod_barra_SAM+cod_barra_ENTE+cod_barra_disenio+cod_barra_id_contribuyente+cod_barra_mov_id+cod_barra_moneda+cod_barra_vto1+cod_barra_imp1+cod_barra_vto2+cod_barra_imp2
+	var cod_barra_digverif 		   = scopes.globals.DigitoVerificadorModulo1(cod_barra)
+		cod_barra = cod_barra+cod_barra_digverif
+		
+	/**@type {String}*/
+    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
+	
+    fs_movim.mov_cod_barra =  plugins.http.getMediaData(url)
 	
 	databaseManager.saveData(fs_movim) // Graba importe del movimiento
 }

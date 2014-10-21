@@ -7,7 +7,7 @@
  */
 function onActionAgregar(event) 
 {
-	controller.newRecord()
+	controller.newRecord(false)
 }
 
 /**

@@ -5,8 +5,10 @@
  *
  * @properties={typeid:24,uuid:"6D4023A5-4E7F-4CCA-AC6D-67189F9C25E2"}
  */
-function onActionDetalle(event) {
-	// TODO Auto-generated method stub
+function onActionDetalle(event) 
+{
+	forms.admin_lg_empresas_detalle.vl_nuevo = 0
+	forms.admin_lg_empresas_detalle.controller.show()
 }
 
 /**
@@ -19,4 +21,16 @@ function onActionDetalle(event) {
 function onActionVolver(event) 
 {
 	forms.admin_lg_inicio.controller.show()
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"9AB73D17-D394-4ADB-B6AB-D4A5CBBDAF1B"}
+ */
+function onActionAgregar(event) 
+{
+	forms.admin_lg_empresas_detalle.vl_nuevo = 1
+	forms.admin_lg_empresas_detalle.controller.show()
 }

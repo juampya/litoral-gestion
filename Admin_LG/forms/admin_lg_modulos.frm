@@ -1,7 +1,9 @@
 dataSource:"db:/sistemas/modulos",
 items:[
 {
+imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
 location:"113,45",
+mediaOptions:1,
 onActionMethodID:"C232D67A-020C-482F-A756-CA61CCB2379F",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -40,7 +42,9 @@ typeid:7,
 uuid:"57312025-9B1A-40C4-8B2A-AABF2B905492"
 },
 {
+imageMediaID:"A83906F8-A3EB-4A6B-8949-A1AEA6FF59E8",
 location:"10,45",
+mediaOptions:1,
 onActionMethodID:"EB29CF3F-6ACD-419D-8E66-96D0EAC18062",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",

@@ -450,10 +450,10 @@ function tmpRandomNumber()
  *
  * @properties={typeid:24,uuid:"B3C9C787-0A74-453A-880C-04212354166C"}
  */
-function Auditoria_tabla(record) 
+function LG_Auditoria_Tabla(record) 
 {
-	 /** @type {JSFoundset<db:/sistemas/lg_auditoria>}*/
-	var fs_auditoria = databaseManager.getFoundSet('sistemas', 'lg_auditoria')
+	 /** @type {JSFoundset<db:/Sistemas/lg_auditoria>}*/
+	var fs_auditoria = databaseManager.getFoundSet('Sistemas','lg_auditoria')
 	
 	var table_name = record.foundset.getDataSource().split('/')[2];
 	var pk_value_of_the_record = record.getPKs()[0]; //When multi select is not done
@@ -482,6 +482,43 @@ function Auditoria_tabla(record)
      }
 }
 
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param {JSRecord} record
+ *
+ * @properties={typeid:24,uuid:"4799830D-53C8-4586-8E63-764BEF06AD83"}
+ */
+function Auditoria(record)
+{
+	/**@type {JSFoundset<db:/sistemas/lg_auditoria>}*/
+	var fs_auditoria = databaseManager.getFoundSet('sistemas','lg_auditoria')
+	
+	var tabla = record.foundset.getDataSource().split('/')[2]
+	var pk_valor_de_record = record.getPKs()[0]
+	var usu_modif = scopes.globals.mx_usuario_id
+	var fec_modif = application.getServerTimeStamp()
+	
+	/**@type {JSDataSet}*/
+	var dataset = record.getChangedData()
+	
+	for (var i = 1; i <= dataset.getMaxRowIndex(); i++) 
+	{
+		var campo 		= dataset.getValue(i,1)
+		var valor_viejo = dataset.getValue(i,2)
+		var valor_nuevo = dataset.getValue(i,3)
+		
+		fs_auditoria.newRecord()
+		fs_auditoria.audit_tabla 		  = tabla
+		fs_auditoria.audit_pk_valor 	  = pk_valor_de_record 
+		fs_auditoria.audit_usuario 		  = usu_modif
+		fs_auditoria.audit_fecha 		  = fec_modif 
+		fs_auditoria.audit_valor_anterior = valor_viejo 
+		fs_auditoria.audit_valor_nuevo 	  = valor_nuevo 
+		fs_auditoria.audit_campo 		  = campo
+		
+		databaseManager.saveData(fs_auditoria)
+	}
+}
 
 /**
  * TODO generated, please specify type and doc for the params

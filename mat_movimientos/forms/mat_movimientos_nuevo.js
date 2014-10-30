@@ -67,7 +67,7 @@ function grabarMovimiento()
 	switch (vl_tipo_movim) 
 	{
 	case 0:
-		if(!globals.existeMovimiento(vl_mes,vl_anio,vl_matriculado,null,null))
+		if(!globals.existeMovimiento(vl_mes,vl_anio,vl_matriculado,0,null))
 		{	
 			globals.generar_cuotas_mensuales_confirmadas(vl_mes,vl_anio,vl_matriculado)
 			application.getWindow('nuevoMovim').hide()
@@ -78,7 +78,7 @@ function grabarMovimiento()
 		}
 	break;
 	case 1:
-		if(!globals.existeMovimiento(vl_mes,vl_anio,vl_matriculado,null,null))
+		if(!globals.existeMovimiento(null,null,vl_matriculado,1,null))
 		{		
 			globals.grabarPrimerMovimiento(vl_matriculado,vl_mes,vl_anio)
 			application.getWindow('nuevoMovim').hide()

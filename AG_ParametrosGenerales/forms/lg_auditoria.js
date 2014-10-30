@@ -10,7 +10,7 @@
  */
 function onShow(firstShow, event) 
 {
-	var ubicacion_btn_x = forms.lg_auditoria.controller.getFormWidth() - 50
+	//var ubicacion_btn_x = forms.lg_auditoria.controller.getFormWidth() - 50
 	//elements.btn_ver.setLocation(ubicacion_btn_x, 5)
 	
 	if (globals.vg_auditoria_tabla != null) {

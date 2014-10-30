@@ -14,3 +14,16 @@ function onActionDetalle(event)
 		win.title= 'Crea Menu - Litoral Gestion';
 		win.show(forms.admin_lg_modulos_menus_detalle);
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"ED6E455D-C503-4969-8A00-7B7DCE5E6571"}
+ */
+function onActionBorrar(event) 
+{
+	menus_to_accesos.deleteAllRecords()
+	controller.deleteRecord()
+}

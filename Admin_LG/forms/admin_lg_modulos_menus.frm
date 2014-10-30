@@ -42,6 +42,18 @@ uuid:"9A1DA619-6F8D-4B36-8AAE-F736E959E1EC",
 valuelistID:"BB415FAC-DE37-4BD7-8F5C-7C811AEE2F13"
 },
 {
+imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
+location:"503,15",
+mediaOptions:1,
+onActionMethodID:"ED6E455D-C503-4969-8A00-7B7DCE5E6571",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"22,20",
+toolTipText:"Borrar",
+typeid:7,
+uuid:"9F700A02-1F75-4CDA-A493-EC256FFBA95D"
+},
+{
 height:89,
 partType:5,
 typeid:19,
@@ -77,7 +89,7 @@ uuid:"EA046462-FB0C-47BF-9281-5E848BC38BCC"
 ],
 name:"admin_lg_modulos_menus",
 showInMenu:true,
-size:"504,89",
+size:"612,89",
 styleClass:"table",
 styleName:"id_style",
 typeid:3,

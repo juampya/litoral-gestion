@@ -119,7 +119,8 @@ name:"audit_usuario",
 size:"226,20",
 styleClass:"table_field",
 typeid:4,
-uuid:"CF7D5D3C-8F3B-485F-B616-DE4EF74D4A1B"
+uuid:"CF7D5D3C-8F3B-485F-B616-DE4EF74D4A1B",
+valuelistID:"E3E8208D-A9A8-46A8-A644-9C1E57ECA03B"
 },
 {
 dataProviderID:"audit_id",

@@ -50,7 +50,7 @@ function onActionAceptar(event)
 		var cant = fs_ingr.search()
 		if(cant > 0)
 		{	
-			databaseManager.saveData(foundset)
+			databaseManager.saveData()
 			globals.asociaIngresosPorDefecto(mat_id)
 			globals.grabarPrimerMovimiento(mat_id,application.getServerTimeStamp().getMonth() + 1,application.getServerTimeStamp().getFullYear())
 			forms[vl_frm_anterior].controller.show()
@@ -64,7 +64,7 @@ function onActionAceptar(event)
 	{
 		if(utils.hasRecords(foundset.mat_matriculados_to_mat_matriculado_rel_ingresos))
 		{	
-			databaseManager.saveData(foundset)
+			databaseManager.saveData()
 			forms[vl_frm_anterior].controller.show()
 		}
 		else

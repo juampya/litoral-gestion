@@ -450,45 +450,7 @@ function tmpRandomNumber()
  *
  * @properties={typeid:24,uuid:"B3C9C787-0A74-453A-880C-04212354166C"}
  */
-function LG_Auditoria_Tabla(record) 
-{
-	 /** @type {JSFoundset<db:/Sistemas/lg_auditoria>}*/
-	var fs_auditoria = databaseManager.getFoundSet('Sistemas','lg_auditoria')
-	
-	var table_name = record.foundset.getDataSource().split('/')[2];
-	var pk_value_of_the_record = record.getPKs()[0]; //When multi select is not done
-	var modified_by_user_idx = globals.mx_usuario_id
-	var modification_date = application.getServerTimeStamp()
-
-	/** @type {JSDataSet} */
-   var dataset = record.getChangedData();//it will return all the changed data of type JSDataSet
-
-   //Loop through the modified fields
-   for( var cnt = 1 ; cnt <= dataset.getMaxRowIndex() ; cnt++ )
-      {
-           var field_name = dataset.getValue(cnt, 1);
-           var old_value = dataset.getValue(cnt, 2);
-           var new_value = dataset.getValue(cnt, 3);
-		
-           fs_auditoria.newRecord()
-           fs_auditoria.audit_tabla = table_name
-           fs_auditoria.audit_pk_valor = pk_value_of_the_record
-           fs_auditoria.audit_usuario = modified_by_user_idx
-           fs_auditoria.audit_fecha = modification_date
-           fs_auditoria.audit_campo = field_name
-           fs_auditoria.audit_valor_anterior = old_value
-           fs_auditoria.audit_valor_nuevo = new_value
-           databaseManager.saveData(fs_auditoria)
-     }
-}
-
-/**
- * TODO generated, please specify type and doc for the params
- * @param {JSRecord} record
- *
- * @properties={typeid:24,uuid:"4799830D-53C8-4586-8E63-764BEF06AD83"}
- */
-function Auditoria(record)
+function LG_Auditoria(record) 
 {
 	/**@type {JSFoundset<db:/sistemas/lg_auditoria>}*/
 	var fs_auditoria = databaseManager.getFoundSet('sistemas','lg_auditoria')
@@ -515,8 +477,6 @@ function Auditoria(record)
 		fs_auditoria.audit_valor_anterior = valor_viejo 
 		fs_auditoria.audit_valor_nuevo 	  = valor_nuevo 
 		fs_auditoria.audit_campo 		  = campo
-		
-		databaseManager.saveData(fs_auditoria)
 	}
 }
 

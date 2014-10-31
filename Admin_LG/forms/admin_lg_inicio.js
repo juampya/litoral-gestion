@@ -42,3 +42,14 @@ function onActionUsuarios(event)
 {
 	forms.admin_lg_usuarios.controller.show()
 }
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"5D6D9B92-98B9-4004-B934-FB3B1D4520E0"}
+ */
+function onActionFunciones(event) 
+{
+	forms.admin_lg_funciones.controller.show()
+}

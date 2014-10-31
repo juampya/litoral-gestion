@@ -45,4 +45,12 @@ function onShow(firstShow, event)
 	{
 		controller.newRecord(false)
 	}
+	
+	//Variables para adjuntos.
+	globals.vg_archivo_funcion_codigo = 1 //Codigo de adjuntos de comprobantes de proveedores.
+	globals.vg_archivo_tabla_id = emp_id //ID sobre la que se agrega el adjunto.
+	
+	globals.vg_auditoria_pk = emp_id
+	globals.vg_auditoria_tabla = new Array('empresas')
+	globals.vg_auditoria_campo = null
 }

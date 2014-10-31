@@ -185,7 +185,6 @@ uuid:"D768619A-8B5A-4C50-84D5-23DF8E3C8693"
 },
 {
 dataProviderID:"emp_nombre",
-editable:false,
 location:"110,37",
 size:"329,20",
 text:"Nombre",

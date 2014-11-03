@@ -59,6 +59,13 @@ name:"conf_interes_x_atraso"
 },
 {
 allowNull:true,
+creationOrderIndex:11,
+dataType:-1,
+length:65535,
+name:"conf_observaciones_boletas"
+},
+{
+allowNull:true,
 creationOrderIndex:1,
 dataType:4,
 name:"conf_venc_cuota_1_dia"

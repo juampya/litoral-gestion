@@ -1,4 +1,31 @@
 /**
+ * @type {Array}
+ * @properties={typeid:35,uuid:"4884E3C0-5A2B-462A-8B0E-4BF9226EF9CA",variableType:-4}
+ */
+var vg_adjuntos = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"4A2D3AD9-FC83-44DB-958F-500829E86068"}
+ */
+var vg_cuerpo = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"B54052A2-7A7C-4166-B075-11EA3F3EA71A"}
+ */
+var vg_asunto = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"7FBBC56C-51ED-4427-A860-8DE4A6F094BC"}
+ */
+var vg_destinatarios = null;
+
+/**
  * @properties={typeid:35,uuid:"A4EB65EA-3B7A-469B-B706-CAF8DE1D74FB",variableType:-4}
  */
 var vg_fs_menu = null;
@@ -552,13 +579,13 @@ function archivoAdjuntoMostrar(imagen_id)
 	plugins.file.writeFile(tempfilename,fs_adjunto.adj_adjunto)
 	
 	if(utils.stringPatternCount(vOS, 'Windows') == 1){
-   		application.executeProgramInBackground( 'rundll32', 'url.dll,FileProtocolHandler', 'c:/'+tempfilename );
+   		application.executeProgramInBackground( 'rundll32', ['url.dll,FileProtocolHandler', 'c:/'+tempfilename]);
 	}
 	else if(utils.stringPatternCount(vOS, 'FreeBSD') == 1 || utils.stringPatternCount(vOS, 'Linux') == 1){
-   		application.executeProgramInBackground('mozilla', tempfilename );
+   		application.executeProgramInBackground('mozilla', [tempfilename]);
 	}
 	else if(utils.stringPatternCount(vOS, 'Mac') == 1){
-   		application.executeProgramInBackground('open', tempfilename );
+   		application.executeProgramInBackground('open', [tempfilename]);
 	}	
 }
 

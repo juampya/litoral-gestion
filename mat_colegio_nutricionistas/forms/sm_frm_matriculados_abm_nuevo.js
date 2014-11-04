@@ -66,9 +66,21 @@ function onShow(firstShow, event)
  */
 function onActionEnviarMail(event) 
 {
+//	scopes.globals.vg_destinatarios = mat_e_mail
+//	scopes.globals.vg_asunto 		= null
+//	scopes.globals.vg_cuerpo 		= null
+//	scopes.globals.vg_adjuntos 		= null
+//	
+//	var win = application.createWindow("frm_cuerpo_mail", JSWindow.MODAL_DIALOG);
+//		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+//		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+//		win.resizable = false
+//		win.title= 'Mail';
+//		win.show(forms.lg_form_mail);
+	
 	if(utils.stringMiddle(application.getOSName(),1,7) == "Windows")
 	{
-		application.executeProgram('rundll32', 'url.dll,FileProtocolHandler', 'mailto:'+mat_e_mail)
+		application.executeProgram('rundll32', ['url.dll,FileProtocolHandler', 'mailto:'+mat_e_mail])
 	}
 	
 }

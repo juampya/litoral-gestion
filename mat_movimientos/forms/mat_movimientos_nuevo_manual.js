@@ -37,9 +37,13 @@ function onActionGrabar(event)
 	if(mov_tipo_de_movimiento == 1)
 	{
 		if(mov_estado != 1)
-		{mov_estado = 1}
+		{
+			mov_estado = 1
+		}
 		if(mov_fecha_cobro == null)
-		{mov_fecha_cobro = application.getServerTimeStamp()}
+		{
+			mov_fecha_cobro = application.getServerTimeStamp()
+		}
 	}	
 	
 	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */

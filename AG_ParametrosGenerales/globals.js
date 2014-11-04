@@ -561,3 +561,64 @@ function archivoAdjuntoMostrar(imagen_id)
    		application.executeProgramInBackground('open', tempfilename );
 	}	
 }
+
+
+/**
+ * @AllowToRunInFind
+ * 
+ * TODO generated, please specify type and doc for the params
+ * @param lnk_funcion_email
+ * @param lnk_asunto
+ * @param lnk_cuerpo
+ *
+ * @properties={typeid:24,uuid:"E7AF089D-8485-43B5-AE86-B443FF743213"}
+ */
+function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo) {
+	/** @type {JSFoundset<db:/sistemas/lg_funciones>}*/
+	var fs_funciones = databaseManager.getFoundSet('sistemas', 'lg_funciones')
+	fs_funciones.find()
+	fs_funciones.func_codigo = lnk_funcion_email
+	fs_funciones.search()
+	if (fs_funciones.getSize() < 1) {
+		fs_funciones.find()
+		fs_funciones.func_codigo = 0
+		fs_funciones.search()
+		lnk_cuerpo = 'Funcion: ' + lnk_funcion_email + '\nAsunto: ' + lnk_asunto + '\nCuerpo: ' + lnk_cuerpo
+		lnk_asunto = 'Funcionalidad de correo inexistente.'
+	}
+	
+	var destinatarios 	= ''
+	var remitente = ''
+	
+//	if (utils.hasRecords(fs_funciones.md_home_funciones_to_adn_email_remitentes)) {
+//		if (fs_funciones.md_home_funciones_to_adn_email_remitentes.email_remitente == null) {
+//			remitente 		= fs_funciones.home_funcion_email_responsable
+//		} else {
+//			remitente 		= fs_funciones.md_home_funciones_to_adn_email_remitentes.email_remitente	
+//		}
+//	} else {
+//		remitente 		= fs_funciones.home_funcion_email_responsable
+//	}
+	
+	remitente 	= fs_funciones.func_email_responsable
+	var subject	= 'Litoral Gestion Mail: ' + lnk_asunto
+	var cuerpo	= lnk_cuerpo
+	
+	if (utils.hasRecords(fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios)) {
+		for(var i = 1; i <= fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize(); i++)
+		{
+			var rec_email = fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getRecord(i)
+
+			if (i == fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize()) {
+				destinatarios= destinatarios + rec_email.email_destinatario
+			} else {
+				destinatarios= destinatarios + rec_email.email_destinatario + ', '
+			}
+		}
+	}
+	
+	if(destinatarios != '')
+	{
+		plugins.mail.sendMail(destinatarios, remitente, subject, cuerpo, null, null, null, ag_empresavigente.emp_smtphost)  	
+	}   			
+}

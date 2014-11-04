@@ -34,7 +34,6 @@ function onActionGrabar(event)
 	mov_fec_vto1 = new Date(mov_anio_emision, mov_mes_emision - 1, mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
 	mov_fec_vto2 = new Date(mov_anio_emision, mov_mes_emision - 1, mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
 	mov_importe_2vto = mov_importe+(mov_importe*mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
-	
 	if(mov_tipo_de_movimiento == 1)
 	{
 		if(mov_estado != 1)
@@ -90,7 +89,7 @@ function onShow(firstShow, event)
 	mat_id = forms.mat_movimientos_nuevo.vl_matriculado
 	emp_id = scopes.globals.mx_empresa_id
 	vl_importe = 0
-	
+	mov_observacion = mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
 }
 
 /**

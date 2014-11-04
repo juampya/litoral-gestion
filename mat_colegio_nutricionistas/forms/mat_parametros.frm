@@ -45,6 +45,15 @@ typeid:7,
 uuid:"2D06AAFE-4B8D-427B-8509-2A87C72A0D5C"
 },
 {
+horizontalAlignment:0,
+location:"22,328",
+size:"590,20",
+styleClass:"label_black",
+text:"Observación general en Boleta de Pago",
+typeid:7,
+uuid:"36123A64-8553-42BF-BBA2-48F6BDCFDEEB"
+},
+{
 horizontalAlignment:4,
 location:"325,158",
 name:"conf_interes_cuota_impaga_label",
@@ -242,6 +251,17 @@ typeid:7,
 uuid:"E5C5D52F-8F08-4AA2-A750-4C58E3B488E8"
 },
 {
+dataProviderID:"conf_observaciones_boletas",
+displayType:1,
+formIndex:9,
+location:"21,353",
+name:"conf_observaciones_boletas",
+scrollbars:32,
+size:"591,69",
+typeid:4,
+uuid:"E628D66D-FC0D-46E8-87ED-054C4EE04841"
+},
+{
 dataProviderID:"conf_interes_ingr_id",
 horizontalAlignment:4,
 location:"217,268",
@@ -263,7 +283,7 @@ typeid:4,
 uuid:"F7C0FC45-0FA9-4373-8F2C-5BB50B27718E"
 },
 {
-height:324,
+height:452,
 partType:5,
 typeid:19,
 uuid:"F7FF273A-6B41-4EFC-9F03-44140BF44F0D"

@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"3E930612-7EA2-4523-A333-2F0C3E843A04"}
+ */
+var vl_observacion = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"ABC36E5F-CB45-49B7-B63C-66A3F67682E0",variableType:4}
@@ -110,6 +117,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		fs_mov.mov_tipo_de_movimiento = rec.mov_tipo_de_movimiento
 		fs_mov.mov_grab_fec 		  = rec.mov_grab_fec
 		fs_mov.mov_grab_ope 		  = rec.mov_grab_ope
+		fs_mov.mov_observacion		  = vl_observacion
 		
 		databaseManager.saveData(fs_mov)
 		
@@ -150,6 +158,11 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 			fs_det.ingr_id 				= rec1.ingr_id
 			fs_det.mov_id 				= fs_mov.mov_id
 			fs_det.res_id 				= rec1.res_id
+			if(fs_det.ingr_id == 1|| fs_det.ingr_id == 2)
+			{
+				fs_det.det_observacion	= application.getValueListDisplayValue('meses',mes)
+			}
+			
 			databaseManager.saveData(fs_det)
 		}
 		procesar(cantidad,0,i)

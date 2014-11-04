@@ -337,6 +337,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		fs_movim_aux.mov_grab_ope = globals.ag_usuariovigente.usu_id
 		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
 		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
+		fs_movim_aux.mov_observacion = fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------
 		
@@ -516,7 +517,7 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 	fs_movim.mov_tipo_de_movimiento = 1 // Primer Movimiento
 	fs_movim.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
 	fs_movim.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
-	
+	fs_movim.mov_observacion = fs_movim.mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
 	databaseManager.saveData(fs_movim)	
 	
 	/** @type {JSFoundSet<db:/sistemas/mat_ingresos>} */

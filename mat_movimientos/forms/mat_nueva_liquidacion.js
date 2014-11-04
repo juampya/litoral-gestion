@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"33FB52B9-9764-417B-AAB3-A5479C3FB69C"}
+ */
+var vl_observacion = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"2AE28BD8-45F3-43C2-B7CE-94F410335060",variableType:4}
@@ -80,13 +87,21 @@ function onHide(event)
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"65C1AE6D-2DDC-4547-AD5B-656E9F47E89E"}
+ * @AllowToRunInFind
  */
 function onShow(firstShow, event) 
 {
+	/** @type {JSFoundset<db:/sistemas/mat_configuraciones>}*/
+	var fs_config = databaseManager.getFoundSet('sistemas','mat_configuraciones')
+		fs_config.find()
+		fs_config.emp_id = scopes.globals.mx_empresa_id
+		fs_config.search()
+	
 	if(firstShow)
 	{
 		vl_anio = application.getServerTimeStamp().getFullYear()
 		vl_mes = application.getServerTimeStamp().getMonth() + 1
+		vl_observacion = fs_config.conf_observaciones_boletas
 	}
 
 }
@@ -123,9 +138,10 @@ function generarCuotas()
 {
 	application.getWindow("generarLiquidacion").hide()	
 	forms.mat_procesar_cuotas_mensuales_aux.vl_anio = vl_anio
-	forms.mat_procesar_cuotas_mensuales_aux.vl_mes = vl_mes	
+	forms.mat_procesar_cuotas_mensuales_aux.vl_mes = vl_mes
 	globals.ventanaFormulario("cuotaMensual","Litoral Gestion",forms.mat_procesar_cuotas_mensuales_aux.controller.getName())
 	forms.mat_liquidacion_resumen.vl_anio = vl_anio
-	forms.mat_liquidacion_resumen.vl_mes = vl_mes	
+	forms.mat_liquidacion_resumen.vl_mes = vl_mes
+	forms.mat_liquidacion_resumen.vl_observacion = vl_observacion
 	forms.mat_liquidacion_resumen.controller.show()
 }

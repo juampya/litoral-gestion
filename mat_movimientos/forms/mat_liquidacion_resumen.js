@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"A429C688-1E2B-4B2E-A6CE-9B77374E761B"}
+ */
+var vl_observacion = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"D7B81E8A-21A4-4567-B104-F5294054B547",variableType:4}
@@ -197,7 +204,8 @@ function onActionConfirmar(event)
 	{
 		forms.mat_procesar_cuotas_mensuales_conf.vl_anio = vl_anio
 		forms.mat_procesar_cuotas_mensuales_conf.vl_mes = vl_mes
-		forms.mat_procesar_cuotas_mensuales_conf.vl_reliquidacion = vl_es_reliquidacion	
+		forms.mat_procesar_cuotas_mensuales_conf.vl_reliquidacion = vl_es_reliquidacion
+		forms.mat_procesar_cuotas_mensuales_conf.vl_observacion = vl_observacion
 		globals.ventanaFormulario("confirmarCuotas","Litoral Getion",forms.mat_procesar_cuotas_mensuales_conf.controller.getName())
 	}
 	else

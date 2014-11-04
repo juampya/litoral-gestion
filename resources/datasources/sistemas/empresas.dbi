@@ -149,6 +149,13 @@ name:"emp_observa"
 },
 {
 allowNull:true,
+creationOrderIndex:29,
+dataType:12,
+length:45,
+name:"emp_smtphost"
+},
+{
+allowNull:true,
 creationOrderIndex:3,
 dataType:12,
 length:45,

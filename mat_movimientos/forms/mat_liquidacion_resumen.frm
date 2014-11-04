@@ -1,9 +1,20 @@
 dataSource:"db:/sistemas/mat_movimientos_aux",
 items:[
 {
+dataProviderID:"vl_observacion",
+displayType:1,
+formIndex:4,
+location:"127,151",
+name:"vl_observacion",
+scrollbars:32,
+size:"558,65",
+typeid:4,
+uuid:"037D3CA7-20EF-4D63-9E6B-DB2DE6F29ADF"
+},
+{
 anchors:11,
 location:"0,0",
-size:"999,81",
+size:"875,81",
 styleClass:"banner",
 text:"Resumen de Liquidacion",
 transparent:true,
@@ -25,7 +36,7 @@ uuid:"307AA6E7-030F-40B3-8C77-E57028DE67AD"
 },
 {
 anchors:13,
-location:"0,191",
+location:"0,266",
 name:"tabs",
 printable:false,
 size:"422,289",
@@ -92,7 +103,7 @@ uuid:"7974F33A-7E31-4CC8-93EB-D8B9A4E39891"
 },
 {
 horizontalAlignment:0,
-location:"10,156",
+location:"10,231",
 name:"bnr_reliq",
 size:"229,20",
 styleClass:"label_black",
@@ -111,7 +122,7 @@ typeid:7,
 uuid:"84CC4F65-F0C4-4878-9070-572EB518E9CD"
 },
 {
-height:480,
+height:560,
 partType:5,
 typeid:19,
 uuid:"86A028C5-B613-4407-AADA-142CE9CB7545"
@@ -167,7 +178,7 @@ valuelistID:"D30961D6-B67C-49E0-87BD-6E7EEBD46F2A"
 },
 {
 anchors:13,
-location:"432,191",
+location:"432,266",
 name:"tabs_1",
 printable:false,
 size:"421,289",
@@ -225,13 +236,24 @@ styleClass:"label_black",
 text:"Cuotas Generadas:",
 typeid:7,
 uuid:"DF84D6BF-56B3-4AFF-9953-E7872A11F9F3"
+},
+{
+formIndex:3,
+labelFor:"vl_observacion",
+location:"10,151",
+name:"vl_observacion_label",
+size:"112,20",
+styleClass:"label_black",
+text:"Observación:",
+typeid:7,
+uuid:"FEA13941-853B-46D5-BCA8-8A7BDDBCD616"
 }
 ],
 name:"mat_liquidacion_resumen",
 navigatorID:"-1",
 onShowMethodID:"63B6F49B-6E01-41A7-90FF-68244D3D380A",
 showInMenu:true,
-size:"999,480",
+size:"876,560",
 styleClass:"formulario",
 styleName:"id_style",
 typeid:3,

@@ -132,16 +132,17 @@ function onDataChangeEstado(oldValue, newValue, event)
  */
 function onActionImprimir(event) 
 {
-//	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
-//	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
-//	fs_conf.loadAllRecords()
-//	fs_conf.getRecord(1)
-//		
-//	forms.mat_boleta_de_pago.controller.loadRecords(mov_id)
-//	
-//	forms.mat_boleta_de_pago.vl_importe_vto1 = forms.mat_boleta_de_pago.mov_importe
-//	forms.mat_boleta_de_pago.vl_importe_vto2 = forms.mat_boleta_de_pago.vl_importe_vto1+(forms.mat_boleta_de_pago.vl_importe_vto1*fs_conf.conf_interes_x_atraso)/100
-
+	//plugins.mail.createBinaryAttachment('Convenio de Precios.pdf',plugins.jasperPluginRMI.runReport(foundset,'precios_convenios_cliente.jasper', 'Convenio.pdf', plugins.jasperPluginRMI.OUTPUT_FORMAT.PDF, null))
 	plugins.jasperPluginRMI.runReport('Sistemas','boleta_de_pago.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmov_id:mov_id})
+}
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"89872644-FD3F-4189-A885-E8D82ED765E3"}
+ */
+function onActionMail(event) 
+{
 	
 }

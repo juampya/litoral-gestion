@@ -45,10 +45,28 @@ function onHide(event)
  * @param pfuncion_codigo
  *
  * @properties={typeid:24,uuid:"B325146B-3A4C-4DA1-A1D6-530B457A874E"}
+ * @AllowToRunInFind
  */
 function Enviar(pfuncion_codigo) 
 {
-	plugins.mail.sendMail(scopes.globals.vg_destinatarios, ag_usuariovigente.usu_email, scopes.globals.vg_asunto, scopes.globals.vg_cuerpo, null, null, null, ag_empresavigente.emp_smtphost)
-	//
-	scopes.globals.enviarEmailPorFunciones(pfuncion_codigo,scopes.globals.vg_asunto,scopes.globals.vg_cuerpo)
+	if(scopes.globals.vg_destinatarios == null || scopes.globals.vg_destinatarios.length == 0)
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Debe poner al menos un destinatario.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		return
+	}
+
+	if(scopes.globals.vg_asunto == null || scopes.globals.vg_asunto.length == 0)
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","El asunto no puede quedar vacio.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		return
+	}
+	
+	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, ag_empresavigente.emp_mail2, scopes.globals.vg_asunto, scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, 'mail.litoral-software.com.ar')
+	//ag_empresavigente.emp_smtphost
+	if (!success) 
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","El envio falló","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		return
+	}
+	//scopes.globals.enviarEmailPorFunciones(pfuncion_codigo,scopes.globals.vg_asunto,scopes.globals.vg_cuerpo)
 }

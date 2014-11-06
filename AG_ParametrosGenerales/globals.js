@@ -1,5 +1,5 @@
 /**
- * @type {Array}
+ * @type {Array<plugins.mail.Attachment>}
  * @properties={typeid:35,uuid:"4884E3C0-5A2B-462A-8B0E-4BF9226EF9CA",variableType:-4}
  */
 var vg_adjuntos = null;

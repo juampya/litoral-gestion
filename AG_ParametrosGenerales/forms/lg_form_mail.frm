@@ -107,6 +107,7 @@ uuid:"944EC2C8-0ACF-4281-A11E-3C379EAEDAB2"
 }
 ],
 name:"lg_form_mail",
+navigatorID:"-1",
 onHideMethodID:"C8BEA539-0F24-467C-A4BD-3A00167166FF",
 onShowMethodID:"30BFAA41-F1FE-4ECF-B22B-3C75560F90DC",
 showInMenu:true,

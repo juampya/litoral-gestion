@@ -370,7 +370,6 @@ typeid:4,
 uuid:"A0A26A2D-4497-4C76-9DDF-7432B3E678E1"
 },
 {
-enabled:false,
 formIndex:2,
 imageMediaID:"FA051ACD-4D22-4B83-BC23-C6E9A0311315",
 location:"575,31",

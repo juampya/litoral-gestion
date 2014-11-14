@@ -69,7 +69,7 @@ function Enviar(pfuncion_codigo)
 		return
 	}
 	
-	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_usuariovigente.usu_email, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, authorization)
+	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_empresavigente.emp_smtp_username, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, authorization)
 	if (!success) 
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","El envio falló","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)

@@ -380,7 +380,7 @@ onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
 text:"Mail",
-toolTipText:"Imprimir",
+toolTipText:"Enviar por Mail",
 typeid:7,
 uuid:"A2804B57-DF5D-4EF1-A021-D73FBE5B6D08"
 },

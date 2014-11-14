@@ -145,7 +145,7 @@ function onActionImprimir(event)
 function onActionMail(event) 
 {
 	scopes.globals.vg_destinatarios = mat_movimientos_to_mat_matriculados.mat_e_mail
-	scopes.globals.vg_asunto 		= "Litoral Software: Boleta de Pago"
+	scopes.globals.vg_asunto 		= scopes.globals.ag_empresavigente.emp_nombre +"- Boleta de Pago." 
 	scopes.globals.vg_cuerpo 		= null
 	scopes.globals.vg_adjuntos 		= plugins.mail.createBinaryAttachment('BoletadePago.pdf',plugins.jasperPluginRMI.runReport('sistemas','boleta_de_pago.jasper', 'BoletadePago.pdf', plugins.jasperPluginRMI.OUTPUT_FORMAT.PDF, {pmov_id:mov_id}))
 	

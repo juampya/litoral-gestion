@@ -49,6 +49,14 @@ function onHide(event)
  */
 function Enviar(pfuncion_codigo) 
 {
+	var smpt 		  = 'mail.smtp.host=' + scopes.globals.ag_empresavigente.emp_smtp_host
+	var smtp_port 	  = 'mail.smtp.port=' + scopes.globals.ag_empresavigente.emp_smtp_port
+	var smtp_auth 	  = 'mail.smtp.auth=' + scopes.globals.ag_empresavigente.emp_smtp_auth
+	var smtp_user 	  = 'mail.smtp.username=' + scopes.globals.ag_empresavigente.emp_smtp_username
+	var smtp_pasw 	  = 'mail.smtp.password=' + scopes.globals.ag_empresavigente.emp_smtp_password
+	var smtp_starttls = 'mail.smtp.starttls.enable=' + scopes.globals.ag_empresavigente.emp_smtp_starttls
+	var authorization = new Array(smpt, smtp_port,smtp_auth,smtp_user,smtp_pasw,smtp_starttls)
+	
 	if(scopes.globals.vg_destinatarios == null || scopes.globals.vg_destinatarios.length == 0)
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Debe poner al menos un destinatario.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
@@ -61,12 +69,15 @@ function Enviar(pfuncion_codigo)
 		return
 	}
 	
-	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, ag_empresavigente.emp_mail2, scopes.globals.vg_asunto, scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, 'mail.litoral-software.com.ar')
-	//ag_empresavigente.emp_smtphost
+	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_usuariovigente.usu_email, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, authorization)
 	if (!success) 
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","El envio falló","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
 		return
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Envio satisfactorio","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
 	}
 	//scopes.globals.enviarEmailPorFunciones(pfuncion_codigo,scopes.globals.vg_asunto,scopes.globals.vg_cuerpo)
 }

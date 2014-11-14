@@ -1,4 +1,9 @@
 /**
+ * @properties={typeid:35,uuid:"DE9B256A-79DD-4960-9CDA-CC6E401B1CC2",variableType:-4}
+ */
+var vl_html = null;
+
+/**
 /* @type {JSFile[]} 
  *
  * @properties={typeid:35,uuid:"D078E37C-0A98-4A97-80CB-C6FC0653DE88",variableType:-4}
@@ -30,6 +35,7 @@ function onShow(firstShow, event)
 {
 	vl_archivo = null
 	controller.newRecord(false)
+	emp_id = scopes.globals.mx_empresa_id
 }
 
 /**
@@ -132,6 +138,13 @@ function onActionBuscar(event)
  */
 function ProcesarNuevoBcoSantaFe()
 {
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+	var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
+	/** @type {JSFoundset<db:/sistemas/mat_rendiciones_errores>}*/
+	var fs_rendiciones_errores = databaseManager.getFoundSet('sistemas','mat_rendiciones_errores')
+	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
+	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
+	
 	elements.btn_grabar.enabled=true
 	
 	//
@@ -195,9 +208,68 @@ function ProcesarNuevoBcoSantaFe()
 	            }
 	            else
 	            {
-	            	if (utils.stringMiddle(_sLine,1,7)=="TRAILER") 
+	            	if (utils.stringMiddle(_sLine,1,5)=="DATOS") 
 		            {
-		            	
+		            	fs_movimientos.find()
+						fs_movimientos.mov_id = utils.stringToNumber(utils.stringMiddle(_sLine,171,15))
+						fs_movimientos.search()
+						
+						var cant_mov = fs_movimientos.getSize()
+						
+						if(cant_mov==1)
+						{
+							/**@type {JSRecord}*/
+							var record_mov = fs_movimientos.getSelectedRecord()
+							/**@type {Number}*/
+							var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,165,5))
+							
+							if(record_mov.ren_id !=null || record_mov.ren_id !=0)
+							{
+								fs_rendiciones_errores.newRecord()
+								fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
+								fs_rendiciones_errores.ren_id = ren_id
+								fs_rendiciones_errores.ren_error_codigo = 1
+								fs_rendiciones_errores.ren_error_observacion = "Rendición Nº: "+record_mov.ren_id.toString()+"/nFecha de Pago: "+utils.dateFormat(record_mov.mov_fecha_cobro,"dd/MM/yyyy")
+							}
+							else
+							{
+								if(record_mov.mat_id != cod_mat)
+								{
+									fs_matriculados.find()
+									fs_matriculados.mat_id = cod_mat
+									fs_matriculados.search()
+									
+									var nombre_mat = 'Matriculado inexistente en el sistema.'
+									if(fs_matriculados.getSize()>0)
+									{
+										nombre_mat=fs_matriculados.mat_nombre
+									}
+									
+									fs_rendiciones_errores.newRecord()
+									fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
+									fs_rendiciones_errores.ren_id = ren_id
+									fs_rendiciones_errores.ren_error_codigo = 3
+									fs_rendiciones_errores.ren_error_observacion = "La boleta pagada no corresponde al matriculado en el sistema:/nBoleta en el sistema: "+fs_movimientos.mat_movimientos_to_mat_matriculados.mat_nombre+"/nBoleta pagada: "+nombre_mat 
+								}
+								else
+								{
+									var mov_cobro_anio = utils.stringToNumber(utils.stringMiddle(_sLine,225,4))
+									var mov_cobro_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,229,2))-1
+									var mmov_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,231,2))
+									
+									fs_movimientos.mov_fecha_cobro = new Date(mov_cobro_anio,mov_cobro_mes,mmov_cobro_dia)
+									fs_movimientos.mov_importe_cobrado = utils.stringToNumber(utils.stringMiddle(_sLine,78,9))+(utils.stringToNumber(utils.stringMiddle(_sLine,87,2))/100)
+								}
+							}	
+						}
+						else
+						{
+							fs_rendiciones_errores.newRecord()
+							fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
+							fs_rendiciones_errores.ren_id = ren_id
+							fs_rendiciones_errores.ren_error_codigo = 3
+							fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringMiddle(_sLine,171,15)
+						}
 		            }
 	            }	
 	        }

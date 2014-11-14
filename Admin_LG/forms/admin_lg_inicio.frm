@@ -86,6 +86,7 @@ horizontalAlignment:0,
 location:"0,0",
 mediaOptions:14,
 size:"640,50",
+styleClass:"label_black",
 text:"ADMINISTRADOR",
 typeid:7,
 uuid:"89950660-BEB5-46F6-9AEE-3F4EA6AC7D44"

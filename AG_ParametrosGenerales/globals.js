@@ -600,7 +600,16 @@ function archivoAdjuntoMostrar(imagen_id)
  *
  * @properties={typeid:24,uuid:"E7AF089D-8485-43B5-AE86-B443FF743213"}
  */
-function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo) {
+function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo) 
+{
+	var smpt 		  = 'mail.smtp.host=' + scopes.globals.ag_empresavigente.emp_smtp_host
+	var smtp_port 	  = 'mail.smtp.port=' + scopes.globals.ag_empresavigente.emp_smtp_port
+	var smtp_auth 	  = 'mail.smtp.auth=' + scopes.globals.ag_empresavigente.emp_smtp_auth
+	var smtp_user 	  = 'mail.smtp.username=' + scopes.globals.ag_empresavigente.emp_smtp_username
+	var smtp_pasw 	  = 'mail.smtp.password=' + scopes.globals.ag_empresavigente.emp_smtp_password
+	var smtp_starttls = 'mail.smtp.starttls.enable=' + scopes.globals.ag_empresavigente.emp_smtp_starttls
+	var authorization = new Array(smpt, smtp_port,smtp_auth,smtp_user,smtp_pasw,smtp_starttls)
+	
 	/** @type {JSFoundset<db:/sistemas/lg_funciones>}*/
 	var fs_funciones = databaseManager.getFoundSet('sistemas', 'lg_funciones')
 	fs_funciones.find()
@@ -646,6 +655,6 @@ function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo) {
 	
 	if(destinatarios != '')
 	{
-		plugins.mail.sendMail(destinatarios, remitente, subject, cuerpo, null, null, null, ag_empresavigente.emp_smtphost)  	
+		plugins.mail.sendMail(destinatarios, remitente, subject, cuerpo, null, null, null,authorization)  	
 	}   			
 }

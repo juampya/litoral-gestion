@@ -121,6 +121,13 @@ name:"mov_observacion"
 },
 {
 allowNull:true,
+creationOrderIndex:22,
+dataType:-1,
+length:65535,
+name:"mov_observacion_cobro"
+},
+{
+allowNull:true,
 compatibleColumnTypes:"[[3,9,2]]",
 creationOrderIndex:16,
 dataType:3,

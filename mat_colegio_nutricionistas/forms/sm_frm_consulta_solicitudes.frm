@@ -268,6 +268,17 @@ typeid:7,
 uuid:"BD35E455-3B13-4773-BA80-556FB17AA592"
 },
 {
+formIndex:29,
+labelFor:"rel_observasiones",
+location:"938,142",
+name:"rel_observasiones_label",
+size:"258,20",
+styleClass:"table_label",
+text:"Dirigido a",
+typeid:7,
+uuid:"C41DFCAB-807B-47FE-BCB1-4DA3F8A286A6"
+},
+{
 dataProviderID:"mat_rel_mat_sol_to_mat_matriculados.mat_nombre",
 editable:false,
 formIndex:10,
@@ -277,6 +288,17 @@ size:"279,20",
 styleClass:"table_field",
 typeid:4,
 uuid:"C5706D85-9F33-4988-A816-2BCAC12CC626"
+},
+{
+dataProviderID:"rel_observasiones",
+editable:false,
+formIndex:30,
+location:"938,160",
+name:"rel_observasiones",
+size:"258,20",
+styleClass:"table_field",
+typeid:4,
+uuid:"D2F4A7C4-664C-4F1F-8845-5885C19452AC"
 },
 {
 dataProviderID:"mat_rel_mat_sol_to_mat_solicitudes.sol_descripcion",

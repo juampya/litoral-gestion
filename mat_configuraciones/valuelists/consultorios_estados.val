@@ -1,0 +1,7 @@
+customValues:"No Habilitado|0\r
+Habilitado|1",
+name:"consultorios_estados",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"D371DA30-4972-4D74-8D6D-E4B9F1EE7586"

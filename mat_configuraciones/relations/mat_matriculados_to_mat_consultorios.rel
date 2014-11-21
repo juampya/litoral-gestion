@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_consultorios",
+items:[
+{foreignColumnName:"mat_id",primaryDataProviderID:"mat_id",typeid:23,uuid:"27A24EDB-B3DE-42D1-93E1-7E9B9E565380"}
+],
+joinType:1,
+name:"mat_matriculados_to_mat_consultorios",
+primaryDataSource:"db:/sistemas/mat_matriculados",
+typeid:22,
+uuid:"5786691B-EEF6-41C5-9625-FFF1CC73C9CF"

@@ -68,6 +68,14 @@ anchors:15,
 formIndex:4,
 items:[
 {
+containsFormID:"9B3EF27D-4A07-475B-B3B7-A8DBF562773A",
+location:"245,226",
+relationName:"mat_matriculados_to_mat_consultorios",
+text:"Consultorios",
+typeid:15,
+uuid:"34BD94B2-C23A-4D25-9613-1F73FDE79CFE"
+},
+{
 containsFormID:"B72073FD-E836-4D05-9FC8-D5C91E6C66B7",
 location:"0,116",
 text:"Datos",
@@ -76,7 +84,7 @@ uuid:"55EEAA3A-5E0B-43BF-A32F-A29E6BAB0237"
 },
 {
 containsFormID:"F2AC35D0-2E1F-4BE2-B3CF-15029D11C795",
-location:"136,177",
+location:"317,274",
 text:"Auditoría",
 typeid:15,
 uuid:"71254CCB-FD2B-4798-B9D7-A92416DE15CF"
@@ -88,6 +96,14 @@ relationName:"mat_matriculados_to_mat_matriculado_rel_ingresos",
 text:"Conceptos",
 typeid:15,
 uuid:"C3A36590-D0AC-4AEF-9B8D-8B517FA4DC79"
+},
+{
+containsFormID:"85703BC5-4555-41B8-B5DA-EBEFAAD3878F",
+location:"120,185",
+relationName:"mat_matriculados_to_mat_rel_mat_sol",
+text:"Solicitudes y Certificados",
+typeid:15,
+uuid:"DCB4CFDB-BB90-4B0D-9C4E-25157F846E72"
 }
 ],
 location:"0,86",

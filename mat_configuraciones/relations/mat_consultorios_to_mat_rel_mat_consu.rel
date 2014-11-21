@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_rel_mat_consu",
+items:[
+{foreignColumnName:"consultorio_id",primaryDataProviderID:"consultorio_id",typeid:23,uuid:"6094460F-23BC-4CED-B33B-A2F72DAE013E"}
+],
+joinType:1,
+name:"mat_consultorios_to_mat_rel_mat_consu",
+primaryDataSource:"db:/sistemas/mat_consultorios",
+typeid:22,
+uuid:"34684073-C2B6-4222-869F-B4FCB7157A41"

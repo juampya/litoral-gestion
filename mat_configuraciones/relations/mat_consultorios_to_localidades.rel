@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/localidades",
+items:[
+{foreignColumnName:"localidad_id",primaryDataProviderID:"localidad_id",typeid:23,uuid:"55826029-3D40-4AB5-9545-3673B4B4B3A3"}
+],
+joinType:1,
+name:"mat_consultorios_to_localidades",
+primaryDataSource:"db:/sistemas/mat_consultorios",
+typeid:22,
+uuid:"09F7D2FD-E9DD-4AA3-8806-DCA529128D00"

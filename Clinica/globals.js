@@ -15,5 +15,5 @@ function onSolutionOpen()
 	globals.mx_modulo_inicio = ag_solucionvigente.modulo_form_start
 	scopes.globals.CargarMenu()
 	
-	plugins.busy.unblock();
+	//plugins.busy.unblock();
 }

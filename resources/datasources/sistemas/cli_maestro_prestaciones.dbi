@@ -31,7 +31,7 @@ name:"mae_presta_fec_crea"
 },
 {
 allowNull:true,
-autoEnterSubType:8,
+autoEnterSubType:9,
 autoEnterType:1,
 creationOrderIndex:4,
 dataType:93,

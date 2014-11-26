@@ -7,6 +7,7 @@
  */
 function onActionClinica(event) 
 {
+	scopes.globals.SacarMenu()
 	forms.cli_agenda.controller.show()
 }
 
@@ -19,6 +20,7 @@ function onActionClinica(event)
  */
 function onActionGestion(event) 
 {
+	scopes.globals.SacarMenu()
 	forms.cli_turnos_calendario.controller.show()
 }
 
@@ -31,6 +33,7 @@ function onActionGestion(event)
  */
 function onActionVisita(event) 
 {
+	scopes.globals.SacarMenu()
 	forms.cli_visitas_lst.controller.show()
 }
 
@@ -43,21 +46,44 @@ function onActionVisita(event)
  */
 function onActionConfig(event) 
 {
+	scopes.globals.SacarMenu()
 	forms.cli_inicio.controller.show()
 }
 
 
 /**
- * @properties={typeid:24,uuid:"36A394EF-C171-46FA-8EB2-7E80CC2714EE"}
+ * @properties={typeid:24,uuid:"640ED58B-1BB2-43C7-8DAF-0C817264253E"}
  */
-function Salir()
+function onActionGalenos()
 {
-	if(application.isInDeveloper())
-	{
-		application.exit()
-	}
-	else
-	{
-		application.closeSolution('LitoralGestion','InicializaArgento')
-	}
+	scopes.globals.SacarMenu()
+	forms.cli_galenos.controller.show()
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"EBEAA6D6-195F-4911-B898-1DF7C723A5FB"}
+ */
+function onActionUnidadesGastos()
+{
+	scopes.globals.SacarMenu()
+	forms.cli_unidades_gastos.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"A9F35EC6-C9EC-4B8F-85F5-5A8223E37EF2"}
+ */
+function onActionPrestaciones()
+{
+	scopes.globals.SacarMenu()
+	forms.cli_maestro_prestaciones.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"686397C0-244B-40AD-8FB4-C53E6F19FDF1"}
+ */
+function onActionNomencladores()
+{
+	scopes.globals.SacarMenu()
+	forms.cli_nomencladores.controller.show()
 }

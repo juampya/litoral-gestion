@@ -44,6 +44,7 @@ typeid:4,
 uuid:"3FC53E77-4650-4792-B5C1-EA7C33F7EC75"
 },
 {
+formIndex:1,
 location:"5,44",
 onActionMethodID:"AE525ECE-802A-4FA1-AD8D-839700ED98FC",
 onDoubleClickMethodID:"-1",
@@ -153,6 +154,7 @@ typeid:7,
 uuid:"B9AC5D3B-03D7-497A-A9A8-C0416422E19C"
 },
 {
+formIndex:2,
 location:"119,44",
 onActionMethodID:"680ED3EE-0EE5-4EB1-8559-E36882809A4E",
 onDoubleClickMethodID:"-1",

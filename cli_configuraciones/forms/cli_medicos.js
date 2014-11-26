@@ -5,8 +5,10 @@
  *
  * @properties={typeid:24,uuid:"AE525ECE-802A-4FA1-AD8D-839700ED98FC"}
  */
-function onActionVolverInicio(event) {
-	forms.cli_inicio.controller.show()
+function onActionVolverInicio(event) 
+{
+	scopes.globals.CargarMenu()
+	forms['clinica_inicio_clinica'].controller.show()
 }
 
 /**

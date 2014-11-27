@@ -14,18 +14,17 @@ var vl_frm_anterior = null;
  */
 function onActionNuevo(event) 
 {
-	forms.cli_maestro_prestaciones_items_abm.vl_frm_anterior = controller.getName()
-	forms.cli_maestro_prestaciones_items_abm.vl_nuevo = 1
-	forms.cli_maestro_prestaciones_items_abm.vl_titulo = "Nuevo"
-	forms.cli_maestro_prestaciones_items_abm.vl_mae_presta_id = forms.cli_maestro_prestaciones_abm.mae_presta_id		
-	forms.cli_maestro_prestaciones_items_abm.controller.loadRecords(mae_item_id)
+	forms.cli_nomencladores_items_abm.vl_frm_anterior = controller.getName()
+	forms.cli_nomencladores_items_abm.vl_nuevo = 1
+	forms.cli_nomencladores_items_abm.vl_titulo = "Nuevo"
+	forms.cli_nomencladores_items_abm.vl_nomen_id = forms.cli_nomencladores_abm.nomen_id		
 	
-	var win = application.createWindow("prestacion_items", JSWindow.MODAL_DIALOG);
+	var win = application.createWindow("nomenclador_items", JSWindow.MODAL_DIALOG);
 		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
 		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
 		win.resizable = false
 		win.title= 'Litoral Gestion';
-		win.show(forms.cli_maestro_prestaciones_items_abm);	
+		win.show(forms.cli_nomencladores_items_abm);	
 }
 
 /**
@@ -36,15 +35,15 @@ function onActionNuevo(event)
  */
 function onActionDetalle(event) 
 {
-	forms.cli_maestro_prestaciones_items_abm.vl_frm_anterior = controller.getName()
-	forms.cli_maestro_prestaciones_items_abm.vl_nuevo = 0
-	forms.cli_maestro_prestaciones_items_abm.vl_titulo = "Modifica"
-	forms.cli_maestro_prestaciones_items_abm.controller.loadRecords(mae_item_id)
+	forms.cli_nomencladores_items_abm.vl_frm_anterior = controller.getName()
+	forms.cli_nomencladores_items_abm.vl_nuevo = 0
+	forms.cli_nomencladores_items_abm.vl_titulo = "Modifica"
+	forms.cli_nomencladores_items_abm.controller.loadRecords(nomen_item_id)
 	
-	var win = application.createWindow("prestacion_items", JSWindow.MODAL_DIALOG);
+	var win = application.createWindow("nomenclador_items", JSWindow.MODAL_DIALOG);
 		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
 		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
 		win.resizable = false
 		win.title= 'Litoral Gestion';
-		win.show(forms.cli_maestro_prestaciones_items_abm);	
+		win.show(forms.cli_nomencladores_items_abm);	
 }

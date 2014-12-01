@@ -72,6 +72,13 @@ name:"mae_item_nivel3"
 },
 {
 allowNull:true,
+creationOrderIndex:14,
+dataType:-1,
+length:65535,
+name:"mae_item_observaciones"
+},
+{
+allowNull:true,
 autoEnterSubType:6,
 autoEnterType:1,
 creationOrderIndex:11,

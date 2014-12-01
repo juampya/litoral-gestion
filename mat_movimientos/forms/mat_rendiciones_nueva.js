@@ -211,7 +211,7 @@ function ProcesarNuevoBcoSantaFe()
 	            	if (utils.stringMiddle(_sLine,1,5)=="DATOS") 
 		            {
 		            	fs_movimientos.find()
-						fs_movimientos.mov_id = utils.stringToNumber(utils.stringMiddle(_sLine,171,15))
+						fs_movimientos.mov_id = utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
 						fs_movimientos.search()
 						
 						var cant_mov = fs_movimientos.getSize()
@@ -221,15 +221,15 @@ function ProcesarNuevoBcoSantaFe()
 							/**@type {JSRecord}*/
 							var record_mov = fs_movimientos.getSelectedRecord()
 							/**@type {Number}*/
-							var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,165,5))
+							var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
 							
-							if(record_mov.ren_id !=null || record_mov.ren_id !=0)
+							if(record_mov.ren_id !=null && record_mov.ren_id !=0)
 							{
 								fs_rendiciones_errores.newRecord()
 								fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
 								fs_rendiciones_errores.ren_id = ren_id
 								fs_rendiciones_errores.ren_error_codigo = 1
-								fs_rendiciones_errores.ren_error_observacion = "Rendición Nº: "+record_mov.ren_id.toString()+"/nFecha de Pago: "+utils.dateFormat(record_mov.mov_fecha_cobro,"dd/MM/yyyy")
+								fs_rendiciones_errores.ren_error_observacion = "Rendición Nº: "+record_mov.ren_id.toString()+"\nFecha de Pago: "+utils.dateFormat(record_mov.mov_fecha_cobro,"dd/MM/yyyy")
 							}
 							else
 							{
@@ -249,7 +249,7 @@ function ProcesarNuevoBcoSantaFe()
 									fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
 									fs_rendiciones_errores.ren_id = ren_id
 									fs_rendiciones_errores.ren_error_codigo = 3
-									fs_rendiciones_errores.ren_error_observacion = "La boleta pagada no corresponde al matriculado en el sistema:/nBoleta en el sistema: "+fs_movimientos.mat_movimientos_to_mat_matriculados.mat_nombre+"/nBoleta pagada: "+nombre_mat 
+									fs_rendiciones_errores.ren_error_observacion = "La boleta pagada no corresponde al matriculado en el sistema:\nBoleta en el sistema: "+fs_movimientos.mat_movimientos_to_mat_matriculados.mat_nombre+"\nBoleta pagada: "+nombre_mat 
 								}
 								else
 								{
@@ -259,6 +259,7 @@ function ProcesarNuevoBcoSantaFe()
 									
 									fs_movimientos.mov_fecha_cobro = new Date(mov_cobro_anio,mov_cobro_mes,mmov_cobro_dia)
 									fs_movimientos.mov_importe_cobrado = utils.stringToNumber(utils.stringMiddle(_sLine,78,9))+(utils.stringToNumber(utils.stringMiddle(_sLine,87,2))/100)
+									fs_movimientos.mov_estado = 1
 								}
 							}	
 						}
@@ -268,7 +269,7 @@ function ProcesarNuevoBcoSantaFe()
 							fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
 							fs_rendiciones_errores.ren_id = ren_id
 							fs_rendiciones_errores.ren_error_codigo = 3
-							fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringMiddle(_sLine,171,15)
+							fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
 						}
 		            }
 	            }	

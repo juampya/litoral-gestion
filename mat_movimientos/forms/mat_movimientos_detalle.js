@@ -119,7 +119,20 @@ function onDataChangeEstado(oldValue, newValue, event)
 	{
 		elements.mov_fecha_cobro.enabled = false
 		mov_fecha_cobro = null
+		
+		if(mov_estado == 9)
+		{
+			elements.btn_imprimir.enabled = false
+			elements.btn_mail.enabled = false
+		}
+		else
+		{
+			elements.btn_imprimir.enabled = true
+			elements.btn_mail.enabled = true
+		}
 	}
+	
+	
 	return true
 }
 
@@ -150,4 +163,26 @@ function onActionMail(event)
 	scopes.globals.vg_adjuntos 		= plugins.mail.createBinaryAttachment('BoletadePago.pdf',plugins.jasperPluginRMI.runReport('sistemas','boleta_de_pago.jasper', 'BoletadePago.pdf', plugins.jasperPluginRMI.OUTPUT_FORMAT.PDF, {pmov_id:mov_id}))
 	
 	globals.ventanaFormulario("lg_form_mail","Litoral Gestion",forms.lg_form_mail.controller.getName())
+}
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"BBAD4A1D-620D-49DB-B7E5-5C4BDE167430"}
+ */
+function onShow(firstShow, event)
+{
+	if(mov_estado == 9)
+	{
+		elements.btn_imprimir.enabled = false
+		elements.btn_mail.enabled = false
+	}
+	else
+	{
+		elements.btn_imprimir.enabled = true
+		elements.btn_mail.enabled = true
+	}
 }

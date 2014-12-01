@@ -96,7 +96,7 @@ styleClass:"table_field",
 text:"Mov Estado",
 typeid:4,
 uuid:"474A188A-D990-437A-A847-18121FB7272C",
-valuelistID:"13D4CF52-26B6-4520-AAEF-27D8E77D4D59"
+valuelistID:"9520E02A-25CC-4A50-BE74-9805224A65CF"
 },
 {
 anchors:11,

@@ -117,7 +117,7 @@ size:"111,20",
 text:"Mov Estado",
 typeid:4,
 uuid:"4F0863B2-0E29-4962-AAFE-9734CA6D4AF7",
-valuelistID:"13D4CF52-26B6-4520-AAEF-27D8E77D4D59"
+valuelistID:"9520E02A-25CC-4A50-BE74-9805224A65CF"
 },
 {
 background:"#ffffa4",
@@ -527,6 +527,7 @@ typeid:7,
 uuid:"E878616B-8847-455B-8137-CF6A77FA6887"
 },
 {
+enabled:false,
 formIndex:2,
 imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
 location:"305,31",
@@ -555,6 +556,7 @@ uuid:"FF1CDB68-ED09-4E44-93DF-CC817077EA29"
 ],
 name:"mat_movimientos_detalle",
 navigatorID:"-1",
+onShowMethodID:"BBAD4A1D-620D-49DB-B7E5-5C4BDE167430",
 showInMenu:true,
 size:"779,592",
 styleClass:"formulario",

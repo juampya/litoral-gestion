@@ -19,7 +19,7 @@ function onActionAgregar(event)
  */
 function onActionBorrar(event) 
 {
-	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","Desea Borrar el Registro?",'atention',controller.getName(),"No",null,"Si","borrarRegistro",null,null,null,null)
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Desea Borrar el Registro?",'atention',controller.getName(),"No",null,"Si","borrarRegistro",null,null,null,null)
 }
 
 /**
@@ -28,6 +28,7 @@ function onActionBorrar(event)
 function borrarRegistro()
 {
 	forms.mat_movimientos_nuevo_manual.vl_importe -= det_importe
+	forms.mat_movimientos_nuevo_manual.mov_importe_2vto = forms.mat_movimientos_nuevo_manual.vl_importe+(forms.mat_movimientos_nuevo_manual.vl_importe*forms.mat_movimientos_nuevo_manual.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
 	controller.deleteRecord()
 }
 
@@ -46,5 +47,7 @@ function onDataChangeImporte(oldValue, newValue, event)
 {
 	forms.mat_movimientos_nuevo_manual.vl_importe += det_importe
 	det_importe_original = det_importe
+	
+	forms.mat_movimientos_nuevo_manual.mov_importe_2vto = forms.mat_movimientos_nuevo_manual.vl_importe+(forms.mat_movimientos_nuevo_manual.vl_importe*forms.mat_movimientos_nuevo_manual.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
 	return true
 }

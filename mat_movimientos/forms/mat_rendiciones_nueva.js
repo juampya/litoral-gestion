@@ -140,6 +140,7 @@ function ProcesarNuevoBcoSantaFe()
 {
 	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
 	var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
+		fs_movimientos.loadAllRecords()
 	/** @type {JSFoundset<db:/sistemas/mat_rendiciones_errores>}*/
 	var fs_rendiciones_errores = databaseManager.getFoundSet('sistemas','mat_rendiciones_errores')
 	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
@@ -157,10 +158,11 @@ function ProcesarNuevoBcoSantaFe()
         _nReadLine = 0;
     
     // using a database transaction (might/will) speed things up
-    databaseManager.startTransaction();
+    //databaseManager.startTransaction();
     
-    try {
-        while (_sLine) {
+   // try {
+        while (_sLine) 
+        {
             _sLine = _oBR.readLine();
             _nReadLine++;
     
@@ -191,6 +193,10 @@ function ProcesarNuevoBcoSantaFe()
 						scopes.globals.ventanaAceptar("Este Lote ya fue Procesado el día: "+ utils.dateFormat(fs_rendiciones.ren_fec_crea,"dd/MM/yyyy"),controller.getName())
 						return
 					}
+					else
+					{
+						databaseManager.saveData(foundset)
+					}
 	            }
 	            else
 	            {
@@ -210,8 +216,10 @@ function ProcesarNuevoBcoSantaFe()
 	            {
 	            	if (utils.stringMiddle(_sLine,1,5)=="DATOS") 
 		            {
+		            	var boleta_id = utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
+						
 		            	fs_movimientos.find()
-						fs_movimientos.mov_id = utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
+						fs_movimientos.mov_id = boleta_id
 						fs_movimientos.search()
 						
 						var cant_mov = fs_movimientos.getSize()
@@ -219,7 +227,7 @@ function ProcesarNuevoBcoSantaFe()
 						if(cant_mov==1)
 						{
 							/**@type {JSRecord}*/
-							var record_mov = fs_movimientos.getSelectedRecord()
+							var record_mov = fs_movimientos.getRecord(1)
 							/**@type {Number}*/
 							var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
 							
@@ -253,13 +261,15 @@ function ProcesarNuevoBcoSantaFe()
 								}
 								else
 								{
-									var mov_cobro_anio = utils.stringToNumber(utils.stringMiddle(_sLine,225,4))
-									var mov_cobro_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,229,2))-1
-									var mmov_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,231,2))
+									var mov_cobro_anio = utils.stringToNumber('20'+utils.stringMiddle(_sLine,225,2))
+									var mov_cobro_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,227,2))-1
+									var mov_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,229,2))
 									
-									fs_movimientos.mov_fecha_cobro = new Date(mov_cobro_anio,mov_cobro_mes,mmov_cobro_dia)
-									fs_movimientos.mov_importe_cobrado = utils.stringToNumber(utils.stringMiddle(_sLine,78,9))+(utils.stringToNumber(utils.stringMiddle(_sLine,87,2))/100)
-									fs_movimientos.mov_estado = 1
+									record_mov.mov_fecha_cobro = new Date(mov_cobro_anio,mov_cobro_mes,mov_cobro_dia)
+									record_mov.mov_importe_cobrado = utils.stringToNumber(utils.stringMiddle(_sLine,78,9))+(utils.stringToNumber(utils.stringMiddle(_sLine,87,2))/100)
+									record_mov.mov_estado = 1
+									record_mov.ren_id = ren_id
+									databaseManager.saveData(record_mov)
 								}
 							}	
 						}
@@ -276,7 +286,7 @@ function ProcesarNuevoBcoSantaFe()
 	        }
         }
         // Save any unsaved data
-       // databaseManager.saveData();
+       databaseManager.saveData();
     
         //
         //do NOT forget this close! to prevent memory leaks
@@ -284,15 +294,15 @@ function ProcesarNuevoBcoSantaFe()
         _oBR.close();
         
         // Close the database transaction
-        databaseManager.commitTransaction();
+        //databaseManager.commitTransaction();
     
-    } catch (_oErr) {
-        _oBR.close();
-        application.output("ERROR: " + vl_archivo.getName() + " at row " + _nReadLine, LOGGINGLEVEL.ERROR);
-        application.output("ERROR: " + _oErr, LOGGINGLEVEL.ERROR);
-        databaseManager.rollbackTransaction();
-        return; // stop process
-    }
+//    } catch (_oErr) {
+//        _oBR.close();
+//        application.output("ERROR: " + vl_archivo.getName() + " at row " + _nReadLine, LOGGINGLEVEL.ERROR);
+//        application.output("ERROR: " + _oErr, LOGGINGLEVEL.ERROR);
+//        databaseManager.rollbackTransaction();
+//        return; // stop process
+//    }
     
     //
     // garbage collection

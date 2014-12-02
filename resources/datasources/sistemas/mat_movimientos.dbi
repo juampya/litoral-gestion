@@ -116,14 +116,14 @@ name:"mov_mes_emision"
 allowNull:true,
 creationOrderIndex:21,
 dataType:-1,
-length:65535,
+length:16777215,
 name:"mov_observacion"
 },
 {
 allowNull:true,
 creationOrderIndex:22,
 dataType:-1,
-length:65535,
+length:16777215,
 name:"mov_observacion_cobro"
 },
 {

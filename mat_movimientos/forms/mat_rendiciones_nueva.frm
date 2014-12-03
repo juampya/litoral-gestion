@@ -56,7 +56,7 @@ uuid:"4963965A-2BA6-46A0-8490-46466F80EB61"
 },
 {
 dataProviderID:"vl_html",
-displayType:9,
+displayType:8,
 editable:false,
 formIndex:24,
 location:"20,258",
@@ -157,7 +157,7 @@ uuid:"8FA53081-CDA4-4330-A4BC-1C964DCA1B84"
 {
 anchors:11,
 location:"0,0",
-size:"739,70",
+size:"735,70",
 styleClass:"banner",
 text:"Nueva Rendición",
 transparent:true,

@@ -1,5 +1,7 @@
 /**
- * @properties={typeid:35,uuid:"DE9B256A-79DD-4960-9CDA-CC6E401B1CC2",variableType:-4}
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"DE9B256A-79DD-4960-9CDA-CC6E401B1CC2"}
  */
 var vl_html = null;
 
@@ -95,8 +97,8 @@ function onActionGrabar(event)
 			break;
 		}
 		
-		ren_estado = 1
-		databaseManager.saveData()
+		//ren_estado = 1
+		//databaseManager.saveData()
 		application.getWindow("nuevarendicion").hide()
 	}
 	else
@@ -131,6 +133,7 @@ function onHide(event)
 function onActionBuscar(event) 
 {
 	vl_archivo = plugins.file.showFileOpenDialog()
+	
 	if(vl_archivo!=null)
 	{
 		switch (medios_cobro_id) //Controlo que el archivo corresponda al medio de cobro seleccionado. 
@@ -139,6 +142,7 @@ function onActionBuscar(event)
 				if(utils.stringLeft(vl_archivo.getName(),8) != "330ENTES") //NUEVO BCO SANTA FE
 				{
 					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+					elements.btn_grabar.enabled=false
 					vl_html = null
 					return
 				}
@@ -153,6 +157,7 @@ function onActionBuscar(event)
 				if(utils.stringLeft(vl_archivo.getName(),4) != "0116") //RED LINK
 				{
 					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+					elements.btn_grabar.enabled=false
 					return
 				}
 				else
@@ -164,6 +169,7 @@ function onActionBuscar(event)
 				if(utils.stringLeft(vl_archivo.getName(),2) != "RP") //RapiPago
 				{
 					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+					elements.btn_grabar.enabled=false
 					vl_html = null
 					return
 				}
@@ -245,6 +251,7 @@ function ProcesarNuevoBcoSantaFe()
 					}
 					else
 					{
+						ren_estado = 1
 						databaseManager.saveData(foundset)
 					}
 	            }
@@ -370,7 +377,6 @@ function ProcesarRedLink()
 	
 }
 
-
 /**
  * @properties={typeid:24,uuid:"CA46E715-C27D-4A77-9461-EDD8531E3F52"}
  * @AllowToRunInFind
@@ -384,8 +390,6 @@ function ProcesarRapiPago()
 	var fs_rendiciones_errores = databaseManager.getFoundSet('sistemas','mat_rendiciones_errores')
 	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
 	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
-	
-	elements.btn_grabar.enabled=true
 	
 	//
     // Use BufferedReader so we don't have to read the whole file into memory
@@ -424,6 +428,7 @@ function ProcesarRapiPago()
 					}
 					else
 					{
+						ren_estado = 1
 						databaseManager.saveData(foundset)
 					}
 	            }
@@ -532,7 +537,6 @@ function ProcesarRapiPago()
 
 }
 
-
 /**
  * @properties={typeid:24,uuid:"CAF8D2FC-4530-41E9-84A9-856909250D0A"}
  * @AllowToRunInFind
@@ -587,22 +591,15 @@ function GeneraRapiPagoHTML()
         
             if (utils.stringLeft(_sLine,26)!="00000000COLEG DE DIETISTAS" && utils.stringLeft(_sLine,8)!="99999999") //Solo registros DETALLE 
 	       	{
-	       		//var color = '#ffff80'
-				//renglon++
-				//if((renglon%2) == 0)
-				//{
-				var color = '#ffffbf'
-				//}
-				
-				var vl_mat_id 		  = utils.stringToNumber(utils.stringMiddle(_sLine,32,5))
-				var vl_mov_id 		  = utils.stringToNumber(utils.stringMiddle(_sLine,37,15))
-				var vl_fec_cobro_anio = utils.stringToNumber(utils.stringLeft(_sLine,4))
-				var vl_fec_cobro_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,5,2))-1
-				var vl_fec_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,7,2))
-				var vl_fec_cobro 	  = utils.dateFormat(new Date(vl_fec_cobro_anio,vl_fec_cobro_mes,vl_fec_cobro_dia),'dd/MM/yyyy')
+				var color 				= '#ffffbf'
+				var vl_mat_id 		    = utils.stringToNumber(utils.stringMiddle(_sLine,32,5))
+				var vl_mov_id 		    = utils.stringToNumber(utils.stringMiddle(_sLine,37,15))
+				var vl_fec_cobro_anio   = utils.stringToNumber(utils.stringLeft(_sLine,4))
+				var vl_fec_cobro_mes    = utils.stringToNumber(utils.stringMiddle(_sLine,5,2))-1
+				var vl_fec_cobro_dia    = utils.stringToNumber(utils.stringMiddle(_sLine,7,2))
+				var vl_fec_cobro 	    = utils.dateFormat(new Date(vl_fec_cobro_anio,vl_fec_cobro_mes,vl_fec_cobro_dia),'dd/MM/yyyy')
 				var vl_importe_original = utils.numberFormat(utils.stringToNumber(utils.stringMiddle(_sLine,57,4))+(utils.stringToNumber(utils.stringMiddle(_sLine,61,2))/100),'#,##0.00')
 				var vl_importe_cobro    = utils.numberFormat(utils.stringToNumber(utils.stringMiddle(_sLine,9,13))+(utils.stringToNumber(utils.stringMiddle(_sLine,22,2))/100),'#,##0.00')
-				
 	
 				fs_matriculados.find()
 				fs_matriculados.mat_id = vl_mat_id
@@ -625,8 +622,8 @@ function GeneraRapiPagoHTML()
 	       	}
 		}
 	}
-	
-	
+
+	elements.btn_grabar.enabled=true
 	vl_html = '<html>'+cuerpo+'</html>'
 	
 	_oBR.close();
@@ -634,9 +631,6 @@ function GeneraRapiPagoHTML()
 	_oIR = null;
 	_oBR = null;
 }
-
-
-
 
 /**
  * @AllowToRunInFind
@@ -654,7 +648,6 @@ function GeneraNuevoBcoSantaFeHTML()
         _oIR = new Packages.java.io.InputStreamReader(_oFR, "UTF8"),
         _oBR = new Packages.java.io.BufferedReader(_oIR),
         _sLine = "dummy";
-        //_nReadLine = 0;
     
 	var cuerpo = '<table border="1" cellspacing="0">' +
 			 	'<thead style="background-color: #FFDEAD;">' +
@@ -670,7 +663,6 @@ function GeneraNuevoBcoSantaFeHTML()
 	while (_sLine) 
 	{
 		_sLine = _oBR.readLine();
-		//_nReadLine++;
 		   
 		if(_sLine!=null)
 		{
@@ -698,13 +690,13 @@ function GeneraNuevoBcoSantaFeHTML()
         
             if (utils.stringMiddle(_sLine,1,5)=="DATOS")  //Solo registros DETALLE 
 	       	{
-				var color = '#ffffbf'
-				var vl_mat_id 		  = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
-				var vl_mov_id 		  = utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
-				var vl_fec_cobro_anio = utils.stringToNumber('20'+utils.stringMiddle(_sLine,225,2))
-				var vl_fec_cobro_mes  = utils.stringToNumber(utils.stringMiddle(_sLine,227,2))-1
-				var vl_fec_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,229,2))
-				var vl_fec_cobro 	  = utils.dateFormat(new Date(vl_fec_cobro_anio,vl_fec_cobro_mes,vl_fec_cobro_dia),'dd/MM/yyyy')
+				var color				= '#ffffbf'
+				var vl_mat_id 		    = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
+				var vl_mov_id 		    = utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
+				var vl_fec_cobro_anio   = utils.stringToNumber('20'+utils.stringMiddle(_sLine,225,2))
+				var vl_fec_cobro_mes    = utils.stringToNumber(utils.stringMiddle(_sLine,227,2))-1
+				var vl_fec_cobro_dia    = utils.stringToNumber(utils.stringMiddle(_sLine,229,2))
+				var vl_fec_cobro 	    = utils.dateFormat(new Date(vl_fec_cobro_anio,vl_fec_cobro_mes,vl_fec_cobro_dia),'dd/MM/yyyy')
 				var vl_importe_original = utils.numberFormat(utils.stringToNumber(utils.stringMiddle(_sLine,198,4))+(utils.stringToNumber(utils.stringMiddle(_sLine,202,2))/100),'#,##0.00')
 				var vl_importe_cobro    = utils.numberFormat(utils.stringToNumber(utils.stringMiddle(_sLine,78,9))+(utils.stringToNumber(utils.stringMiddle(_sLine,87,2))/100),'#,##0.00')
 				
@@ -720,9 +712,9 @@ function GeneraNuevoBcoSantaFeHTML()
 				}
 				
 				cuerpo = cuerpo + '<tr style="background-color:' + color + ';">' +
-									 '<td align="center">' + vl_fec_cobro + '</td>' +
-									 '<td align="center">' + vl_mov_id+ '</td>' +
-									 '<td align="left">'   + nombre_mat +'</td>' +
+									 '<td align="center">'  + vl_fec_cobro + '</td>' +
+									 '<td align="center">'  + vl_mov_id+ '</td>' +
+									 '<td align="left">'    + nombre_mat +'</td>' +
 									 '<td align="right">'   + vl_importe_cobro +'</td>' +
 									 '<td align="right">'   + vl_importe_original +'</td>' +
 								  '</tr>'
@@ -730,7 +722,7 @@ function GeneraNuevoBcoSantaFeHTML()
 		}
 	}
 	
-	
+	elements.btn_grabar.enabled=true
 	vl_html = '<html>'+cuerpo+'</html>'
 	
 	_oBR.close();

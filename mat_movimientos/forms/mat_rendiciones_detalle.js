@@ -28,6 +28,15 @@ function onActionAnular(event)
  */
 function anularMovim()
 {
+	for (var i = 1; i <= mat_rendiciones_to_mat_movimientos.getSize(); i++) 
+	{
+		var row = mat_rendiciones_to_mat_movimientos.getRecord(i);
+		row.mov_importe_cobrado = 0
+		row.mov_fecha_cobro = 0
+		row.mov_estado = 0
+		row.ren_id = 0
+	}
+	databaseManager.saveData()
 	controller.deleteRecord()
 }
 

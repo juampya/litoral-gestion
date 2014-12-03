@@ -22,13 +22,6 @@ var vl_fec_fin = null;
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"ADC256E0-462B-4118-805C-5539F4EF9EC4",variableType:4}
- */
-var vl_tipo_fecha = 0;
-
-/**
- * @type {Number}
- *
  * @properties={typeid:35,uuid:"E79F779E-B297-4D1E-AB3B-23B19E479C7F",variableType:4}
  */
 var vl_medio_cobro = 0;
@@ -39,13 +32,6 @@ var vl_medio_cobro = 0;
  * @properties={typeid:35,uuid:"529D14A2-11AA-47F2-808E-E4DC82ABDDAC",variableType:4}
  */
 var vl_estado = 0;
-
-/**
- * @type {Number}
- *
- * @properties={typeid:35,uuid:"05DBA6EE-C670-447F-8B27-321B96FAC8E0",variableType:4}
- */
-var vl_tipo_movim = 0;
 
 /**
  * Perform the element default action.
@@ -70,7 +56,7 @@ function filtrar()
 	controller.find()
 	if(vl_medio_cobro!=null) medios_cobro_id = vl_medio_cobro
 	if(vl_estado != null && vl_estado != 3) ren_estado = vl_estado
-	//ren_fecha_cobro = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+	ren_fecha_proceso = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 	controller.search()
 }
 
@@ -88,8 +74,6 @@ function onShow(firstShow, event)
 	{
 		vl_medio_cobro = null
 		vl_estado = 3
-		vl_tipo_movim = 3
-		vl_tipo_fecha = 0
 		vl_fec_ini = application.getServerTimeStamp()
 		vl_fec_fin = application.getServerTimeStamp()
 		filtrar()
@@ -110,33 +94,6 @@ function onActionDetalle(event)
 }
 
 /**
- * Handle changed data.
- *
- * @param {Number} oldValue old value
- * @param {Number} newValue new value
- * @param {JSEvent} event the event that triggered the action
- *
- * @returns {Boolean}
- *
- * @properties={typeid:24,uuid:"B294CFEF-8E27-4766-B91B-5DFE5B713275"}
- */
-function onDataChangeTipoFecha(oldValue, newValue, event) 
-{
-	
-	if(vl_tipo_fecha == 1)
-	{
-		elements.vl_fec_ini.format = "dd-MM-yyyy"
-		elements.vl_fec_fin.format = "dd-MM-yyyy"	
-	}
-	else
-	{
-		elements.vl_fec_ini.format = "MM-yyyy"
-		elements.vl_fec_fin.format = "MM-yyyy"	
-	}
-	return true
-}
-
-/**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
@@ -148,4 +105,17 @@ function onActionNuevo(event)
 	globals.ventanaFormulario("nuevarendicion","Litoral Gestion",forms.mat_rendiciones_nueva.controller.getName())
 }
 
-
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"5A942557-511E-424B-AD77-C6FD22513370"}
+ */
+function onActionRefrescar(event) 
+{
+	vl_estado = null
+	vl_fec_fin = application.getServerTimeStamp()
+	vl_fec_ini = application.getServerTimeStamp()
+	vl_medio_cobro = null
+}

@@ -176,19 +176,43 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			var rec1 = fs_rel_ing.getRecord(j)
 			if(rec1.rel_aplica_vigencia == 1)// Si tiene una fecha de vigencia a respetar 
 			{
-				if(rec1.rel_fec_inicial.getFullYear() <= anio && anio <= rec1.rel_fec_final.getFullYear())
+				if(rec1.rel_fec_inicial != 0 && rec1.rel_fec_inicial!=null)
 				{
-					if(rec1.rel_fec_inicial.getMonth() + 1 <= mes && mes <= rec1.rel_fec_final.getMonth() + 1)
+					if(rec1.rel_fec_final != 0 && rec1.rel_fec_final!=null)
 					{
-						fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
-						fs_detalle.newRecord()
-						fs_detalle.ingr_id = rec1.ingr_id
-						fs_detalle.mov_id = fs_movim_aux.mov_id
-						fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-						fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-						fs_detalle.tmp_id = globals["vg_nro_tmp"]
-						databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
-						acumImporte += fs_detalle.det_importe
+						if(rec1.rel_fec_inicial.getFullYear() <= anio && anio <= rec1.rel_fec_final.getFullYear())
+						{
+							if(rec1.rel_fec_inicial.getMonth() + 1 <= mes && mes <= rec1.rel_fec_final.getMonth() + 1)
+							{
+								fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
+								fs_detalle.newRecord()
+								fs_detalle.ingr_id = rec1.ingr_id
+								fs_detalle.mov_id = fs_movim_aux.mov_id
+								fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								fs_detalle.tmp_id = globals["vg_nro_tmp"]
+								databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
+								acumImporte += fs_detalle.det_importe
+							}
+						}
+					}
+					else
+					{
+						if(rec1.rel_fec_inicial.getFullYear() <= anio)
+						{
+							if(rec1.rel_fec_inicial.getMonth() + 1 <= mes)
+							{
+								fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det_aux')
+								fs_detalle.newRecord()
+								fs_detalle.ingr_id = rec1.ingr_id
+								fs_detalle.mov_id = fs_movim_aux.mov_id
+								fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								fs_detalle.tmp_id = globals["vg_nro_tmp"]
+								databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
+								acumImporte += fs_detalle.det_importe
+							}
+						}
 					}
 				}
 			}

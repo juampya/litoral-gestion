@@ -22,7 +22,15 @@ compatibleColumnTypes:"[[3,9,2]]",
 creationOrderIndex:4,
 dataType:3,
 length:9,
-name:"det_importe_original"
+name:"det_importe_2vto"
+},
+{
+allowNull:true,
+compatibleColumnTypes:"[[3,9,2]]",
+creationOrderIndex:7,
+dataType:3,
+length:9,
+name:"det_importe_cobrado"
 },
 {
 allowNull:true,

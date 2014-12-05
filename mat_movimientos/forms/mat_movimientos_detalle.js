@@ -8,7 +8,7 @@
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords(foundset)
-	forms.mat_movimientos.controller.show()
+	forms[scopes.globals.vg_formulario_anterior].controller.show()
 }
 
 /**
@@ -30,7 +30,8 @@ function anularMovim()
 {
 	foundset.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
 	controller.deleteRecord()
-	forms.mat_movimientos.controller.show()
+	forms[scopes.globals.vg_formulario_anterior].controller.show()
+	//forms.mat_movimientos.controller.show()
 }
 
 /**

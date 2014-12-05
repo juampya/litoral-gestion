@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"F2A4EF61-9DB1-45A1-B1CF-E00C678D1FA9"}
+ */
+var vg_formulario_anterior = null;
+
+/**
  * @type {Array<plugins.mail.Attachment>}
  * @properties={typeid:35,uuid:"4884E3C0-5A2B-462A-8B0E-4BF9226EF9CA",variableType:-4}
  */

@@ -146,12 +146,24 @@ uuid:"625431F7-2606-4902-9895-D1CBECEF1CE7"
 {
 anchors:11,
 location:"0,0",
-size:"788,81",
+size:"826,81",
 styleClass:"banner",
 text:"Rendiciones de Cobros",
 transparent:true,
 typeid:7,
 uuid:"65854BA5-9630-4FA7-A21C-35F25C7CAF10"
+},
+{
+dataProviderID:"ren_fecha_proceso",
+editable:false,
+formIndex:6,
+format:"dd/MM/yyyy",
+horizontalAlignment:0,
+location:"700,199",
+name:"ren_fecha_proceso",
+size:"108,20",
+typeid:4,
+uuid:"746CA19C-5D8E-4BC7-A084-85007008A569"
 },
 {
 background:"#ffffb3",
@@ -252,7 +264,7 @@ uuid:"C14D413A-D244-424C-A38A-143935AE987A"
 {
 anchors:11,
 location:"0,447",
-size:"698,43",
+size:"826,43",
 styleClass:"banner_pie",
 transparent:true,
 typeid:7,
@@ -279,6 +291,18 @@ text:"",
 toolTipText:"Detalle",
 typeid:7,
 uuid:"CBF74DDB-5CB1-402D-AE73-ACC150A2FC03"
+},
+{
+formIndex:5,
+horizontalAlignment:0,
+labelFor:"ren_fecha_proceso",
+location:"700,179",
+name:"ren_fecha_proceso_label",
+size:"108,20",
+styleClass:"label_black",
+text:"Fecha Proceso",
+typeid:7,
+uuid:"D4BE8689-824E-4DB6-966F-28B5C51A9602"
 },
 {
 dataProviderID:"vl_medio_cobro",
@@ -365,7 +389,7 @@ name:"mat_rendiciones",
 navigatorID:"-1",
 onShowMethodID:"6E1EFF84-7947-43CB-AE4C-279ACA11A2D4",
 showInMenu:true,
-size:"788,490",
+size:"827,490",
 styleClass:"table",
 styleName:"id_style",
 typeid:3,

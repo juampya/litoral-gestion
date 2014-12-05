@@ -109,6 +109,8 @@ function onShow(firstShow, event)
  */
 function onActionDetalle(event) 
 {
+	scopes.globals.vg_formulario_anterior = controller.getName()
+	forms.mat_movimientos_detalle.controller.loadRecords(mov_id)
 	forms.mat_movimientos_detalle.controller.show()
 }
 

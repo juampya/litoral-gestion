@@ -154,7 +154,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 			var fs_det = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 			fs_det.newRecord()
 			fs_det.det_importe 			= rec1.det_importe
-			fs_det.det_importe_original = rec1.det_importe_original
+			fs_det.det_importe_2vto 	= rec1.det_importe_2vto
 			fs_det.ingr_id 				= rec1.ingr_id
 			fs_det.mov_id 				= fs_mov.mov_id
 			fs_det.res_id 				= rec1.res_id

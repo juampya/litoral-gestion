@@ -197,6 +197,8 @@ function ProcesarNuevoBcoSantaFe()
 	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
 	var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_movimientos.loadAllRecords()
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos_det>}*/
+	var fs_movimientos_det = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 	/** @type {JSFoundset<db:/sistemas/mat_rendiciones_errores>}*/
 	var fs_rendiciones_errores = databaseManager.getFoundSet('sistemas','mat_rendiciones_errores')
 	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
@@ -327,6 +329,21 @@ function ProcesarNuevoBcoSantaFe()
 									record_mov.mov_estado = 1
 									record_mov.ren_id = ren_id
 									databaseManager.saveData(record_mov)
+									
+									for (var i = 1; i <= record_mov.mat_movimientos_to_mat_movimientos_det; i++) 
+									{
+										var rec_detalle = record_mov.mat_movimientos_to_mat_movimientos_det.getRecord(i)
+											
+										if(record_mov.mov_importe_cobrado!=record_mov.mov_importe)
+										{	
+											rec_detalle.det_importe_cobrado=rec_detalle.det_importe_2vto
+										}
+										else
+										{
+											rec_detalle.det_importe_cobrado=rec_detalle.det_importe
+										}
+										databaseManager.saveData(rec_detalle)
+									}
 								}
 							}	
 						}
@@ -505,6 +522,21 @@ function ProcesarRapiPago()
 								record_mov.mov_estado = 1
 								record_mov.ren_id = ren_id
 								databaseManager.saveData(record_mov)
+								
+								for (var i = 1; i <= record_mov.mat_movimientos_to_mat_movimientos_det; i++) 
+								{
+									var rec_detalle = record_mov.mat_movimientos_to_mat_movimientos_det.getRecord(i)
+										
+									if(record_mov.mov_importe_cobrado!=record_mov.mov_importe)
+									{	
+										rec_detalle.det_importe_cobrado=rec_detalle.det_importe_2vto
+									}
+									else
+									{
+										rec_detalle.det_importe_cobrado=rec_detalle.det_importe
+									}
+									databaseManager.saveData(rec_detalle)
+								}
 							}
 						}	
 					}

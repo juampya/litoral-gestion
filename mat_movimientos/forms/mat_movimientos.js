@@ -170,7 +170,8 @@ function crearFormularioConceptos()
 			'		a.ingr_id as cod, '+
 			'		b.ingr_nombre as concepto, '+
 			'	    count(*) as cantidad, '+
-			'	    sum(a.det_importe) as total '+
+			'	    sum(a.det_importe) as total, '+
+			'	    sum(a.det_importe_cobrado) as cobrado '+
 			'from mat_movimientos_det as a '+
 			'inner join mat_movimientos as c on a.mov_id = c.mov_id '+
 			'inner join mat_ingresos as b on a.ingr_id = b.ingr_id '+
@@ -178,14 +179,14 @@ function crearFormularioConceptos()
 			'and c.mov_mes_emision between ? and ? '+
 			'group by c.mov_mes_emision,c.mov_anio_emision,a.ingr_id' 
 
-	/** @type {JSDataSet<anio:Number, mes:Number, cod:Number, concepto:number, cantidad:number, total:text>}*/
+	/** @type {JSDataSet<anio:Number, mes:Number, cod:Number, concepto:number, cantidad:number, total:Number, cobrado:Number>}*/
 	var ds = databaseManager.getDataSetByQuery('sistemas', qry, args, -1);
 
 	
 	var success = history.removeForm("totConceptos")
 	if(success) {solutionModel.removeForm("totConceptos")}
 	
- 	var uri = ds.createDataSource('_tmp_totConceptos', [JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER]);
+ 	var uri = ds.createDataSource('_tmp_totConceptos', [JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.NUMBER]);
 	
 	var myForm = solutionModel.newForm('totConceptos', uri, null, true, 800, 600);
 	myForm.extendsForm = 'mat_movimientos_x_conceptos_sm'
@@ -237,6 +238,14 @@ function crearFormularioConceptos()
 	sg_total.anchors = SM_ANCHOR.ALL
 	sg_total.styleClass = 'table_field'	
 	sg_total.format = "#,###.00"	
+		
+	var sg_cobrado = myForm.newTextField('cobrado', 50, 200, 100, 20)
+	sg_cobrado.editable = false
+	sg_cobrado.horizontalAlignment = SM_ALIGNMENT.RIGHT
+	sg_cobrado.titleText = 'Cobrado $'
+	sg_cobrado.anchors = SM_ANCHOR.ALL
+	sg_cobrado.styleClass = 'table_field'	
+	sg_cobrado.format = "#,###.00"
 	
 //	var tmp_total_pendiente 	= 0
 //	var tmp_total_cobrado 		= 0

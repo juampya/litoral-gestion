@@ -95,8 +95,6 @@ function onActionGrabar(event)
 //	}		
 	databaseManager.saveData()
 	forms.mat_movimientos.controller.show()
-	
-	
 }
 
 /**

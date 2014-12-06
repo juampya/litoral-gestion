@@ -1,6 +1,16 @@
 dataSource:"db:/sistemas/mat_movimientos_det",
 items:[
 {
+dataProviderID:"det_importe_2vto",
+format:"#,###.00|#,###.00",
+horizontalAlignment:4,
+location:"447,68",
+name:"det_importe_2vto",
+size:"140,20",
+typeid:4,
+uuid:"1FFA9C8E-4A09-4BE8-B934-04B9A478747D"
+},
+{
 height:46,
 partType:1,
 typeid:19,
@@ -9,13 +19,23 @@ uuid:"37A1BFFA-2BD4-4D16-B91F-CFE57C53D966"
 {
 horizontalAlignment:0,
 labelFor:"det_observacion",
-location:"452,49",
+location:"581,49",
 name:"det_observacion_label",
 size:"305,20",
 styleClass:"label_black",
 text:"Detalle",
 typeid:7,
 uuid:"5450E5A5-6D3A-48D9-AD59-82EAB004B7C7"
+},
+{
+labelFor:"det_importe_2vto",
+location:"447,48",
+name:"det_importe_2vto_label",
+size:"140,20",
+styleClass:"label_black",
+text:"Det Importe 2vto",
+typeid:7,
+uuid:"5B7686F0-C01F-40FE-84A9-CA245574CEE3"
 },
 {
 horizontalAlignment:0,
@@ -31,7 +51,7 @@ uuid:"834D0C20-8F4C-4934-A4F4-7F91C8236BCF"
 {
 anchors:11,
 location:"0,0",
-size:"857,44",
+size:"913,44",
 styleClass:"sub_banner",
 text:"Conceptos",
 transparent:true,
@@ -53,7 +73,7 @@ uuid:"973A946A-4A4B-4162-BDA7-DFA65B101848"
 {
 dataProviderID:"det_observacion",
 displayType:1,
-location:"452,69",
+location:"581,69",
 name:"det_observacion",
 size:"305,20",
 typeid:4,
@@ -61,7 +81,7 @@ uuid:"9BF53EB8-3D6C-44FE-9163-9683BF5C2DCC"
 },
 {
 imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
-location:"761,71",
+location:"890,71",
 onActionMethodID:"23D08E87-86C3-438A-A784-7F49E942FD35",
 showClick:false,
 size:"16,16",
@@ -111,7 +131,7 @@ valuelistID:"5F4BF39A-BC0E-447D-A37F-E3392E0B35C1"
 ],
 name:"mat_movimientos_nuevo_manual_det",
 showInMenu:true,
-size:"857,480",
+size:"913,480",
 styleClass:"table",
 styleName:"id_style",
 typeid:3,

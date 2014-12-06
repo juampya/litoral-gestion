@@ -99,6 +99,7 @@ uuid:"474A188A-D990-437A-A847-18121FB7272C",
 valuelistID:"9520E02A-25CC-4A50-BE74-9805224A65CF"
 },
 {
+formIndex:2,
 imageMediaID:"0EC6071E-0575-4B70-A881-BA43191BF766",
 location:"318,34",
 mediaOptions:1,
@@ -371,6 +372,7 @@ typeid:7,
 uuid:"C07B93E4-C07C-4C87-8ED1-76BE89DB1569"
 },
 {
+formIndex:3,
 imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
 location:"173,34",
 mediaOptions:1,
@@ -465,6 +467,7 @@ typeid:7,
 uuid:"DC6D6F89-5ACC-47A2-A458-9AF128B9A69E"
 },
 {
+formIndex:1,
 imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"26,34",
 mediaOptions:1,

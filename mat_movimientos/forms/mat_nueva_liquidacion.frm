@@ -3,10 +3,10 @@ items:[
 dataProviderID:"vl_observacion",
 displayType:1,
 formIndex:4,
-location:"49,192",
+location:"5,192",
 name:"vl_observacion",
 scrollbars:32,
-size:"558,65",
+size:"632,153",
 typeid:4,
 uuid:"4165B157-E06F-4396-9055-43FB9C2728D5"
 },
@@ -51,9 +51,9 @@ uuid:"AEBA75AF-ECA6-4F07-9C79-2DE47D5E3301"
 formIndex:3,
 horizontalAlignment:0,
 labelFor:"vl_observacion",
-location:"49,167",
+location:"5,167",
 name:"vl_observacion_label",
-size:"558,20",
+size:"632,20",
 styleClass:"label_black",
 text:"Observación a salir en Boletas de Pago",
 typeid:7,
@@ -94,7 +94,7 @@ typeid:7,
 uuid:"D175A538-DC5E-4209-B879-D92DC25E3F31"
 },
 {
-height:267,
+height:345,
 partType:5,
 typeid:19,
 uuid:"E33FE402-C671-459D-BE3B-9BB4F44403B9"

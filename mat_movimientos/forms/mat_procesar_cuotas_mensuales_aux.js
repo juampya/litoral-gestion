@@ -189,7 +189,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 								fs_detalle.ingr_id = rec1.ingr_id
 								fs_detalle.mov_id = fs_movim_aux.mov_id
 								fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-								fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 								fs_detalle.tmp_id = globals["vg_nro_tmp"]
 								databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
 								acumImporte += fs_detalle.det_importe
@@ -207,7 +208,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 								fs_detalle.ingr_id = rec1.ingr_id
 								fs_detalle.mov_id = fs_movim_aux.mov_id
 								fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-								fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 								fs_detalle.tmp_id = globals["vg_nro_tmp"]
 								databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
 								acumImporte += fs_detalle.det_importe
@@ -223,7 +225,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 				fs_detalle.ingr_id = rec1.ingr_id
 				fs_detalle.mov_id = fs_movim_aux.mov_id
 				fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-				fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+				//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+				fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 				fs_detalle.tmp_id = globals["vg_nro_tmp"]
 				databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 				acumImporte += fs_detalle.det_importe
@@ -255,7 +258,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			fs_detalle.ingr_id = fs_conf.conf_cuota_impaga_ingr_id //Deuda Acumulada
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = deuda
-			fs_detalle.det_importe_original = deuda
+			//fs_detalle.det_importe_original = deuda
+			fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 			fs_detalle.tmp_id = globals["vg_nro_tmp"]
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe
@@ -269,7 +273,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			fs_detalle.ingr_id = fs_conf.conf_interes_ingr_id //Interes
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = interes
-			fs_detalle.det_importe_original = interes
+			//fs_detalle.det_importe_original = interes
+			fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 			fs_detalle.tmp_id = globals["vg_nro_tmp"]
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe		
@@ -291,7 +296,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			fs_detalle.ingr_id = rec3.ingr_id
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = rec3.res_importe * -1
-			fs_detalle.det_importe_original = rec3.res_importe * -1
+			//fs_detalle.det_importe_original = rec3.res_importe * -1
+			fs_detalle.det_importe_2vto = (fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100))*(-1)
 			fs_detalle.res_id = fs_res.res_id
 			fs_detalle.tmp_id = globals["vg_nro_tmp"]
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento

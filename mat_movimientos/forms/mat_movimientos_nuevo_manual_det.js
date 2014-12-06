@@ -46,8 +46,8 @@ function borrarRegistro()
 function onDataChangeImporte(oldValue, newValue, event) 
 {
 	forms.mat_movimientos_nuevo_manual.vl_importe += det_importe
-	det_importe_original = det_importe
-	
+	//det_importe_original = det_importe
+	det_importe_2vto = det_importe+(det_importe*forms.mat_movimientos_nuevo_manual.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
 	forms.mat_movimientos_nuevo_manual.mov_importe_2vto = forms.mat_movimientos_nuevo_manual.vl_importe+(forms.mat_movimientos_nuevo_manual.vl_importe*forms.mat_movimientos_nuevo_manual.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
 	return true
 }

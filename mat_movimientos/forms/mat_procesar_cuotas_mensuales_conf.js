@@ -98,6 +98,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 	for (var i = 1; i <= fs_movim_aux.getSize(); i++) 
 	{
 		var rec = fs_movim_aux.getRecord(i)
+		pasarMovimientosNoPagados(rec.mat_id)
 		/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.newRecord()
@@ -121,6 +122,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		
 		databaseManager.saveData(fs_mov)
 		
+				
 		/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
 		var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
 			fs_conf.loadAllRecords()
@@ -170,6 +172,30 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 	fs_movim_aux.mat_movimientos_aux_to_mat_movimientos_det_aux.deleteAllRecords()
 	fs_movim_aux.deleteAllRecords()
 	forms.mat_liquidacion.controller.show()
+}
+
+/**
+ * @AllowToRunInFind
+ * 
+ * TODO generated, please specify type and doc for the params
+ * @param mat_id
+ *
+ * @properties={typeid:24,uuid:"994B74A0-F536-43F9-B11D-5BE39DE38557"}
+ */
+function pasarMovimientosNoPagados(mat_id)
+{
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+	var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
+	fs_mov.find()
+	fs_mov.mat_id = mat_id
+	fs_mov.mov_estado = 0
+	fs_mov.search()
+	for (var i = 1; i <= fs_mov.getSize(); i++) 
+	{
+		var myRecord = fs_mov.getRecord(i)
+		myRecord.mov_estado = 2
+		databaseManager.saveData(myRecord)
+	}
 }
 
 /**

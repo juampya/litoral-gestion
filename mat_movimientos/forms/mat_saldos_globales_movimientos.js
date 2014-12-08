@@ -1,3 +1,10 @@
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"895E7293-7903-4537-A424-AA55764A8986",variableType:8}
+ */
+var vl_saldo_actual = null
 /**
  * @type {Number}
  *
@@ -44,8 +51,33 @@ function onActionDetalle(event)
  */
 function onShow(firstShow, event) 
 {
+	vl_saldo_actual = 0
 	controller.find()
 	mat_id = vl_matriculado_id
-	mov_estado = 0
+	mov_estado = "0||2"
 	controller.search()
+	foundset.sort("mov_fecha_emision asc")
+	for (var i = 1; i <= foundset.getSize(); i++) 
+	{
+		var myRecord = foundset.getRecord(i)
+		vl_saldo_actual = myRecord.mov_importe
+	}
+	
+}
+
+/**
+ * Called before the form component is rendered.
+ *
+ * @param {JSRenderEvent} event the render event
+ *
+ * @properties={typeid:24,uuid:"D0B196F2-A38F-468D-91DE-D429FFB0A437"}
+ */
+function onRenderSaldoActual(event) 
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
+	var myRecord = event.getRecord()
+	if (myRecord.mov_estado == 0) 
+	{
+		event.getRenderable().bgcolor = '#ff9b9b';
+	}
 }

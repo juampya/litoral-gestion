@@ -2,9 +2,10 @@ dataSource:"db:/sistemas/mat_movimientos_det",
 items:[
 {
 dataProviderID:"det_importe_2vto",
+editable:false,
 format:"#,###.00|#,###.00",
 horizontalAlignment:4,
-location:"447,68",
+location:"447,69",
 name:"det_importe_2vto",
 size:"140,20",
 typeid:4,
@@ -29,11 +30,11 @@ uuid:"5450E5A5-6D3A-48D9-AD59-82EAB004B7C7"
 },
 {
 labelFor:"det_importe_2vto",
-location:"447,48",
+location:"447,49",
 name:"det_importe_2vto_label",
 size:"140,20",
 styleClass:"label_black",
-text:"Det Importe 2vto",
+text:"Importe 2vto",
 typeid:7,
 uuid:"5B7686F0-C01F-40FE-84A9-CA245574CEE3"
 },

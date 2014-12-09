@@ -7,7 +7,7 @@
  */
 function onActionVolver(event) 
 {
-	databaseManager.revertEditedRecords(foundset)
+	databaseManager.revertEditedRecords()
 	forms[scopes.globals.vg_formulario_anterior].controller.show()
 }
 

@@ -174,6 +174,12 @@ function onActionMail(event)
  */
 function onShow(firstShow, event)
 {
+	forms.mat_movimientos_detalle_conceptos.elements.btn_agregar.enabled = false
+	forms.mat_movimientos_detalle_conceptos.elements.btn_borrar.enabled = false
+	forms.mat_movimientos_detalle_conceptos.elements.ingr_id.editable = false
+	forms.mat_movimientos_detalle_conceptos.elements.det_importe.editable = false
+	
+	
 	if(mov_estado == 9)
 	{
 		elements.btn_imprimir.enabled = false
@@ -181,6 +187,16 @@ function onShow(firstShow, event)
 	}
 	else
 	{
+		if(mov_estado == 0)
+		{
+			if(scopes.globals.ag_usuariovigente.usu_nivel_acceso==99)
+			{
+				forms.mat_movimientos_detalle_conceptos.elements.btn_agregar.enabled = true
+				forms.mat_movimientos_detalle_conceptos.elements.btn_borrar.enabled = true
+				forms.mat_movimientos_detalle_conceptos.elements.ingr_id.editable = true
+				forms.mat_movimientos_detalle_conceptos.elements.det_importe.editable = true
+			}
+		}
 		elements.btn_imprimir.enabled = true
 		elements.btn_mail.enabled = true
 	}

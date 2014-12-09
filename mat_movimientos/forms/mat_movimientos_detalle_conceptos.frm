@@ -134,6 +134,7 @@ uuid:"C995AF79-B9B8-4225-B033-214C11D7355B"
 imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
 location:"114,13",
 mediaOptions:1,
+name:"btn_agregar",
 onActionMethodID:"2461210A-7448-4A2E-A2D4-1209CFBD47E7",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -180,6 +181,7 @@ uuid:"F7D01E07-9746-4A2C-9AA5-BC93227D0A1C"
 {
 imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
 location:"894,70",
+name:"btn_borrar",
 onActionMethodID:"5388C5DC-991C-40B1-A12C-1AE3C9523E0E",
 showClick:false,
 size:"16,16",

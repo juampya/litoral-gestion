@@ -197,8 +197,6 @@ function ProcesarNuevoBcoSantaFe()
 	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
 	var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_movimientos.loadAllRecords()
-	/** @type {JSFoundset<db:/sistemas/mat_movimientos_det>}*/
-	var fs_movimientos_det = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 	/** @type {JSFoundset<db:/sistemas/mat_rendiciones_errores>}*/
 	var fs_rendiciones_errores = databaseManager.getFoundSet('sistemas','mat_rendiciones_errores')
 	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/

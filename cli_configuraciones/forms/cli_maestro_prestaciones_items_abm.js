@@ -34,8 +34,15 @@ var vl_frm_anterior = null;
  */
 function onActionAceptar(event) 
 {
-	databaseManager.saveData(foundset)
-	application.getWindow("prestacion_items").hide()
+	if(ControlaCampos())
+	{	
+		databaseManager.saveData(foundset)
+		application.getWindow("prestacion_items").hide()
+	}
+	else
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', scopes.globals.vg_mensaje_de_error, 'warning', controller.getName(), 'Aceptar',null,null,null, null, null, null, null)
+	}
 }
 
 /**
@@ -86,4 +93,36 @@ function onHide(event)
 {
 	databaseManager.revertEditedRecords()
 	return true
+}
+
+
+/**
+ * TODO generated, please specify type and doc for the params
+ *
+ * @properties={typeid:24,uuid:"1D30C8C3-B198-49D7-9A00-A2A861A8A0FC"}
+ */
+function ControlaCampos()
+{
+	scopes.globals.vg_mensaje_de_error = null
+	var respuesta = true
+	
+	if(mae_item_nivel1==null|mae_item_nivel2==null|mae_item_nivel3==null|mae_item_nivel1==''|mae_item_nivel2==''|mae_item_nivel3=='')
+	{
+		respuesta = false
+		scopes.globals.vg_mensaje_de_error = scopes.globals.vg_mensaje_de_error+'*El código está incompleto. Por favor verifique.\n'
+	}
+	
+	if(mae_item_descripcion==null|mae_item_descripcion=='')
+	{
+		scopes.globals.vg_mensaje_de_error = scopes.globals.vg_mensaje_de_error+'*La descripción no puede estar vacía. Por favor verifique.\n'
+		respuesta = false
+	}
+	
+	if(galeno_id==null | gasto_id==null | galeno_id=='' | gasto_id=='')
+	{
+		scopes.globals.vg_mensaje_de_error = scopes.globals.vg_mensaje_de_error+'*Los campos Galeno y Gasto no pueden estar vacíos. Por favor verifique.\n'
+		respuesta = false
+	}
+	
+	return respuesta
 }

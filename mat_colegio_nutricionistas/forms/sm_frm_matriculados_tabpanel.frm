@@ -68,6 +68,14 @@ anchors:15,
 formIndex:4,
 items:[
 {
+containsFormID:"80FC7400-0931-4685-9203-A9E908B744EE",
+location:"320,266",
+relationName:"mat_matriculados_to_mat_rel_mat_obsoc",
+text:"Obras Sociales",
+typeid:15,
+uuid:"340FDA3E-DF0E-48E1-8A6B-65E598E9F41B"
+},
+{
 containsFormID:"9B3EF27D-4A07-475B-B3B7-A8DBF562773A",
 location:"245,226",
 relationName:"mat_matriculados_to_mat_consultorios",
@@ -84,7 +92,7 @@ uuid:"55EEAA3A-5E0B-43BF-A32F-A29E6BAB0237"
 },
 {
 containsFormID:"F2AC35D0-2E1F-4BE2-B3CF-15029D11C795",
-location:"317,274",
+location:"430,308",
 text:"Auditoría",
 typeid:15,
 uuid:"71254CCB-FD2B-4798-B9D7-A92416DE15CF"

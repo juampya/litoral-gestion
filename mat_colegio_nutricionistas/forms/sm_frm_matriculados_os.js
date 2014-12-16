@@ -5,57 +5,43 @@
  *
  * @properties={typeid:24,uuid:"D128B671-6CBD-40A4-BE51-39B11367E984"}
  */
-function onActionAgregarConsultorio(event) 
+function onActionAgregarObSoc(event) 
 {
-	forms.sm_frm_matriculados_consultorios_detalle.vl_titulo = "Nuevo"
-	forms.sm_frm_matriculados_consultorios_detalle.vl_nuevo  = 1
-	forms.sm_frm_matriculados_consultorios_detalle.vl_consultorio_id = consultorio_id
-		
-	var win = application.createWindow("mat_consultorios", JSWindow.MODAL_DIALOG);
-		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
-		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-		win.resizable = false
-		win.title= 'Litoral Gestion';
-		win.show(forms.sm_frm_matriculados_consultorios_detalle);	
+	controller.newRecord(false)
+	emp_id = scopes.globals.mx_empresa_id
+	mat_id = forms.sm_frm_matriculados_tabpanel.mat_id
+	elements.obsoc_id.editable = true
+	elements.rel_observaciones.editable = true
+	
 }
-
-/**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"BB537B51-FCC9-4C6C-AD09-CA34626072CF"}
- */
-function onActionDetalle(event) 
-{
-	forms.sm_frm_matriculados_consultorios_detalle.vl_titulo = "Modificar"
-	forms.sm_frm_matriculados_consultorios_detalle.vl_nuevo  = 0
-	forms.sm_frm_matriculados_consultorios_detalle.vl_consultorio_id = consultorio_id
-		
-	var win = application.createWindow("mat_consultorios", JSWindow.MODAL_DIALOG);
-		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
-		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-		win.resizable = false
-		win.title= 'Litoral Gestion';
-		win.show(forms.sm_frm_matriculados_consultorios_detalle);	
-}
-
 /**
  * TODO generated, please specify type and doc for the params
  * @param event
  *
- * @properties={typeid:24,uuid:"CFA7E0A5-0D2C-4477-96A7-5578746D1172"}
+ * @properties={typeid:24,uuid:"D849CFE6-2971-4D72-9B1E-EA02CA244097"}
  */
-function onActionAgregarHabilitacion(event) 
+function onActionBorrar(event) 
 {
-	forms.sm_frm_matriculados_consultorios_habilitaciones_detalle.vl_titulo = "Nuevo"
-	forms.sm_frm_matriculados_consultorios_habilitaciones_detalle.vl_nuevo  = 1
-	forms.sm_frm_matriculados_consultorios_habilitaciones_detalle.vl_consultorio_id = consultorio_id
-		
-	var win = application.createWindow("mat_habilitaciones", JSWindow.MODAL_DIALOG);
-		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
-		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-		win.resizable = false
-		win.title= 'Litoral Gestion';
-		win.show(forms.sm_frm_matriculados_consultorios_habilitaciones_detalle);	
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Desea Borrar el Registro?",'atention',controller.getName(),"No",null,"Si","borrarRegistro",null,null,null,null)
+}
+
+/**
+ * @properties={typeid:24,uuid:"B6215252-5196-4CDC-861D-D69A1221EED6"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+}
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"2A76C327-718B-467B-8998-6D629CDA48F0"}
+ */
+function onShow(firstShow, event) 
+{
+	elements.obsoc_id.editable = false
+	elements.rel_observaciones.editable = false
 }

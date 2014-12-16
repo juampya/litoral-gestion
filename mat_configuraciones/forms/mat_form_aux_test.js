@@ -88,7 +88,7 @@ function grabarPrimerMovimientoTest(matriculado, mes, anio)
 		fs_detalle.ingr_id = rec.ingr_id
 		fs_detalle.mov_id = fs_movim.mov_id
 		fs_detalle.det_importe = rec.ingr_importe
-		fs_detalle.det_importe_original = rec.ingr_importe
+		//fs_detalle.det_importe_original = rec.ingr_importe
 		databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
 		acumImporte += fs_detalle.det_importe		
 	}

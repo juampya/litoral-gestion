@@ -115,7 +115,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 						fs_detalle.ingr_id = rec1.ingr_id
 						fs_detalle.mov_id = fs_movim_aux.mov_id
 						fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-						fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+						//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+						//fs_detalle.det_importe_2vto = fs_detalle.det_importe+(fs_detalle.det_importe*fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
 						fs_detalle.tmp_id = globals.vg_nro_tmp
 						databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
 						acumImporte += fs_detalle.det_importe
@@ -129,7 +130,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 				fs_detalle.ingr_id = rec1.ingr_id
 				fs_detalle.mov_id = fs_movim_aux.mov_id
 				fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-				fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+				//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
 				fs_detalle.tmp_id = globals.vg_nro_tmp
 				databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 				acumImporte += fs_detalle.det_importe
@@ -166,7 +167,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			fs_detalle.ingr_id = fs_conf.conf_cuota_impaga_ingr_id //Deuda Acumulada
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = deuda
-			fs_detalle.det_importe_original = deuda
+			//fs_detalle.det_importe_original = deuda
 			fs_detalle.tmp_id = globals.vg_nro_tmp
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe
@@ -180,7 +181,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			fs_detalle.ingr_id = fs_conf.conf_interes_ingr_id //Interes
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = interes
-			fs_detalle.det_importe_original = interes
+			//fs_detalle.det_importe_original = interes
 			fs_detalle.tmp_id = globals.vg_nro_tmp
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe		
@@ -202,7 +203,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 			fs_detalle.ingr_id = rec3.ingr_id
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = rec3.res_importe * -1
-			fs_detalle.det_importe_original = rec3.res_importe * -1
+			//fs_detalle.det_importe_original = rec3.res_importe * -1
 			fs_detalle.res_id = fs_res.res_id
 			fs_detalle.tmp_id = globals.vg_nro_tmp
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
@@ -213,18 +214,8 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		//Regraba importe del movimiento-----------------------------------------------------
 		fs_movim_aux.mov_importe = acumImporte
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
-		
 	}
-	
 }
-
-
-
-
-
-
-
-
 
 /**
  * TODO generated, please specify type and doc for the params
@@ -337,6 +328,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		fs_movim_aux.mov_grab_ope = globals.ag_usuariovigente.usu_id
 		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
 		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
+		fs_movim_aux.mov_recargo  = fs_conf.conf_interes_x_atraso
 		fs_movim_aux.mov_observacion = fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------
@@ -362,19 +354,47 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 			var rec1 = fs_rel_ing.getRecord(j)
 			if(rec1.rel_aplica_vigencia == 1)// Si tiene una fecha de vigencia a respetar 
 			{
-				if(fs_rel_ing.rel_fec_inicial.getFullYear() <= anio && anio <= fs_rel_ing.rel_fec_final.getFullYear())
+				if(rec1.rel_fec_inicial != 0 && rec1.rel_fec_inicial!=null)
 				{
-					if(fs_rel_ing.rel_fec_inicial.getMonth() <= mes && mes <= fs_rel_ing.rel_fec_final.getMonth())
+					if(rec1.rel_fec_final != 0 && rec1.rel_fec_final!=null)
 					{
-						fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
-						fs_detalle.newRecord()
-						fs_detalle.ingr_id = rec1.ingr_id
-						fs_detalle.mov_id = fs_movim_aux.mov_id
-						fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-						fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-						fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
-						databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
-						acumImporte += fs_detalle.det_importe
+						if(rec1.rel_fec_inicial.getFullYear() <= anio && anio <= rec1.rel_fec_final.getFullYear())
+						{
+							if(rec1.rel_fec_inicial.getMonth() + 1 <= mes && mes <= rec1.rel_fec_final.getMonth() + 1)
+							{
+								fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
+								fs_detalle.newRecord()
+								fs_detalle.ingr_id = rec1.ingr_id
+								fs_detalle.mov_id = fs_movim_aux.mov_id
+								fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								
+								fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
+								fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
+								databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
+								acumImporte += fs_detalle.det_importe
+							}
+						}	
+					}
+					else
+					{
+						if(rec1.rel_fec_inicial.getFullYear() <= anio)
+						{
+							if(rec1.rel_fec_inicial.getMonth() + 1 <= mes)
+							{
+								fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
+								fs_detalle.newRecord()
+								fs_detalle.ingr_id = rec1.ingr_id
+								fs_detalle.mov_id = fs_movim_aux.mov_id
+								fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+								
+								fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
+								fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
+								databaseManager.saveData(fs_detalle) // Graba detalle del movimiento
+								acumImporte += fs_detalle.det_importe
+							}
+						}
 					}
 				}
 			}
@@ -385,7 +405,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 				fs_detalle.ingr_id = rec1.ingr_id
 				fs_detalle.mov_id = fs_movim_aux.mov_id
 				fs_detalle.det_importe = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
-				fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+				//fs_detalle.det_importe_original = rec1.mat_matriculado_rel_ingresos_to_mat_ingresos.ingr_importe
+				fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 				fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)
 				databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 				acumImporte += fs_detalle.det_importe
@@ -397,7 +418,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.find()	
-		fs_mov.mov_estado = 0
+		//fs_mov.mov_estado = 0
+		fs_mov.mov_estado = "0||2"
 		fs_mov.mat_id = rec.mat_id
 		fs_mov.search()
 		
@@ -412,14 +434,13 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		}
 		if(deuda > 0)
 		{
-			
-			
 			fs_detalle = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
 			fs_detalle.newRecord()
 			fs_detalle.ingr_id = fs_conf.conf_cuota_impaga_ingr_id //Deuda Acumulada
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = deuda
-			fs_detalle.det_importe_original = deuda
+			//fs_detalle.det_importe_original = deuda
+			fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe
 			//Fin Busca cuotas con deuda-------------------------------------------------------------------------------
@@ -432,7 +453,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 			fs_detalle.ingr_id = fs_conf.conf_interes_ingr_id //Interes
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = interes
-			fs_detalle.det_importe_original = interes
+			//fs_detalle.det_importe_original = interes
+			fs_detalle.det_importe_2vto = fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100)
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe		
 			//Fin Calcula Interes sobre deuda-----------------------------------------------------------------
@@ -453,7 +475,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 			fs_detalle.ingr_id = rec3.ingr_id
 			fs_detalle.mov_id = fs_movim_aux.mov_id
 			fs_detalle.det_importe = rec3.res_importe * -1
-			fs_detalle.det_importe_original = rec3.res_importe * -1
+			//fs_detalle.det_importe_original = rec3.res_importe * -1
+			fs_detalle.det_importe_2vto = (fs_detalle.det_importe+((fs_detalle.det_importe*fs_movim_aux.mov_recargo)/100))*(-1)
 			fs_detalle.res_id = fs_res.res_id
 			databaseManager.saveData(fs_detalle)// Graba detalle del movimiento
 			acumImporte += fs_detalle.det_importe			
@@ -487,7 +510,6 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 	    fs_movim_aux.mov_cod_barra =  plugins.http.getMediaData(url)
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
 	}
-	
 }
 
 
@@ -503,7 +525,6 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
  */
 function grabarPrimerMovimiento(matriculado, mes, anio)
 {
-	
 	/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 	var fs_movim = databaseManager.getFoundSet('sistemas','mat_movimientos')
 	fs_movim.newRecord()
@@ -536,7 +557,8 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 		fs_detalle.ingr_id = rec.ingr_id
 		fs_detalle.mov_id = fs_movim.mov_id
 		fs_detalle.det_importe = rec.ingr_importe
-		fs_detalle.det_importe_original = rec.ingr_importe
+		//fs_detalle.det_importe_original = rec.ingr_importe
+		fs_detalle.det_importe_2vto = fs_detalle.det_importe+(fs_detalle.det_importe*fs_movim.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
 		if(rec.ingr_id != 9)
 		{
 			fs_detalle.det_observacion = application.getValueListDisplayValue('meses',mes)

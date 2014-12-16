@@ -148,6 +148,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
 			fs_mov.mov_cod_barra =  plugins.http.getMediaData(url)
 		
+		databaseManager.saveData(fs_mov)
 		
 		for(var j = 1; j <= rec.mat_movimientos_aux_to_mat_movimientos_det_aux.getSize(); j++) 
 		{

@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/mat_rel_mat_obsoc",
+items:[
+{
+dataProviderIDToAggregate:"rel_id",
+name:"aggr_cant",
+typeid:40,
+uuid:"7B18D3ED-5907-41CF-9118-3F78773F6940"
+}
+],
+typeid:39,
+uuid:"4ABC10DF-AEBA-431A-8AAE-09822749410B"

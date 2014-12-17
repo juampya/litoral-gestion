@@ -1,6 +1,20 @@
 /**
  * @type {String}
  *
+ * @properties={typeid:35,uuid:"32A21E44-625E-4B25-BD09-D5091007BB2B"}
+ */
+var vg_fec_hasta = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"132E6685-539B-498A-81E4-32297CD2D47F"}
+ */
+var vg_fec_desde = null;
+
+/**
+ * @type {String}
+ *
  * @properties={typeid:35,uuid:"F2A4EF61-9DB1-45A1-B1CF-E00C678D1FA9"}
  */
 var vg_formulario_anterior = null;
@@ -595,7 +609,6 @@ function archivoAdjuntoMostrar(imagen_id)
    		application.executeProgramInBackground('open', [tempfilename]);
 	}	
 }
-
 
 /**
  * @AllowToRunInFind

@@ -159,11 +159,39 @@ function onActionNuevo(event)
  */
 function crearFormularioConceptos() 
 {
+	var tmp_estado = ' and c.mov_estado <> 9 ' 
+	var tmp_tipo_mov = null
+	var tmp_matriculado = null
+	scopes.globals.vg_fec_desde = utils.dateFormat(vl_fec_ini, 'MM') +"-"+utils.dateFormat(vl_fec_ini, 'yyyy')
+	scopes.globals.vg_fec_hasta = utils.dateFormat(vl_fec_fin, 'MM') +"-"+utils.dateFormat(vl_fec_fin, 'yyyy')
+	scopes.globals.vg_matriculado = vl_matriculado
+	scopes.globals.vg_estado_matriculado = vl_estado
+	scopes.globals.vg_tipo_movimiento = vl_tipo_movim
+	
+	
 	var args = new Array()
-	args.push(utils.dateFormat(vl_fec_ini, 'yyyy'))
-	args.push(utils.dateFormat(vl_fec_fin, 'yyyy'))
-	args.push(utils.dateFormat(vl_fec_ini, 'MM'))
-	args.push(utils.dateFormat(vl_fec_fin, 'MM'))
+		args.push(utils.dateFormat(vl_fec_ini, 'yyyy'))
+		args.push(utils.dateFormat(vl_fec_fin, 'yyyy'))
+		args.push(utils.dateFormat(vl_fec_ini, 'MM'))
+		args.push(utils.dateFormat(vl_fec_fin, 'MM'))
+	
+	if(vl_estado!=null && vl_estado!=3)
+	{
+		tmp_estado = ' and c.mov_estado = ? '
+		args.push(vl_estado)
+	}
+		
+	if(vl_tipo_movim!=null && vl_tipo_movim !=3)
+	{
+		tmp_tipo_mov = ' and c.mov_tipo_de_movimiento = ? '
+		args.push(vl_tipo_movim)
+	}
+	
+	if(vl_matriculado!=null)
+	{
+		tmp_matriculado = ' and c.mat_id = ? '
+		args.push(vl_matriculado)
+	}
 	
 	var qry='select c.mov_anio_emision as anio, '+
 			'		c.mov_mes_emision as mes, '+
@@ -171,22 +199,23 @@ function crearFormularioConceptos()
 			'		b.ingr_nombre as concepto, '+
 			'	    count(*) as cantidad, '+
 			'	    sum(a.det_importe) as total, '+
-			'	    sum(a.det_importe_cobrado) as cobrado '+
+			'	    sum(a.det_importe_cobrado) as cobrado, '+
+			'	    sum(a.det_importe)-sum(a.det_importe_cobrado) as pendiente '+
 			'from mat_movimientos_det as a '+
 			'inner join mat_movimientos as c on a.mov_id = c.mov_id '+
 			'inner join mat_ingresos as b on a.ingr_id = b.ingr_id '+
 			'where c.mov_anio_emision between ? and ? '+
-			'and c.mov_mes_emision between ? and ? '+
+			'and c.mov_mes_emision between ? and ? '+ tmp_estado + tmp_tipo_mov + tmp_matriculado +
 			'group by c.mov_mes_emision,c.mov_anio_emision,a.ingr_id' 
 
-	/** @type {JSDataSet<anio:Number, mes:Number, cod:Number, concepto:number, cantidad:number, total:Number, cobrado:Number>}*/
+	/** @type {JSDataSet<anio:Number, mes:Number, cod:Number, concepto:number, cantidad:number, total:Number, cobrado:Number, pendiente:Number>}*/
 	var ds = databaseManager.getDataSetByQuery('sistemas', qry, args, -1);
 
 	
 	var success = history.removeForm("totConceptos")
 	if(success) {solutionModel.removeForm("totConceptos")}
 	
- 	var uri = ds.createDataSource('_tmp_totConceptos', [JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.NUMBER]);
+ 	var uri = ds.createDataSource('_tmp_totConceptos', [JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.INTEGER,JSColumn.TEXT,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.NUMBER,JSColumn.NUMBER]);
 	
 	var myForm = solutionModel.newForm('totConceptos', uri, null, true, 800, 600);
 	myForm.extendsForm = 'mat_movimientos_x_conceptos_sm'
@@ -246,6 +275,14 @@ function crearFormularioConceptos()
 	sg_cobrado.anchors = SM_ANCHOR.ALL
 	sg_cobrado.styleClass = 'table_field'	
 	sg_cobrado.format = "#,###.00"
+		
+	var sg_pendiente = myForm.newTextField('pendiente', 50, 200, 100, 20)
+	sg_pendiente.editable = false
+	sg_pendiente.horizontalAlignment = SM_ALIGNMENT.RIGHT
+	sg_pendiente.titleText = 'Pendiente $'
+	sg_pendiente.anchors = SM_ANCHOR.ALL
+	sg_pendiente.styleClass = 'table_field'	
+	sg_pendiente.format = "#,###.00"
 	
 //	var tmp_total_pendiente 	= 0
 //	var tmp_total_cobrado 		= 0

@@ -1,3 +1,17 @@
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"D153BABA-A9C2-41ED-A6A2-B665BB7004EF",variableType:4}
+ */
+var vg_estado_matriculado = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"D6D1F843-24D8-4F91-83E3-FD05FED73E2C",variableType:4}
+ */
+var vg_tipo_movimiento = null;
+
 
 /**
  * @type {Number}

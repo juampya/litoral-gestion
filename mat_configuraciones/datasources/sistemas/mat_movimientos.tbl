@@ -7,6 +7,13 @@ typeid:40,
 uuid:"4D42BBED-90FE-4ADB-BAFB-C1623771A219"
 },
 {
+dataProviderIDToAggregate:"mov_importe_cobrado",
+name:"ag_importe_cobrado",
+type:4,
+typeid:40,
+uuid:"5BD95E02-CBF8-44A3-AF25-C3402A96A5A3"
+},
+{
 dataProviderIDToAggregate:"mov_importe",
 name:"ag_importe",
 type:4,

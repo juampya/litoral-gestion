@@ -328,7 +328,7 @@ function ProcesarNuevoBcoSantaFe()
 									record_mov.ren_id = ren_id
 									databaseManager.saveData(record_mov)
 									
-									for (var i = 1; i <= record_mov.mat_movimientos_to_mat_movimientos_det; i++) 
+									for (var i = 1; i <= record_mov.mat_movimientos_to_mat_movimientos_det.getSize(); i++) 
 									{
 										var rec_detalle = record_mov.mat_movimientos_to_mat_movimientos_det.getRecord(i)
 											

@@ -123,3 +123,45 @@ function CambiaTipoSolicitud(oldValue, newValue, event)
 	}
 	return true
 }
+
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"FA8805E1-52A5-453C-8FB2-4CE1FCD55FB6"}
+ */
+function onActionImprimir(event) 
+{
+	var nom_reporte = null
+	
+	switch (sol_id) 
+	{
+		case 1:
+		break;
+		case 2:
+		break;
+		case 3:
+		break;
+		case 4:
+			plugins.jasperPluginRMI.runReport('Sistemas','mat_certi_baja.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{psol_id:sol_id})
+		break;
+		case 5:
+		break;
+		case 6:
+		break;
+		case 7:
+		break;
+		case 8:
+		break;
+		case 9:
+		break;
+		case 10:
+		break;
+		case 11:
+		break;
+		default:
+		break;
+	}
+	plugins.jasperPluginRMI.runReport('Sistemas','mat_certi_baja.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{psol_id:sol_id})
+}

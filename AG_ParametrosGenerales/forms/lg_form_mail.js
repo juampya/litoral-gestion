@@ -55,7 +55,8 @@ function Enviar(pfuncion_codigo)
 	var smtp_user 	  = 'mail.smtp.username=' + scopes.globals.ag_empresavigente.emp_smtp_username
 	var smtp_pasw 	  = 'mail.smtp.password=' + scopes.globals.ag_empresavigente.emp_smtp_password
 	var smtp_starttls = 'mail.smtp.starttls.enable=' + scopes.globals.ag_empresavigente.emp_smtp_starttls
-	var authorization = new Array(smpt, smtp_port,smtp_auth,smtp_user,smtp_pasw,smtp_starttls)
+	var smtp_from     = 'mail.smtp.from=' + scopes.globals.ag_empresavigente.emp_mail2
+	var authorization = new Array(smpt, smtp_port,smtp_auth,smtp_user,smtp_pasw,smtp_starttls,smtp_from)
 	
 	if(scopes.globals.vg_destinatarios == null || scopes.globals.vg_destinatarios.length == 0)
 	{
@@ -69,7 +70,7 @@ function Enviar(pfuncion_codigo)
 		return
 	}
 	
-	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_empresavigente.emp_smtp_username, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, authorization)
+	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_empresavigente.emp_mail2, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, authorization)
 	if (!success) 
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","El envio falló","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)

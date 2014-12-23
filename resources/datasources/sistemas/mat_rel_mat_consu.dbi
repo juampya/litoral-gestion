@@ -62,6 +62,13 @@ name:"rel_fec_vencimiento"
 },
 {
 allowNull:true,
+creationOrderIndex:12,
+dataType:-1,
+length:65535,
+name:"rel_observa"
+},
+{
+allowNull:true,
 autoEnterSubType:6,
 autoEnterType:1,
 creationOrderIndex:9,

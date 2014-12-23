@@ -207,6 +207,13 @@ name:"mat_nro_matricula"
 },
 {
 allowNull:true,
+creationOrderIndex:41,
+dataType:-1,
+length:65535,
+name:"mat_observa"
+},
+{
+allowNull:true,
 creationOrderIndex:7,
 dataType:12,
 length:45,

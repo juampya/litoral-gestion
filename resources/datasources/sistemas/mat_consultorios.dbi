@@ -54,6 +54,13 @@ name:"consultorio_nombre"
 },
 {
 allowNull:true,
+creationOrderIndex:15,
+dataType:-1,
+length:65535,
+name:"consultorio_observa"
+},
+{
+allowNull:true,
 creationOrderIndex:6,
 dataType:12,
 length:45,

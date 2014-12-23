@@ -37,6 +37,12 @@ name:"conf_cuota_impaga_ingr_id"
 },
 {
 allowNull:true,
+creationOrderIndex:12,
+dataType:4,
+name:"conf_dura_habi_consultorio"
+},
+{
+allowNull:true,
 compatibleColumnTypes:"[[3,5,2]]",
 creationOrderIndex:4,
 dataType:3,

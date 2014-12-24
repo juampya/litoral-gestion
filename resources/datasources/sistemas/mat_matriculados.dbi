@@ -1,5 +1,11 @@
 columns:[
 {
+allowNull:true,
+creationOrderIndex:42,
+dataType:4,
+name:"consultorio_id"
+},
+{
 allowNull:false,
 autoEnterSubType:2,
 autoEnterType:2,

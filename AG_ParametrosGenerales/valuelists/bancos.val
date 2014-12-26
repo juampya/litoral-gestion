@@ -1,0 +1,10 @@
+dataProviderID1:"banco_codigo_bcra",
+dataProviderID2:"banco_nombre",
+dataSource:"db:/sistemas/foa_bancos",
+name:"bancos",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"B814FA5E-6511-4796-82C2-264D1F9E84DB",
+valueListType:1

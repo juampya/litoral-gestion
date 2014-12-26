@@ -1,4 +1,11 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"4A750794-6ECC-452B-B7FA-7F593C236E9E",variableType:4}
+ */
+var vg_foa_banco = null;
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"32A21E44-625E-4B25-BD09-D5091007BB2B"}
@@ -678,3 +685,42 @@ function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo)
 		plugins.mail.sendMail(destinatarios, remitente, subject, cuerpo, null, null, null,authorization)  	
 	}   			
 }
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param {String} cuit
+ *
+ * @properties={typeid:24,uuid:"B7D398D2-A2BF-4A53-9BB1-89121416DB37"}
+ */
+function ValidarCuit(cuit)
+{
+	if(cuit.length !=11)
+	{
+		return false
+	}
+	
+	var acumulado = 0
+	var digitos   = cuit.split("")
+	var digito	  = digitos.pop()
+	
+	for(var i = 0; i < digitos.length; i++)
+	{
+		acumulado += digitos[9-i]*(2+(i%6))
+	}
+	
+	var verif = 11 - (acumulado % 11)
+	if(verif == 11)
+	{
+		digito = 0
+	}
+	else
+	{
+		if(verif==10)
+		{
+			digito = 9
+		}
+	}
+	
+	return digito
+}
+

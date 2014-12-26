@@ -96,10 +96,18 @@ function onShow(firstShow, event)
 		elements.tabs.setTabEnabledAt(2,false)			
 	}
 	
+	if(!utils.hasRecords(mat_matriculados_to_mat_rel_mat_cuentas))
+	{
+		mat_matriculados_to_mat_rel_mat_cuentas.newRecord()
+		mat_matriculados_to_mat_rel_mat_cuentas.emp_id = emp_id
+		mat_matriculados_to_mat_rel_mat_cuentas.mat_id = mat_id
+		databaseManager.saveData(mat_matriculados_to_mat_rel_mat_cuentas)
+	}
 	globals.vg_auditoria_pk       = mat_id
     globals.vg_auditoria_tabla    = new Array('mat_matriculados')
     globals.vg_auditoria_campo    = null
 
+	
 	verificarDeuda()
 }
 

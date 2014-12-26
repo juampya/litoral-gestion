@@ -69,6 +69,7 @@ function onShow(firstShow, event)
 		mat_id = forms.sm_frm_matriculados_tabpanel.mat_id
 		emp_id = scopes.globals.mx_empresa_id
 		consultorio_id = vl_consultorio_id
+		rel_estado = 1
 		elements.btn_borrar.visible = false
 	}
 	else
@@ -114,4 +115,21 @@ function borrarRegistro()
 {
 	controller.deleteRecord()
 	application.getWindow("mat_habilitaciones").hide()
+}
+
+/**
+ * Handle changed data.
+ *
+ * @param {Date} oldValue old value
+ * @param {Date} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"DA32068F-1B45-4269-AD91-5C10A60E1EFD"}
+ */
+function onDataChange(oldValue, newValue, event) 
+{
+	rel_fec_vencimiento = plugins.DateUtils.addYears(rel_fec_habilitacion,scopes.globals.mat_configuraciones_to_mat_configuraciones.conf_dura_habi_consultorio)
+	return true
 }

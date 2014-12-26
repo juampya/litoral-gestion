@@ -1,0 +1,10 @@
+dataProviderID1:"banco_suc_codigo",
+dataProviderID2:"banco_suc_nombre",
+name:"bancos_sucursales",
+relationName:"foa_bancos_sucursales_to_foa_bancos_sucursales",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"AD11565C-B3F4-4C4E-8F3D-F01C3F71BC4A",
+valueListType:1

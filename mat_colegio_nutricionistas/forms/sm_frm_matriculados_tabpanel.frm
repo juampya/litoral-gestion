@@ -69,7 +69,7 @@ formIndex:4,
 items:[
 {
 containsFormID:"80FC7400-0931-4685-9203-A9E908B744EE",
-location:"320,266",
+location:"315,256",
 relationName:"mat_matriculados_to_mat_rel_mat_obsoc",
 text:"Obras Sociales",
 typeid:15,
@@ -91,11 +91,19 @@ typeid:15,
 uuid:"55EEAA3A-5E0B-43BF-A32F-A29E6BAB0237"
 },
 {
-containsFormID:"F2AC35D0-2E1F-4BE2-B3CF-15029D11C795",
-location:"430,308",
+containsFormID:"978B7672-E492-42FE-82FF-472D5AF19250",
+location:"385,289",
+relationName:"mat_matriculados_to_mat_rel_mat_cuentas",
+text:"Otro Datos",
+typeid:15,
+uuid:"7650CE55-8375-44FC-AE8C-37754EA8F633"
+},
+{
+containsFormID:"F91524F1-2DE6-419F-BC17-B4938AD669FD",
+location:"446,326",
 text:"Auditoría",
 typeid:15,
-uuid:"71254CCB-FD2B-4798-B9D7-A92416DE15CF"
+uuid:"9CD7F1E2-6BE6-47B8-92BF-833C6865AD0A"
 },
 {
 containsFormID:"8B70EDB1-50CA-4285-AC3B-27A0029B5BDC",

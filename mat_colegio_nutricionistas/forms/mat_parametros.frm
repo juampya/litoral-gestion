@@ -46,7 +46,7 @@ uuid:"2D06AAFE-4B8D-427B-8509-2A87C72A0D5C"
 },
 {
 horizontalAlignment:0,
-location:"22,328",
+location:"22,407",
 size:"590,20",
 styleClass:"label_black",
 text:"Observación general en Boleta de Pago",
@@ -81,6 +81,16 @@ styleClass:"label_black",
 text:"Variables Generación Código de Barras Boletas",
 typeid:7,
 uuid:"4DADB98C-2B9E-424F-BA87-68ED035307DE"
+},
+{
+dataProviderID:"conf_dura_habi_consultorio",
+formIndex:11,
+horizontalAlignment:4,
+location:"252,343",
+name:"conf_dura_habi_consultorio",
+size:"57,20",
+typeid:4,
+uuid:"55A4108D-4F4D-4C09-B9C2-584690AF1CFD"
 },
 {
 dataProviderID:"conf_cod_barra_diseño",
@@ -197,6 +207,18 @@ typeid:7,
 uuid:"BC33622D-2693-4606-B6B6-2FC46B45456B"
 },
 {
+formIndex:10,
+horizontalAlignment:4,
+labelFor:"conf_dura_habi_consultorio",
+location:"22,343",
+name:"conf_dura_habi_consultorio_label",
+size:"225,20",
+text:"Duaración de la habilitación (años):",
+transparent:true,
+typeid:7,
+uuid:"C4F26295-B67D-4B5F-A90F-C1DF86CF1CF3"
+},
+{
 horizontalAlignment:4,
 location:"21,243",
 name:"conf_cuota_impaga_ingr_id_label",
@@ -241,6 +263,15 @@ typeid:4,
 uuid:"DD2AC210-65C5-42BA-AA65-3430CBD64FA2"
 },
 {
+horizontalAlignment:0,
+location:"21,318",
+size:"288,20",
+styleClass:"label_black",
+text:"Habilitación de Consultorios",
+typeid:7,
+uuid:"E485C4DA-A7A8-4E75-B2F9-0D3BBABD7242"
+},
+{
 anchors:11,
 location:"0,0",
 size:"640,103",
@@ -254,7 +285,7 @@ uuid:"E5C5D52F-8F08-4AA2-A750-4C58E3B488E8"
 dataProviderID:"conf_observaciones_boletas",
 displayType:1,
 formIndex:9,
-location:"21,353",
+location:"21,432",
 name:"conf_observaciones_boletas",
 scrollbars:32,
 size:"591,69",
@@ -283,7 +314,7 @@ typeid:4,
 uuid:"F7C0FC45-0FA9-4373-8F2C-5BB50B27718E"
 },
 {
-height:452,
+height:541,
 partType:5,
 typeid:19,
 uuid:"F7FF273A-6B41-4EFC-9F03-44140BF44F0D"

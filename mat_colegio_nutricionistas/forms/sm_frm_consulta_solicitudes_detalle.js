@@ -144,7 +144,7 @@ function onActionImprimir(event)
 		case 3:
 		break;
 		case 4:
-			plugins.jasperPluginRMI.runReport('Sistemas','mat_certi_baja.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{psol_id:sol_id})
+			nom_reporte = 'mat_certi_baja.jasper'
 		break;
 		case 5:
 		break;
@@ -163,5 +163,5 @@ function onActionImprimir(event)
 		default:
 		break;
 	}
-	plugins.jasperPluginRMI.runReport('Sistemas','mat_certi_baja.jasper' ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{psol_id:sol_id})
+	plugins.jasperPluginRMI.runReport('Sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{psol_id:sol_id})
 }

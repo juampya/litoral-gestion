@@ -1,7 +1,7 @@
 items:[
 {
 formIndex:8,
-labelFor:"vg_estado_matriculado",
+labelFor:"vg_estado_movimiento",
 location:"281,77",
 name:"vg_estado_matriculado_label",
 size:"108,20",

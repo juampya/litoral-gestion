@@ -1,7 +1,7 @@
 addEmptyValue:1,
 customValues:"Pendiente|0\r
 Pagada|1\r
-Cancelada|2\r
+No Pagada|2\r
 Anulada|9\r
 Todos|3",
 name:"estado_del_movimiento",

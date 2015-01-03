@@ -3,7 +3,7 @@
  *
  * @properties={typeid:35,uuid:"D153BABA-A9C2-41ED-A6A2-B665BB7004EF",variableType:4}
  */
-var vg_estado_matriculado = null;
+var vg_estado_movimiento = null;
 
 /**
  * @type {Number}

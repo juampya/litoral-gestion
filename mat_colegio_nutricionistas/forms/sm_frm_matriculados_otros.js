@@ -39,3 +39,44 @@ function onDataChangeCUIT(oldValue, newValue, event)
 		return false
 	}
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"8947A7EC-0097-4FB6-969D-FCE9058B665A"}
+ */
+function onActionAgregar_Sucursal(event) 
+{
+	if(banco_id!=null && banco_id!=0)
+	{
+		forms.mat_bancos_sucursales_abm.controller.newRecord(false)
+		forms.mat_bancos_sucursales_abm.emp_id = scopes.globals.mx_empresa_id
+		forms.mat_bancos_sucursales_abm.banco_id = banco_id
+		
+		var win = application.createWindow("bancos_sucursales", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+		win.title= 'Litoral Gestion';
+		win.show(forms.mat_bancos_sucursales_abm);
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar('Debe seleccionar un Banco.',controller.getName())
+	}
+}
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"7D3CE473-4660-4DA0-AD59-D3DDA0D3278C"}
+ */
+function onShow(firstShow, event) 
+{
+	// TODO Auto-generated method stub
+}

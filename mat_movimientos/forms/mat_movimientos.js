@@ -165,7 +165,7 @@ function crearFormularioConceptos()
 	scopes.globals.vg_fec_desde = utils.dateFormat(vl_fec_ini, 'MM') +"-"+utils.dateFormat(vl_fec_ini, 'yyyy')
 	scopes.globals.vg_fec_hasta = utils.dateFormat(vl_fec_fin, 'MM') +"-"+utils.dateFormat(vl_fec_fin, 'yyyy')
 	scopes.globals.vg_matriculado = vl_matriculado
-	scopes.globals.vg_estado_matriculado = vl_estado
+	scopes.globals.vg_estado_movimiento = vl_estado
 	scopes.globals.vg_tipo_movimiento = vl_tipo_movim
 	
 	

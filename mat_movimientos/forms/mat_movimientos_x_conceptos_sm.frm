@@ -105,11 +105,11 @@ typeid:7,
 uuid:"AE5FBB59-DCA0-479B-AF89-0CE36EE0375F"
 },
 {
-dataProviderID:"scopes.globals.vg_estado_matriculado",
+dataProviderID:"scopes.globals.vg_estado_movimiento",
 editable:false,
 formIndex:9,
 location:"394,77",
-name:"vg_estado_matriculado",
+name:"vg_estado_movimiento",
 size:"140,20",
 styleClass:"disable",
 typeid:4,

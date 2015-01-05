@@ -238,7 +238,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.find()	
-		fs_mov.mov_estado = "0||2"
+		fs_mov.mov_estado = 0
 		fs_mov.mat_id = rec.mat_id
 		fs_mov.search()
 		

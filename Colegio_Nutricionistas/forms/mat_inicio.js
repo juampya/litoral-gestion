@@ -182,6 +182,8 @@ function obrasocial()
 	forms.sm_frm_obras_sociales.controller.show()
 }
 
+
+
 /**
  * @properties={typeid:24,uuid:"DBDD4A34-C5D7-4EA0-B8D1-D64663C9AC21"}
  */
@@ -251,3 +253,12 @@ function onActionSubmenu(event)
 	
 }
 
+/**
+ * @properties={typeid:24,uuid:"78942D61-A2EF-4647-B4C4-20B50EE9518B"}
+ */
+function Consultorios()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_consultorios.vl_frm_anterior = controller.getName()
+	forms.sm_frm_consultorios.controller.show()
+}

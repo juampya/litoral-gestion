@@ -301,3 +301,46 @@ function crearFormularioConceptos()
 		
 	forms['totConceptos'].controller.show()
 }
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"A67A12B3-827F-46D0-A178-0AD7DE1E2475"}
+ */
+function onActionImprimir(event) 
+{
+	var fecha_inicial = null
+	var fecha_final   = null
+	var matriculados  = "Todos"
+	var estado		  = "Todos"
+	var tipo_movi	  = "Todos"
+		
+	if(vl_tipo_fecha == 0)
+	{
+		fecha_inicial = utils.dateFormat(vl_fec_ini, 'MM-yyyy')
+		fecha_final   = utils.dateFormat(vl_fec_fin, 'MM-yyyy')
+	}
+	else
+	{
+		fecha_inicial = utils.dateFormat(vl_fec_ini, 'dd-MM-yyyy')
+		fecha_final   = utils.dateFormat(vl_fec_fin, 'dd-MM-yyyy')
+	}
+	
+	if(vl_matriculado!=null)
+	{
+		matriculados = application.getValueListDisplayValue('matriculados',mat_id)
+	}
+	
+	if(vl_estado!=null)
+	{
+		estado = application.getValueListDisplayValue('estado_del_movimiento_sel',mov_estado)
+	}
+	
+	if(vl_tipo_movim!=null)
+	{
+		tipo_movi = application.getValueListDisplayValue('tipo_de_movimiento',mov_tipo_de_movimiento)
+	}
+	
+	plugins.jasperPluginRMI.runReport(foundset,'mat_movimientos.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pfecha_inicial:fecha_inicial, pfecha_final:fecha_final, pmatriculado:matriculados, pestado:estado, ptipo_movimiento:tipo_movi})
+}

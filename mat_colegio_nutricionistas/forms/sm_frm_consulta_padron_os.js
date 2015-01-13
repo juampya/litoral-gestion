@@ -1,68 +1,70 @@
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"3C76C381-0DCE-4C75-AD28-E6BD81A714ED",variableType:4}
+ * @properties={typeid:35,uuid:"91A97D1A-2DF9-4359-A9DD-83BB75C81561",variableType:4}
  */
 var vl_estado_financiero = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"FEC52D1F-04B5-44EC-934D-C609AF8EE091",variableType:4}
+ * @properties={typeid:35,uuid:"A04708F3-41B7-4AE4-8269-2329420397AF",variableType:4}
  */
 var vl_cant_de_baja = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"4E928519-975A-4AF6-BF19-F454F8F7A550",variableType:4}
+ * @properties={typeid:35,uuid:"B8832536-D228-44BC-AE8B-4D299EB9957D",variableType:4}
  */
 var vl_cant_pendientes = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"666D6F5C-8965-420A-9058-4D5411985BD9",variableType:4}
+ * @properties={typeid:35,uuid:"63B6E3C7-6671-44F6-849F-DCA394338965",variableType:4}
  */
 var vl_cant_activos = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"8F5FEB0A-43BE-4933-9F92-D5C9E41F9547",variableType:4}
+ * @properties={typeid:35,uuid:"0EDA771E-154B-4DBB-A57B-4F6501A6A4E4",variableType:4}
  */
 var vl_cant_web_regis = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"CFB2E471-3440-4A5F-868B-21B3250B25E4",variableType:4}
+ * @properties={typeid:35,uuid:"ACDDD876-587D-455B-B125-3164E3871812",variableType:4}
  */
 var vl_cant_inactivos = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"16BB5741-E178-4D56-A68A-3203BD7344D9",variableType:4}
+ * @properties={typeid:35,uuid:"0E2FA4A3-8E0A-4B09-AA60-7A0B3D73355F",variableType:4}
  */
-var vl_estado = null
+var vl_estado = null;
+
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"61FE3B7B-97D2-4B65-A7B7-F66E7B535453",variableType:4}
+ * @properties={typeid:35,uuid:"BD2DD7F6-0593-4B6F-B1AA-03D5B191D588",variableType:4}
  */
-var vl_matriculado = null
+var vl_matriculado = null;
+
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"235B8210-8CDF-49A8-9BA2-F8C6B2D689C4",variableType:4}
+ * @properties={typeid:35,uuid:"02A2605A-8722-4DFB-94F5-3E6098121F7E",variableType:4}
  */
-var vl_documento = null
+var vl_documento = null;
 
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"35C2E4C7-BD63-4AFC-B1F3-6BF8C64F3A00"}
+ * @properties={typeid:35,uuid:"BE869771-8999-49FC-94E4-DE71DB3A99E3"}
  */
 var vl_frm_anterior = null;
 
@@ -70,7 +72,7 @@ var vl_frm_anterior = null;
  * @param {Object} firstShow
  * @param {Object} event
  *
- * @properties={typeid:24,uuid:"7D06E01B-80F1-44FE-97C5-EBC0BFA5E403"}
+ * @properties={typeid:24,uuid:"1DE50F6D-51CB-456B-A8AB-C5EE23732FDE"}
  */
 function onShow(firstShow, event) 
 {
@@ -85,7 +87,7 @@ function onShow(firstShow, event)
 /**
  * @param {Object} event
  *
- * @properties={typeid:24,uuid:"7156CCDB-1EAD-4FD6-8A76-DFEB5E9E8BED"}
+ * @properties={typeid:24,uuid:"0EE8A1BF-52CD-4B6F-B8F1-166DEE6606A8"}
  */
 function onActionVolver(event) 
 {
@@ -96,7 +98,7 @@ function onActionVolver(event)
 /**
  * @param {Object} event
  *
- * @properties={typeid:24,uuid:"861E7797-87FA-4ECF-A012-75B03088668B"}
+ * @properties={typeid:24,uuid:"B24781BF-D5F4-4B6E-87E6-E8D04F5EE233"}
  */
 function onActionNuevo(event) 
 {
@@ -108,7 +110,7 @@ function onActionNuevo(event)
 /**
  * @param {Object} event
  *
- * @properties={typeid:24,uuid:"EC0C777D-191C-4CA2-816F-F71A35E083CA"}
+ * @properties={typeid:24,uuid:"4DC6B568-C42D-4D6F-8055-C9AF299961F1"}
  * @AllowToRunInFind
  */
 function onActionRefrescar(event) 
@@ -124,7 +126,7 @@ function onActionRefrescar(event)
 /**
  * @param {Object} event
  *
- * @properties={typeid:24,uuid:"57A47ECA-BD7B-4A47-93A5-51A7F97B7721"}
+ * @properties={typeid:24,uuid:"EA3C4083-C622-41B2-B9E8-E22EADFAF2F8"}
  */
 function onActionDetalle(event) 
 {
@@ -138,7 +140,7 @@ function onActionDetalle(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"E1F7AC68-1585-4A3B-9CE7-1CEA92D0759B"}
+ * @properties={typeid:24,uuid:"C1BF8E84-C2AA-4A20-95F2-D4088D490067"}
  */
 function onActionCopiar(event) 
 {
@@ -148,15 +150,15 @@ function onActionCopiar(event)
 }
 
 /**
- * @properties={typeid:24,uuid:"8225D3AB-AC12-40BF-B7D4-0E1BC8952225"}
+ * @properties={typeid:24,uuid:"3EC81A11-E7DA-40FD-8C2D-ED58D8036DFD"}
  * @AllowToRunInFind
  */
 function filtrar()
 {
 	controller.find()
-	mat_id = vl_matriculado
-	mat_dni = vl_documento
-	mat_estado = vl_estado
+	mat_rel_mat_obsoc_to_mat_matriculados.mat_id = vl_matriculado
+	mat_rel_mat_obsoc_to_mat_matriculados.mat_dni = vl_documento
+	mat_rel_mat_obsoc_to_mat_matriculados.mat_estado = vl_estado
 	controller.search()
 	
 	vl_cant_activos    = 0
@@ -171,27 +173,27 @@ function filtrar()
 		/**@type {JSRecord}*/
 		var record = foundset.getRecord(i)
 		
-		if(record.mat_estado == 1)
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado == 1)
 		{
 			vl_cant_activos++ 
 		}
 		
-		if(record.mat_web_login != null)
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_web_login != null)
 		{
 			vl_cant_web_regis++ 
 		}
 		
-		if(record.mat_estado == 0)
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado == 0)
 		{
 			vl_cant_inactivos++ 
 		}
 		
-		if(record.mat_estado == 2)
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado == 2)
 		{
 			vl_cant_de_baja++ 
 		}
 		
-		if(record.mat_estado == 3)
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado == 3)
 		{
 			vl_cant_pendientes++ 
 		}
@@ -199,7 +201,7 @@ function filtrar()
 }
 
 /**
- * @properties={typeid:24,uuid:"D1DA07AB-0717-498F-BC59-279264AED174"}
+ * @properties={typeid:24,uuid:"5F4F432E-2F32-4DE9-8787-AC89A7186706"}
  * @AllowToRunInFind
  */
 function filtro_estado_financiero()
@@ -213,14 +215,14 @@ function filtro_estado_financiero()
 		switch (vl_estado_financiero) 
 		{
 			case 1:
-				if(record.calc_semaforo=="media:///green_light.png")
+				if(record.mat_rel_mat_obsoc_to_mat_matriculados.calc_semaforo=="media:///green_light.png")
 				{
 					foundset.omitRecord(i)
 					i--
 				}
 				break;
 			case 2:
-				if(record.calc_semaforo=="media:///red_light.png")
+				if(record.mat_rel_mat_obsoc_to_mat_matriculados.calc_semaforo=="media:///red_light.png")
 				{
 					foundset.omitRecord(i)
 					i--
@@ -232,12 +234,13 @@ function filtro_estado_financiero()
 	}
 	filtrar()
 }
+
 /**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"2E473B4A-293B-4179-A5CD-BA3C560371D1"}
+ * @properties={typeid:24,uuid:"0550572B-9DD6-460A-AEA8-FD7EBE6637C4"}
  */
 function onActionExportarExcel(event) 
 {
@@ -266,14 +269,14 @@ function onActionExportarExcel(event)
 		{
 			var myRecord = foundset.getRecord(i)
 				cuerpo = cuerpo + '<tr>' +
-				'<td align="right">'  + myRecord.mat_nro_matricula + '</td>' +
-				'<td align="left">'   + myRecord.mat_nombre + '</td>' +
-				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_circunscripcion) + '</td>' +
-				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_estado) + '</td>' +
-				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'
-				'<td align="center">' + mat_e_mail + '</td>' +
-				'<td align="left">'   + mat_direccion_real+ '</td>' +
-				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'
+				'<td align="right">'  + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_nro_matricula + '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_nombre + '</td>' +
+				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_circunscripcion) + '</td>' +
+				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado) + '</td>' +
+				'<td align="center">' + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_telefono_fijo+ '</td>'
+				'<td align="center">' + mat_rel_mat_obsoc_to_mat_matriculados.mat_e_mail + '</td>' +
+				'<td align="left">'   + mat_rel_mat_obsoc_to_mat_matriculados.mat_direccion_real+ '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
 	}
@@ -324,7 +327,7 @@ function onActionExportarExcel(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"5FB488EE-ADE6-43AF-BCED-CD750C463F5C"}
+ * @properties={typeid:24,uuid:"78FBC3C5-5136-4736-8649-9705DFD0E3DA"}
  */
 function onActionImprimir(event) 
 {

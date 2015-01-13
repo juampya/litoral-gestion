@@ -250,7 +250,6 @@ function onActionSubmenu(event)
 		universidades()
 		forms[globals.mx_modulo_inicio][myRecord.menu_funcion]
 	}
-	
 }
 
 /**
@@ -261,4 +260,14 @@ function Consultorios()
 	scopes.globals.SacarMenu()
 	forms.sm_frm_consultorios.vl_frm_anterior = controller.getName()
 	forms.sm_frm_consultorios.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"40206091-6E16-4E38-8F95-660D55452E56"}
+ */
+function PadronOS()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_consulta_padron_os.vl_frm_anterior = controller.getName()
+	forms.sm_frm_consulta_padron_os.controller.show()
 }

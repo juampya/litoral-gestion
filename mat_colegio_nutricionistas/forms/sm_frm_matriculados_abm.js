@@ -270,7 +270,7 @@ function onActionExportarExcel(event)
 				'<td align="left">'   + myRecord.mat_nombre + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_circunscripcion) + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_estado) + '</td>' +
-				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'
+				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'+
 				'<td align="center">' + mat_e_mail + '</td>' +
 				'<td align="left">'   + mat_direccion_real+ '</td>' +
 				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'

@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/mat_consultorios",
+items:[
+{
+dataProviderIDToAggregate:"consultorio_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"B2045C00-179D-47C7-BEFD-4015D7F643B5"
+}
+],
+typeid:39,
+uuid:"53FD0757-6223-4AED-BD24-E105A114D4D5"

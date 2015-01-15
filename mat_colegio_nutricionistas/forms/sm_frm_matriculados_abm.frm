@@ -202,7 +202,7 @@ location:"1146,167",
 name:"aggr_cant_reg_labelc",
 size:"36,20",
 styleClass:"table_label",
-text:"EDC",
+text:"EF",
 typeid:7,
 uuid:"72474F4F-DC14-4106-A561-F3A9D5743172"
 },

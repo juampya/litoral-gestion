@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"AE65590D-9A29-47EC-88D2-9A7EF3E6960C",variableType:4}
+ */
+var vl_os = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"91A97D1A-2DF9-4359-A9DD-83BB75C81561",variableType:4}
  */
 var vl_estado_financiero = null;
@@ -156,9 +163,10 @@ function onActionCopiar(event)
 function filtrar()
 {
 	controller.find()
-	mat_rel_mat_obsoc_to_mat_matriculados.mat_id = vl_matriculado
-	mat_rel_mat_obsoc_to_mat_matriculados.mat_dni = vl_documento
-	mat_rel_mat_obsoc_to_mat_matriculados.mat_estado = vl_estado
+	if(vl_matriculado!=null)mat_rel_mat_obsoc_to_mat_matriculados.mat_id = vl_matriculado
+	if(vl_documento!=null)mat_rel_mat_obsoc_to_mat_matriculados.mat_dni = vl_documento
+	if(vl_estado!=null)mat_rel_mat_obsoc_to_mat_matriculados.mat_estado = vl_estado
+	if(vl_os!=null)obsoc_id = vl_os 
 	controller.search()
 	
 	vl_cant_activos    = 0

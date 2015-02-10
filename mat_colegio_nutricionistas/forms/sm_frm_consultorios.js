@@ -285,6 +285,7 @@ function onActionExportarExcel(event)
  *
  * @properties={typeid:24,uuid:"04501E7E-B571-420D-B489-39CB8EB05A28"}
  */
-function onActionImprimir(event) {
-	// TODO Auto-generated method stub
+function onActionImprimir(event) 
+{
+	
 }

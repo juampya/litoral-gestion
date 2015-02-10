@@ -140,11 +140,12 @@ function onActionImprimir(event)
 		case 1:
 		break;
 		case 2:
+			nom_reporte = 'mat_certi_matricula.jasper'
 		break;
 		case 3:
+			nom_reporte = 'mat_certi_etica.jasper'
 		break;
 		case 4:
-			nom_reporte = 'mat_certi_baja.jasper'
 		break;
 		case 5:
 		break;
@@ -157,11 +158,13 @@ function onActionImprimir(event)
 		case 9:
 		break;
 		case 10:
+			nom_reporte = 'mat_certi_baja.jasper'
 		break;
-		case 11:
+		case 12:
+			nom_reporte = 'mat_certi_libre_deuda.jasper'
 		break;
 		default:
 		break;
 	}
-	plugins.jasperPluginRMI.runReport('Sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{psol_id:sol_id})
+	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id})
 }

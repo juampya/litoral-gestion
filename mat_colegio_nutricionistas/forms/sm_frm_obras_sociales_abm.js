@@ -29,7 +29,7 @@ var vl_frm_anterior = null;
 function onActionAceptar(event) 
 {
 	databaseManager.saveData(foundset)
-	application.getWindow("titulos").hide()
+	application.getWindow("obra_social").hide()
 }
 
 /**
@@ -42,7 +42,7 @@ function onActionAceptar(event)
 function onActionCancelar(event) 
 {
 	databaseManager.revertEditedRecords()
-	application.getWindow("titulos").hide()
+	application.getWindow("obra_social").hide()
 }
 
 /**
@@ -82,4 +82,22 @@ function onHide(event)
 {
 	databaseManager.revertEditedRecords()
 	return true
+}
+
+/**
+ * @properties={typeid:24,uuid:"826687F3-4A94-41BD-9132-15A1ED41451E"}
+ */
+function onActionBorrar() 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "Desea Borrar el Registro.", 'info', controller.getName(), 'No',null,"Si","borrarRegistro", null, null, null, null) 
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"21882E86-7857-4F94-AECC-152888148FDE"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+	application.getWindow("obra_social").hide()
 }

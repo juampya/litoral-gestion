@@ -134,28 +134,15 @@ function CambiaTipoSolicitud(oldValue, newValue, event)
 function onActionImprimir(event) 
 {
 	var nom_reporte = null
-	
+	var varm_ente   = null
 	switch (sol_id) 
 	{
-		case 1:
-		break;
 		case 2:
 			nom_reporte = 'mat_certi_matricula.jasper'
+			varm_ente   = rel_observasiones 	
 		break;
 		case 3:
 			nom_reporte = 'mat_certi_etica.jasper'
-		break;
-		case 4:
-		break;
-		case 5:
-		break;
-		case 6:
-		break;
-		case 7:
-		break;
-		case 8:
-		break;
-		case 9:
 		break;
 		case 10:
 			nom_reporte = 'mat_certi_baja.jasper'
@@ -163,8 +150,23 @@ function onActionImprimir(event)
 		case 12:
 			nom_reporte = 'mat_certi_libre_deuda.jasper'
 		break;
-		default:
-		break;
 	}
-	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id})
+	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente})
+}
+
+/**
+ * @properties={typeid:24,uuid:"52595CFB-3209-4CC8-930E-F78CC592D649"}
+ */
+function onActionBorrar() 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "Desea Borrar el Registro.", 'info', controller.getName(), 'No',null,"Si","borrarRegistro", null, null, null, null) 
+}
+
+/**
+ * @properties={typeid:24,uuid:"E28F523C-B29C-4944-A7D8-B9AC892AB4AB"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+	application.getWindow("consulta_solicitudes").hide()
 }

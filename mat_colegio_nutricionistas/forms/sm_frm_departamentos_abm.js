@@ -29,7 +29,7 @@ var vl_frm_anterior = null;
 function onActionAceptar(event) 
 {
 	databaseManager.saveData(foundset)
-	application.getWindow("titulos").hide()
+	application.getWindow("departamentos").hide()
 }
 
 /**
@@ -42,7 +42,7 @@ function onActionAceptar(event)
 function onActionCancelar(event) 
 {
 	databaseManager.revertEditedRecords()
-	application.getWindow("titulos").hide()
+	application.getWindow("departamentos").hide()
 }
 
 /**
@@ -82,4 +82,25 @@ function onHide(event)
 {
 	databaseManager.revertEditedRecords()
 	return true
+}
+
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"1323C51F-F0D1-44A2-80B3-9DB69F8AB31C"}
+ */
+function onActionBorrar(event) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "Desea Borrar el Registro.", 'info', controller.getName(), 'No',null,"Si","borrarRegistro", null, null, null, null) 
+}
+
+/**
+ * @properties={typeid:24,uuid:"106A108D-F725-4DC1-89A6-A2987ADD1AD4"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+	application.getWindow("departamentos").hide()
 }

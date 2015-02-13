@@ -1,5 +1,6 @@
 customValues:"No Habilitado|0\r
-Habilitado|1",
+Habilitado|1\r
+Renovación|2",
 name:"consultorios_estados",
 returnDataProviders:1,
 showDataProviders:1,

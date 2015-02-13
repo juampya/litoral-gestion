@@ -73,4 +73,40 @@ function onActionImprimir_CertMatricula()
 	plugins.jasperPluginRMI.runReport('sistemas','mat_certi_matricula.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:forms.sm_frm_matriculados_tabpanel.mat_id})
 }
 
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"E525683E-1DBA-4BC9-B896-01A1409FBE80"}
+ */
+function onActionImprimir(event) 
+{
+	var nom_reporte = null
+	var varm_ente   = null
+	switch (sol_id) 
+	{
+		case 2:
+			nom_reporte = 'mat_certi_matricula.jasper'
+			varm_ente   = rel_observasiones 	
+		break;
+		case 3:
+			nom_reporte = 'mat_certi_etica.jasper'
+		break;
+		case 10:
+			nom_reporte = 'mat_certi_baja.jasper'
+		break;
+		case 12:
+			nom_reporte = 'mat_certi_libre_deuda.jasper'
+		break;
+		default:
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Este tipo de Solicitud no se imprime.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+			return
+		break
+	}
+	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente})
+}
+
+
+
+
 

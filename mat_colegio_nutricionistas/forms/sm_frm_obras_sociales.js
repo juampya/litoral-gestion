@@ -28,7 +28,7 @@ function onActionNuevo(event)
 	forms.sm_frm_obras_sociales_abm.vl_titulo = "Nuevo"
 	forms.sm_frm_obras_sociales_abm.controller.loadRecords(obsoc_id)
 	
-	var win = application.createWindow("titulos", JSWindow.MODAL_DIALOG);
+	var win = application.createWindow("obra_social", JSWindow.MODAL_DIALOG);
 		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
 		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
 		win.resizable = false
@@ -58,7 +58,7 @@ function onActionDetalle(event)
 	forms.sm_frm_obras_sociales_abm.vl_titulo = "Modifica"
 	forms.sm_frm_obras_sociales_abm.controller.loadRecords(obsoc_id)
 	
-	var win = application.createWindow("titulos", JSWindow.MODAL_DIALOG);
+	var win = application.createWindow("obra_social", JSWindow.MODAL_DIALOG);
 		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
 		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
 		win.resizable = false

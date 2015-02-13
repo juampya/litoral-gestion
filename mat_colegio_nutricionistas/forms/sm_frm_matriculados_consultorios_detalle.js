@@ -108,3 +108,34 @@ function borrarRegistro()
 	controller.deleteRecord()
 	application.getWindow("mat_consultorios").hide()
 }
+
+/**
+ * Handle changed data.
+ *
+ * @param {String} oldValue old value
+ * @param {String} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"8ABD061B-2EA6-4CF0-97BD-98B4A0CE93F5"}
+ * @AllowToRunInFind
+ */
+function onDataChangePrincipal(oldValue, newValue, event) 
+{
+	if(newValue==1)
+	{
+		/** @type {JSFoundSet<db:/sistemas/mat_consultorios>} */
+		var fs_consultorios = databaseManager.getFoundSet('sistemas','mat_consultorios')
+			fs_consultorios.find()
+			fs_consultorios.mat_id = forms.sm_frm_matriculados_tabpanel.mat_id
+			fs_consultorios.consultorio_principal = 1
+		var cant = fs_consultorios.search()
+		if(cant > 0)
+		{
+			globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado ya posee un consultorio como Principal.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+			consultorio_principal = 0
+		}
+	}	
+	return true
+}

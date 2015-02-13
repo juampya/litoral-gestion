@@ -67,7 +67,6 @@ function validaDatos()
 function onActionBorrar(event) 
 {
 	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "Desea Borrar el Registro", 'info', controller.getName(), 'No',null,"Si","borrarRegistro", null, null, null, null) 
-
 }
 
 /**

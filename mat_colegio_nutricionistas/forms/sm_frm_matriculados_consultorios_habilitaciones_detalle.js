@@ -71,6 +71,7 @@ function onShow(firstShow, event)
 		consultorio_id = vl_consultorio_id
 		rel_estado = 1
 		elements.btn_borrar.visible = false
+		rel_anios_habilitacion = scopes.globals.mat_configuraciones_to_mat_configuraciones.conf_dura_habi_consultorio
 	}
 	else
 	{

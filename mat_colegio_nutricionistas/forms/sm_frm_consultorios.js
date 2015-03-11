@@ -113,18 +113,25 @@ function filtro_estado()
 		switch (vl_estado) 
 		{
 			case 0:
-				if(record.calc_estado==1)
+				if(record.calc_estado==1 || record.calc_estado==2)
 				{
 					foundset.omitRecord(i)
 					i--
 				}	
 			break;
 			case 1:
-				if(record.calc_estado==0)
+				if(record.calc_estado==0 || record.calc_estado==2)
 				{
 					foundset.omitRecord(i)
 					i--
 				}
+			break;
+			case 2:
+			if(record.calc_estado==0 || record.calc_estado==1)
+			{
+				foundset.omitRecord(i)
+				i--
+			}
 			break;
 		}
 	}

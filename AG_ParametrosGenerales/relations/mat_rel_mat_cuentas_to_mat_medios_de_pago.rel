@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_medios_de_pago",
+items:[
+{foreignColumnName:"medios_pago_id",primaryDataProviderID:"medio_pago_id",typeid:23,uuid:"3946CAB4-CADF-4188-A2F6-DFF39A57238C"}
+],
+joinType:1,
+name:"mat_rel_mat_cuentas_to_mat_medios_de_pago",
+primaryDataSource:"db:/sistemas/mat_rel_mat_cuentas",
+typeid:22,
+uuid:"67C7F61C-4BF6-4438-9FB3-460C3D486242"

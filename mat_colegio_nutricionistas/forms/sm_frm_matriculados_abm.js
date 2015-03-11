@@ -254,8 +254,11 @@ function onActionExportarExcel(event)
 					  '<td width="100">Estado</td>'+
 					  '<td width="350">Teléfono</td>'+
 					  '<td width="100">Mail</td>'+
-					  '<td width="100">Fecha Matriculación</td>'+
 					  '<td width="100">Dirección</td>'+
+					  '<td width="100">Localidad</td>'+
+					  '<td width="100">Departamento</td>'+
+					  '<td width="100">Fecha Matriculación</td>'+
+					  '<td width="100">Fecha de Baja</td>'+
 					  '</tr>' +
 					  '</thead>' +
 					  '<tbody>' 
@@ -265,15 +268,24 @@ function onActionExportarExcel(event)
 		for(var i=1; i<=foundset.getSize(); i++)
 		{
 			var myRecord = foundset.getRecord(i)
+			var temp_departamento = ""
+			if(utils.hasRecords(myRecord,'mat_matriculados_to_localidades_real.localidades_to_departamentos'))
+				{
+					temp_departamento = myRecord.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion
+				}
+			
 				cuerpo = cuerpo + '<tr>' +
 				'<td align="right">'  + myRecord.mat_nro_matricula + '</td>' +
 				'<td align="left">'   + myRecord.mat_nombre + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_circunscripcion) + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_estado) + '</td>' +
 				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'+
-				'<td align="center">' + mat_e_mail + '</td>' +
-				'<td align="left">'   + mat_direccion_real+ '</td>' +
-				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'
+				'<td align="center">' + myRecord.mat_e_mail + '</td>' +
+				'<td align="left">'   + myRecord.mat_direccion_real+ '</td>' +
+				'<td align="left">'   + application.getValueListDisplayValue('localidades',myRecord.mat_codigo_postal_real)+ '</td>' +
+				'<td align="left">'   + temp_departamento + '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_baja),'dd/MM/yyyy') + '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
 	}

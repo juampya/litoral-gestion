@@ -34,7 +34,7 @@ function calc_estado()
 	if(utils.hasRecords(mat_consultorios_to_mat_rel_mat_consu))
 	{
 		mat_consultorios_to_mat_rel_mat_consu.find()
-		mat_consultorios_to_mat_rel_mat_consu.rel_estado = 1
+		mat_consultorios_to_mat_rel_mat_consu.rel_estado = "1...2"
 		mat_consultorios_to_mat_rel_mat_consu.search()
 		
 		if(mat_consultorios_to_mat_rel_mat_consu.getSize()==1)
@@ -43,7 +43,14 @@ function calc_estado()
 		}
 		else
 		{
-			return 0
+			if(mat_consultorios_to_mat_rel_mat_consu.getSize()>1)
+			{
+				return 2
+			}
+			else
+			{
+				return 0
+			}
 		}
 	}	
 	else

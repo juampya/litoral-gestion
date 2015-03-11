@@ -271,3 +271,13 @@ function PadronOS()
 	forms.sm_frm_consulta_padron_os.vl_frm_anterior = controller.getName()
 	forms.sm_frm_consulta_padron_os.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"A91CA235-8A6E-4140-B842-6D6E595E361F"}
+ */
+function GeneraArchivoDeuda()
+{
+	scopes.globals.SacarMenu()
+	forms.mat_genera_archivos_deudas.vl_frm_anterior = controller.getName()
+	forms.mat_genera_archivos_deudas.controller.show()
+}

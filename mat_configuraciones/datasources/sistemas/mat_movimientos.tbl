@@ -14,6 +14,13 @@ typeid:40,
 uuid:"5BD95E02-CBF8-44A3-AF25-C3402A96A5A3"
 },
 {
+dataProviderIDToAggregate:"mov_importe_2vto",
+name:"ag_importe_vto2",
+type:4,
+typeid:40,
+uuid:"641C1219-E80A-4B43-BAC8-61DBB028FC94"
+},
+{
 dataProviderIDToAggregate:"mov_importe",
 name:"ag_importe",
 type:4,

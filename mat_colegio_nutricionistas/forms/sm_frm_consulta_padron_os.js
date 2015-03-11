@@ -265,8 +265,17 @@ function onActionExportarExcel(event)
 					  '<td width="100">Estado</td>'+
 					  '<td width="350">Teléfono</td>'+
 					  '<td width="100">Mail</td>'+
-					  '<td width="100">Fecha Matriculación</td>'+
 					  '<td width="100">Dirección</td>'+
+					  '<td width="100">Fecha Matriculación</td>'+
+					  '<td width="100">Fecha de Baja</td>'+
+					  '<td width="100">Medio de Pago</td>'+
+					  '<td width="100">Banco</td>'+
+					  '<td width="100">Sucursal</td>'+
+					  '<td width="100">Nro de Cuenta</td>'+
+					  '<td width="100">Tipo de Cuenta</td>'+
+					  '<td width="100">CBU</td>'+
+					  '<td width="100">Titular</td>'+
+					  '<td width="100">CUIT del Titular</td>'+
 					  '</tr>' +
 					  '</thead>' +
 					  '<tbody>' 
@@ -281,10 +290,19 @@ function onActionExportarExcel(event)
 				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_nombre + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_circunscripcion) + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado) + '</td>' +
-				'<td align="center">' + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_telefono_fijo+ '</td>'
-				'<td align="center">' + mat_rel_mat_obsoc_to_mat_matriculados.mat_e_mail + '</td>' +
-				'<td align="left">'   + mat_rel_mat_obsoc_to_mat_matriculados.mat_direccion_real+ '</td>' +
-				'<td align="center">' + utils.dateFormat((myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'
+				'<td align="center">' + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_telefono_fijo+ '</td>'+
+				'<td align="center">' + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_e_mail + '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_direccion_real+ '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'+
+				'<td align="center">' + utils.dateFormat((myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_fecha_baja),'dd/MM/yyyy') + '</td>'+
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.mat_rel_mat_cuentas_to_mat_medios_de_pago.medios_pago_descripcion+ '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.mat_rel_mat_cuentas_to_foa_bancos.banco_nombre+ '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.mat_rel_mat_cuentas_to_foa_bancos_sucursales.banco_suc_nombre+ '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_nro_cuenta+ '</td>' +
+				'<td align="left">'   +  application.getValueListDisplayValue('tipo_cuenta',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_tipo_cuenta)+ '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_cbu+ '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_titular+ '</td>' +
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_cuit_titular+ '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
 	}
@@ -292,7 +310,7 @@ function onActionExportarExcel(event)
 	/**@type {String} */
 	var fileName = 'PadronMatriculados.xls'
 	if(application.getApplicationType()==APPLICATION_TYPES.SMART_CLIENT){
-		fileName = plugins.file.showFileSaveDialog('PadronMatriculados.xls')
+		fileName = plugins.file.showFileSaveDialog('PadronMatriculadosOS.xls')
 	}
 
 	    

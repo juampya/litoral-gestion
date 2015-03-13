@@ -260,22 +260,22 @@ function onActionExportarExcel(event)
 	                  '<thead>' +
 	                  '<tr>'+
 					  '<td width="100">Nº Matrícula</td>'+
-					  '<td width="100">Nombre</td>'+
-					  '<td width="100">Circunscripción</td>'+
+					  '<td width="400">Nombre</td>'+
+					  '<td width="200">Circunscripción</td>'+
 					  '<td width="100">Estado</td>'+
-					  '<td width="350">Teléfono</td>'+
-					  '<td width="100">Mail</td>'+
-					  '<td width="100">Dirección</td>'+
+					  '<td width="200">Teléfono</td>'+
+					  '<td width="300">Mail</td>'+
+					  '<td width="400">Dirección</td>'+
 					  '<td width="100">Fecha Matriculación</td>'+
 					  '<td width="100">Fecha de Baja</td>'+
-					  '<td width="100">Medio de Pago</td>'+
-					  '<td width="100">Banco</td>'+
-					  '<td width="100">Sucursal</td>'+
-					  '<td width="100">Nro de Cuenta</td>'+
-					  '<td width="100">Tipo de Cuenta</td>'+
-					  '<td width="100">CBU</td>'+
-					  '<td width="100">Titular</td>'+
-					  '<td width="100">CUIT del Titular</td>'+
+					  '<td width="200">Medio de Pago</td>'+
+					  '<td width="400">Banco</td>'+
+					  '<td width="400">Sucursal</td>'+
+					  '<td width="200">Nro de Cuenta</td>'+
+					  '<td width="200">Tipo de Cuenta</td>'+
+					  '<td width="200">CBU</td>'+
+					  '<td width="300">Titular</td>'+
+					  '<td width="200">CUIT del Titular</td>'+
 					  '</tr>' +
 					  '</thead>' +
 					  '<tbody>' 

@@ -282,10 +282,32 @@ function onActionExportarExcel(event)
 
 	if(foundset.getSize() > 0)
 	{
+		var tmp_medio_de_pago 	= "Sin Medio de Pago."
+		var tmp_banco 			= "Sin Banco."
+		var tmp_banco_sucursal 	= "Sin Sucursal."
+		var tmp_cuenta_nro 		= "Sin Cuenta."
+		var tmp_cuenta_tipo 	= "Sin Tipo de Cuenta."
+		var tmp_cbu 			= "Sin C.B.U."
+		var tmp_titular 		= "Sin Titular."
+		var tmp_titular_cuit 	= "Sin CUIT del Titular."
+			
 		for(var i=1; i<=foundset.getSize(); i++)
 		{
 			var myRecord = foundset.getRecord(i)
-				cuerpo = cuerpo + '<tr>' +
+			
+			if(utils.hasRecords(myRecord,'mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas'))
+			{
+				tmp_medio_de_pago 	= application.getValueListDisplayValue('mat_medios_de_pago',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.medio_pago_id)
+				tmp_banco 			= application.getValueListDisplayValue('bancos',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.banco_id)
+				tmp_banco_sucursal 	= application.getValueListDisplayValue('bancos_sucursales',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.banco_suc_id)
+				tmp_cuenta_nro 		= myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_nro_cuenta
+				tmp_cuenta_tipo 	= application.getValueListDisplayValue('tipo_cuenta',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_tipo_cuenta)
+				tmp_cbu 			= myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_cbu
+				tmp_titular 		= myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_titular
+				tmp_titular_cuit 	= myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_cuit_titular
+			}
+				
+			cuerpo = cuerpo + '<tr>' +
 				'<td align="right">'  + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_nro_matricula + '</td>' +
 				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_nombre + '</td>' +
 				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_circunscripcion) + '</td>' +
@@ -295,14 +317,14 @@ function onActionExportarExcel(event)
 				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_direccion_real+ '</td>' +
 				'<td align="center">' + utils.dateFormat((myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>'+
 				'<td align="center">' + utils.dateFormat((myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_fecha_baja),'dd/MM/yyyy') + '</td>'+
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.mat_rel_mat_cuentas_to_mat_medios_de_pago.medios_pago_descripcion+ '</td>' +
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.mat_rel_mat_cuentas_to_foa_bancos.banco_nombre+ '</td>' +
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.mat_rel_mat_cuentas_to_foa_bancos_sucursales.banco_suc_nombre+ '</td>' +
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_nro_cuenta+ '</td>' +
-				'<td align="left">'   +  application.getValueListDisplayValue('tipo_cuenta',myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_tipo_cuenta)+ '</td>' +
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_cbu+ '</td>' +
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_titular+ '</td>' +
-				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_rel_mat_cuentas.rel_cuit_titular+ '</td>'
+				'<td align="left">'   + tmp_medio_de_pago+ '</td>' +
+				'<td align="left">'   + tmp_banco+ '</td>' +
+				'<td align="left">'   + tmp_banco_sucursal+ '</td>' +
+				'<td align="left">'   + tmp_cuenta_nro+ '</td>' +
+				'<td align="left">'   + tmp_cuenta_tipo+ '</td>' +
+				'<td align="left">'   + tmp_cbu+ '</td>' +
+				'<td align="left">'   + tmp_titular+ '</td>' +
+				'<td align="left">'   + tmp_titular_cuit+ '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
 	}

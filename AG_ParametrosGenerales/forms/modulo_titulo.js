@@ -40,7 +40,7 @@ function onActionSalir(event)
 	}
 	else
 	{
-		//application.closeSolution('LitoralGestion','InicializaArgento')
-		application.exit()
+		application.closeSolution('LitoralGestion','InicializaArgento')
+		//application.exit()
 	}
 }

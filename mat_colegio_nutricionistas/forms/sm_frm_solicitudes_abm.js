@@ -83,3 +83,21 @@ function onHide(event)
 	databaseManager.revertEditedRecords()
 	return true
 }
+
+
+/**
+ * @properties={typeid:24,uuid:"C3BACDBB-F2D0-4873-B252-8FCF7CFB032E"}
+ */
+function onActionBorrar() 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "Desea Borrar el Registro.", 'info', controller.getName(), 'No',null,"Si","borrarRegistro", null, null, null, null) 
+}
+
+/**
+ * @properties={typeid:24,uuid:"A9B3DF41-C3C8-4042-974F-2CFFBC5CF5E0"}
+ */
+function borrarRegistro()
+{
+	controller.deleteRecord()
+	application.getWindow("solicitudes").hide()
+}

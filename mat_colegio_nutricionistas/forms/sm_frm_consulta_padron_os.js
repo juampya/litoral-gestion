@@ -276,6 +276,7 @@ function onActionExportarExcel(event)
 					  '<td width="200">CBU</td>'+
 					  '<td width="300">Titular</td>'+
 					  '<td width="200">CUIT del Titular</td>'+
+					  '<td width="200">Obra Social</td>'+
 					  '</tr>' +
 					  '</thead>' +
 					  '<tbody>' 
@@ -324,7 +325,8 @@ function onActionExportarExcel(event)
 				'<td align="left">'   + tmp_cuenta_tipo+ '</td>' +
 				'<td align="left">'   + tmp_cbu+ '</td>' +
 				'<td align="left">'   + tmp_titular+ '</td>' +
-				'<td align="left">'   + tmp_titular_cuit+ '</td>'
+				'<td align="left">'   + tmp_titular_cuit+ '</td>'+
+				'<td align="left">'   + myRecord.mat_rel_mat_obsoc_to_obra_social.obsoc_nombre+ '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
 	}

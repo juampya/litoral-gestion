@@ -1,4 +1,25 @@
 /**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"96AC9648-2697-40F6-8A2E-A398046E9A4F",variableType:93}
+ */
+var vl_fec_fin = null;
+
+/**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"2D754A27-00FA-4554-90A3-0AAB2DB3E2DE",variableType:93}
+ */
+var vl_fec_ini = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"7B5154D2-54AE-4EB9-A59C-BDF07206F210",variableType:4}
+ */
+var vl_tipo_fecha = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"3C76C381-0DCE-4C75-AD28-E6BD81A714ED",variableType:4}
@@ -117,6 +138,7 @@ function onActionRefrescar(event)
 	vl_estado 			 = null
 	vl_matriculado 		 = null
 	vl_estado_financiero = 0
+	vl_tipo_fecha		 = null
 	controller.loadAllRecords()
 	filtrar()
 }
@@ -157,6 +179,18 @@ function filtrar()
 	mat_id = vl_matriculado
 	mat_dni = vl_documento
 	mat_estado = vl_estado
+	switch (vl_tipo_fecha) 
+	{
+		case 0:
+			mat_fecha_matriculacion = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+		break;
+		case 1:
+			mat_fecha_graduacion = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+		break;
+		case 2:
+			mat_fecha_baja = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+		break;
+	}
 	controller.search()
 	
 	vl_cant_activos    = 0
@@ -249,14 +283,14 @@ function onActionExportarExcel(event)
 	                  '<thead>' +
 	                  '<tr>'+
 					  '<td width="100">Nº Matrícula</td>'+
-					  '<td width="100">Nombre</td>'+
-					  '<td width="100">Circunscripción</td>'+
+					  '<td width="300">Nombre</td>'+
+					  '<td width="150">Circunscripción</td>'+
 					  '<td width="100">Estado</td>'+
-					  '<td width="350">Teléfono</td>'+
-					  '<td width="100">Mail</td>'+
-					  '<td width="100">Dirección</td>'+
-					  '<td width="100">Localidad</td>'+
-					  '<td width="100">Departamento</td>'+
+					  '<td width="150">Teléfono</td>'+
+					  '<td width="200">Mail</td>'+
+					  '<td width="300">Dirección</td>'+
+					  '<td width="300">Localidad</td>'+
+					  '<td width="200">Departamento</td>'+
 					  '<td width="100">Fecha Matriculación</td>'+
 					  '<td width="100">Fecha de Baja</td>'+
 					  '</tr>' +

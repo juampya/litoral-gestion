@@ -144,7 +144,7 @@ function onActionImprimir(event)
 		case 3:
 			nom_reporte = 'mat_certi_etica.jasper'
 		break;
-		case 10:
+		case 4:
 			nom_reporte = 'mat_certi_baja.jasper'
 		break;
 		case 12:

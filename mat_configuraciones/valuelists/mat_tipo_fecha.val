@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Fecha de Matriculación|0\r
+Fecha de Graduación|1\r
+Fecha de Baja|2",
+name:"mat_tipo_fecha",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"9E33B25F-D138-4D74-9822-678A4DC7E662"

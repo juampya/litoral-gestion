@@ -32,21 +32,28 @@ function onLoad(event) {
  */
 function CentrarTitulos() 
 {
-	vl_alto = application.getWindow().getHeight()
 	vl_ancho = application.getWindow().getWidth()
 
 	var x = (vl_ancho / 2) - 200
 	elements.emp_nombre.setLocation(x,10)
 	elements.emp_frase.setLocation(x,40)
 
-//	var x = vl_ancho - 140 - 170 // Los 170 son del navigator.
 	x = vl_ancho - 140
-	elements.emp_logotipo1.setLocation(x,10)
-
-//	var x = vl_ancho - 200
-//	elements.emp_logo.setLocation(x,10)
+	elements.emp_logotipo2.setLocation(x,10)
+	
+	x = vl_ancho - 200
+	elements.lbl_menu.setLocation((vl_ancho - elements.lbl_menu.getWidth()) / 2,150)
+	
+	elements.lbl_menu.visible = true
+	
+//	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) {
+//		x = (vl_ancho / 2) - (elements.vl_mensaje_navegador_web.getWidth() / 2)
+//		elements.vl_mensaje_navegador_web.setLocation(x,elements.vl_mensaje_navegador_web.getLocationY())
+//	    elements.vl_mensaje_navegador_web.visible = true
+//	} else {
+//		elements.vl_mensaje_navegador_web.visible = false
+//	}
 }
-
 /**
  * // TODO generated, please specify type and doc for the params
  * @param {Object} event
@@ -66,8 +73,9 @@ function WebArgento(event) {
  *
  * @properties={typeid:24,uuid:"11C41186-4D36-4442-BB39-0925DB7B996B"}
  */
-function onShow(firstShow, event) {
-
+function onShow(firstShow, event) 
+{
+	scopes.globals.SacarMenu()
 	// Setear todos los botones de menu a disable.
 		var name = ''
 		for (var i=0; i<elements.allnames.length; i++)
@@ -143,11 +151,15 @@ function onActionEjecutar(event) {
 //	globals.vg_navigator_nivel = 0
 //	globals.vg_navigator_inicio = accesos_to_modulos.modulo_form_start
 	
-	globals.mx_modulo_nombre = accesos_to_modulos.modulo_solution
-	globals.mx_modulo_id = modulo_id
-	globals.mx_modulo_nivel = 0
-	globals.mx_modulo_inicio = accesos_to_modulos.modulo_form_start
+	scopes.globals.mx_modulo_nombre = accesos_to_modulos.modulo_solution
+	scopes.globals.mx_modulo_id = modulo_id
+	scopes.globals.mx_modulo_nivel = 0
+	scopes.globals.mx_modulo_inicio = accesos_to_modulos.modulo_form_start
 	
+	if(scopes.globals.mx_modulo_id)
+	{
+		
+	}
 	application.closeSolution(accesos_to_modulos.modulo_solution,'InicializaArgento')
 }
 

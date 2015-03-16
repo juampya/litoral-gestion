@@ -3,6 +3,7 @@ items:[
 {
 fontType:"Tahoma,0,14",
 formIndex:15,
+groupID:"lbl_menu",
 location:"337,235",
 mediaOptions:6,
 name:"btn_05",
@@ -19,6 +20,7 @@ verticalAlignment:1
 {
 fontType:"Tahoma,0,14",
 formIndex:9,
+groupID:"lbl_menu",
 location:"623,396",
 mediaOptions:6,
 name:"btn_16",
@@ -33,7 +35,8 @@ uuid:"0371EB25-6ED8-4283-B839-7AF15471471E"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:27,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"533,442",
 size:"80,20",
@@ -44,7 +47,8 @@ uuid:"0381044B-B254-4A25-95F9-0B297D814BC1"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:31,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"343,291",
 size:"80,20",
@@ -66,7 +70,8 @@ uuid:"04D13EB7-0390-4D4E-864D-1593E32FEC22"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:21,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"343,432",
 size:"80,20",
@@ -77,7 +82,8 @@ uuid:"097CC6F6-B980-4965-8875-9788FC9BFC1A"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:37,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"627,290",
 size:"80,20",
@@ -88,7 +94,8 @@ uuid:"102519B1-D576-4826-A31D-CD522DAFBF11"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:38,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"533,371",
 size:"80,20",
@@ -99,7 +106,8 @@ uuid:"1214E93C-46CD-48A4-B0DA-875FF7E20D76"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:29,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"626,442",
 size:"80,20",
@@ -110,7 +118,8 @@ uuid:"12492C9A-5FAF-4A83-B404-2A306B755CF3"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:22,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"534,193",
 size:"80,20",
@@ -122,6 +131,7 @@ uuid:"17E20EC3-682F-4F1C-92DF-037133A2FF36"
 {
 borderType:"EmptyBorder,0,0,0,0",
 formIndex:17,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"342,193",
 size:"80,20",
@@ -131,7 +141,8 @@ typeid:7,
 uuid:"1809152A-3D26-4228-8CCC-AA9A12E9CA99"
 },
 {
-formIndex:31,
+formIndex:52,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"5ED8D5F4-A777-488F-9E43-BACFE87E06D9",
 location:"549,399",
@@ -141,7 +152,8 @@ typeid:7,
 uuid:"18E32720-27A9-43D0-A4C8-F186A6925E0E"
 },
 {
-formIndex:25,
+formIndex:46,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"5325CF95-1203-4146-91F6-4A41FD138644",
 location:"644,240",
@@ -182,6 +194,7 @@ uuid:"2384A7D8-46A6-411A-9782-1AA48710B22A"
 },
 {
 formIndex:5,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"7C184E72-A18C-43B9-AE52-1BBC439FF6B8",
 location:"363,160",
@@ -193,6 +206,7 @@ uuid:"2731EBA1-0A56-4B89-8A25-381C850AE7D4"
 {
 fontType:"Tahoma,0,14",
 formIndex:7,
+groupID:"lbl_menu",
 location:"623,235",
 mediaOptions:6,
 name:"btn_08",
@@ -206,7 +220,8 @@ typeid:7,
 uuid:"32956D59-F680-404F-8984-4C30757E977F"
 },
 {
-formIndex:28,
+formIndex:49,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"4A4B7DAA-511C-49B2-AB36-A2054A8A9839",
 location:"552,319",
@@ -259,6 +274,7 @@ uuid:"40042EA3-602B-47D7-9F6B-7C1ED19A58EE"
 {
 fontType:"Tahoma,0,14",
 formIndex:12,
+groupID:"lbl_menu",
 location:"337,316",
 mediaOptions:6,
 name:"btn_09",
@@ -272,7 +288,8 @@ typeid:7,
 uuid:"4107280A-ED52-4D50-A259-4DA04EAA76EA"
 },
 {
-formIndex:27,
+formIndex:48,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"5D5B10B9-0AB8-46DB-A6A9-CFAABBFB7A14",
 location:"452,319",
@@ -297,7 +314,8 @@ typeid:7,
 uuid:"4EDBDDBF-1B5A-47B4-B718-CE21900D3724"
 },
 {
-formIndex:21,
+formIndex:42,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"328FF121-FD82-414D-AC66-93F9ECD2B87A",
 location:"362,240",
@@ -309,6 +327,7 @@ uuid:"50A67279-E285-473E-ACFB-81246A19B327"
 {
 fontType:"Tahoma,0,14",
 formIndex:2,
+groupID:"lbl_menu",
 location:"432,155",
 mediaOptions:6,
 name:"btn_02",
@@ -323,7 +342,8 @@ uuid:"5258CF8D-56A7-4E8C-8B30-D3A7A31A54C8"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:30,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"342,212",
 size:"80,20",
@@ -334,7 +354,8 @@ uuid:"55EC38FA-FD50-495D-8A71-083A8BE3873F"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:36,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"533,283",
 size:"80,20",
@@ -344,7 +365,8 @@ typeid:7,
 uuid:"5AA10B58-3A53-43C4-BB02-6014291F72AC"
 },
 {
-formIndex:31,
+formIndex:53,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"C9F9D474-DF4C-4AC3-A7EA-6CBF085EA5AA",
 location:"642,399",
@@ -373,7 +395,8 @@ uuid:"6375AD38-831B-4A61-BFF5-AAF50BA9BC97"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:34,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"437,281",
 size:"80,20",
@@ -383,7 +406,8 @@ typeid:7,
 uuid:"65E6055F-2C87-4BB6-A75D-01EB929E6686"
 },
 {
-formIndex:24,
+formIndex:45,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"92523123-519C-4B06-8F24-6AE3E5A6A101",
 location:"553,240",
@@ -393,7 +417,8 @@ typeid:7,
 uuid:"6D6EF1C8-33CB-4B00-A23C-34A6D97AF647"
 },
 {
-formIndex:22,
+formIndex:43,
+groupID:"lbl_menu",
 horizontalAlignment:4,
 imageMediaID:"AC9800B1-E148-471C-A238-7647AD6182E7",
 location:"645,160",
@@ -405,6 +430,7 @@ uuid:"73F7600F-CCCC-4441-8785-D44C9199B814"
 {
 fontType:"Tahoma,0,14",
 formIndex:1,
+groupID:"lbl_menu",
 location:"528,155",
 mediaOptions:1,
 name:"btn_03",
@@ -419,6 +445,7 @@ uuid:"7839D28C-7900-4A0D-93D1-0EB758BCF748"
 },
 {
 fontType:"Tahoma,0,14",
+groupID:"lbl_menu",
 location:"623,155",
 mediaOptions:6,
 name:"btn_04",
@@ -433,7 +460,8 @@ uuid:"7FD65CDB-65E7-49BA-AB55-2ED243DC7108"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:25,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"627,271",
 size:"80,20",
@@ -470,7 +498,8 @@ uuid:"9645B6E6-D28B-4512-998E-BD508E88427C"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:19,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"437,193",
 size:"80,20",
@@ -482,6 +511,7 @@ uuid:"9B10050D-1C24-4CC6-B0BA-9A01820D8A8C"
 {
 fontType:"Tahoma,0,14",
 formIndex:4,
+groupID:"lbl_menu",
 location:"432,235",
 mediaOptions:6,
 name:"btn_06",
@@ -502,7 +532,8 @@ uuid:"A3BC2A31-E3EC-42FD-82E9-12967E2BFBDD"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:26,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"533,352",
 size:"80,20",
@@ -514,12 +545,14 @@ uuid:"A6E4B4B7-2628-4122-8355-66464BEF418B"
 {
 fontType:"Tahoma,0,14",
 formIndex:11,
+groupID:"lbl_menu",
 location:"337,396",
 mediaOptions:6,
 name:"btn_13",
 onActionMethodID:"9FE9E1BA-35EF-487F-A2CB-A1F9E76FA7F7",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
+showClick:false,
 size:"91,77",
 tabSeq:25,
 toolTipText:"Clínica",
@@ -527,7 +560,8 @@ typeid:7,
 uuid:"A8F9002E-CC84-4946-907C-0601F3D864DA"
 },
 {
-formIndex:19,
+formIndex:40,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"C6BB169E-71A2-4441-AE87-19015F801DD3",
 location:"452,160",
@@ -539,6 +573,7 @@ uuid:"AFCA7F05-DE5C-4E28-BF94-2881C88BAC4F"
 {
 fontType:"Tahoma,0,14",
 formIndex:14,
+groupID:"lbl_menu",
 location:"432,316",
 mediaOptions:6,
 name:"btn_10",
@@ -553,7 +588,8 @@ uuid:"B22C6941-B8B7-4BF9-ACC8-E40E1AB62BC7"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:39,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"627,372",
 size:"80,20",
@@ -564,7 +600,8 @@ uuid:"B67D8049-89B8-4E74-87B0-2189D7BC7D86"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:32,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"437,212",
 size:"80,20",
@@ -574,7 +611,8 @@ typeid:7,
 uuid:"B690CD2A-CFF5-492B-ADE2-121AB437D9FB"
 },
 {
-formIndex:23,
+formIndex:44,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"4B923CDB-FDAC-43A8-B870-AEF38B78F204",
 location:"453,240",
@@ -586,6 +624,7 @@ uuid:"BAF81231-E7F9-468F-8952-905E9C9D36F7"
 {
 fontType:"Tahoma,0,10",
 formIndex:3,
+groupID:"lbl_menu",
 location:"337,155",
 mediaOptions:6,
 name:"btn_01",
@@ -600,7 +639,8 @@ uuid:"C2EB5360-EEE0-4241-9C77-529B54C7D173"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:20,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"343,352",
 size:"80,20",
@@ -627,7 +667,8 @@ typeid:4,
 uuid:"CAD8EB64-E24D-4E33-97F5-70D31743FDA5"
 },
 {
-formIndex:26,
+formIndex:47,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"E4D1E69E-B226-4917-8A85-CB693F64CF3B",
 location:"361,319",
@@ -645,6 +686,7 @@ uuid:"CD83A80F-FE9C-40D0-983C-1DFBD3606607"
 {
 fontType:"Tahoma,0,14",
 formIndex:16,
+groupID:"lbl_menu",
 location:"432,396",
 mediaOptions:1,
 name:"btn_14",
@@ -669,7 +711,8 @@ uuid:"CFEAC7FD-0D37-4D70-BD34-DB09A04362FD"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:23,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"628,202",
 size:"80,20",
@@ -679,7 +722,8 @@ typeid:7,
 uuid:"D5E9152A-889B-4EBA-9FBD-4CFF48A8EA2B"
 },
 {
-formIndex:30,
+formIndex:51,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"C1ABF417-8FE2-4869-98E4-C6C7A9661532",
 location:"362,399",
@@ -691,6 +735,7 @@ uuid:"D6FC2070-8F99-48E0-B755-9172C5A9F3DA"
 {
 fontType:"Tahoma,0,14",
 formIndex:13,
+groupID:"lbl_menu",
 location:"528,235",
 mediaOptions:6,
 name:"btn_07",
@@ -706,6 +751,7 @@ uuid:"DD44402F-536C-43AA-8C18-78DE01F9BEC6"
 {
 fontType:"Tahoma,0,14",
 formIndex:10,
+groupID:"lbl_menu",
 location:"528,316",
 mediaOptions:6,
 name:"btn_11",
@@ -735,6 +781,7 @@ uuid:"E15DB18A-CEB4-4854-A8E2-4ED4756E7E8D"
 {
 fontType:"Tahoma,0,14",
 formIndex:8,
+groupID:"lbl_menu",
 location:"623,316",
 mediaOptions:6,
 name:"btn_12",
@@ -748,7 +795,8 @@ uuid:"E49E2394-7CEA-4A58-A567-10BC45D7B9BB"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:28,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"627,353",
 size:"80,20",
@@ -760,6 +808,7 @@ uuid:"E625BF8C-0729-4E95-848B-658B4C2E0D3B"
 {
 fontType:"Tahoma,0,14",
 formIndex:6,
+groupID:"lbl_menu",
 location:"528,396",
 mediaOptions:1,
 name:"btn_15",
@@ -774,7 +823,8 @@ uuid:"F1539179-5C2E-4920-B61F-5AFDF527859A"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:24,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"437,363",
 size:"80,20",
@@ -785,7 +835,8 @@ uuid:"F281BD4C-90E3-4E43-8684-9796CB6AD2F6"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:35,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"534,212",
 size:"80,20",
@@ -795,7 +846,8 @@ typeid:7,
 uuid:"F40E80AA-762F-4F27-9383-B33526DC6D7C"
 },
 {
-formIndex:20,
+formIndex:41,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"4434837F-2D88-4F0F-8CFE-DD444C1D40E8",
 location:"548,160",
@@ -806,7 +858,8 @@ uuid:"F5F31C46-0413-46FC-9D4C-EEC37554A6A1"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:17,
+formIndex:18,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"343,272",
 size:"80,20",
@@ -817,7 +870,8 @@ uuid:"F6C5D83F-F138-4511-BDDE-7B954D5772F3"
 },
 {
 borderType:"EmptyBorder,0,0,0,0",
-formIndex:18,
+formIndex:33,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 location:"343,371",
 size:"80,20",
@@ -827,7 +881,8 @@ typeid:7,
 uuid:"F89F121F-B481-4A65-8E47-13259800BEC2"
 },
 {
-formIndex:29,
+formIndex:50,
+groupID:"lbl_menu",
 horizontalAlignment:0,
 imageMediaID:"5A4CA064-9F07-4F72-822F-F353A00BBAFF",
 location:"642,320",

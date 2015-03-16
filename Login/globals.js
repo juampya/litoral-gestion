@@ -1,4 +1,11 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"34E99046-C235-44C4-BE74-B5A902AA89BD"}
+ */
+var mx_mesaje_html = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"35C4E549-2CE7-4A5F-9337-929B25F6055D",variableType:4}

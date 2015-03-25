@@ -102,7 +102,8 @@ function onActionDetalle(event)
  */
 function onActionNuevo(event) 
 {
-	globals.ventanaFormulario("nuevarendicion","Litoral Gestion",forms.mat_rendiciones_nueva.controller.getName())
+	forms.mat_rendiciones_nueva.controller.show()
+	//globals.ventanaFormulario("nuevarendicion","Litoral Gestion",forms.mat_rendiciones_nueva.controller.getName())
 }
 
 /**

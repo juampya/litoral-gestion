@@ -1,4 +1,18 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"9F3C23DA-8CB4-4446-BDF8-26E250023269",variableType:4}
+ */
+var vl_matriculados_inexistentes = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"D58178BD-F81B-496A-A555-F4E7D253C362",variableType:4}
+ */
+var vl_boletas_inexistentes = null;
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"DE9B256A-79DD-4960-9CDA-CC6E401B1CC2"}
@@ -22,7 +36,8 @@ var vl_archivo = null;
 function onActionCancelar(event) 
 {
 	databaseManager.revertEditedRecords(foundset)
-	application.getWindow("nuevarendicion").hide()
+	forms.mat_rendiciones.controller.show()
+	//application.getWindow("nuevarendicion").hide()
 }
 
 /**
@@ -35,10 +50,15 @@ function onActionCancelar(event)
  */
 function onShow(firstShow, event) 
 {
-	vl_archivo = null
-	vl_html = null
+	vl_archivo 					 = null
+	vl_html 					 = null
+	vl_boletas_inexistentes 	 = 0
+	vl_matriculados_inexistentes = 0
+	
 	controller.newRecord(false)
 	emp_id = scopes.globals.mx_empresa_id
+	
+	elements.btn_grabar.enabled = true
 }
 
 /**
@@ -99,7 +119,8 @@ function onActionGrabar(event)
 		
 		//ren_estado = 1
 		//databaseManager.saveData()
-		application.getWindow("nuevarendicion").hide()
+		//application.getWindow("nuevarendicion").hide()
+		forms.mat_rendiciones.controller.show()
 	}
 	else
 	{
@@ -132,6 +153,8 @@ function onHide(event)
  */
 function onActionBuscar(event) 
 {
+	vl_boletas_inexistentes = 0
+	vl_matriculados_inexistentes = 0
 	vl_archivo = plugins.file.showFileOpenDialog()
 	
 	if(vl_archivo!=null)
@@ -147,7 +170,7 @@ function onActionBuscar(event)
 					return
 				}
 				else
-				{
+				{		
 					GeneraNuevoBcoSantaFeHTML()
 					//ProcesarNuevoBcoSantaFe()
 				}
@@ -667,7 +690,9 @@ function GeneraRapiPagoHTML()
 						
 				if(fs_movimientos.getSize()==0)
 				{
+					elements.btn_grabar.enabled = false
 					color = '#ff0000'
+					vl_boletas_inexistentes++
 				}
 				
 				/**@type {String}*/
@@ -678,7 +703,9 @@ function GeneraRapiPagoHTML()
 				}
 				else
 				{
+					elements.btn_grabar.enabled = false
 					color = '#ff0000'
+					vl_matriculados_inexistentes++ 	
 				}
 				
 				
@@ -693,7 +720,6 @@ function GeneraRapiPagoHTML()
 		}
 	}
 
-	elements.btn_grabar.enabled=true
 	vl_html = '<html>'+cuerpo+'</html>'
 	
 	_oBR.close();
@@ -781,8 +807,10 @@ function GeneraNuevoBcoSantaFeHTML()
 				fs_movimientos.search()
 						
 				if(fs_movimientos.getSize()==0)
-				{
+				{		
+					elements.btn_grabar.enabled = false
 					color = '#ff0000'
+					vl_boletas_inexistentes++ 	
 				}
 				
 				/**@type {String}*/
@@ -794,7 +822,9 @@ function GeneraNuevoBcoSantaFeHTML()
 				}
 				else
 				{
+					elements.btn_grabar.enabled = false
 					color = '#ff0000'
+					vl_matriculados_inexistentes++
 				}
 				
 				cuerpo = cuerpo + '<tr style="background-color:' + color + ';">' +
@@ -808,11 +838,24 @@ function GeneraNuevoBcoSantaFeHTML()
 		}
 	}
 	
-	elements.btn_grabar.enabled=true
+	//elements.btn_grabar.enabled=true
 	vl_html = '<html>'+cuerpo+'</html>'
 	
 	_oBR.close();
 	_oFR = null;
 	_oIR = null;
 	_oBR = null;
+}
+
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"A753DEDE-431A-4A09-8C2B-7C9BB877B121"}
+ */
+function onActionVolver(event) 
+{
+	databaseManager.revertEditedRecords(foundset)
+	forms.mat_rendiciones.controller.show()
 }

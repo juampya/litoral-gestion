@@ -381,5 +381,5 @@ function onActionExportarExcel(event)
  */
 function onActionImprimir(event) 
 {
-	
+	plugins.jasperPluginRMI.runReport(foundset,'mat_padron_os.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,null)
 }

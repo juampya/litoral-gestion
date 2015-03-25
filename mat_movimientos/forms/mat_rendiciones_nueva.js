@@ -273,7 +273,12 @@ function ProcesarNuevoBcoSantaFe()
 	            {
 	            	if (utils.stringMiddle(_sLine,1,5)=="DATOS") 
 		            {
+		            	/**@type {Number}*/
 		            	var boleta_id = utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
+						/**@type {Number}*/
+						var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
+						/**@type {String}*/
+						var nombre_mat = 'Matriculado inexistente en el sistema.'
 						
 		            	fs_movimientos.find()
 						fs_movimientos.mov_id = boleta_id
@@ -285,8 +290,8 @@ function ProcesarNuevoBcoSantaFe()
 						{
 							/**@type {JSRecord}*/
 							var record_mov = fs_movimientos.getRecord(1)
-							/**@type {Number}*/
-							var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
+//							/**@type {Number}*/
+//							var cod_mat = utils.stringToNumber(utils.stringMiddle(_sLine,173,5))
 							
 							if(record_mov.ren_id !=null && record_mov.ren_id !=0)
 							{
@@ -304,7 +309,7 @@ function ProcesarNuevoBcoSantaFe()
 									fs_matriculados.mat_id = cod_mat
 									fs_matriculados.search()
 									
-									var nombre_mat = 'Matriculado inexistente en el sistema.'
+									//var nombre_mat = 'Matriculado inexistente en el sistema.'
 									if(fs_matriculados.getSize()>0)
 									{
 										nombre_mat=fs_matriculados.mat_nombre
@@ -347,11 +352,20 @@ function ProcesarNuevoBcoSantaFe()
 						}
 						else
 						{
+							fs_matriculados.find()
+							fs_matriculados.mat_id = cod_mat
+							fs_matriculados.search()
+
+							if(fs_matriculados.getSize()>0)
+							{
+								nombre_mat=fs_matriculados.mat_nombre
+							}
+							
 							fs_rendiciones_errores.newRecord()
 							fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
 							fs_rendiciones_errores.ren_id = ren_id
 							fs_rendiciones_errores.ren_error_codigo = 3
-							fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
+							fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringToNumber(utils.stringMiddle(_sLine,178,15)) + " para el Matriculado "+nombre_mat
 						}
 		            }
 	            }	
@@ -471,7 +485,8 @@ function ProcesarRapiPago()
 					var vl_fec_cobro_dia  = utils.stringToNumber(utils.stringMiddle(_sLine,7,2))
 					var vl_fec_cobro 	  = new Date(vl_fec_cobro_anio,vl_fec_cobro_mes,vl_fec_cobro_dia)
 					var vl_importe_cobro  = utils.stringToNumber(utils.stringMiddle(_sLine,9,13))+(utils.stringToNumber(utils.stringMiddle(_sLine,22,2))/100)
-	            	
+	            	var nombre_mat 		  = 'Matriculado inexistente en el sistema.'
+					
 					fs_movimientos.find()
 					fs_movimientos.mov_id = vl_mov_id
 					fs_movimientos.search()
@@ -501,7 +516,7 @@ function ProcesarRapiPago()
 								fs_matriculados.mat_id = cod_mat
 								fs_matriculados.search()
 								
-								var nombre_mat = 'Matriculado inexistente en el sistema.'
+								//var nombre_mat = 'Matriculado inexistente en el sistema.'
 								if(fs_matriculados.getSize()>0)
 								{
 									nombre_mat=fs_matriculados.mat_nombre
@@ -540,11 +555,20 @@ function ProcesarRapiPago()
 					}
 					else
 					{
+						fs_matriculados.find()
+						fs_matriculados.mat_id = vl_mat_id
+						fs_matriculados.search()
+
+						if(fs_matriculados.getSize()>0)
+						{
+							nombre_mat=fs_matriculados.mat_nombre
+						}
+						
 						fs_rendiciones_errores.newRecord()
 						fs_rendiciones_errores.emp_id = scopes.globals.mx_empresa_id
 						fs_rendiciones_errores.ren_id = ren_id
 						fs_rendiciones_errores.ren_error_codigo = 3
-						fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringToNumber(utils.stringMiddle(_sLine,178,15))
+						fs_rendiciones_errores.ren_error_observacion = "No existe ese número de boleta de pago en el sistema: "+utils.stringToNumber(utils.stringMiddle(_sLine,178,15)) + " para el Matriculado "+nombre_mat
 					}
 	            }
             }	
@@ -575,6 +599,8 @@ function GeneraRapiPagoHTML()
 {
 	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
 	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+	var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
 	
 	 // Use BufferedReader so we don't have to read the whole file into memory
     //
@@ -635,12 +661,26 @@ function GeneraRapiPagoHTML()
 				fs_matriculados.mat_id = vl_mat_id
 				fs_matriculados.search()
 				
+				fs_movimientos.find()
+				fs_movimientos.mov_id = vl_mov_id
+				fs_movimientos.search()
+						
+				if(fs_movimientos.getSize()==0)
+				{
+					color = '#ff0000'
+				}
+				
 				/**@type {String}*/
 				var nombre_mat = 'Matriculado inexistente en el sistema.'
 				if(fs_matriculados.getSize()>0)
 				{
 					nombre_mat=fs_matriculados.mat_nombre
 				}
+				else
+				{
+					color = '#ff0000'
+				}
+				
 				
 				cuerpo = cuerpo + '<tr style="background-color:' + color + ';">' +
 									 '<td align="center">' + vl_fec_cobro + '</td>' +
@@ -671,6 +711,8 @@ function GeneraNuevoBcoSantaFeHTML()
 {
 	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
 	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
+	/** @type {JSFoundset<db:/sistemas/mat_movimientos>}*/
+	var fs_movimientos = databaseManager.getFoundSet('sistemas','mat_movimientos')
 	
 	 // Use BufferedReader so we don't have to read the whole file into memory
     //
@@ -734,11 +776,25 @@ function GeneraNuevoBcoSantaFeHTML()
 				fs_matriculados.mat_id = vl_mat_id
 				fs_matriculados.search()
 				
+				fs_movimientos.find()
+				fs_movimientos.mov_id = vl_mov_id
+				fs_movimientos.search()
+						
+				if(fs_movimientos.getSize()==0)
+				{
+					color = '#ff0000'
+				}
+				
 				/**@type {String}*/
 				var nombre_mat = 'Matriculado inexistente en el sistema.'
+					
 				if(fs_matriculados.getSize()>0)
 				{
 					nombre_mat=fs_matriculados.mat_nombre
+				}
+				else
+				{
+					color = '#ff0000'
 				}
 				
 				cuerpo = cuerpo + '<tr style="background-color:' + color + ';">' +

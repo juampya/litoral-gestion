@@ -53,3 +53,14 @@ function onActionFunciones(event)
 {
 	forms.admin_lg_funciones.controller.show()
 }
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"1A49C1C7-08BD-47D7-A961-B49092F59649"}
+ */
+function onActionMensajes(event) 
+{
+	forms.admin_lg_mensajes.controller.show()
+}

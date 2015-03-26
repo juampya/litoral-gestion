@@ -95,6 +95,7 @@ function onShow(firstShow, event)
 //		Cargar las opciones del menu del operador.
 		controller.find()
 		usu_id = globals.mx_usuario_id
+		menu_id = '^='
 		var cant = controller.search()
 		
 //		Configurar nombre e imagen de botones.
@@ -143,13 +144,9 @@ function onActionEjecutar(event) {
 
 	controller.find()
 	accesos_to_modulos.modulo_orden = orden
+	usu_id = globals.mx_usuario_id
+	menu_id = '^='
 	controller.search()
-		
-	
-//	globals.vg_navigator_solution = accesos_to_modulos.modulo_solution
-//	globals.vg_navigator_home = modulo_id
-//	globals.vg_navigator_nivel = 0
-//	globals.vg_navigator_inicio = accesos_to_modulos.modulo_form_start
 	
 	scopes.globals.mx_modulo_nombre = accesos_to_modulos.modulo_solution
 	scopes.globals.mx_modulo_id = modulo_id
@@ -160,7 +157,16 @@ function onActionEjecutar(event) {
 	{
 		
 	}
-	application.closeSolution(accesos_to_modulos.modulo_solution,'InicializaArgento')
+	
+	if(acc_si_no==1)
+	{
+		application.closeSolution(accesos_to_modulos.modulo_solution,'InicializaArgento')
+	}
+	else
+	{
+		scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Gestion','Sin Permiso de Acceso.','info',controller.getName(),'Ok',null,null,null,null,null,null,null)
+	}
+	
 }
 
 /**

@@ -225,6 +225,7 @@ function setear_botones(btn1,btn2,btn3,btn4)
  */
 function show_iconError()
 {
+	elements.icn_error.imageURL = "media:///32x32/error.png"
 	elements.icn_error.visible = true
 }
 
@@ -233,6 +234,7 @@ function show_iconError()
  */
 function show_iconForbidden()
 {
+	elements.icn_forbidden.imageURL = "media:///32x32/information.png"
 	elements.icn_forbidden.visible = true
 }
 
@@ -241,6 +243,7 @@ function show_iconForbidden()
  */
 function show_iconInfo()
 {
+	elements.icn_info.imageURL = "media:///32x32/information.png"
 	elements.icn_info.visible = true
 }
 
@@ -249,6 +252,7 @@ function show_iconInfo()
  */
 function show_iconQuestion()
 {
+	elements.icn_question.imageURL = "media:///32x32/question.png"
 	elements.icn_question.visible= true
 }
 
@@ -257,6 +261,7 @@ function show_iconQuestion()
  */
 function show_iconWarning()
 {
+	elements.icn_warning.imageURL = "media:///32x32/caution_high_voltage.png"
 	elements.icn_warning.visible = true
 }
 

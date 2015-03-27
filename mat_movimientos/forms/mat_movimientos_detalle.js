@@ -20,13 +20,13 @@ function onActionVolver(event)
  */
 function onActionAnular(event) 
 {
-	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","Desea Borrar el Movimiento","atention",controller.getName(),"No",null,"Si","anularMovim",null,null,null,null)
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","Desea Borrar el Movimiento","atention",controller.getName(),"No",null,"Si","BorrarMovim",null,null,null,null)
 }
 
 /**
- * @properties={typeid:24,uuid:"075E542A-D377-44D9-807C-6635B8C6BD64"}
+ * @properties={typeid:24,uuid:"88428DE1-82B4-45EF-AD74-A8E5BCC00221"}
  */
-function anularMovim()
+function BorrarMovim()
 {
 	foundset.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
 	controller.deleteRecord()
@@ -131,7 +131,6 @@ function onDataChangeEstado(oldValue, newValue, event)
 		}
 	}
 	
-	
 	return true
 }
 
@@ -178,7 +177,6 @@ function onShow(firstShow, event)
 	forms.mat_movimientos_detalle_conceptos.elements.btn_borrar.enabled = false
 	forms.mat_movimientos_detalle_conceptos.elements.ingr_id.editable = false
 	forms.mat_movimientos_detalle_conceptos.elements.det_importe.editable = false
-	
 	
 	if(mov_estado == 9)
 	{

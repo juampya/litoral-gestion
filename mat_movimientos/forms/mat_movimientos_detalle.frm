@@ -440,7 +440,6 @@ typeid:7,
 uuid:"E878616B-8847-455B-8137-CF6A77FA6887"
 },
 {
-enabled:false,
 formIndex:2,
 imageMediaID:"492E6F14-8334-48EB-8565-73505985E0B1",
 location:"305,31",

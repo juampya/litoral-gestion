@@ -89,6 +89,7 @@ uuid:"F1102496-B92D-44E9-BE76-34C06B4A9102"
 ],
 name:"admin_lg_modulos",
 navigatorID:"-1",
+onShowMethodID:"0F395874-FD5B-4A06-B4AD-95352210D420",
 showInMenu:true,
 styleClass:"table",
 styleName:"id_style",

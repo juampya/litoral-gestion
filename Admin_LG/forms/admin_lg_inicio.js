@@ -4,8 +4,28 @@
  *
  * @properties={typeid:24,uuid:"85C5B2BF-A0A8-43F7-AF38-F33217BA8C50"}
  */
-function onActionSalir(event) {
-	security.logout('LitoralGestion','InicializaArgento')
+function onActionSalir(event) 
+{
+	if(application.isInDeveloper())
+	{
+		if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+		{
+			databaseManager.revertEditedRecords()
+			var solucion = application.getSolutionName()
+			security.logout(solucion)
+		}
+		else
+		{
+			application.exit()
+		}
+		
+	}
+	else
+	{
+		application.exit()
+	}
+	
+	//security.logout('LitoralGestion','InicializaArgento')
 }
 /**
  * Perform the element default action.

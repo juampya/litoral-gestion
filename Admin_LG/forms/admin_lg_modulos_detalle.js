@@ -46,6 +46,8 @@ function onShow(firstShow, event)
 	{
 		controller.newRecord(false)
 	}
+	
+	elements.tabs.dividerLocation = 0.50
 }
 
 /**

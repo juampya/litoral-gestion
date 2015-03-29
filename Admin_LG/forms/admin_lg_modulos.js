@@ -36,3 +36,16 @@ function onActionAgregar(event)
 	forms.admin_lg_modulos_detalle.vl_nuevo = 1
 	forms.admin_lg_modulos_detalle.controller.show()
 }
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"0F395874-FD5B-4A06-B4AD-95352210D420"}
+ * @AllowToRunInFind
+ */
+function onShow(firstShow, event) 
+{
+	controller.loadAllRecords()
+}

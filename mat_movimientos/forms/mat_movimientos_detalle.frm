@@ -74,7 +74,6 @@ uuid:"15D9DDE0-B345-47D1-A229-AD2655742407"
 {
 background:"#ffffa4",
 dataProviderID:"mov_id",
-editable:false,
 format:"00000000000",
 horizontalAlignment:0,
 location:"99,85",
@@ -210,7 +209,6 @@ uuid:"7F0D81C0-00CD-46E6-95CD-F418FCCFA978"
 {
 background:"#ffffa4",
 dataProviderID:"mov_descripcion",
-editable:false,
 location:"201,85",
 name:"mov_descripcion",
 size:"261,20",

@@ -29,6 +29,7 @@ function filtrar()
 	mov_mes_emision = 	forms.mat_liquidacion_resumen.vl_mes
 	tmp_id = globals.vg_nro_tmp
 	mat_id = vl_matriculado
+	mov_importe = ' > 0 '
 	controller.search()
 }
 

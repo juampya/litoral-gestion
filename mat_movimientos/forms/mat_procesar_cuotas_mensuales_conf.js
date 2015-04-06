@@ -78,6 +78,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 {
 	/** @type {JSFoundset<db:/sistemas/mat_movimientos_aux>}*/
 	var fs_movim_aux = forms.mat_liquidacion_resumen.foundset
+		
 	
 	if(reliquidacion == 1)
 	{

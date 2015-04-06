@@ -109,6 +109,7 @@ function calcularTotales()
 	vl_importe_total = 0
 	controller.find()
 	tmp_id = globals.vg_nro_tmp
+	mov_importe = ' > 0 '
 	var cant = controller.search()
 	if(cant > 0)
 	{

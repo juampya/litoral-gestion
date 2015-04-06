@@ -43,10 +43,24 @@ function BorrarMovim()
  */
 function onActionGrabar(event) 
 {
+	/**@type {Number}*/
+	var tmp_importe = 0
+	/**@type {Number}*/
+	var tmp_importe_2vto = 0
+	
 	/** @type {JSFoundSet<db:/sistemas/mat_configuraciones>} */
 	var fs_conf = databaseManager.getFoundSet('sistemas','mat_configuraciones')	
 		fs_conf.loadAllRecords()
 		fs_conf.getRecord(1)	
+	
+	for (var i = 1; i <= mat_movimientos_to_mat_movimientos_det.getSize(); i++) 
+	{
+		var record = mat_movimientos_to_mat_movimientos_det.getRecord(i);
+		tmp_importe = tmp_importe+record.det_importe
+		tmp_importe_2vto = tmp_importe_2vto+record.det_importe_2vto
+	}
+	mov_importe = tmp_importe
+	mov_importe_2vto = tmp_importe_2vto
 	
 	databaseManager.saveData()
 	

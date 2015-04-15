@@ -28,6 +28,12 @@ name:"mov_anio_emision"
 },
 {
 allowNull:true,
+creationOrderIndex:24,
+dataType:4,
+name:"mov_cantidad_impresiones"
+},
+{
+allowNull:true,
 creationOrderIndex:14,
 dataType:-4,
 length:16777215,
@@ -125,6 +131,12 @@ creationOrderIndex:22,
 dataType:-1,
 length:16777215,
 name:"mov_observacion_cobro"
+},
+{
+allowNull:true,
+creationOrderIndex:23,
+dataType:4,
+name:"mov_publicar_en_web"
 },
 {
 allowNull:true,

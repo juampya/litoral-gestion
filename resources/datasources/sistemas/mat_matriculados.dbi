@@ -67,6 +67,12 @@ name:"mat_codigo_postal_real"
 },
 {
 allowNull:true,
+creationOrderIndex:43,
+dataType:4,
+name:"mat_consejo_id"
+},
+{
+allowNull:true,
 creationOrderIndex:10,
 dataType:12,
 length:45,

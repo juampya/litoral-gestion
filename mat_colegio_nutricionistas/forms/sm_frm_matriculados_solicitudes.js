@@ -78,11 +78,67 @@ function onActionImprimir_CertMatricula()
  * @param event
  *
  * @properties={typeid:24,uuid:"E525683E-1DBA-4BC9-B896-01A1409FBE80"}
+ * @AllowToRunInFind
  */
 function onActionImprimir(event) 
 {
+//	var nom_reporte = null
+//	var varm_ente   = null
+//	switch (sol_id) 
+//	{
+//		case 2:
+//			nom_reporte = 'mat_certi_matricula.jasper'
+//			varm_ente   = rel_observasiones 	
+//		break;
+//		case 3:
+//			nom_reporte = 'mat_certi_etica.jasper'
+//		break;
+//		case 10:
+//			nom_reporte = 'mat_certi_baja.jasper'
+//		break;
+//		case 12:
+//			nom_reporte = 'mat_certi_libre_deuda.jasper'
+//		break;
+//		default:
+//		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Este tipo de Solicitud no se imprime.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+//			return
+//		break
+//	}
+//	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente})
+
 	var nom_reporte = null
 	var varm_ente   = null
+	var tmp_presidente = null
+	var tmp_vicepresidente = null
+	var tmp_secretario = null
+	
+	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
+	var fs_matriculados = databaseManager.getFoundSet('Sistemas','mat_matriculados')
+		fs_matriculados.find()
+		fs_matriculados.mat_consejo_id = [1,2,3]
+		fs_matriculados.search()
+	
+	for (var i = 1; i <= fs_matriculados.getSize(); i++) 
+	{
+		var record = fs_matriculados.getRecord(i)
+		
+		if(record.mat_matriculados_to_mat_consejo.consejo_utiliza_firma==1)
+		{
+			switch (record.mat_consejo_id) 
+			{
+				case 1:
+					tmp_presidente = "Lic. "+record.mat_nombre
+				break;
+				case 2:
+					tmp_vicepresidente = "Lic. "+record.mat_nombre
+				break;
+				case 3:
+					tmp_secretario = "Lic. "+record.mat_nombre
+				break;
+			}
+		}	
+	}	
+
 	switch (sol_id) 
 	{
 		case 2:
@@ -91,19 +147,18 @@ function onActionImprimir(event)
 		break;
 		case 3:
 			nom_reporte = 'mat_certi_etica.jasper'
+			varm_ente   = rel_observasiones
 		break;
-		case 10:
+		case 4:
 			nom_reporte = 'mat_certi_baja.jasper'
+			varm_ente   = rel_observasiones
 		break;
 		case 12:
 			nom_reporte = 'mat_certi_libre_deuda.jasper'
+			varm_ente   = rel_observasiones
 		break;
-		default:
-		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Este tipo de Solicitud no se imprime.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
-			return
-		break
 	}
-	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente})
+	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente, ppresidente:tmp_presidente, pvicepresidente:tmp_vicepresidente, psecretario:tmp_secretario})
 }
 
 

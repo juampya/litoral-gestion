@@ -119,7 +119,7 @@ uuid:"55EEAA3A-5E0B-43BF-A32F-A29E6BAB0237"
 containsFormID:"978B7672-E492-42FE-82FF-472D5AF19250",
 location:"385,336",
 relationName:"mat_matriculados_to_mat_rel_mat_cuentas",
-text:"Otro Datos",
+text:"Otros Datos",
 typeid:15,
 uuid:"7650CE55-8375-44FC-AE8C-37754EA8F633"
 },

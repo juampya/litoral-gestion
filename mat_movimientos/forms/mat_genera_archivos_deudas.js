@@ -95,6 +95,7 @@ function onActionGenerarArchivo(event)
 		fs_movimientos.find()
 		fs_movimientos.mov_estado = 0
 		fs_movimientos.mov_tipo_de_movimiento = 0
+		fs_movimientos.mov_fecha_emision = utils.dateFormat(vl_fec_ini, 'yyyy-MM')+'-01 00:00:00 ... '+utils.dateFormat(vl_fec_ini, 'yyyy-MM')+'-28 23:59:59|yyyy-MM-dd HH:mm:ss'
 		fs_movimientos.search()
 		
 	/**@type {Number} */	

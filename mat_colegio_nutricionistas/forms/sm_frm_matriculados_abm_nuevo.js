@@ -135,3 +135,42 @@ function ControlaNroMatricula(oldValue, newValue, event)
 			return false
 		}
 }
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"AF764B76-5929-445A-928F-4A144F0ACF1A"}
+ * @AllowToRunInFind
+ */
+function onDataChangeCargo(oldValue, newValue, event) 
+{
+	if(newValue != 0 && newValue != 5)
+	{	
+		/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
+		var fs_matriculados = databaseManager.getFoundSet('Sistemas','mat_matriculados')
+			fs_matriculados.find()
+			fs_matriculados.mat_consejo_id = newValue
+		if(fs_matriculados.search()!=0)
+		{
+			globals.ventanaAceptar("Este cargo ya esta ocupado por "+fs_matriculados.mat_nombre,controller.getName())
+			mat_consejo_id = oldValue
+			return false
+		}
+		else
+		{
+			mat_consejo_id = newValue
+			return true
+		}
+	}
+	else
+	{
+		mat_consejo_id = newValue
+		return true
+	}
+}

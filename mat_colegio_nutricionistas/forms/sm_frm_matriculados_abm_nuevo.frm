@@ -101,6 +101,28 @@ typeid:4,
 uuid:"10C645ED-54D3-4CE7-943F-13D566854C5D"
 },
 {
+formIndex:92,
+labelFor:"consejo_utiliza_firma",
+location:"631,511",
+name:"consejo_utiliza_firma_label",
+size:"123,20",
+styleClass:"label_black",
+text:"Utiliza Firma en Cert.:",
+typeid:7,
+uuid:"12072E01-45CF-42CA-B9FE-16367AC0656D"
+},
+{
+dataProviderID:"mat_matriculados_to_mat_consejo.consejo_utiliza_firma",
+displayType:4,
+formIndex:93,
+horizontalAlignment:0,
+location:"759,511",
+name:"consejo_utiliza_firma",
+size:"43,20",
+typeid:4,
+uuid:"1601ED83-E89F-44BD-B1FF-98754CB4FB48"
+},
+{
 formIndex:38,
 location:"5,317",
 size:"127,20",
@@ -715,6 +737,19 @@ typeid:4,
 uuid:"D635571C-8EDB-472E-AF00-87828EC2189F"
 },
 {
+dataProviderID:"mat_consejo_id",
+displayType:2,
+editable:false,
+formIndex:91,
+location:"759,486",
+name:"mat_consejo_id",
+onDataChangeMethodID:"AF764B76-5929-445A-928F-4A144F0ACF1A",
+size:"180,20",
+typeid:4,
+uuid:"D64088ED-21BA-4DE6-A5B3-A7E9E7A60B41",
+valuelistID:"227BC1A6-6D40-4E12-B49D-6A21F118F742"
+},
+{
 height:600,
 partType:5,
 typeid:19,
@@ -759,6 +794,17 @@ styleClass:"label_black",
 text:"Nombre de la Madre:",
 typeid:7,
 uuid:"E11B7ACF-57A7-4E3F-874F-C91BE5EB4AC2"
+},
+{
+formIndex:90,
+labelFor:"mat_consejo_id",
+location:"632,486",
+name:"mat_consejo_id_label",
+size:"122,20",
+styleClass:"label_black",
+text:"Cargo en el Consejo:",
+typeid:7,
+uuid:"E7405A05-40F5-4ADA-8490-ADB84DF88B86"
 },
 {
 dataProviderID:"mat_telefono_fijo",

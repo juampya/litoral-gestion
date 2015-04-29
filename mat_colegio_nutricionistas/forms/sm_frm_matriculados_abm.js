@@ -1,4 +1,11 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"32C78ED6-217D-4227-B8EE-869BE3137F05",variableType:4}
+ */
+var vl_solo_consejo = null;
+
+/**
  * @type {Date}
  *
  * @properties={typeid:35,uuid:"96AC9648-2697-40F6-8A2E-A398046E9A4F",variableType:93}
@@ -139,6 +146,7 @@ function onActionRefrescar(event)
 	vl_matriculado 		 = null
 	vl_estado_financiero = 0
 	vl_tipo_fecha		 = null
+	vl_solo_consejo		 = 0
 	controller.loadAllRecords()
 	filtrar()
 }
@@ -191,6 +199,7 @@ function filtrar()
 			mat_fecha_baja = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 		break;
 	}
+	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
 	controller.search()
 	
 	vl_cant_activos    = 0

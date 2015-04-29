@@ -170,6 +170,17 @@ typeid:7,
 uuid:"63E8A65D-8E43-48F6-A1FF-3297ADFE9F5D"
 },
 {
+formIndex:9,
+labelFor:"mov_cantidad_impresiones",
+location:"677,110",
+name:"mov_cantidad_impresiones_label",
+size:"100,20",
+styleClass:"label_black",
+text:"# Impresiones:",
+typeid:7,
+uuid:"74634979-F48E-4EA9-9088-2D9732380E6F"
+},
+{
 horizontalAlignment:4,
 labelFor:"mov_importe",
 location:"264,185",
@@ -237,6 +248,18 @@ styleClass:"label_black",
 text:"N Boleta:",
 typeid:7,
 uuid:"984183F6-6EF6-4439-A462-60FA12E7B0E3"
+},
+{
+background:"#ffffa4",
+dataProviderID:"mov_cantidad_impresiones",
+editable:false,
+formIndex:10,
+horizontalAlignment:0,
+location:"782,110",
+name:"mov_cantidad_impresiones",
+size:"38,20",
+typeid:4,
+uuid:"9B74A434-229F-4496-AA7E-37280C9478EE"
 },
 {
 horizontalAlignment:4,
@@ -321,6 +344,17 @@ styleClass:"label_black",
 text:"2° Vto:",
 typeid:7,
 uuid:"BC117498-7C4B-4E8A-A6F3-5C5B9AE9C7A8"
+},
+{
+dataProviderID:"mov_publicar_en_web",
+displayType:4,
+formIndex:12,
+horizontalAlignment:0,
+location:"782,85",
+name:"mov_publicar_en_web",
+size:"38,20",
+typeid:4,
+uuid:"BCA7205B-4958-4156-9929-074CB18091B9"
 },
 {
 labelFor:"ren_id",
@@ -414,6 +448,17 @@ size:"966,235",
 transparent:true,
 typeid:16,
 uuid:"DDF0C03E-054C-457A-986D-0201AD3EC2F2"
+},
+{
+formIndex:11,
+labelFor:"mov_publicar_en_web",
+location:"676,85",
+name:"mov_publicar_en_web_label",
+size:"101,20",
+styleClass:"label_black",
+text:"Publicar en Web:",
+typeid:7,
+uuid:"E162D3B0-BC42-4D5F-B1D8-346317C4E703"
 },
 {
 formIndex:6,

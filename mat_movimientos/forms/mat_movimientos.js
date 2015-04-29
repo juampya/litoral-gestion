@@ -1,4 +1,11 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"2C6FBB1B-3059-4C8F-BAD3-717F0F55FB43",variableType:4}
+ */
+var vl_enweb = null;
+
+/**
  * @type {Date}
  *
  * @properties={typeid:35,uuid:"AEFB6152-C1CF-4883-88F4-7762CF375996",variableType:93}
@@ -74,6 +81,8 @@ function filtrar()
 	{
 		mov_fecha_cobro = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 	}
+	
+	if(vl_enweb != null){mov_publicar_en_web = vl_enweb}
 	controller.search()
 }
 
@@ -90,14 +99,14 @@ function onShow(firstShow, event)
 	if(firstShow)
 	{
 		vl_matriculado = null
-		vl_estado = 3
-		vl_tipo_movim = 3
-		vl_tipo_fecha = 0
-		vl_fec_ini = application.getServerTimeStamp()
-		vl_fec_fin = application.getServerTimeStamp()
+		vl_estado 	   = 3
+		vl_tipo_movim  = 3
+		vl_tipo_fecha  = 0
+		vl_enweb 	   = null
+		vl_fec_ini 	   = application.getServerTimeStamp()
+		vl_fec_fin 	   = application.getServerTimeStamp()
 		filtrar()
 	}
-
 }
 
 /**
@@ -343,4 +352,50 @@ function onActionImprimir(event)
 	}
 	
 	plugins.jasperPluginRMI.runReport(foundset,'mat_movimientos.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pfecha_inicial:fecha_inicial, pfecha_final:fecha_final, pmatriculado:matriculados, pestado:estado, ptipo_movimiento:tipo_movi})
+}
+
+/**
+ * @properties={typeid:24,uuid:"2CB4F2F6-3EBC-4085-A77A-F934A9843A96"}
+ */
+function onActionPublicarWEB() 
+{
+	if(databaseManager.getFoundSetCount(foundset)>0)
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Esta por publicar en la WEB todas las boletas seleccionadas.","atention",controller.getName(),"No",null,"Si","Publicar",null,null,null,null)
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar("No existen datos para publicar.",controller.getName())
+	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"54CC22D5-CE6C-46B3-883A-2102FA3890CF"}
+ */
+function Publicar() 
+{
+	var cant = databaseManager.getFoundSetCount(foundset)
+	var cant_publicadas = 0
+	
+	for (var i = 1; i <= cant; i++) 
+	{
+		/**@type {JSRecord}*/
+		var record = foundset.getRecord(i)
+		
+		if(record.mov_publicar_en_web!=1)
+		{
+			record.mov_publicar_en_web = 1
+			cant_publicadas++
+		}
+	}
+	
+	if(cant_publicadas>0)
+	{
+		databaseManager.saveData(foundset)
+		scopes.globals.ventanaAceptar("Se publicaron "+cant_publicadas+" boletas en la WEB.",controller.getName())
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar("Las boletas seleccionadas ya se encuentran publicadas en la WEB.",controller.getName())
+	}
 }

@@ -22,5 +22,6 @@ function onActionVolver(event)
 function onActionGrabar(event) 
 {
 	databaseManager.saveData(foundset)
+	forms.cli_turnos_lst_x_dia.onDataChangeDocumento(null,paciente_doc_nro,null)
 	forms.cli_turnos_lst_x_dia.controller.show()
 }

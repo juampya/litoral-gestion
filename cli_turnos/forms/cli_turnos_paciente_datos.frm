@@ -64,7 +64,7 @@ uuid:"2BD79CD4-5779-4A38-9C8C-9B2E924E1CA6"
 {
 anchors:11,
 location:"0,0",
-size:"640,101",
+size:"640,70",
 styleClass:"banner",
 text:"Datos del Paciente",
 transparent:true,
@@ -105,11 +105,14 @@ typeid:7,
 uuid:"74AD6C6E-5A71-4F4E-A8DE-73670EFF797C"
 },
 {
-location:"43,54",
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
+location:"43,33",
+mediaOptions:1,
+name:"btn_volver",
 onActionMethodID:"22B310DC-4050-44EA-AC0E-C7C3C1875C3C",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"111,29",
+size:"130,30",
 text:"Volver",
 typeid:7,
 uuid:"74F07BB7-15C0-484F-A823-04FBB23C423F"
@@ -306,11 +309,14 @@ typeid:4,
 uuid:"F98D827A-9B7F-440F-BE2D-58E4EC56C2BF"
 },
 {
-location:"177,54",
+imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
+location:"177,33",
+mediaOptions:1,
+name:"btn_grabar",
 onActionMethodID:"9A37E8F5-809C-4B69-89D1-3A9094BA5DD6",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"111,29",
+size:"130,30",
 text:"Grabar",
 typeid:7,
 uuid:"FC4CA72C-4F4F-490F-A64A-46F5C028852A"
@@ -319,6 +325,7 @@ uuid:"FC4CA72C-4F4F-490F-A64A-46F5C028852A"
 name:"cli_turnos_paciente_datos",
 navigatorID:"-1",
 showInMenu:true,
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"3279EC5A-1973-4942-ACB7-C5F82865DA82"

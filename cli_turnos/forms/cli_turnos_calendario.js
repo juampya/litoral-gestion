@@ -687,6 +687,8 @@ function existeAsistencia(id, mes, anio)
  */
 function generarPlanilla() 
 {
+	application.updateUI()
+	
 	/** @type {JSFoundset<db:/sistemas/medico>}*/
 	var fs_med = databaseManager.getFoundSet('sistemas','medico')
 	fs_med.loadAllRecords()
@@ -712,7 +714,6 @@ function generarPlanilla()
 	}
 	filtrar()
 	plugins.busy.unblock()
-
 }
 
 /**
@@ -1082,20 +1083,11 @@ function eliminarRegDoctor()
  */
 function onActionGeneralPlanilla(event) 
 {
-	// call the block() function with a javascript object containing all the parameters
-	// - processFunctionName: (mandatory) the name (as string) of the function that will contains the 'lengthy' process, will be called by the plugin
-	// - form: (mandatory if called from a tabPanel and the processFunction is in the form contained) the form that contains the 'process' function, usually=this (default=null)
-	// - dialogName: (mandatory if called from a dialog) the name of the dialog
-	// - message: the message to show (optional, i18n compatible, default=null)
-	// - opacity: a float value (0..1), where 0=transparent, 1=totally opaque (optional, default=0.5)
-	// - paneColor: a color value, (optional, default=black='#000000')
-	// - showCancelButton: shows a cancel button which will trigger the callback function (optional, default=false)
-	// - cancelButtonText: text of the cancel button (optional, i18n compatible, default='Cancel')
-	// - callBackFunction: the javascript function (as a function) used for callback when using the cancel button (optional, default=null)
-
-	// for example:
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) {
+	    plugins.busy.prepare();
+	}
 	var params = {
-		processFunctionName: 'generarPlanilla',
+		processFunction: generarPlanilla,
 		message: 'Generando Planilla... espere un momento por favor.',
 		opacity: 0.5,
 		paneColor: '#000000',

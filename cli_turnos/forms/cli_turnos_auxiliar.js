@@ -14,7 +14,6 @@ var vl_rango_turno = null;
  */
 function generarTurno(doctor, dia, id) 
 {
-	
 	if(dia == null || dia == 0)
 	{
 		return
@@ -81,7 +80,6 @@ function generarTurno(doctor, dia, id)
 			databaseManager.saveData(fs_turno)
 		}
 	}
-	
 }
 
 

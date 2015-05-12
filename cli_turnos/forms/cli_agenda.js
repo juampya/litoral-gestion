@@ -7,6 +7,7 @@
  */
 function onActionVolver(event) 
 {
+	scopes.globals.CargarMenu()
 	forms['clinica_inicio_clinica'].controller.show()
 }
 

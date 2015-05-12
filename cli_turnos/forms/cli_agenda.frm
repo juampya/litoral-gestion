@@ -7,6 +7,7 @@ typeid:19,
 uuid:"00A2F137-0170-4E9F-BB89-D6D27840EA88"
 },
 {
+horizontalAlignment:0,
 labelFor:"medico_nombre",
 location:"305,118",
 name:"medico_nombre_label",
@@ -25,7 +26,7 @@ uuid:"337CF8E9-D4B0-4634-860B-085C26774D4A"
 {
 anchors:11,
 location:"0,0",
-size:"640,98",
+size:"640,70",
 styleClass:"banner",
 text:"Agenda",
 transparent:true,
@@ -34,16 +35,19 @@ uuid:"74B9B4C4-F7B2-4BC0-BEC8-C67AE359F696"
 },
 {
 formIndex:32,
-location:"176,53",
+imageMediaID:"EB462339-15CF-44BE-9051-C2705C8F5DA7",
+location:"176,32",
+mediaOptions:1,
 onActionMethodID:"24D16683-8B53-4D75-9ADB-0C848EE91F08",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"152,27",
+size:"162,30",
 text:"Fechas No Laborables",
 typeid:7,
 uuid:"81051D04-8A95-4BC9-A39A-33E9F48984B8"
 },
 {
+horizontalAlignment:0,
 labelFor:"medico_apellido",
 location:"70,118",
 name:"medico_apellido_label",
@@ -55,11 +59,13 @@ uuid:"9CCD9107-D948-4B5B-ADCB-6F5D55E2518F"
 },
 {
 formIndex:10,
-location:"39,53",
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
+location:"39,32",
+mediaOptions:1,
 onActionMethodID:"52D394DD-151B-439B-B785-8AAA7BCD4EBB",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"122,27",
+size:"130,30",
 text:"Volver",
 typeid:7,
 uuid:"A3AC7C5A-CA59-447B-B771-ADE1F419F428"
@@ -75,6 +81,7 @@ typeid:4,
 uuid:"C51B2350-7175-4E49-A0D8-E896B22D6A0E"
 },
 {
+horizontalAlignment:0,
 labelFor:"medico_id",
 location:"25,118",
 name:"medico_id_label",
@@ -85,14 +92,14 @@ typeid:7,
 uuid:"CF70F0E1-F051-44A3-871B-F4E6F6B3B4C1"
 },
 {
-height:101,
+height:75,
 partType:1,
 typeid:19,
 uuid:"DABFEB9B-FDB9-474F-ADC0-0E39BB2DAD9C"
 },
 {
 formIndex:10,
-location:"343,53",
+location:"343,33",
 onActionMethodID:"-1",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
@@ -104,14 +111,16 @@ visible:false
 },
 {
 formIndex:11,
+horizontalAlignment:0,
 imageMediaID:"51F23BCF-6C60-461F-B058-E8B09B480F88",
 location:"0,139",
 mediaOptions:1,
 onActionMethodID:"0FB16245-A3CD-4FA4-9FFF-E9C6166CD3BC",
 showClick:false,
-size:"22,19",
+size:"20,20",
 text:"",
 toolTipText:"Configurar Agenda",
+transparent:true,
 typeid:7,
 uuid:"EEE3909D-FC53-4607-874B-4EF791943C05"
 },

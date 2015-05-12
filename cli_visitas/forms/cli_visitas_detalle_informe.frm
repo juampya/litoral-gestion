@@ -2,15 +2,17 @@ dataSource:"db:/sistemas/visita_informe",
 items:[
 {
 anchors:11,
+fontType:"Verdana,3,16",
 location:"0,0",
-size:"850,38",
+size:"850,30",
 styleClass:"banner",
-text:"Informe Medico",
+text:"Informe Médico",
 transparent:true,
 typeid:7,
 uuid:"021FAF0F-5863-4973-99F6-BE96B1002C5A"
 },
 {
+horizontalAlignment:0,
 labelFor:"informe_accion_fecha",
 location:"675,146",
 name:"informe_accion_fecha_label",
@@ -21,7 +23,7 @@ typeid:7,
 uuid:"20C00DC6-178B-4558-AB30-832F7C0753E9"
 },
 {
-borderType:"TitledBorder,Diagnostico,4,0",
+borderType:"TitledBorder,Diagnóstico,4,0",
 lineSize:1,
 location:"5,178",
 size:"655,126",
@@ -59,6 +61,7 @@ valuelistID:"C19A4478-FC42-4B8F-87F7-BAF2E77E0497"
 {
 dataProviderID:"informe_accion_fecha",
 displayType:5,
+format:"dd-MM-yyyy HH:mm",
 horizontalAlignment:4,
 location:"675,167",
 name:"informe_accion_fecha",
@@ -90,6 +93,7 @@ uuid:"A6911EAD-8957-4DAC-A76D-5527D4868F04"
 {
 dataProviderID:"informe_fecha",
 displayType:5,
+format:"dd-MM-yyyy HH:mm",
 horizontalAlignment:4,
 location:"675,66",
 name:"informe_fecha",
@@ -99,6 +103,7 @@ typeid:4,
 uuid:"D1E20C7A-48CC-4B4F-B5EF-A3B6C00F1EC6"
 },
 {
+horizontalAlignment:0,
 labelFor:"informe_fecha",
 location:"675,45",
 name:"informe_fecha_label",
@@ -109,6 +114,7 @@ typeid:7,
 uuid:"DB71AB1F-AE98-4333-8F18-E755E9DB07EC"
 },
 {
+horizontalAlignment:0,
 labelFor:"informe_accion",
 location:"675,95",
 name:"informe_accion_label",

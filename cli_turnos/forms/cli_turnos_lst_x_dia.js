@@ -65,8 +65,12 @@ var vl_dia = null;
  */
 function onShow(firstShow, event) 
 {
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) {
+	    plugins.busy.prepare();
+	}
+	
 	var params = {
-		processFunctionName: 'cargaTurnos',
+		processFunction: cargaTurnos,
 		message: 'Cargando Turnos... espere un momento por favor.',
 		opacity: 0.5,
 		paneColor: '#000000',
@@ -74,7 +78,6 @@ function onShow(firstShow, event)
 		cancelButtonText: 'Stop!'
 	};
 	plugins.busy.block(params);
-
 }
 
 /**
@@ -99,7 +102,6 @@ function onActionVolver(event)
 		databaseManager.saveData(forms.cli_turnos_calendario.foundset.getSelectedRecord())
 	}
 	forms.cli_turnos_calendario.controller.show()
-
 }
 
 
@@ -123,12 +125,16 @@ function Filtro()
  */
 function cargaTurnos() 
 {
+	application.updateUI()
+	
 	forms.cli_turnos_auxiliar.generarTurno(vl_medico, vl_dia,vl_cli_turno_id)
 	
+	databaseManager.setAutoSave(false)
 	controller.find()
 	if(vl_medico!=null) medico_id = vl_medico
 	turno_dia = vl_dia
 	controller.search()	
+	databaseManager.setAutoSave(true)
 	
 	/** @type {JSFoundSet<db:/sistemas/medico>} */
 	var fs_medico = databaseManager.getFoundSet('sistemas','medico')
@@ -238,8 +244,16 @@ function onRenderHora(event)
 	event.getRenderable().fgcolor = '#000000';
 	if(record.turno_dia_estado == 0)
 	{
-		event.getRenderable().bgcolor = '#80ff80'
-		event.getRenderable().toolTipText = 'Turno Libre'
+		if(record.turno_estado == 5)
+		{
+			event.getRenderable().bgcolor = '#80ff80'
+			event.getRenderable().toolTipText = 'Turno Cancelado por el paciente. Turno Libre'
+		}
+		else
+		{
+			event.getRenderable().bgcolor = '#80ff80'
+			event.getRenderable().toolTipText = 'Turno Libre'
+		}		
 	}
 	if(record.turno_dia_estado == 1)
 	{
@@ -250,7 +264,49 @@ function onRenderHora(event)
 			event.getRenderable().bgcolor = '#ff8040'
 			event.getRenderable().toolTipText = 'Turno Ocupado Confirmado'	
 		}
+		
+//		Sin Confirmar|0
+//		Confirmado|1
+//		En Sala|2
+//		En Consultorio|3
+//		Atendido|4
+//		Cancelado|5 
+//		Ausente|6
+//		Retiro|7
+		if(record.turno_estado == 2)
+		{
+			event.getRenderable().bgcolor = '#80ffff'
+			event.getRenderable().toolTipText = 'Paciente en sala de espera'	
+		}
+		
+		if(record.turno_estado == 3)
+		{
+			event.getRenderable().bgcolor = '#ff80ff'
+			event.getRenderable().toolTipText = 'Paciente en Consultorio'	
+		}
+		if(record.turno_estado == 4)
+		{
+			event.getRenderable().bgcolor = '#ffffff'
+			event.getRenderable().toolTipText = 'Paciente Atendido'	
+		}
+		if(record.turno_estado == 5)
+		{
+//			event.getRenderable().bgcolor = '#c0c0c0'
+//			event.getRenderable().toolTipText = 'Turno Cancelado por el Paciente'
+			record.turno_dia_estado = 0
+		}
+		if(record.turno_estado == 6)
+		{
+			event.getRenderable().bgcolor = '#ff80ff'
+			event.getRenderable().toolTipText = 'Ausencia del Paciente'
+		}
+		if(record.turno_estado == 7)
+		{
+			event.getRenderable().bgcolor = '#808000'
+			event.getRenderable().toolTipText = 'Se retiró'
+		}
 	}
+
 	if(record.turno_dia_estado == 2)
 	{
 		event.getRenderable().bgcolor = '#ff8080'
@@ -294,6 +350,7 @@ function calcularCantTurnos()
 	vl_turnos_ocupados = 0
 	vl_turnos_confirmados = 0
 	vl_turnos_no_atiende = 0
+	
 	for(var i=1;i<=foundset.getSize();i++)
 	{
 		var record = foundset.getRecord(i)
@@ -427,4 +484,43 @@ function limpiarCantidades()
 	vl_turnos_libre = 0
 	vl_turnos_no_atiende = 0
 	vl_turnos_ocupados = 0
+}
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"E7FC3FAB-4B7F-4D90-97DF-BD7DFFC6B68B"}
+ */
+function onDataChangeEstado(oldValue, newValue, event) 
+{
+//	
+//	Sin Confirmar|0
+//	Confirmado|1
+//	En Sala|2
+//	En Consultorio|3
+//	Atendido|4
+//	Cancelado|5 
+//	Ausente|6
+	
+	if(turno_estado == 2 && turno_hora_llegada==null)
+	{
+		turno_hora_llegada = application.getServerTimeStamp()
+	}
+	
+	if(turno_estado == 3 && turno_hora_entra==null)
+	{
+		turno_hora_entra = application.getServerTimeStamp()
+	}
+	
+	if(turno_estado == 4 && turno_hora_sale==null)
+	{
+		turno_hora_sale = application.getServerTimeStamp()
+	}
+	return true
 }

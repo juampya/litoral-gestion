@@ -8,8 +8,17 @@
 function onActionVolver(event) 
 {
 	forms.cli_agenda.controller.show()
-
 }
+
+/**
+ * @properties={typeid:24,uuid:"AA6431FD-6EE1-4310-B3C3-669D53DB0EFF"}
+ */
+function onActionGrabar() 
+{
+	databaseManager.saveData()
+	forms.cli_agenda.controller.show()
+}
+
 
 /**
  * Handle changed data.

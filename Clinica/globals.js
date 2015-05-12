@@ -9,11 +9,28 @@ function onSolutionOpen()
 	plugins.DateUtils.register( "Litoral Software", "Ym13NcZOW8jx6WSqs1ap68svHE6Jaiu9I/LfY9Dn20t3FW7CFR7gdSAuqRvTMgq/" )
 	globals.InicializaParametros() //Esta en id_parametrosGenerales
 
+	plugins.busy.unblock();
     globals.mx_modulo_nombre = application.getSolutionName() //Nombre que tiene en el administrator.
     globals.mx_modulo_nivel = 0 // Siempre cero.	
     globals.mx_modulo_id = 13
 	globals.mx_modulo_inicio = ag_solucionvigente.modulo_form_start
-	scopes.globals.CargarMenu()
 	
-	//plugins.busy.unblock();
+	
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+	{
+		forms.clinica_inicio_clinica.elements.btn_1.visible = true
+		forms.clinica_inicio_clinica.elements.btn_2.visible = true
+		forms.clinica_inicio_clinica.elements.btn_3.visible = true
+		forms.clinica_inicio_clinica.elements.btn_4.visible = true
+		
+	}
+	else
+	{
+		forms.clinica_inicio_clinica.elements.btn_1.visible = false
+		forms.clinica_inicio_clinica.elements.btn_2.visible = false
+		forms.clinica_inicio_clinica.elements.btn_3.visible = false
+		forms.clinica_inicio_clinica.elements.btn_4.visible = false
+		
+		scopes.globals.CargarMenu()
+	}
 }

@@ -150,6 +150,12 @@ name:"paciente_nombre"
 },
 {
 allowNull:true,
+creationOrderIndex:34,
+dataType:4,
+name:"paciente_nro_ficha"
+},
+{
+allowNull:true,
 creationOrderIndex:13,
 dataType:-1,
 length:65535,

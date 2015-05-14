@@ -1,5 +1,11 @@
 columns:[
 {
+allowNull:true,
+creationOrderIndex:8,
+dataType:4,
+name:"emp_id"
+},
+{
 allowNull:false,
 autoEnterSubType:2,
 autoEnterType:2,

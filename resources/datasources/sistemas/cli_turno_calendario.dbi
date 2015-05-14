@@ -273,7 +273,7 @@ name:"cal_turno_modif_ope"
 allowNull:true,
 creationOrderIndex:1,
 dataType:4,
-name:"empresa_id"
+name:"emp_id"
 },
 {
 allowNull:true,

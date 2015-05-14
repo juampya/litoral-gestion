@@ -74,7 +74,7 @@ name:"cli_turno_id"
 allowNull:true,
 creationOrderIndex:5,
 dataType:4,
-name:"empresa_id"
+name:"emp_id"
 },
 {
 allowNull:true,

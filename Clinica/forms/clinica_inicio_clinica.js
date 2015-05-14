@@ -87,3 +87,42 @@ function onActionNomencladores()
 	scopes.globals.SacarMenu()
 	forms.cli_nomencladores.controller.show()
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"085B09B6-31DC-4CC1-ADA9-D93409C453E5"}
+ */
+function onActionMedicos(event) 
+{
+	scopes.globals.SacarMenu()
+	forms.cli_medicos.controller.show()
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"F6B5A679-E3DD-46AE-B863-6007290116B7"}
+ */
+function onActionPacientes(event) 
+{
+	scopes.globals.SacarMenu()
+	forms.cli_pacientes.controller.show()
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"E7282121-EEFA-438C-8586-2DA147198672"}
+ */
+function onActionObrasSociales(event) 
+{
+	scopes.globals.SacarMenu()
+	forms.cli_obras_sociales.controller.show()
+}

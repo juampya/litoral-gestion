@@ -1,3 +1,10 @@
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"9FFD615B-0728-4E2B-AC14-B2D93B198B5C"}
+ */
+var vl_form_anterior = null;
+
 
 /**
  * Perform the element default action.
@@ -9,7 +16,8 @@
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords(foundset)
-	forms.cli_turnos_lst_x_dia.controller.show()
+	//forms.cli_turnos_lst_x_dia.controller.show()
+	forms[vl_form_anterior].controller.show()
 }
 
 /**
@@ -22,6 +30,9 @@ function onActionVolver(event)
 function onActionGrabar(event) 
 {
 	databaseManager.saveData(foundset)
-	forms.cli_turnos_lst_x_dia.onDataChangeDocumento(null,paciente_doc_nro,null)
-	forms.cli_turnos_lst_x_dia.controller.show()
+//	forms.cli_turnos_lst_x_dia.onDataChangeDocumento(null,paciente_doc_nro,null)
+//	forms.cli_turnos_lst_x_dia.controller.show()
+//	
+	forms[vl_form_anterior].onDataChangeDocumento(null,paciente_doc_nro,null)
+	forms[vl_form_anterior].controller.show()
 }

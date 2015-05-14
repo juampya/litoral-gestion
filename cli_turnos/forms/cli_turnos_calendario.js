@@ -700,7 +700,7 @@ function generarPlanilla()
 		if(!existeAsistencia(myRecord.medico_id,vl_mes,vl_anio))
 		{	
 			controller.newRecord()
-			empresa_id = 1
+			emp_id = 1
 			medico_id = myRecord.medico_id
 			cal_turno_mes = vl_mes
 			cal_turno_anio = vl_anio
@@ -830,7 +830,7 @@ function onRightClick(event)
 		item2.enabled = false
 		item3.enabled = true		
 	}
-	menu.show()
+	menu.show(event.getSource())
 }
 
 /**
@@ -898,9 +898,7 @@ function render(dia, event)
 			break;
 		}
 		event.getRenderable().fgcolor = '#000000'
-	}
-	
-}
+	}}
 
 /**
  * @properties={typeid:24,uuid:"5D9B4942-8C0D-4F36-8A3E-7CA434823FE2"}
@@ -1060,7 +1058,7 @@ function onRightClickMenuGral(event)
 	var menu = plugins.window.createPopupMenu();
 
 	menu.addMenuItem("Eliminar Registro",eliminarRegDoctor,"media:///16x16/document_red.png",null);
-	menu.show()
+	menu.show(event.getSource())
 }
 
 
@@ -1071,7 +1069,6 @@ function eliminarRegDoctor()
 {
 	foundset.getSelectedRecord().cli_turno_calendario_to_turno.deleteAllRecords()
 	foundset.deleteRecord(foundset.getSelectedRecord())
-
 }
 
 /**

@@ -409,7 +409,7 @@ function onRightClick(event)
 			item2.enabled = true			
 		}
 	}	
-	menu.show()
+	menu.show(event.getSource())
 }
 
 /**
@@ -418,6 +418,7 @@ function onRightClick(event)
 function completarDatos()
 {
 	var paciente = foundset.getSelectedRecord().paciente_id
+	forms.cli_turnos_paciente_datos.vl_form_anterior = controller.getName()
 	forms.cli_turnos_paciente_datos.foundset.loadRecords(paciente)
 	forms.cli_turnos_paciente_datos.controller.show()
 }
@@ -458,7 +459,10 @@ function confirmarTurno()
 			databaseManager.saveData(record)			
 			return
 		}
-
+	}
+	else
+	{
+		scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Antención','Debe completar el Nro. de documento para confirmar el turno.','warning',controller.getName(),'Ok',null,null,null,null,null,null,null)
 	}
 }
 
@@ -467,8 +471,7 @@ function confirmarTurno()
  */
 function llamada()
 {
-
-	switch (arguments[5]) 
+	switch(arguments[5]) 
 	{
 	    case 0: confirmarTurno(); break;
 	    case 1: completarDatos(); break;

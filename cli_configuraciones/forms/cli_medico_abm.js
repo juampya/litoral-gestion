@@ -72,34 +72,23 @@ function onActionGrabarMedico(event) {
 	{
 		if (medico_nombre == null)
 		{
-			plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el nombre del Medico','Aceptar')
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el nombre del Medico.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			//plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el nombre del Medico','Aceptar')
 			elements.medico_nombre.requestFocus(true)
 			return
 		}
 		if (medico_apellido == null)
 		{
-			plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el apellido del Medico','Aceptar')
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el apellido del Medico.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			//plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el apellido del Medico','Aceptar')
 			elements.medico_apellido.requestFocus(true)
-			return
-		}
-		if (medico_docu_nro == null)
-		{
-			plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el Documento del Medico','Aceptar')
-			elements.medico_docu_nro.requestFocus(true)
-			return
-		}
-		if (docu_id == null)
-		{
-			plugins.dialogs.showInfoDialog('Datos Incompletos','Seleccione el tipo de Documento','Aceptar')
-			elements.docu_id.requestFocus(true)
 			return
 		}
 		emp_id = 1
 	}
 	
-		databaseManager.saveData()
-		forms.cli_medicos.controller.show()
-
+	databaseManager.saveData()
+	forms.cli_medicos.controller.show()
 }
 
 /**
@@ -109,13 +98,17 @@ function onActionGrabarMedico(event) {
  *
  * @properties={typeid:24,uuid:"88E23E7E-3E68-483A-977E-BB7EF85D2AC4"}
  */
-function onActionBorrarMedico(event) {
+function onActionBorrarMedico(event) 
+{
 	var apellido = medico_apellido
 	var nombre   = medico_nombre
-	var PressedButton = plugins.dialogs.showQuestionDialog( 'Borrar Registro','¿Está seguro de eliminar el medico: '+ apellido+', '+nombre +'?',  'Si',  'No')
-	if (PressedButton  == 'Si') {
-		Borrar()
-	}
+	//var PressedButton = plugins.dialogs.showQuestionDialog( 'Borrar Registro','¿Está seguro de eliminar el medico: '+ apellido+', '+nombre +'?',  'Si',  'No')
+	
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el medico: '+ apellido+', '+nombre +'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
+	
+	//if (PressedButton  == 'Si') {
+	//	Borrar()
+	//}
 }
 
 /**

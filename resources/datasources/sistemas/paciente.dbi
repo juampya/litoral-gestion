@@ -113,6 +113,8 @@ name:"paciente_estado_civil"
 },
 {
 allowNull:true,
+autoEnterSubType:8,
+autoEnterType:1,
 creationOrderIndex:30,
 dataType:93,
 name:"paciente_fec_crea"
@@ -125,6 +127,8 @@ name:"paciente_fec_ingreso"
 },
 {
 allowNull:true,
+autoEnterSubType:9,
+autoEnterType:1,
 creationOrderIndex:32,
 dataType:93,
 name:"paciente_fec_modi"
@@ -211,12 +215,16 @@ name:"paciente_telefono_2"
 },
 {
 allowNull:true,
+autoEnterSubType:6,
+autoEnterType:1,
 creationOrderIndex:31,
 dataType:4,
 name:"paciente_usu_crea"
 },
 {
 allowNull:true,
+autoEnterSubType:7,
+autoEnterType:1,
 creationOrderIndex:33,
 dataType:4,
 name:"paciente_usu_modi"

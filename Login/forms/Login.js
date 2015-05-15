@@ -84,7 +84,7 @@ function onLoad(event) {
     application.setNumpadEnterAsFocusNextEnabled(true)
     databaseManager.setAutoSave(false)
     
-    globals.mx_empresa_id = 1
+    //globals.mx_empresa_id = 1
 
     CargarDatosEmpresa(globals.mx_empresa_id)
     
@@ -139,9 +139,6 @@ function onActionLogin(event) {
 		}
 		
 		databaseManager.addTableFilterParam('Sistemas',null,'emp_id','=',globals.mx_empresa_id)
-		//databaseManager.addTableFilterParam('Interdata',null,'empresa_id','=',globals.sca_empresa_id)
-//		application.addClientInfo('Usuario:'+ok[6])
-//		application.addClientInfo('Empresa:'+globals.sca_empresa_id)
 	}
 }
 

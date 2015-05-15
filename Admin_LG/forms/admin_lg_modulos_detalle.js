@@ -42,6 +42,10 @@ function onActionVolver(event)
  */
 function onShow(firstShow, event) 
 {
+	globals.vg_auditoria_pk = modulo_id
+	globals.vg_auditoria_tabla = new Array('modulos')
+	globals.vg_auditoria_campo = null
+	
 	if(vl_nuevo==1)
 	{
 		controller.newRecord(false)

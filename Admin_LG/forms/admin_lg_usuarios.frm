@@ -1,11 +1,14 @@
 dataSource:"db:/sistemas/usuarios",
 items:[
 {
-location:"112,45",
+formIndex:2,
+imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
+location:"145,32",
+mediaOptions:1,
 onActionMethodID:"868987B8-444E-4D2E-9AF4-1D770454212E",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"98,30",
+size:"130,30",
 text:"Agregar",
 typeid:7,
 uuid:"05ADC905-A1EB-49A8-B7FB-8325EFA597C9"
@@ -28,7 +31,7 @@ uuid:"0E7559F6-7940-476A-B889-091AE31A6E0C"
 {
 anchors:11,
 location:"0,0",
-size:"845,40",
+size:"845,70",
 styleClass:"banner",
 text:"Usuarios del Sistema",
 transparent:true,
@@ -101,11 +104,14 @@ typeid:4,
 uuid:"E3E7107C-BD0A-439E-BAD1-25BCF5D18573"
 },
 {
-location:"10,45",
+formIndex:1,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
+location:"10,32",
+mediaOptions:1,
 onActionMethodID:"DA9BA7A0-C0B5-482D-8330-B8D7E0D37A82",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"98,30",
+size:"130,30",
 text:"Volver",
 typeid:7,
 uuid:"ED8DC521-F95E-4DC2-BBAB-1FFA854A04D9"

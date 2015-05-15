@@ -1,13 +1,14 @@
 dataSource:"db:/sistemas/empresas",
 items:[
 {
+formIndex:1,
 imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
-location:"118,45",
+location:"145,32",
 mediaOptions:1,
 onActionMethodID:"9AB73D17-D394-4ADB-B6AB-D4A5CBBDAF1B",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"98,30",
+size:"130,30",
 text:"Agregar",
 toolTipText:"Agregar",
 typeid:7,
@@ -37,7 +38,7 @@ uuid:"2336535A-B8D1-45DA-8A0C-C9BD07B2448C"
 {
 anchors:11,
 location:"0,0",
-size:"845,40",
+size:"845,70",
 styleClass:"banner",
 text:"Empresas del Sistema",
 transparent:true,
@@ -55,13 +56,14 @@ typeid:4,
 uuid:"7ED06262-40DC-46BF-A57B-018EE29CEF67"
 },
 {
-imageMediaID:"A83906F8-A3EB-4A6B-8949-A1AEA6FF59E8",
-location:"10,45",
+formIndex:2,
+imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
+location:"10,32",
 mediaOptions:1,
 onActionMethodID:"1BAFF30C-7B79-4C88-BF28-73665B39933D",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
-size:"98,30",
+size:"130,30",
 text:"Volver",
 typeid:7,
 uuid:"7FD7F601-07BF-4150-A1DD-4AAEF2DB1F7B"

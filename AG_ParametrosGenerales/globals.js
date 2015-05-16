@@ -136,13 +136,13 @@ function InicializaParametros(){
 
 	application.setNumpadEnterAsFocusNextEnabled(true)
 	
-	globals.mx_usuario_id = security.getUserUID()
-	globals.mx_empresa_id = ag_usuariovigente.emp_id
+	scopes.globals.mx_usuario_id = security.getUserUID()
+	//scopes.globals.mx_empresa_id = ag_usuariovigente.emp_id
 	
-	databaseManager.addTableFilterParam('Sistemas',null,'emp_id','=',globals.mx_empresa_id)
+	databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
 	
 	application.addClientInfo('Usuario: '+ ag_usuariovigente.usu_id +' - ' + ag_usuariovigente.usu_nombre)
-	application.addClientInfo('Empresa: '+ globals.mx_empresa_id   +' - ' + ag_empresavigente.emp_nombre)
+	application.addClientInfo('Empresa: '+ scopes.globals.mx_empresa_id   +' - ' + ag_empresavigente.emp_nombre)
 }
 
 /**

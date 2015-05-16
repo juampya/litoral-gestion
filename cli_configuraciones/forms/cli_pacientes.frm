@@ -58,7 +58,7 @@ mnemonic:"",
 onActionMethodID:"A6A22593-FCA8-4960-A207-6197B9FA1C3A",
 showClick:false,
 size:"20,20",
-toolTipText:"Datos de la Visita",
+toolTipText:"Datos del paciente",
 transparent:true,
 typeid:7,
 uuid:"686191AE-FFD4-4DF8-99A2-2BA3A3EDC39C"

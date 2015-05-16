@@ -10,7 +10,7 @@ mnemonic:"",
 onActionMethodID:"DA841054-439C-4B5E-85B9-E32EF1419251",
 showClick:false,
 size:"20,20",
-toolTipText:"Datos de la Visita",
+toolTipText:"Datos de la Obra Social",
 transparent:true,
 typeid:7,
 uuid:"0990CC28-21E5-4366-A4D5-18196406287F"

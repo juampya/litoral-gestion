@@ -84,7 +84,7 @@ function onActionGrabarMedico(event) {
 			elements.medico_apellido.requestFocus(true)
 			return
 		}
-		emp_id = 1
+		emp_id = scopes.globals.mx_empresa_id
 	}
 	
 	databaseManager.saveData()
@@ -102,13 +102,7 @@ function onActionBorrarMedico(event)
 {
 	var apellido = medico_apellido
 	var nombre   = medico_nombre
-	//var PressedButton = plugins.dialogs.showQuestionDialog( 'Borrar Registro','¿Está seguro de eliminar el medico: '+ apellido+', '+nombre +'?',  'Si',  'No')
-	
 	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el medico: '+ apellido+', '+nombre +'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
-	
-	//if (PressedButton  == 'Si') {
-	//	Borrar()
-	//}
 }
 
 /**

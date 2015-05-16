@@ -138,7 +138,7 @@ function onActionLogin(event) {
 			globals.mx_rowBGOdd = ok[4]		
 		}
 		
-		databaseManager.addTableFilterParam('Sistemas',null,'emp_id','=',globals.mx_empresa_id)
+		databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
 	}
 }
 

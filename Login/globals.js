@@ -129,7 +129,8 @@ var mx_modulo_nombre = null;
  *
  * @properties={typeid:24,uuid:"0BACB970-CBE4-4F14-9212-CB0583C30EF0"}
  */
-function onSolutionOpenLogin() {
+function onSolutionOpenLogin() 
+{
 	globals.mx_empresa_id = 1
 	
     if (application.getApplicationType() == 5){

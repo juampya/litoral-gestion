@@ -700,7 +700,7 @@ function generarPlanilla()
 		if(!existeAsistencia(myRecord.medico_id,vl_mes,vl_anio))
 		{	
 			controller.newRecord()
-			emp_id = 1
+			emp_id = scopes.globals.mx_empresa_id
 			medico_id = myRecord.medico_id
 			cal_turno_mes = vl_mes
 			cal_turno_anio = vl_anio

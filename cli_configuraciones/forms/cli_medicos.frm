@@ -110,7 +110,7 @@ mnemonic:"",
 onActionMethodID:"575C0F5B-7FA5-4A23-9E37-E5E6228E83CE",
 showClick:false,
 size:"20,20",
-toolTipText:"Datos de la Visita",
+toolTipText:"Datos del Médico",
 transparent:true,
 typeid:7,
 uuid:"7D9E1C46-526C-4D63-A4E6-93B5DBD87E28"

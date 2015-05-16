@@ -66,18 +66,18 @@ function onShow(firstShow, event) {
  *
  * @properties={typeid:24,uuid:"385C5CE0-9594-477D-988F-E24D3CA2A8BC"}
  */
-function onActionGrabar(event) {
+function onActionGrabar(event) 
+{
 	if (vl_abm == 1)
 	{
 		if (diagnostico_nombre == null)
 		{
-			plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el nombre del Diagnóstico','Aceptar')
-			
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el nombre del Diagnóstico','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
 			elements.diagnostico_nombre.requestFocus(true)
 			return
 		}
 	}
-	
+	emp_id = scopes.globals.mx_empresa_id
 	databaseManager.saveData()
 	forms.cli_diagnosticos.controller.show()
 }
@@ -88,20 +88,17 @@ function onActionGrabar(event) {
  *
  * @properties={typeid:24,uuid:"A42E4920-F234-4AB7-BEF4-56FBEE95740C"}
  */
-function onActionBorrarDiagnostico(event) {
+function onActionBorrarDiagnostico(event) 
+{
 	var nombre = diagnostico_nombre
-	
-	
-	var PressedButton = plugins.dialogs.showQuestionDialog( 'Borrar Registro','¿Está seguro de eliminar el diagnóstico: '+ nombre +'?',  'Si',  'No')
-	if (PressedButton  == 'Si') {
-		Borrar()
-	}
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el diagnóstico: '+nombre +'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
 }
 
 /**
  * @properties={typeid:24,uuid:"5C202447-80BB-4553-BE30-8AF2B4CE9441"}
  */
-function Borrar(){
+function Borrar()
+{
 	controller.deleteRecord()
 	forms.cli_diagnosticos.controller.show()
 }

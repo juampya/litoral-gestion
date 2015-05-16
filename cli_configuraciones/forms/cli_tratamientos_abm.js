@@ -29,12 +29,12 @@ function onActionGrabar(event) {
 	{
 		if (tratamieno_nombre == null)
 		{
-			plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el nombre del tratamiento','Aceptar')
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el nombre del tratamiento','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
 			elements.tratamieno_nombre.requestFocus(true)
 			return
 		}
 	}
-	
+	emp_id = scopes.globals.mx_empresa_id
 	databaseManager.saveData()
 	forms.cli_tratamientos.controller.show()
 }
@@ -89,18 +89,17 @@ function onShow(firstShow, event) {
  *
  * @properties={typeid:24,uuid:"5AD3A95C-26EC-45AC-8D06-36BE92D4E16C"}
  */
-function onActionBorrarTratamiento(event) {
+function onActionBorrarTratamiento(event) 
+{
 	var tratamiento = tratamieno_nombre
-	var PressedButton = plugins.dialogs.showQuestionDialog( 'Borrar Registro','¿Está seguro de eliminar el tratamiento: '+ tratamiento +'?',  'Si',  'No')
-	if (PressedButton  == 'Si') {
-		Borrar()
-	}
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el tratamiento: '+ tratamiento+'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
 }
 
 /**
  * @properties={typeid:24,uuid:"8AD855DD-E113-467A-BBE7-5797DB1BE112"}
  */
-function Borrar(){
+function Borrar()
+{
 	controller.deleteRecord()
 	forms.cli_tratamientos.controller.show()
 }

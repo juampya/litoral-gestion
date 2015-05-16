@@ -445,7 +445,7 @@ function confirmarTurno()
 			fs_pac.paciente_doc_nro = record.turno_paciente_nro_docu
 			fs_pac.paciente_telefono_1 = record.turno_paciente_tel
 			fs_pac.obsoc_id_1 = record.turno_paciente_obra_social
-			fs_pac.emp_id = 1
+			fs_pac.emp_id = scopes.globals.mx_empresa_id
 			databaseManager.saveData(fs_pac)
 			
 			record.turno_estado = 1

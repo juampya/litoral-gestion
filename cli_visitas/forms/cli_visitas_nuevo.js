@@ -46,5 +46,5 @@ function onShow(firstShow, event)
 	databaseManager.setAutoSave(false)
 	controller.newRecord()
 	visita_fecha = application.getServerTimeStamp()
-	emp_id = 1
+	emp_id = scopes.globals.mx_empresa_id
 }

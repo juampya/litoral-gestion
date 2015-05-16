@@ -137,7 +137,7 @@ function InicializaParametros(){
 	application.setNumpadEnterAsFocusNextEnabled(true)
 	
 	scopes.globals.mx_usuario_id = security.getUserUID()
-	//scopes.globals.mx_empresa_id = ag_usuariovigente.emp_id
+	scopes.globals.mx_empresa_id = ag_usuariovigente.emp_id
 	
 	databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
 	

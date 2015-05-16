@@ -35,3 +35,38 @@ function onActionFechas(event)
 {
 	forms.cli_agenda_no_laborable_gral.controller.show()
 }
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"14D55E7F-CBAA-4C28-9416-585D3CEBBBBA"}
+ * @AllowToRunInFind
+ */
+function onShow(firstShow, event) 
+{
+	/** @type {JSFoundset<db:/sistemas/medico>}*/
+	var fs_medicos = databaseManager.getFoundSet('sistemas','medico')
+		fs_medicos.loadAllRecords()
+	
+		
+	for (var i = 1; i <= fs_medicos.getSize(); i++) 
+	{
+		var record = fs_medicos.getRecord(i);
+		
+		controller.find()
+		medico_id = record.medico_id
+		if(controller.search()==0)
+		{
+			controller.newRecord(false)
+			emp_id = scopes.globals.mx_empresa_id
+			medico_id = record.medico_id
+			
+			databaseManager.saveData(foundset)
+		}
+	}
+	
+	controller.loadAllRecords()
+}

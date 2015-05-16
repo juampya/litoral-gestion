@@ -73,14 +73,12 @@ function onActionGrabarMedico(event) {
 		if (medico_nombre == null)
 		{
 			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el nombre del Medico.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
-			//plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el nombre del Medico','Aceptar')
 			elements.medico_nombre.requestFocus(true)
 			return
 		}
 		if (medico_apellido == null)
 		{
 			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el apellido del Medico.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
-			//plugins.dialogs.showInfoDialog('Datos Incompletos','Debe completar el apellido del Medico','Aceptar')
 			elements.medico_apellido.requestFocus(true)
 			return
 		}

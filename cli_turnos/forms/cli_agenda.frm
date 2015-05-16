@@ -146,6 +146,7 @@ uuid:"FA81A2FB-F214-4128-A432-EFBF577CE663"
 }
 ],
 name:"cli_agenda",
+onShowMethodID:"14D55E7F-CBAA-4C28-9416-585D3CEBBBBA",
 showInMenu:true,
 styleClass:"table",
 styleName:"id_style",

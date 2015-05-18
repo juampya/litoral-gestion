@@ -47,10 +47,11 @@ function onActionFechas(event)
  */
 function onShow(firstShow, event) 
 {
+	databaseManager.setAutoSave(false)
+	
 	/** @type {JSFoundset<db:/sistemas/medico>}*/
 	var fs_medicos = databaseManager.getFoundSet('sistemas','medico')
 		fs_medicos.loadAllRecords()
-	
 		
 	for (var i = 1; i <= fs_medicos.getSize(); i++) 
 	{

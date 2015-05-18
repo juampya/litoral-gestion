@@ -7,6 +7,9 @@
  */
 function onActionVolver(event) 
 {
+	databaseManager.revertEditedRecords()
+	databaseManager.setAutoSave(true)
+	
 	forms.cli_agenda.controller.show()
 }
 

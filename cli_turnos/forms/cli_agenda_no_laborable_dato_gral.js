@@ -24,6 +24,7 @@ function onShow(firstShow, event)
 		medico_id = null
 		excep_tipo = 1
 		excep_fecha = application.getServerTimeStamp()
+		emp_id = scopes.globals.mx_empresa_id
 		elements.btn_borrar.visible = false
 	}
 

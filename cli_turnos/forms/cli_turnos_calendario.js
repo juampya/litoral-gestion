@@ -668,6 +668,7 @@ function onRender31(event)
  */
 function existeAsistencia(id, mes, anio) 
 {
+	
 	/** @type {JSFoundset<db:/sistemas/cli_turno_calendario>}*/
 	var fs_cal = databaseManager.getFoundSet('sistemas','cli_turno_calendario')
 	fs_cal.find()
@@ -695,7 +696,6 @@ function generarPlanilla()
 	
 	for(var i=1;i<=fs_med.getSize();i++)
 	{
-		
 		var myRecord = fs_med.getRecord(i)
 		if(!existeAsistencia(myRecord.medico_id,vl_mes,vl_anio))
 		{	

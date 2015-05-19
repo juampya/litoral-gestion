@@ -41,6 +41,21 @@ function generarTurno(doctor, dia, id)
 	}
 	var myRec = fs_age_param.getRecord(1)
 	
+	if(myRec.age_lunes==0 && myRec.age_martes==0 && myRec.age_miercoles==0 && myRec.age_jueves==0 && myRec.age_viernes==0 && myRec.age_sabado==0 && myRec.age_domingo==0)
+	{
+		return
+	}
+	
+	if(myRec.age_param_rango == null || myRec.age_param_rango==0)
+	{
+		return
+	}
+	
+	if(myRec.age_param_hora_inicial==0 || myRec.age_param_hora_final==0)
+	{
+		return
+	}
+	
 	vl_rango_turno = myRec.age_param_rango
 	var cond = true
 	var fec = null
@@ -62,6 +77,7 @@ function generarTurno(doctor, dia, id)
 		fs_turno.turno_dia_estado = 0
 		fs_turno.medico_id = doctor
 		fs_turno.cal_turno_id = id
+		fs_turno.emp_id = scopes.globals.mx_empresa_id
 		databaseManager.saveData(fs_turno)
 		
 		vDateTime.add(periodo)
@@ -75,7 +91,8 @@ function generarTurno(doctor, dia, id)
 			fs_turno.turno_hora = fec
 			fs_turno.turno_dia_estado = 0
 			fs_turno.medico_id = doctor
-			fs_turno.cal_turno_id = id	
+			fs_turno.cal_turno_id = id
+			fs_turno.emp_id = scopes.globals.mx_empresa_id
 			cond = false			
 			databaseManager.saveData(fs_turno)
 		}
@@ -109,6 +126,21 @@ function calcularCantTurnoXDia(doctor, dia)
 		return cantidad
 	}
 	var myRec = fs_age_param.getRecord(1)
+	
+	if(myRec.age_lunes==0 && myRec.age_martes==0 && myRec.age_miercoles==0 && myRec.age_jueves==0 && myRec.age_viernes==0 && myRec.age_sabado==0 && myRec.age_domingo==0)
+	{
+		return cantidad
+	}
+	
+	if(myRec.age_param_rango == null || myRec.age_param_rango==0)
+	{
+		return cantidad
+	}
+	
+	if(myRec.age_param_hora_inicial==0 || myRec.age_param_hora_final==0)
+	{
+		return cantidad
+	}
 	
 	vl_rango_turno = myRec.age_param_rango
 	var primer_dia = dia

@@ -22,6 +22,7 @@ function onShow(firstShow, event)
 		controller.newRecord()
 		excep_tipo = 2
 		excep_fecha = application.getServerTimeStamp()
+		emp_id = scopes.globals.mx_empresa_id
 		elements.btn_borrar.visible = false
 	}
 	medico_id = forms.cli_agenda_config_param.medico_id

@@ -185,7 +185,7 @@ onShowMethodID:"D4D9FB05-4D0D-429B-BA91-46C08F63E5CB",
 paperPrintScale:100,
 showInMenu:true,
 size:"421,405",
-styleClass:"formulario",
+styleClass:"table",
 styleName:"id_style",
 typeid:3,
 uuid:"A6711444-0661-49AB-87FA-0E90BAFBFF3D"

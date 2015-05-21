@@ -191,7 +191,7 @@ navigatorID:"-1",
 paperPrintScale:100,
 showInMenu:true,
 size:"562,317",
-styleClass:"formulario",
+styleClass:"table",
 styleName:"id_style",
 typeid:3,
 uuid:"DCE6308D-6447-474F-91A0-CF44E30A1BA8"

@@ -26,7 +26,7 @@ function onActionDetalle(event) {
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords()
-	forms.admin_lg_modulos.controller.show()
+	forms.admin_lg_usuarios.controller.show()
 }
 
 

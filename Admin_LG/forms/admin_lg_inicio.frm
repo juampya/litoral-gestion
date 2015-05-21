@@ -146,7 +146,7 @@ uuid:"C05F9640-3B69-45A1-A26B-3B9D2C2A59FC"
 location:"0,428",
 name:"tabs",
 printable:false,
-size:"642,52",
+size:"640,52",
 transparent:true,
 typeid:16,
 uuid:"C8CCC2CD-ED12-41DC-A87A-E0D9D448E855"

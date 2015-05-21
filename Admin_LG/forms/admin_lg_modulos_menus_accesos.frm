@@ -12,6 +12,7 @@ uuid:"04B3BA66-CE7C-4BD7-A39B-B03C0862252E"
 },
 {
 dataProviderID:"usu_id",
+editable:false,
 location:"21,15",
 size:"47,20",
 text:"Cod.",
@@ -26,6 +27,7 @@ uuid:"593EA6E2-B40E-4B00-8F36-71D764EA3153"
 },
 {
 dataProviderID:"accesos_to_usuarios.usu_nombre",
+editable:false,
 location:"68,15",
 size:"292,20",
 text:"Usuario",

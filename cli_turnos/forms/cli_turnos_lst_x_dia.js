@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"EB239388-CC41-4339-AE4B-C30A0109DEF7",variableType:4}
+ */
+var vl_sobreturnos = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"F680C7FF-EF2C-42CA-ABD2-96A5F709BD99",variableType:4}
  */
 var vl_turnos_no_atiende = null;
@@ -238,80 +245,85 @@ function onRenderOS(event)
  * @properties={typeid:24,uuid:"503BF4C4-D742-4DEF-AF23-89104F8F26F7"}
  */
 function onRenderHora(event) 
-{
+{	
 	/** @type {JSFoundSet<db:/sistemas/turno>} */
 	var record = event.getRecord()
-	event.getRenderable().fgcolor = '#000000';
-	if(record.turno_dia_estado == 0)
+	if(record)
 	{
-		if(record.turno_estado == 5)
+		var rec_turno_dia_estado = record.turno_dia_estado
+		var rec_turno_estado = record.turno_estado
+	
+		event.getRenderable().fgcolor = '#000000';
+		
+		if(rec_turno_dia_estado == 0)
 		{
-			event.getRenderable().bgcolor = '#80ff80'
-			event.getRenderable().toolTipText = 'Turno Cancelado por el paciente. Turno Libre'
+			if(rec_turno_estado == 5)
+			{
+				event.getRenderable().bgcolor = '#80ff80'
+				event.getRenderable().toolTipText = 'Turno Cancelado por el paciente. Turno Libre'
+			}
+			else
+			{
+				event.getRenderable().bgcolor = '#80ff80'
+				event.getRenderable().toolTipText = 'Turno Libre'
+			}		
 		}
-		else
+		if(rec_turno_dia_estado == 1)
 		{
-			event.getRenderable().bgcolor = '#80ff80'
-			event.getRenderable().toolTipText = 'Turno Libre'
-		}		
-	}
-	if(record.turno_dia_estado == 1)
-	{
-		event.getRenderable().bgcolor = '#ffff80'
-		event.getRenderable().toolTipText = 'Turno Ocupado Sin confirmar'			
-		if(record.turno_estado == 1)
+			event.getRenderable().bgcolor = '#ffff80'
+			event.getRenderable().toolTipText = 'Turno Ocupado Sin confirmar'			
+			if(rec_turno_estado == 1)
+			{
+				event.getRenderable().bgcolor = '#ff8040'
+				event.getRenderable().toolTipText = 'Turno Ocupado Confirmado'	
+			}
+			
+			if(rec_turno_estado == 2)
+			{
+				event.getRenderable().bgcolor = '#80ffff'
+				event.getRenderable().toolTipText = 'Paciente en sala de espera'	
+			}
+			
+			if(rec_turno_estado == 3)
+			{
+				event.getRenderable().bgcolor = '#ff80ff'
+				event.getRenderable().toolTipText = 'Paciente en Consultorio'	
+			}
+			if(rec_turno_estado == 4)
+			{
+				event.getRenderable().bgcolor = '#ffffff'
+				event.getRenderable().toolTipText = 'Paciente Atendido'	
+			}
+			if(rec_turno_estado == 5)
+			{
+	//			event.getRenderable().bgcolor = '#c0c0c0'
+	//			event.getRenderable().toolTipText = 'Turno Cancelado por el Paciente'
+				record.turno_dia_estado = 0
+			}
+			if(rec_turno_estado== 6)
+			{
+				event.getRenderable().bgcolor = '#ff80ff'
+				event.getRenderable().toolTipText = 'Ausencia del Paciente'
+			}
+			if(rec_turno_estado == 7)
+			{
+				event.getRenderable().bgcolor = '#808000'
+				event.getRenderable().toolTipText = 'Se retiró'
+			}
+		}
+	
+		if(rec_turno_dia_estado == 2)
 		{
-			event.getRenderable().bgcolor = '#ff8040'
-			event.getRenderable().toolTipText = 'Turno Ocupado Confirmado'	
+			event.getRenderable().bgcolor = '#ff8080'
+			event.getRenderable().toolTipText = 'No Atiende'	
 		}
 		
-//		Sin Confirmar|0
-//		Confirmado|1
-//		En Sala|2
-//		En Consultorio|3
-//		Atendido|4
-//		Cancelado|5 
-//		Ausente|6
-//		Retiro|7
-		if(record.turno_estado == 2)
+		if(rec_turno_dia_estado == 3)
 		{
-			event.getRenderable().bgcolor = '#80ffff'
-			event.getRenderable().toolTipText = 'Paciente en sala de espera'	
+			event.getRenderable().bgcolor = '#ff0000'
+			event.getRenderable().toolTipText = 'Sobreturno'	
 		}
-		
-		if(record.turno_estado == 3)
-		{
-			event.getRenderable().bgcolor = '#ff80ff'
-			event.getRenderable().toolTipText = 'Paciente en Consultorio'	
-		}
-		if(record.turno_estado == 4)
-		{
-			event.getRenderable().bgcolor = '#ffffff'
-			event.getRenderable().toolTipText = 'Paciente Atendido'	
-		}
-		if(record.turno_estado == 5)
-		{
-//			event.getRenderable().bgcolor = '#c0c0c0'
-//			event.getRenderable().toolTipText = 'Turno Cancelado por el Paciente'
-			record.turno_dia_estado = 0
-		}
-		if(record.turno_estado == 6)
-		{
-			event.getRenderable().bgcolor = '#ff80ff'
-			event.getRenderable().toolTipText = 'Ausencia del Paciente'
-		}
-		if(record.turno_estado == 7)
-		{
-			event.getRenderable().bgcolor = '#808000'
-			event.getRenderable().toolTipText = 'Se retiró'
-		}
-	}
-
-	if(record.turno_dia_estado == 2)
-	{
-		event.getRenderable().bgcolor = '#ff8080'
-		event.getRenderable().toolTipText = 'No Atiende'	
-	}
+	}	
 }
 
 /**
@@ -346,10 +358,11 @@ function onDataChangeCambioEstado(oldValue, newValue, event)
  */
 function calcularCantTurnos()
 {
-	vl_turnos_libre = 0
-	vl_turnos_ocupados = 0
+	vl_turnos_libre 	  = 0
+	vl_turnos_ocupados 	  = 0
 	vl_turnos_confirmados = 0
-	vl_turnos_no_atiende = 0
+	vl_turnos_no_atiende  = 0
+	vl_sobreturnos 		  = 0
 	
 	for(var i=1;i<=foundset.getSize();i++)
 	{
@@ -374,6 +387,11 @@ function calcularCantTurnos()
 		{
 			vl_turnos_no_atiende++	
 		}
+		
+		if(record.turno_dia_estado == 3)
+		{
+			vl_sobreturnos++	
+		}
 	}
 }
 
@@ -391,10 +409,13 @@ function onRightClick(event)
 
 	var item1 = menu.addMenuItem("Confirmar Turno",llamada,"media:///16x16/accept.png",null);
 	var item2 = menu.addMenuItem("Completar Datos",llamada,"media:///16x16/pencil_add.png",null);
+	var item3 = menu.addMenuItem("Eliminar Turno",llamada,"media:///16x16/delete.png",null);
+
 	item1.methodArguments = [0]
 	item2.methodArguments = [1]	
+	item3.methodArguments = [2]	
 	var record = foundset.getSelectedRecord()
-	if(record.turno_dia_estado == 0 || record.turno_dia_estado == 2)
+	if(record.turno_dia_estado == 0 || record.turno_dia_estado == 2 || record.turno_dia_estado == 3)
 	{
 		item1.enabled = false
 		item2.enabled = false
@@ -475,8 +496,19 @@ function llamada()
 	{
 	    case 0: confirmarTurno(); break;
 	    case 1: completarDatos(); break;
+	    case 2: eliminarRegTurno(); break;
 	}
 }
+
+/**
+ * @properties={typeid:24,uuid:"72F84F35-88BD-498F-AE97-CFEDBBE1AC08"}
+ */
+function eliminarRegTurno()
+{
+	foundset.deleteRecord(foundset.getSelectedRecord())
+	vl_sobreturnos--
+}
+
 
 /**
  * @properties={typeid:24,uuid:"E2DE7F56-D702-43F0-9DD6-00D3F2949CA5"}
@@ -484,9 +516,10 @@ function llamada()
 function limpiarCantidades()
 {
 	vl_turnos_confirmados = 0
-	vl_turnos_libre = 0
-	vl_turnos_no_atiende = 0
-	vl_turnos_ocupados = 0
+	vl_turnos_libre 	  = 0
+	vl_turnos_no_atiende  = 0
+	vl_turnos_ocupados    = 0
+	vl_sobreturnos		  = 0
 }
 
 /**
@@ -510,7 +543,7 @@ function onDataChangeEstado(oldValue, newValue, event)
 //	Atendido|4
 //	Cancelado|5 
 //	Ausente|6
-	
+		
 	if(turno_estado == 2 && turno_hora_llegada==null)
 	{
 		turno_hora_llegada = application.getServerTimeStamp()
@@ -526,4 +559,52 @@ function onDataChangeEstado(oldValue, newValue, event)
 		turno_hora_sale = application.getServerTimeStamp()
 	}
 	return true
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"1BE87D16-1928-4719-9167-978A1F6BF1E6"}
+ */
+function onActionSobreturno(event) 
+{
+	controller.newRecord(false)
+	emp_id = scopes.globals.mx_empresa_id
+	turno_dia_estado = 3
+	medico_id = vl_medico
+	turno_dia = vl_dia
+	cal_turno_id = vl_cli_turno_id
+	turno_hora = application.getServerTimeStamp()
+	databaseManager.saveData()
+	vl_sobreturnos++
+	
+}
+
+/**
+ * Handle record selected.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"0084D9FF-2694-457D-BB7B-7DFE232ED427"}
+ */
+function onRecordSelection(event) 
+{
+	elements.agenda_hora.editable = false
+	if(turno_dia_estado==3)
+	{
+		elements.agenda_hora.editable = true
+	}
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"A03EA3C9-DB74-447E-A62D-30753C034770"}
+ */
+function onActionReprogramar(event) {
+	// TODO Auto-generated method stub
 }

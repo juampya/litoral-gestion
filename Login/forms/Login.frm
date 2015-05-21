@@ -259,6 +259,7 @@ onShowMethodID:"1719A023-5122-48AA-9863-22E78813BC4C",
 paperPrintScale:100,
 showInMenu:true,
 size:"1000,618",
+styleClass:"formulario",
 styleName:"id_style",
 typeid:3,
 uuid:"533EC696-DF52-4965-A085-E94F143A5356"

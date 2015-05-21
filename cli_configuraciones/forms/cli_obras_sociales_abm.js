@@ -58,6 +58,8 @@ function onActionGrabarObra(event)
 			return
 		}
 	}
+	
+	emp_id = scopes.globals.mx_empresa_id
 	databaseManager.saveData()
 	forms.cli_obras_sociales.controller.show()
 }

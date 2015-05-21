@@ -844,38 +844,41 @@ function render(dia, event)
 	/** @type {JSRecord<db:/sistemas/cli_turno_calendario>}*/	
 	var record = event.getRecord()
 	var nombre = 'cal_turno_id_' + dia
+	if(record)
 	{
+		var record_nombre = record[nombre]
 		event.getRenderable().bgcolor = '#ffffff'
 
-		if(record[nombre] > 10 && record[nombre]!=null)
+		
+		if(record_nombre > 10 && record_nombre!=null)
 		{
 			event.getRenderable().bgcolor = vl_turnos_verde
 		}
-		if(record[nombre] < 10 && record[nombre]!=null)
+		if(record_nombre < 10 && record_nombre!=null)
 		{
 			event.getRenderable().bgcolor = vl_turno_amarillo
 		}
-		if(record[nombre] == 0 && record[nombre]!=null)
+		if(record_nombre == 0 && record_nombre!=null)
 		{
 			event.getRenderable().bgcolor = vl_turno_rojo
 		}
-		if(record[nombre] == 'NA')
+		if(record_nombre == 'NA')
 		{		
 			event.getRenderable().bgcolor = vl_turno_gris		
 		}
-		if(record[nombre] == 'FE')
+		if(record_nombre == 'FE')
 		{		
 			event.getRenderable().bgcolor = vl_turno_rosado		
 		}
-		if(record[nombre] == 'VA')
+		if(record_nombre == 'VA')
 		{		
 			event.getRenderable().bgcolor = vl_turno_naranja		
 		}
-		if(record[nombre] == 'CC')
+		if(record_nombre == 'CC')
 		{		
 			event.getRenderable().bgcolor = vl_turno_celeste		
 		}
-		if(record[nombre] == 'NL')
+		if(record_nombre == 'NL')
 		{		
 			event.getRenderable().bgcolor = vl_turno_fuxia		
 		}
@@ -898,7 +901,8 @@ function render(dia, event)
 			break;
 		}
 		event.getRenderable().fgcolor = '#000000'
-	}}
+	}
+}
 
 /**
  * @properties={typeid:24,uuid:"5D9B4942-8C0D-4F36-8A3E-7CA434823FE2"}
@@ -969,22 +973,32 @@ function verDiaDisponible(dia,mes,anio,medico)
 	fs_exp.find()
 	fs_exp.excep_fecha = fecha
 	fs_exp.medico_id = medico
+	fs_exp.newRecord()
+	fs_exp.excep_fecha = fecha
+	fs_exp.medico_id = '^'
 	var cant = fs_exp.search()
-	if(cant <= 0)
-	{
-		fs_exp.find()
-		fs_exp.excep_fecha = fecha
-		fs_exp.medico_id = 0
-		cant = fs_exp.search()
-		if(cant > 0)
-		{		
-			return fs_exp.excep_mascara
-		}
-	}
-	else
+//	if(cant <= 0)
+//	{
+//		fs_exp.find()
+//		fs_exp.excep_fecha = fecha
+//		fs_exp.medico_id = 0
+//		cant = fs_exp.search()
+//		if(cant > 0)
+//		{		
+//			return fs_exp.excep_mascara
+//		}
+//	}
+//	else
+//	{
+//		<return fs_exp.excep_mascara
+//	}
+
+	if(cant>0)
 	{
 		return fs_exp.excep_mascara
 	}
+	
+	
 	/** @type {JSRecord<db:/sistemas/agenda_parametros>}*/	
 	var fs_par = databaseManager.getFoundSet('sistemas','agenda_parametros')
 	fs_par.find()

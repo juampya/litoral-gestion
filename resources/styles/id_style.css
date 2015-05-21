@@ -91,7 +91,6 @@ tabpanel.leftcolumn
 form
 {
 	background-color: #ffffff; 
-	border-style: none; 
 }
 form.navigator
 {
@@ -113,7 +112,7 @@ form.table
 {
    background-color: #d9ecd5;
    border-style: solid;
-   border-width: 1;
+   border-width: 0px 0px 0px 0px;
    border-color: #cccccc;
 }
 form.table odd
@@ -133,7 +132,6 @@ form.table selected
 portal
 {
    background-color: #b3b3b3;
-   border-style: empty;
 }
 portal odd
 {

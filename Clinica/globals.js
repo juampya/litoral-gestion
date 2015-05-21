@@ -1,4 +1,3 @@
-
 /**
  * Callback method for when solution is opened.
  *

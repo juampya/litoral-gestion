@@ -62,7 +62,6 @@ horizontalAlignment:4,
 location:"495,108",
 name:"calc_turnos_confirmados",
 size:"55,20",
-text:"Calc Turnos Confirmados",
 typeid:4,
 uuid:"1E2F3F59-6B93-432D-9E54-D3D1FAA1EDCA"
 },
@@ -86,6 +85,20 @@ typeid:19,
 uuid:"296DDCF2-77ED-460F-91F3-42A3D6B05C5A"
 },
 {
+formIndex:1,
+imageMediaID:"76C28CE3-97CB-45F7-9CE5-CA921793415B",
+location:"307,59",
+mediaOptions:1,
+name:"btn_reprogramar",
+onActionMethodID:"A03EA3C9-DB74-447E-A62D-30753C034770",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"130,30",
+text:"Reprogramar",
+typeid:7,
+uuid:"36DA3F0C-AC9D-4963-A198-EE74C666D242"
+},
+{
 anchors:11,
 horizontalAlignment:0,
 labelFor:"turno_paciente_nro_docu",
@@ -98,7 +111,7 @@ typeid:7,
 uuid:"40D968FF-7BAA-42F2-B65C-8D5970B938DC"
 },
 {
-formIndex:7,
+formIndex:5,
 location:"1,5",
 size:"36,20",
 styleClass:"label_black",
@@ -132,7 +145,7 @@ uuid:"4837F75E-1B31-4D59-A69F-6810D507EE40"
 {
 anchors:11,
 fontType:"Verdana,1,12",
-formIndex:6,
+formIndex:4,
 horizontalAlignment:2,
 location:"37,27",
 name:"lbl_medico",
@@ -154,6 +167,17 @@ typeid:7,
 uuid:"50AADBA9-638F-4534-B8C6-C1AEDACC7C09"
 },
 {
+formIndex:19,
+horizontalAlignment:4,
+labelFor:"calc_turnos_noAtiende",
+location:"698,108",
+size:"80,20",
+styleClass:"label_black",
+text:"Sobreturnos:",
+typeid:7,
+uuid:"542D93D6-AC0B-4680-86CA-912743429457"
+},
+{
 dataProviderID:"turno_hora_llegada",
 editable:false,
 formIndex:26,
@@ -165,6 +189,17 @@ onRenderMethodID:"503BF4C4-D742-4DEF-AF23-89104F8F26F7",
 size:"89,20",
 typeid:4,
 uuid:"5AE9A9A3-BA1B-4140-88A7-FEAF9E488063"
+},
+{
+background:"#ff0000",
+dataProviderID:"vl_sobreturnos",
+editable:false,
+formIndex:20,
+horizontalAlignment:4,
+location:"781,108",
+size:"55,20",
+typeid:4,
+uuid:"5F18F446-D7FE-4F90-AAED-FCA84485C270"
 },
 {
 formIndex:21,
@@ -182,7 +217,7 @@ uuid:"61FFA42D-658B-47DB-A167-2B96A8DA0DCE"
 anchors:11,
 dataProviderID:"turno_hora",
 editable:false,
-format:"HH:mm",
+format:"HH:mm|mask",
 horizontalAlignment:0,
 location:"56,189",
 name:"agenda_hora",
@@ -247,6 +282,20 @@ styleClass:"label_black",
 text:"Libres:",
 typeid:7,
 uuid:"984705B7-FBC2-4BB9-A88C-6C77C5A23836"
+},
+{
+formIndex:1,
+imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
+location:"172,59",
+mediaOptions:1,
+name:"btn_sobreturno",
+onActionMethodID:"1BE87D16-1928-4719-9167-978A1F6BF1E6",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"130,30",
+text:"Sobreturno",
+typeid:7,
+uuid:"9EC51914-66E1-423F-83DD-1C93BEC33A70"
 },
 {
 dataProviderID:"turno_hora_sale",
@@ -366,7 +415,6 @@ horizontalAlignment:4,
 location:"638,108",
 name:"calc_turnos_noAtiende",
 size:"55,20",
-text:"Calc Turnos Noatiende",
 typeid:4,
 uuid:"C19F6E43-4AC2-42FA-B7CA-3E9B4AA6C5DF"
 },
@@ -404,7 +452,6 @@ horizontalAlignment:4,
 location:"352,108",
 name:"calc_turnos_ocupados",
 size:"55,20",
-text:"Calc Turnos Ocupados",
 typeid:4,
 uuid:"D041D0B6-4A48-457E-AF96-AE51DD0E8567"
 },
@@ -435,7 +482,7 @@ typeid:7,
 uuid:"DC78022A-D83D-401D-BAD6-7526291596F4"
 },
 {
-formIndex:4,
+formIndex:2,
 imageMediaID:"B59F00BB-DE87-490B-92E9-55F93601EEA5",
 location:"37,59",
 mediaOptions:1,
@@ -449,7 +496,7 @@ typeid:7,
 uuid:"DCDF803F-4EC4-48EF-83C4-A0EF3F337122"
 },
 {
-formIndex:7,
+formIndex:6,
 location:"1,27",
 size:"36,20",
 styleClass:"label_black",
@@ -474,7 +521,7 @@ valuelistID:"67E1D3AB-AC58-4ADE-9E16-82830F181512"
 {
 anchors:11,
 fontType:"Verdana,1,12",
-formIndex:5,
+formIndex:3,
 horizontalAlignment:2,
 location:"37,5",
 name:"lbl_fecha",
@@ -485,6 +532,7 @@ uuid:"EC5EF17E-A45C-42B4-8878-D4A453AB105B"
 }
 ],
 name:"cli_turnos_lst_x_dia",
+onRecordSelectionMethodID:"0084D9FF-2694-457D-BB7B-7DFE232ED427",
 onShowMethodID:"05F9F947-223D-4AB3-995E-D42E2B5139C2",
 showInMenu:true,
 size:"1635,262",

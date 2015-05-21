@@ -1,7 +1,8 @@
 addEmptyValue:1,
-customValues:"Libre|0
-Ocupado|1
-No Atiende|2",
+customValues:"Libre|0\r
+Ocupado|1\r
+No Atiende|2\r
+Sobreturno|3",
 name:"vl_agenda_estado",
 returnDataProviders:1,
 showDataProviders:1,

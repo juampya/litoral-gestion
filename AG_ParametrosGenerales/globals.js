@@ -364,7 +364,7 @@ function CargarMenuWeb()
  * @properties={typeid:24,uuid:"95D7AE03-95E4-4897-914C-D59835529EBD"}
  * @AllowToRunInFind
  */
-function CargarSubMenuWeb(p_orden)
+function CargarSubMenuWeb(p_orden, p_coorx, p_coory)
 {
 	var vl_submenu = new Array()
 	var name = ''
@@ -401,6 +401,24 @@ function CargarSubMenuWeb(p_orden)
 		fs_submenu.search()	
 		fs_submenu.sort('menu_orden asc')
 	
+//	if(fs_submenu.getSize()>0)
+//	{
+//		for(var i=1; i<=fs_submenu.getSize();i++)
+//		{
+//			var record_submenu = fs_submenu.getRecord(i)
+//			if(record_submenu.menu_titulo!="Salir")
+//			{
+//				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].text=record_submenu.menu_titulo
+//				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].fgcolor='#ffffff'
+//				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].font= 'Microsoft Sans Serif,1,11'
+//				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].visible  = true
+//			}	
+//		}
+//	}
+	
+	// alternatively create a popup menu
+	var menu = plugins.window.createPopupMenu();
+	
 	if(fs_submenu.getSize()>0)
 	{
 		for(var i=1; i<=fs_submenu.getSize();i++)
@@ -408,15 +426,13 @@ function CargarSubMenuWeb(p_orden)
 			var record_submenu = fs_submenu.getRecord(i)
 			if(record_submenu.menu_titulo!="Salir")
 			{
-				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].text=record_submenu.menu_titulo
-				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].fgcolor='#ffffff'
-				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].font= 'Microsoft Sans Serif,1,11'
-				forms[globals.mx_modulo_inicio].elements[vl_submenu[i-1]].visible  = true
-			}	
+				menu.addMenuItem(record_submenu.menu_titulo,forms[globals.mx_modulo_inicio][record_submenu.menu_funcion],record_submenu.menu_icon,null,BuscaPermisos(record_submenu.menu_id));
+			}
 		}
-	}
+	}		
+	menu.show(p_coorx,p_coory)
 	
-	return fs_submenu
+	//return fs_submenu
 }
 
 /**

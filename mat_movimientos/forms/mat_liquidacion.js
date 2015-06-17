@@ -3,10 +3,8 @@
  */
 function crearFormulario() 
 {
-
 	/** @type {JSDataSet<mes:number, anio:number, nom:text, pendiente:number, cobrado:number, total:number, alta:text, ope:text>}*/
 	var ds = databaseManager.getDataSetByQuery('sistemas', getQuery(), new Array(), -1);
-
 	
 	var success = history.removeForm("matriculados")
 	if(success) {solutionModel.removeForm("matriculados")}
@@ -18,8 +16,6 @@ function crearFormulario()
 	myForm.navigator = SM_DEFAULTS.NONE
 	myForm.styleClass = 'table'
 	myForm.styleName = 'id_style'
-
-
 	
 	var sg_mes = myForm.newTextField('nom', 20, 200, 120, 20)
 	sg_mes.editable = false
@@ -42,7 +38,6 @@ function crearFormulario()
 	sg_pendiente.anchors = SM_ANCHOR.ALL
 	sg_pendiente.styleClass = 'table_field'	
 	sg_pendiente.format = "#,###.00"	
-		
 		
 	var sg_cobrado = myForm.newTextField('cobrado', 60, 200, 120, 20)
 	sg_cobrado.editable = false
@@ -73,8 +68,6 @@ function crearFormulario()
 	sg_operador.titleText = 'Operador'
 	sg_operador.anchors = SM_ANCHOR.ALL
 	sg_operador.styleClass = 'table_field'
-
-
 	
 	var tmp_total_pendiente 	= 0
 	var tmp_total_cobrado 		= 0
@@ -86,13 +79,11 @@ function crearFormulario()
 		tmp_total 				+= ds.total
 	}
 	
-	forms['matriculados']['vl_cantidad']	=ds.getMaxRowIndex()
-	forms['matriculados']['vl_total_total']		=tmp_total
-	forms['matriculados']['vl_total_pendiente']	=tmp_total_pendiente
-	forms['matriculados']['vl_total_cobrado']	=tmp_total_cobrado
-		
+	forms['matriculados']['vl_cantidad']		= ds.getMaxRowIndex()
+	forms['matriculados']['vl_total_total']		= tmp_total
+	forms['matriculados']['vl_total_pendiente']	= tmp_total_pendiente
+	forms['matriculados']['vl_total_cobrado']	= tmp_total_cobrado
 	forms['matriculados'].controller.show();
-
 }
 
 /**

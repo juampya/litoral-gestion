@@ -23,25 +23,7 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_menu5.visible  = true
 		forms.mat_inicio.elements.btn_menu6.visible  = true
 		forms.mat_inicio.elements.btn_menu7.visible  = true
-		forms.mat_inicio.elements.btn_submenu1.visible  = false
-		forms.mat_inicio.elements.btn_submenu2.visible  = false
-		forms.mat_inicio.elements.btn_submenu3.visible  = false
-		forms.mat_inicio.elements.btn_submenu4.visible  = false
-		forms.mat_inicio.elements.btn_submenu5.visible  = false
-		forms.mat_inicio.elements.btn_submenu6.visible  = false
-		forms.mat_inicio.elements.btn_submenu7.visible  = false
-		forms.mat_inicio.elements.btn_submenu8.visible  = false
-		forms.mat_inicio.elements.btn_submenu9.visible  = false
-		forms.mat_inicio.elements.btn_submenu10.visible  = false
-		forms.mat_inicio.elements.btn_submenu11.visible  = false
-		forms.mat_inicio.elements.btn_submenu12.visible  = false
-		forms.mat_inicio.elements.btn_form1.visible  = false
-		forms.mat_inicio.elements.btn_form2.visible  = false
-		forms.mat_inicio.elements.btn_form3.visible  = false
-		forms.mat_inicio.elements.btn_form4.visible  = false
-		forms.mat_inicio.elements.btn_form5.visible  = false
-		forms.mat_inicio.elements.btn_form6.visible  = false
-		forms.mat_inicio.elements.btn_form7.visible  = false
+		
 		scopes.globals.vg_fs_menu=scopes.globals.CargarMenuWeb()
 	}
 	else
@@ -54,26 +36,7 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_menu5.visible  = false
 		forms.mat_inicio.elements.btn_menu6.visible  = false
 		forms.mat_inicio.elements.btn_menu7.visible  = false
-		forms.mat_inicio.elements.btn_submenu1.visible  = false
-		forms.mat_inicio.elements.btn_submenu2.visible  = false
-		forms.mat_inicio.elements.btn_submenu3.visible  = false
-		forms.mat_inicio.elements.btn_submenu4.visible  = false
-		forms.mat_inicio.elements.btn_submenu5.visible  = false
-		forms.mat_inicio.elements.btn_submenu6.visible  = false
-		forms.mat_inicio.elements.btn_submenu7.visible  = false
-		forms.mat_inicio.elements.btn_submenu8.visible  = false
-		forms.mat_inicio.elements.btn_submenu9.visible  = false
-		forms.mat_inicio.elements.btn_submenu10.visible  = false
-		forms.mat_inicio.elements.btn_submenu11.visible  = false
-		forms.mat_inicio.elements.btn_submenu12.visible  = false
-		forms.mat_inicio.elements.btn_form1.visible  = false
-		forms.mat_inicio.elements.btn_form2.visible  = false
-		forms.mat_inicio.elements.btn_form3.visible  = false
-		forms.mat_inicio.elements.btn_form4.visible  = false
-		forms.mat_inicio.elements.btn_form5.visible  = false
-		forms.mat_inicio.elements.btn_form6.visible  = false
-		forms.mat_inicio.elements.btn_form7.visible  = false
-		
+
 		scopes.globals.CargarMenu()
 	}
 	//plugins.busy.unblock();

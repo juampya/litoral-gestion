@@ -343,7 +343,7 @@ function onActionExportarExcel(event)
 	if(fileName)
     {
        var success = plugins.file.writeTXTFile(fileName, cuerpo)	 
-       if(success)
+       if(success && application.getApplicationType() == APPLICATION_TYPES.SMART_CLIENT)
        {
        		globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Información', 'Exportación Satisfactoria', 'info', controller.getName(), 'Ok', ' ',null,null,null,null,null,null)
 	   

@@ -219,37 +219,13 @@ function onActionMenu(event)
 //	
 //	elements[event.getElementName()].bgcolor = '#80ff80'
 		
+	elements.btn_menu1.getLocationX()
 	/**@type {Number} */
 	var vl_btn = event.getElementName().substr(8,1)
+	scopes.globals.CargarSubMenuWeb(vl_btn,elements[event.getElementName()].getLocationX(),elements[event.getElementName()].getLocationY()+20) 
 	
-	/**@type {JSFoundSet<db:/Sistemas/menus>} */ 
-	scopes.globals.vg_fs_submenu = scopes.globals.CargarSubMenuWeb(vl_btn) 
-}
-
-/**
- * Perform the element default action.
- *
- * @param {JSEvent} event the event that triggered the action
- *
- * @properties={typeid:24,uuid:"BF8D50D5-79B1-46ED-B219-86E05316DC61"}
- */
-function onActionSubmenu(event) 
-{
-	/**@type {Number} */
-	var vl_submenu_btn= event.getElementName().substr(11,1)
-	
-	/**@type {JSRecord<db:/Sistemas/menus>} */
-	var myRecord = scopes.globals.vg_fs_submenu.getRecord(vl_submenu_btn)
-	
-	if(myRecord.menu_principal == 3)
-	{
-		
-	}
-	else
-	{
-		universidades()
-		forms[globals.mx_modulo_inicio][myRecord.menu_funcion]
-	}
+	///**@type {JSFoundSet<db:/Sistemas/menus>} */ 
+	//scopes.globals.vg_fs_submenu = scopes.globals.CargarSubMenuWeb(vl_btn) 
 }
 
 /**

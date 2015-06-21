@@ -23,6 +23,7 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_menu5.visible  = true
 		forms.mat_inicio.elements.btn_menu6.visible  = true
 		forms.mat_inicio.elements.btn_menu7.visible  = true
+		forms.mat_inicio.elements.rectangulo1.visible= true
 		
 		scopes.globals.vg_fs_menu=scopes.globals.CargarMenuWeb()
 	}
@@ -36,6 +37,7 @@ function onSolutionOpen()
 		forms.mat_inicio.elements.btn_menu5.visible  = false
 		forms.mat_inicio.elements.btn_menu6.visible  = false
 		forms.mat_inicio.elements.btn_menu7.visible  = false
+		forms.mat_inicio.elements.rectangulo1.visible= false
 
 		scopes.globals.CargarMenu()
 	}

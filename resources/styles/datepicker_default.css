@@ -1,0 +1,94 @@
+form
+{
+	border-style: solid;
+	border-width: 0px 0px 0px 0px;
+	background-color: #BfBfBf;
+}
+label
+{
+	color: black ;
+	font: 16pt SansSerif, sans-serif, Arial, Helvetica;
+}
+label.datebuttontext
+{
+	color: black ;
+	vertical-align: middle;
+	text-align: center;
+	font: 16pt SansSerif, sans-serif, Arial, Helvetica;
+	border-width: 0px 0px 0px 0px;
+}
+label.datebuttontext_today
+{
+	color: white ;
+	vertical-align: middle;
+	text-align: center;
+	font: 16pt SansSerif, sans-serif, Arial, Helvetica;
+	border-width: 0px 0px 0px 0px;
+}
+label.datebuttontext_disabled
+{
+	color: '#797979' ;
+	vertical-align: middle;
+	text-align: center;
+	font: 16pt SansSerif, sans-serif, Arial, Helvetica;
+	border-width: 0px 0px 0px 0px;
+}
+label.dayname
+{
+	color: '#797979' ;
+	vertical-align: middle;
+	text-align: center;
+	font: 14pt SansSerif, sans-serif, Arial, Helvetica;
+	border-width: 0px 0px 0px 0px;
+}
+label.weeknr
+{
+	color: '#797979' ;
+	vertical-align: middle;
+	text-align: right;
+	font: 12pt SansSerif, sans-serif, Arial, Helvetica;
+	border-width: 0px 0px 0px 0px;
+}
+label.buttonborder_currentvalue
+{
+	border-color: #7777FF #7777FF #7777FF #7777FF;
+	border-style: solid;
+	border-width: 2px 2px 2px 2px;
+}
+label.buttonborder_today
+{
+	border-color: #0000AA #0000CC #0000AA #0000CC;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+}
+label.buttonborder
+{
+	border-color: #7E7E7E #979797 #7E7E7E #979797;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+}
+label.buttonborder_disabled
+{
+	border-color: #ABABAB #ABABAB #ABABAB #ABABAB;
+	border-style: solid;
+	border-width: 1px 1px 1px 1px;
+}
+label.buttonborder_right
+{
+	border-color: #7E7E7E #979797 #7E7E7E #979797;
+	border-style: solid;
+	border-width: 0px 1px 0px 0px;
+	text-align: center;
+	color: black ;
+	font: 12pt SansSerif, sans-serif, Arial, Helvetica; 
+}
+label.buttonborder_left
+{
+	border-color: #7E7E7E #979797 #7E7E7E #979797;
+	border-style: solid;
+	border-width: 0px 0px 0px 1px;
+	text-align: center;
+	color: black ;
+	font: 12pt SansSerif, sans-serif, Arial, Helvetica; 
+}
+

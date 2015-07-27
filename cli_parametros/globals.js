@@ -31,3 +31,47 @@ function ultimoDiaMes(mes, anio)
 	
 	return dias
 }
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param mensaje
+ * @param formulario
+ *
+ * @properties={typeid:24,uuid:"AE62B464-C3F5-497F-BAEB-9411883AB0B0"}
+ */
+function ventanaAceptar(mensaje,formulario) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención",mensaje,"atention",formulario,"Aceptar","",null,null,null,null,null,null)
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param nombre
+ * @param titulo
+ * @param formulario
+ *
+ * @properties={typeid:24,uuid:"395CD442-9581-4A40-9641-777FE8147D4E"}
+ */
+function ventanaFormulario(nombre,titulo,formulario) 
+{
+	var win1 = application.createWindow(nombre, JSWindow.MODAL_DIALOG);
+	win1.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+	win1.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+	win1.resizable = false
+	win1.title= titulo;
+	win1.show(forms[formulario]);
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param mensaje
+ * @param metodoSi
+ * @param MetodoNo
+ * @param formulario
+ *
+ * @properties={typeid:24,uuid:"541B03C6-E60A-4AEE-AFC5-FA7E05C4F450"}
+ */
+function ventanaSiNo(mensaje,metodoSi,MetodoNo,formulario) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion",mensaje,"atention",formulario,"No",MetodoNo,"Si",metodoSi,null,null,null,null)
+}

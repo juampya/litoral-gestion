@@ -138,7 +138,13 @@ function onActionLogin(event) {
 			globals.mx_rowBGOdd = ok[4]		
 		}
 		
-		databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
+		//Si el usuario es Juampy o German saco los filtros por empresa.
+		if(scopes.globals.mx_usuario_id != 1 && scopes.globals.mx_usuario_id != 2)
+		{
+			databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
+		}
+		
+		//databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
 	}
 }
 

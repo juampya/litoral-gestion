@@ -158,7 +158,7 @@ dataProviderID:"usu_estado",
 displayType:2,
 editable:false,
 location:"90,274",
-size:"103,20",
+size:"140,20",
 text:"Estado",
 typeid:4,
 uuid:"81057F4C-9E4C-4611-A0F2-DD7028744223",
@@ -192,10 +192,13 @@ uuid:"AB94C388-648E-48B9-8820-71C08A61243E"
 },
 {
 dataProviderID:"usu_nivel_acceso",
+displayType:2,
+editable:false,
 location:"90,249",
-size:"103,20",
+size:"140,20",
 typeid:4,
-uuid:"B18E02E6-4FD1-478E-955E-CC3623F51F56"
+uuid:"B18E02E6-4FD1-478E-955E-CC3623F51F56",
+valuelistID:"6EC90E0B-D438-4618-8A35-95DC3996433F"
 },
 {
 dataProviderID:"usu_login",

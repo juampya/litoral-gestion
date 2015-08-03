@@ -132,7 +132,7 @@ function empresa(empresa_id)
 	/** @type {JSFoundset<db:/Sistemas/empresas>} */
 	var fs_empresa = databaseManager.getFoundSet('Sistemas','empresas')
 	fs_empresa.find()
-	fs_empresa.emp_id = empresa_id
+	fs_empresa.emp_empresa_id = empresa_id
 	var cantidad = fs_empresa.search()
 	
 	var datosEmpresa = new Array()

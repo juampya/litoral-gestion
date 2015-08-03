@@ -716,7 +716,7 @@ function ValidarCuit(cuit)
 {
 	if(cuit.length !=11)
 	{
-		return false
+		//return false
 	}
 	
 	var acumulado = 0

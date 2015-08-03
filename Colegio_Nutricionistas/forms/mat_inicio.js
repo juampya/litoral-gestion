@@ -257,3 +257,33 @@ function GeneraArchivoDeuda()
 	forms.mat_genera_archivos_deudas.vl_frm_anterior = controller.getName()
 	forms.mat_genera_archivos_deudas.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"88A909E1-76B1-4AB7-BEBA-CD0CF09D6E11"}
+ */
+function ReporteIngresos()
+{
+	scopes.globals.SacarMenu()
+	//forms.mat_reporte_ingresos.vl_frm_anterior = controller.getName()
+	//forms.mat_reporte_ingresos.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"B02CBDE8-1F42-43D3-962B-665D54D0F0D0"}
+ */
+function ReporteConsultorios()
+{
+	scopes.globals.SacarMenu()
+	//forms.mat_reporte_consultorios.vl_frm_anterior = controller.getName()
+	//forms.mat_reporte_consultorios.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"600BE497-F36C-4A95-A521-E2C97248F95D"}
+ */
+function ReporteMatriculas()
+{
+	scopes.globals.SacarMenu()
+	//forms.mat_reporte_matriculas.vl_frm_anterior = controller.getName()
+	//forms.mat_reporte_matriculas.controller.show()
+}

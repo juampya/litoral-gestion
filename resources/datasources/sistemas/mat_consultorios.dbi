@@ -24,6 +24,12 @@ name:"consultorio_email"
 },
 {
 allowNull:true,
+creationOrderIndex:17,
+dataType:4,
+name:"consultorio_estado"
+},
+{
+allowNull:true,
 creationOrderIndex:8,
 dataType:12,
 length:45,
@@ -94,6 +100,12 @@ autoEnterType:1,
 creationOrderIndex:13,
 dataType:4,
 name:"consultorio_usu_modi"
+},
+{
+allowNull:true,
+creationOrderIndex:18,
+dataType:93,
+name:"consultorio_vto"
 },
 {
 allowNull:true,

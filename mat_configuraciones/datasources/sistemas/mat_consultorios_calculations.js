@@ -4,25 +4,27 @@
  */
 function calc_fec_vto()
 {
-	if(utils.hasRecords(mat_consultorios_to_mat_rel_mat_consu))
-	{
-		mat_consultorios_to_mat_rel_mat_consu.find()
-		mat_consultorios_to_mat_rel_mat_consu.rel_estado = 1
-		mat_consultorios_to_mat_rel_mat_consu.search()
-		
-		if(mat_consultorios_to_mat_rel_mat_consu.getSize()==1)
-		{
-			return mat_consultorios_to_mat_rel_mat_consu.rel_fec_vencimiento 
-		}
-		else
-		{
-			return null
-		}
-	}
-	else
-	{
-		return null
-	}
+//	if(utils.hasRecords(mat_consultorios_to_mat_rel_mat_consu))
+//	{
+//		mat_consultorios_to_mat_rel_mat_consu.find()
+//		mat_consultorios_to_mat_rel_mat_consu.rel_estado = 1
+//		mat_consultorios_to_mat_rel_mat_consu.search()
+//		
+//		if(mat_consultorios_to_mat_rel_mat_consu.getSize()==1)
+//		{
+//			return mat_consultorios_to_mat_rel_mat_consu.rel_fec_vencimiento 
+//		}
+//		else
+//		{
+//			return null
+//		}
+//	}
+//	else
+//	{
+//		return null
+//	}
+
+	return 
 }
 
 /**
@@ -31,30 +33,31 @@ function calc_fec_vto()
  */
 function calc_estado()
 {
-	if(utils.hasRecords(mat_consultorios_to_mat_rel_mat_consu))
-	{
-		mat_consultorios_to_mat_rel_mat_consu.find()
-		mat_consultorios_to_mat_rel_mat_consu.rel_estado = "1...2"
-		mat_consultorios_to_mat_rel_mat_consu.search()
-		
-		if(mat_consultorios_to_mat_rel_mat_consu.getSize()==1)
-		{
-			return mat_consultorios_to_mat_rel_mat_consu.rel_estado
-		}
-		else
-		{
-			if(mat_consultorios_to_mat_rel_mat_consu.getSize()>1)
-			{
-				return 2
-			}
-			else
-			{
-				return 0
-			}
-		}
-	}	
-	else
-	{
-		return 0
-	}
+//	if(utils.hasRecords(mat_consultorios_to_mat_rel_mat_consu))
+//	{
+//		mat_consultorios_to_mat_rel_mat_consu.find()
+//		mat_consultorios_to_mat_rel_mat_consu.rel_estado = 1||2 //"1...2"
+//		mat_consultorios_to_mat_rel_mat_consu.search()
+//		
+//		if(mat_consultorios_to_mat_rel_mat_consu.getSize()==1)
+//		{
+//			return mat_consultorios_to_mat_rel_mat_consu.rel_estado
+//		}
+//		else
+//		{
+//			if(mat_consultorios_to_mat_rel_mat_consu.getSize()>1)
+//			{
+//				return 2
+//			}
+//			else
+//			{
+//				return 0
+//			}
+//		}
+//	}	
+//	else
+//	{
+//		return 0
+//	}
+	return
 }

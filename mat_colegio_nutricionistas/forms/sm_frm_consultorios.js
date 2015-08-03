@@ -72,12 +72,14 @@ function Filtrar()
 	controller.loadAllRecords()
 	controller.find()
 	if(vl_matriculado!=null) mat_id = vl_matriculado
-	if(vl_localidad!=null)localidad_id = vl_localidad
+	if(vl_localidad!=null) localidad_id = vl_localidad
+	if(vl_estado!=null) consultorio_estado = vl_estado
 	if(vl_departamento!=null) mat_consultorios_to_localidades.depar_id = vl_departamento
+	if(vl_vto!=null) consultorio_vto  = utils.dateFormat(vl_vto, 'yyyy-MM')+'-01 00:00:00 ... '+utils.dateFormat(vl_vto, 'yyyy-MM')+'-28 23:59:59|yyyy-MM-dd HH:mm:ss'
 	controller.search()
 	
-	filtro_estado()
-	filtro_vto()
+	//filtro_estado()
+	//filtro_vto()
 //	for (var i = 1; i <= databaseManager.getFoundSetCount(foundset) ; i++) 
 //	{
 //		var record = foundset.getRecord(i)
@@ -171,15 +173,32 @@ function filtro_vto()
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"331E7957-6E03-47A5-B6BA-E940CAB12980"}
+ * @AllowToRunInFind
  */
 function onShow(firstShow, event) 
 {
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) {
+	    plugins.busy.prepare();
+	}
+
 	if(firstShow)
 	{
 		vl_departamento = null
 		vl_localidad 	= null
 		vl_matriculado 	= null
-	}
+		vl_estado		= null
+		vl_vto			= null
+		
+		var params = {
+			processFunction: ActualizarEstados,
+			message: 'Actualizando estados... espere un momento por favor.',
+			opacity: 0.5,
+			paneColor: '#000000',
+			showCancelButton: false,
+			cancelButtonText: 'Stop!'
+		};
+		plugins.busy.block(params);
+	}	
 	
 	Filtrar()
 }
@@ -190,13 +209,7 @@ function onShow(firstShow, event)
  */
 function Refrescar()
 {
-	vl_departamento = null
-	vl_localidad 	= null
-	vl_matriculado 	= null
-	vl_estado		= null
-	vl_vto			= null
-	controller.loadAllRecords()
-	Filtrar()
+	onShow(true,null)
 }
 
 /**
@@ -239,8 +252,8 @@ function onActionExportarExcel(event)
 				'<td align="left">'   + application.getValueListDisplayValue('localidades',myRecord.localidad_id) + '</td>' +
 				'<td align="left">'   + myRecord.mat_consultorios_to_localidades.localidades_to_departamentos.depar_descripcion + '</td>' +
 				'<td align="left">'   + myRecord.mat_consultorios_to_localidades.localidades_to_departamentos.departamentos_to_provincias.provincia_nombre+ '</td>'+
-				'<td align="center">' + application.getValueListDisplayValue('consultorios_estados',myRecord.calc_estado) + '</td>' +
-				'<td align="center">' + utils.dateFormat((myRecord.calc_fec_vto),'dd/MM/yyyy')+ '</td>' +
+				'<td align="center">' + application.getValueListDisplayValue('consultorios_estados',myRecord.consultorio_estado) + '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.consultorio_vto),'dd/MM/yyyy')+ '</td>' +
 				'<td align="left">'   + application.getValueListDisplayValue('matriculados',myRecord.mat_id) + '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
@@ -294,5 +307,143 @@ function onActionExportarExcel(event)
  */
 function onActionImprimir(event) 
 {
+	var tmp_fecha_vto	  = "No tiene en cuenta."
+	var tmp_matriculados  = "Todos."
+	var tmp_estado		  = "Todos."
+	var tmp_localidad 	  = "Todas."
+	var tmp_departamento  = "Todos."	
+		
+	if(vl_vto != null)
+	{
+		tmp_fecha_vto = utils.dateFormat(vl_vto, 'MM-yyyy')
+	}
 	
+	if(vl_matriculado!=null)
+	{
+		tmp_matriculados = application.getValueListDisplayValue('matriculados',vl_matriculado)
+	}
+	
+	if(vl_estado!=null)
+	{
+		tmp_estado = application.getValueListDisplayValue('consultorios_estados',vl_estado)
+	}
+	
+	if(vl_localidad!=null)
+	{
+		tmp_localidad = application.getValueListDisplayValue('localidades',vl_localidad)
+	}
+	
+	if(vl_departamento!=null)
+	{
+		tmp_departamento = application.getValueListDisplayValue('departamentos',vl_departamento)
+	}
+	
+	plugins.jasperPluginRMI.runReport(foundset,'mat_consultorios.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pfechavto:tmp_fecha_vto, plocalidad:tmp_localidad, pdepartamento:tmp_departamento, pmatriculado:tmp_matriculados, pestado:tmp_estado})
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"E2D47BA6-FF6F-420B-B56A-1227AC01CAA0"}
+ */
+function onActionDetalle(event) 
+{
+	forms.sm_frm_consultorios_detalle.vl_frm_anterior = controller.getName()
+	forms.sm_frm_consultorios_detalle.controller.show()
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"742B4892-364A-4C22-BCD5-E764A1558A7F"}
+ * @AllowToRunInFind
+ */
+function ActualizarEstados()
+{
+	application.updateUI()
+	
+	for (var i = 1; i <= databaseManager.getFoundSetCount(foundset); i++)
+	{
+		/**@type {JSRecord}*/
+		var record = foundset.getRecord(i)
+		
+		if(utils.hasRecords(record.mat_consultorios_to_mat_rel_mat_consu))
+		{
+			record.mat_consultorios_to_mat_rel_mat_consu.find()
+			record.mat_consultorios_to_mat_rel_mat_consu.rel_estado = [0,1,2,3]
+			record.mat_consultorios_to_mat_rel_mat_consu.search()
+			record.mat_consultorios_to_mat_rel_mat_consu.sort('rel_fec_vencimiento desc')
+			
+			if(record.mat_consultorios_to_mat_rel_mat_consu.getSize()==1)
+			{
+				if(utils.dateFormat(record.mat_consultorios_to_mat_rel_mat_consu.rel_fec_vencimiento, 'yyyy-MM-dd')<utils.dateFormat(application.getServerTimeStamp(), 'yyyy-MM-dd'))
+				{
+					record.mat_consultorios_to_mat_rel_mat_consu.rel_estado = 3 //vencido
+					record.consultorio_estado = 3 //vencido
+				}
+				else
+				{
+					record.consultorio_estado = record.mat_consultorios_to_mat_rel_mat_consu.rel_estado
+					record.consultorio_vto = record.mat_consultorios_to_mat_rel_mat_consu.rel_fec_vencimiento
+				}
+			}
+			else
+			{
+				if(record.mat_consultorios_to_mat_rel_mat_consu.getSize()>1)
+				{
+					if(utils.dateFormat(record.mat_consultorios_to_mat_rel_mat_consu.getRecord(1).rel_fec_vencimiento, 'yyyy-MM-dd')<utils.dateFormat(application.getServerTimeStamp(), 'yyyy-MM-dd'))
+					{
+						record.mat_consultorios_to_mat_rel_mat_consu.getRecord(1).rel_estado = 3 //vencido
+						record.consultorio_estado = 3 //vencido
+					}
+					else
+					{
+						record.consultorio_estado = 2
+						record.consultorio_vto = record.mat_consultorios_to_mat_rel_mat_consu.getRecord(1).rel_fec_vencimiento
+					}
+				}
+				else
+				{
+					record.consultorio_estado = 0
+				}
+			}
+		}	
+		else
+		{
+			record.consultorio_estado = 0
+		}
+		
+		databaseManager.saveData(record)
+	}
+	plugins.busy.unblock();
+}
+/**
+ * Called before the form component is rendered.
+ *
+ * @param {JSRenderEvent} event the render event
+ *
+ * @properties={typeid:24,uuid:"C7E577C8-5FA3-44EF-BF01-450EA1D49341"}
+ */
+function onRender(event) 
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_consultorios>} */
+	var record = event.getRecord()
+	if(record)
+	{
+		var rec_estado = record.consultorio_estado
+	
+		event.getRenderable().fgcolor = '#000000';
+		
+		if(rec_estado == 3)
+		{
+			event.getRenderable().bgcolor = '#ff0000'
+		}
+		
+		if(rec_estado == 0)
+		{
+			event.getRenderable().bgcolor = '#c0c0c0'
+		}
+		
+	}	
 }

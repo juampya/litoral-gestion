@@ -35,6 +35,8 @@ var vl_titulo = null;
  */
 function onActionAceptar(event) 
 {
+	mat_rel_mat_consu_to_mat_consultorios.consultorio_estado = rel_estado
+	mat_rel_mat_consu_to_mat_consultorios.consultorio_vto 	 = rel_fec_vencimiento
 	databaseManager.saveData(foundset)
 	application.getWindow("mat_habilitaciones").hide()
 }

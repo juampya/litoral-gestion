@@ -117,8 +117,9 @@ uuid:"FDED4A89-4C5E-4FEB-AFF6-ECC18077DC8C"
 }
 ],
 name:"sm_frm_matriculados_consultorios_habilitaciones",
+namedFoundSet:"separate",
 showInMenu:true,
-size:"887,156",
+size:"524,156",
 styleClass:"table",
 styleName:"id_style",
 typeid:3,

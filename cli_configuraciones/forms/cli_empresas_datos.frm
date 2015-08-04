@@ -135,7 +135,6 @@ uuid:"E7E63316-0C0E-4B8E-A018-2D8B64A3FBF3"
 },
 {
 horizontalAlignment:0,
-labelFor:"emp_id",
 location:"10,90",
 name:"emp_id_label",
 size:"80,20",

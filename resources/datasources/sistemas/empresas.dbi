@@ -58,10 +58,9 @@ length:45,
 name:"emp_domicilio"
 },
 {
-allowNull:false,
+allowNull:true,
 creationOrderIndex:34,
 dataType:4,
-flags:1,
 name:"emp_empresa_id"
 },
 {
@@ -89,6 +88,13 @@ creationOrderIndex:15,
 dataType:12,
 length:500,
 name:"emp_frase"
+},
+{
+allowNull:false,
+creationOrderIndex:35,
+dataType:4,
+flags:1,
+name:"emp_id"
 },
 {
 allowNull:true,

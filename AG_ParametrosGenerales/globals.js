@@ -1,4 +1,18 @@
 /**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"03A87D63-EDA7-4A70-9BE3-22C0345B5F07"}
+ */
+var vg_cco = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"4A0C69CC-29E8-44A8-87B3-B3B1EEFD946E"}
+ */
+var vg_cc = null;
+
+/**
  * @type {Number}
  *
  * @properties={typeid:35,uuid:"4A750794-6ECC-452B-B7FA-7F593C236E9E",variableType:4}
@@ -543,15 +557,17 @@ function LG_Auditoria(record)
 		var campo 		= dataset.getValue(i,1)
 		var valor_viejo = dataset.getValue(i,2)
 		var valor_nuevo = dataset.getValue(i,3)
-		
-		fs_auditoria.newRecord()
-		fs_auditoria.audit_tabla 		  = tabla
-		fs_auditoria.audit_pk_valor 	  = pk_valor_de_record 
-		fs_auditoria.audit_usuario 		  = usu_modif
-		fs_auditoria.audit_fecha 		  = fec_modif 
-		fs_auditoria.audit_valor_anterior = valor_viejo 
-		fs_auditoria.audit_valor_nuevo 	  = valor_nuevo 
-		fs_auditoria.audit_campo 		  = campo
+		if(tabla != "mat_matriculados" && campo != "calc_cuotas_adeud")
+		{
+			fs_auditoria.newRecord()
+			fs_auditoria.audit_tabla 		  = tabla
+			fs_auditoria.audit_pk_valor 	  = pk_valor_de_record 
+			fs_auditoria.audit_usuario 		  = usu_modif
+			fs_auditoria.audit_fecha 		  = fec_modif 
+			fs_auditoria.audit_valor_anterior = valor_viejo 
+			fs_auditoria.audit_valor_nuevo 	  = valor_nuevo 
+			fs_auditoria.audit_campo 		  = campo
+		}
 	}
 }
 

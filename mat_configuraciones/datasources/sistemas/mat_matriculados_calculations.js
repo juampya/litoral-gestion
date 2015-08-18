@@ -1,4 +1,20 @@
 /**
+ * @properties={type:12,typeid:36,uuid:"23438312-CCA6-416B-AAD2-DC59F9147E45"}
+ */
+function calc_mail_chek()
+{
+	return 0;
+}
+
+/**
+ * @properties={type:4,typeid:36,uuid:"05EF0F7A-F1E5-46FD-A770-7B00971A3C2F"}
+ */
+function calc_cuotas_adeud()
+{
+	return 0;
+}
+
+/**
  * @properties={type:-4,typeid:36,uuid:"0CAB9A31-8F88-42FD-8434-F0E834993B24"}
  * @AllowToRunInFind
  */

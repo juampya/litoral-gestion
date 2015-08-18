@@ -33,6 +33,8 @@ function onShow(firstShow, event)
 function onHide(event) 
 {
 	scopes.globals.vg_destinatarios = null
+	scopes.globals.vg_cc		    = null
+	scopes.globals.vg_cco		    = null
 	scopes.globals.vg_asunto 		= null
 	scopes.globals.vg_cuerpo 		= null
 	scopes.globals.vg_adjuntos 		= null
@@ -70,7 +72,7 @@ function Enviar(pfuncion_codigo)
 		return
 	}
 	
-	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_empresavigente.emp_mail2, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, null, null, scopes.globals.vg_adjuntos, authorization)
+	var success = plugins.mail.sendMail(scopes.globals.vg_destinatarios, scopes.globals.ag_empresavigente.emp_mail2, scopes.globals.vg_asunto,scopes.globals.vg_cuerpo, scopes.globals.vg_cc, scopes.globals.vg_cco, scopes.globals.vg_adjuntos, authorization)
 	if (!success) 
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","El envio falló","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)

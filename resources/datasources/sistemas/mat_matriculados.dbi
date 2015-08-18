@@ -10,6 +10,12 @@ name:"mat_id"
 },
 {
 allowNull:true,
+creationOrderIndex:44,
+dataType:4,
+name:"calc_cuotas_adeud"
+},
+{
+allowNull:true,
 creationOrderIndex:42,
 dataType:4,
 name:"consultorio_id"
@@ -134,7 +140,7 @@ name:"mat_fec_crea"
 },
 {
 allowNull:true,
-autoEnterSubType:9,
+autoEnterSubType:5,
 autoEnterType:1,
 creationOrderIndex:31,
 dataType:93,
@@ -268,8 +274,7 @@ name:"mat_usu_crea"
 },
 {
 allowNull:true,
-autoEnterSubType:7,
-autoEnterType:1,
+autoEnterType:5,
 creationOrderIndex:32,
 dataType:4,
 name:"mat_usu_modi"

@@ -1,11 +1,10 @@
 addEmptyValue:1,
-customValues:"Pendiente|0\r
-Pagada|1\r
-No Pagada|2\r
-Anulada|9\r
+customValues:"Pendiente|0\r\
+Pagada|1\r\
+No Pagada|2\r\
+Anulada|9\r\
+Pagada Fuera de Termino|4\r\
 ",
 name:"estado_del_movimiento_sel",
-returnDataProviders:1,
-showDataProviders:1,
 typeid:34,
 uuid:"9520E02A-25CC-4A50-BE74-9805224A65CF"

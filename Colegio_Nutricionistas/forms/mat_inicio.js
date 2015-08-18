@@ -287,3 +287,13 @@ function ReporteMatriculas()
 	//forms.mat_reporte_matriculas.vl_frm_anterior = controller.getName()
 	//forms.mat_reporte_matriculas.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"94DD2414-C451-4CAE-A268-D218135B75BF"}
+ */
+function ConsultaCuotasAdeudadas()
+{
+	scopes.globals.SacarMenu()
+	forms.mat_consultas_cuotas_adeudadas.vl_frm_anterior = controller.getName()
+	forms.mat_consultas_cuotas_adeudadas.controller.show()
+}

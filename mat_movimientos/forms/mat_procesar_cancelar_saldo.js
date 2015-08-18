@@ -86,8 +86,8 @@ function cancelar_saldo()
 				rec1.mov_fecha_cobro = application.getServerTimeStamp()
 				databaseManager.saveData(rec1)
 			}
-			
 		}
+		
 		procesar(cantidad, 0,i)
 		
 	}

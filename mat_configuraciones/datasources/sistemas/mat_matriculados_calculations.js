@@ -1,4 +1,12 @@
 /**
+ * @properties={type:4,typeid:36,uuid:"B907E613-7A74-4907-9A0C-4B59BD380EAD"}
+ */
+function calc_smp()
+{
+	return 0
+}
+
+/**
  * @properties={type:12,typeid:36,uuid:"23438312-CCA6-416B-AAD2-DC59F9147E45"}
  */
 function calc_mail_chek()

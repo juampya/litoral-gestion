@@ -32,7 +32,7 @@ function onActionMail(event)
 	}
 	
 	scopes.globals.vg_asunto 		= scopes.globals.ag_empresavigente.emp_nombre +"- Suspención Matrícula." 
-	scopes.globals.vg_cuerpo 		= null
+	scopes.globals.vg_cuerpo 		= 'Se informa que posee deuda por cuotas mensuales impagas. La misma corresponde a '+foundset.getSize()+' meses. A los 12 meses de deuda pasara a conformar el padrón de Matriculados suspendidos y deberá responder a lo estipulado por el articulo 34 del Estatuto, en caso de no regularizar su situacion previamente. Comuníquese con el Colegio.'
 	//scopes.globals.vg_adjuntos 	= plugins.mail.createBinaryAttachment('BoletadePago.pdf',plugins.jasperPluginRMI.runReport('sistemas','boleta_de_pago.jasper', 'BoletadePago.pdf', plugins.jasperPluginRMI.OUTPUT_FORMAT.PDF, {pmov_id:mov_id}))
 	
 	globals.ventanaFormulario("lg_form_mail","Litoral Gestion",forms.lg_form_mail.controller.getName())

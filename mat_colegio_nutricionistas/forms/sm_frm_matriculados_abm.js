@@ -1,6 +1,34 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"8A03EFA8-3244-4C41-BA9B-AC720CA4083A",variableType:4}
+ */
+var vl_seguro_mp = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"4C733FF9-52B0-48FA-A95C-677E3551ED3E",variableType:4}
+ */
+var vl_cant_smp = null;
+
+/**
+ * @type {Array}
+ *
+ * @properties={typeid:35,uuid:"658AE1A5-6845-4DB7-A23F-7D73FF459E1C",variableType:-4}
+ */
+var vl_email_array = new Array;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"0ECCD1AA-5822-4B78-AE04-22147BC40266",variableType:4}
+ */
+var vl_estado_web = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"32C78ED6-217D-4227-B8EE-869BE3137F05",variableType:4}
  */
 var vl_solo_consejo = null;
@@ -147,6 +175,8 @@ function onActionRefrescar(event)
 	vl_estado_financiero = 0
 	vl_tipo_fecha		 = null
 	vl_solo_consejo		 = 0
+	vl_estado_web		 = 0
+	vl_seguro_mp		 = null
 	controller.loadAllRecords()
 	filtrar()
 }
@@ -199,7 +229,21 @@ function filtrar()
 			mat_fecha_baja = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 		break;
 	}
+	
+	switch (vl_estado_web) 
+	{
+		case 1:
+			mat_web_login = '!^= null'
+		break;
+		case 2:
+			mat_web_login = '^= null'
+		break;
+	}	
+	
 	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
+	
+	if(vl_seguro_mp!=null && vl_seguro_mp!=0) mat_matriculados_to_mat_matriculado_rel_ingresos.ingr_id = 2
+	if(vl_seguro_mp!=null && vl_seguro_mp!=0) mat_matriculados_to_mat_matriculado_rel_ingresos.rel_estado = 1
 	controller.search()
 	
 	vl_cant_activos    = 0
@@ -207,7 +251,7 @@ function filtrar()
 	vl_cant_pendientes = 0
 	vl_cant_web_regis  = 0
 	vl_cant_de_baja	   = 0
-	
+	vl_cant_smp		   = 0
 	
 	for (var i = 1; i <= databaseManager.getFoundSetCount(foundset); i++) 
 	{
@@ -238,6 +282,18 @@ function filtrar()
 		{
 			vl_cant_pendientes++ 
 		}
+		
+		if(vl_seguro_mp!=null && vl_seguro_mp!=0)
+		{	
+			record.mat_matriculados_to_mat_matriculado_rel_ingresos.find()
+			record.mat_matriculados_to_mat_matriculado_rel_ingresos.ingr_id = 2
+			record.mat_matriculados_to_mat_matriculado_rel_ingresos.rel_estado = 1
+			if(record.mat_matriculados_to_mat_matriculado_rel_ingresos.search()>0)
+			{
+				record.calc_smp = 1
+				vl_cant_smp ++
+			}
+		}	
 	}	
 }
 
@@ -384,4 +440,105 @@ function onActionExportarExcel(event)
 function onActionImprimir(event) 
 {
 	
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"74F2495E-6B71-44AD-A1C2-06120D8BECA9"}
+ */
+function onActionMail(event) 
+{
+	if(vl_email_array.length == 0)
+	{
+		globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Atención', "No hay ningún matriculado seleccionado.", 'info', controller.getName(), 'Ok', ' ',null,null,null,null,null,null)
+		return
+	}
+	
+	if(vl_email_array.length > 1)
+	{
+		scopes.globals.vg_cco = vl_email_array.join(",")	
+	}
+	
+	
+	scopes.globals.vg_destinatarios = vl_email_array[0]
+	scopes.globals.vg_asunto 		= scopes.globals.ag_empresavigente.emp_nombre +"- Suspención Matrícula." 
+	scopes.globals.vg_cuerpo 		= null
+	//scopes.globals.vg_adjuntos 	= plugins.mail.createBinaryAttachment('BoletadePago.pdf',plugins.jasperPluginRMI.runReport('sistemas','boleta_de_pago.jasper', 'BoletadePago.pdf', plugins.jasperPluginRMI.OUTPUT_FORMAT.PDF, {pmov_id:mov_id}))
+	
+	globals.ventanaFormulario("lg_form_mail","Litoral Gestion",forms.lg_form_mail.controller.getName())
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param oldValue
+ * @param newValue
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"28B52B43-4006-4218-9EF0-48CDB4AFC39C"}
+ */
+function onDataChangeMail(oldValue, newValue, event) 
+{
+	if(calc_mail_chek == 1)
+	{
+		var expr = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+		if(mat_e_mail == null | mat_e_mail == "")
+		{
+			globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Atención', "El matriculado no tiene la dirección de correo cargada.", 'error', controller.getName(), 'Ok', ' ',null,null,null,null,null,null)
+			calc_mail_chek = oldValue
+		}
+		else
+		{
+			if (!expr.test(mat_e_mail))
+		    {	
+		    	globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Atención', "La dirección de correo " + mat_e_mail + " es incorrecta.", 'error', controller.getName(), 'Ok', ' ',null,null,null,null,null,null)
+				calc_mail_chek = oldValue
+		    }
+		    else
+		    {
+		    	vl_email_array.push(mat_e_mail)
+		    }
+		}
+	}
+	else
+	{
+		vl_email_array.splice(vl_email_array.indexOf(mat_e_mail),1)
+	}
+}
+/**
+ * Perform the element default action.
+ * @properties={typeid:24,uuid:"6F40201B-BA36-4ECF-906E-F40DAA223296"}
+ * @AllowToRunInFind
+ */
+function filtro_seguro_mp() 
+{
+	switch (vl_seguro_mp)
+	{
+		case 1:
+			controller.loadAllRecords()
+			filtrar()
+		break;
+		case 0:
+			controller.loadAllRecords()
+			for (var i = 1; i <= databaseManager.getFoundSetCount(foundset); i++)
+			{
+				/**@type {JSRecord}*/
+				var record = foundset.getRecord(i)
+				
+				
+				if (record.calc_smp == 1) 
+				{
+					foundset.omitRecord(i)
+					i--
+				}
+			}
+			filtrar()
+		break;
+		default:
+			controller.loadAllRecords()
+			filtrar()
+		break;
+	}
 }

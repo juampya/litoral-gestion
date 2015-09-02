@@ -27,7 +27,8 @@ function onActionCancelar(event)
 	}
 	else
 	{
-		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado debe tener asociado al menos un Concepto","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado no tiene asociado ningún Concepto de Ingreso.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+		forms[vl_frm_anterior].controller.show()
 	}	
 
 }
@@ -69,12 +70,11 @@ function onActionAceptar(event)
 		}
 		else
 		{
-			globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado debe tener asociado al menos un Concepto","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+			globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El Matriculado no tiene asociado ningún Concepto de Ingreso.","atention",controller.getName(),"Aceptar",null,null,null,null,null,null,null)
+			databaseManager.saveData()
+			forms[vl_frm_anterior].controller.show()
 		}		
 	}
-
-
-	
 }
 
 /**

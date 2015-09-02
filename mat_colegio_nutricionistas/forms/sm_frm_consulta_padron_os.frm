@@ -52,6 +52,16 @@ typeid:4,
 uuid:"0CA22770-9026-4FEE-AAA5-D4F2300C133F"
 },
 {
+formIndex:37,
+location:"910,128",
+name:"vl_cant_web_regis_labelc",
+size:"80,20",
+styleClass:"label_black",
+text:"Seguro M.P:",
+typeid:7,
+uuid:"0D24356B-F5AE-4633-9E7F-2C740EC36AD6"
+},
+{
 dataProviderID:"mat_rel_mat_obsoc_to_mat_matriculados.calc_semaforo",
 displayType:9,
 editable:false,
@@ -61,6 +71,7 @@ location:"1115,196",
 name:"calc_semaforo",
 scrollbars:36,
 size:"38,20",
+styleClass:"table_field",
 typeid:4,
 uuid:"153B5AD5-07FF-42AF-B73A-3DFC805DF8B0"
 },
@@ -135,6 +146,17 @@ typeid:4,
 uuid:"38E522EC-752B-455C-8DEB-B5DE9C394EBC"
 },
 {
+dataProviderID:"vl_cant_smp",
+editable:false,
+formIndex:38,
+horizontalAlignment:4,
+location:"992,128",
+size:"52,20",
+styleClass:"disable",
+typeid:4,
+uuid:"392E9717-981E-494F-9CB4-3BC010FB3434"
+},
+{
 dataProviderID:"mat_rel_mat_obsoc_to_obra_social.obsoc_nombre",
 editable:false,
 formIndex:52,
@@ -188,6 +210,20 @@ size:"52,20",
 styleClass:"disable",
 typeid:4,
 uuid:"48C955A2-2385-4FB7-BF0B-A2A0311AFDC7"
+},
+{
+dataProviderID:"mat_rel_mat_obsoc_to_mat_matriculados.calc_smp",
+editable:false,
+formIndex:54,
+horizontalAlignment:0,
+location:"1153,197",
+name:"calc_smp",
+size:"46,20",
+styleClass:"table_field",
+toolTipText:"Seguro Mala Praxis",
+typeid:4,
+uuid:"53D69949-8B23-498C-8F35-3F3D40249A22",
+valuelistID:"B3FE674D-9EAC-4380-A15A-54871819F3ED"
 },
 {
 formIndex:1,
@@ -456,6 +492,18 @@ styleClass:"table_label",
 text:"EF",
 typeid:7,
 uuid:"F04C518E-7792-4B8B-87D6-11BB0294DC51"
+},
+{
+formIndex:53,
+labelFor:"calc_smp",
+location:"1153,179",
+name:"calc_smp_label",
+size:"46,20",
+styleClass:"table_label",
+text:"SMP",
+toolTipText:"Seguro Mala Praxis",
+typeid:7,
+uuid:"F9D5D767-D80A-4D8B-AE4E-B9E799F70B9F"
 },
 {
 dataProviderID:"vl_matriculado",

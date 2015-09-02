@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"3BC34532-91C6-4FDC-B55A-B7F814B3587F",variableType:4}
+ */
+var vl_cant_smp = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"AE65590D-9A29-47EC-88D2-9A7EF3E6960C",variableType:4}
  */
 var vl_os = null;
@@ -174,7 +181,7 @@ function filtrar()
 	vl_cant_pendientes = 0
 	vl_cant_web_regis  = 0
 	vl_cant_de_baja	   = 0
-	
+	vl_cant_smp		   = 0
 	
 	for (var i = 1; i <= databaseManager.getFoundSetCount(foundset); i++) 
 	{
@@ -204,6 +211,15 @@ function filtrar()
 		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_estado == 3)
 		{
 			vl_cant_pendientes++ 
+		}
+		
+		record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.find()
+		record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.ingr_id = 2
+		record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.rel_estado = 1
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.search()>0)
+		{
+			record.mat_rel_mat_obsoc_to_mat_matriculados.calc_smp = 1
+			vl_cant_smp ++
 		}
 	}	
 }

@@ -1,8 +1,0 @@
-addEmptyValue:1,
-customValues:"Pasivo|0\r
-Activo|1",
-name:"estado_solicitud",
-returnDataProviders:1,
-showDataProviders:1,
-typeid:34,
-uuid:"CA6038B8-0115-4BF5-B907-2E87260CE01C"

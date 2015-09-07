@@ -1,8 +1,0 @@
-addEmptyValue:1,
-customValues:"Por Fecha Factura|1
-Por Cuotas|2",
-name:"tipo_vencimiento",
-returnDataProviders:1,
-showDataProviders:1,
-typeid:34,
-uuid:"AED5D526-376C-46E4-B0C9-89E5F17B3BD0"

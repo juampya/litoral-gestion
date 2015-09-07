@@ -1,9 +1,0 @@
-allowCreationRelatedRecords:true,
-foreignDataSource:"db:/sistemas/usuarios",
-items:[
-{foreignColumnName:"usu_id",primaryDataProviderID:"scopes.globals.mx_usuario_id",typeid:23,uuid:"46347A78-36BE-413D-ADCD-2AB766B152B9"}
-],
-name:"ag_usuariovigente",
-primaryDataSource:"db:/sistemas/usuarios",
-typeid:22,
-uuid:"12EF45A2-E5FF-43E7-B7E1-8F361E3581A9"

@@ -1,9 +1,0 @@
-dataProviderID1:"talonario_id",
-dataProviderID2:"talonario_descripcion",
-dataSource:"db:/sistemas/vc_talonarios",
-name:"talonarios",
-returnDataProviders:1,
-showDataProviders:3,
-typeid:34,
-uuid:"8C180BBC-2C60-4FEB-AEDF-C9FB115BCE27",
-valueListType:1

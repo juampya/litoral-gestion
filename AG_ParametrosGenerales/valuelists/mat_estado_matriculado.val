@@ -1,8 +1,0 @@
-customValues:"Inactivo|0\r\
-Activo|1\r\
-De Baja|2\r\
-Pendiente|3\r\
-Susp.Art.34|4",
-name:"mat_estado_matriculado",
-typeid:34,
-uuid:"F27D9BA8-5351-4518-AE28-F48E2C8A147F"

@@ -1,7 +1,0 @@
-addEmptyValue:1,
-customValues:"Registrados|1\r\
-No Registrados|2\r\
-Todos|0",
-name:"mat_estado_web",
-typeid:34,
-uuid:"DE02F4D5-E77B-4A54-AE76-E26EE21445FF"

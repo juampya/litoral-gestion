@@ -1,9 +1,0 @@
-addEmptyValue:1,
-customValues:"Siempre|0\r
-Semanal|1\r
-Mensual|2",
-name:"vl_tipo_dia_agenda",
-returnDataProviders:1,
-showDataProviders:1,
-typeid:34,
-uuid:"66947AF9-192B-484A-B1E9-010D2AF07724"

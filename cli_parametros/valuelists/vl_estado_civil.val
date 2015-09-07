@@ -1,9 +1,0 @@
-customValues:"Soltero|1
-Casado|2
-Divorciado|3
-Viudo|4",
-name:"vl_estado_civil",
-returnDataProviders:1,
-showDataProviders:1,
-typeid:34,
-uuid:"AB2A2FD7-D350-4073-8FAA-B6522263C5A0"

@@ -5,6 +5,6 @@
 	<buildpathentry exported="true" kind="prj" path="/Login"/>
 	<buildpathentry exported="true" kind="prj" path="/cli_configuraciones"/>
 	<buildpathentry exported="true" kind="prj" path="/cli_parametros"/>
-	<buildpathentry exported="true" kind="prj" path="/cli_turnos"/>
+	<buildpathentry exported="true" kind="prj" path="/cli_turno"/>
 	<buildpathentry exported="true" kind="prj" path="/cli_visitas"/>
 </buildpath>

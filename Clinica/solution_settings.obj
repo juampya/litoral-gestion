@@ -1,6 +1,6 @@
 firstFormID:"65554638-E7F8-4801-B777-FF429963B88B",
 loginFormID:"-1",
-modulesNames:"cli_turnos,cli_visitas,cli_configuraciones,cli_parametros,AG_ParametrosGenerales,Login",
+modulesNames:"cli_visitas,cli_configuraciones,cli_parametros,AG_ParametrosGenerales,Login,cli_turno",
 onOpenMethodID:"FF1FD631-6CE4-468C-AD39-485EBCD68C82",
 typeid:43,
 uuid:"4BF6EAB8-DC6B-480D-8FCE-9655DE8A3F12"

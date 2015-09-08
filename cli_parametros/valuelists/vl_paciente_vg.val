@@ -1,0 +1,11 @@
+dataProviderID1:"paciente_id",
+dataProviderID2:"paciente_apellido",
+dataProviderID3:"paciente_nombre",
+name:"vl_paciente_vg",
+relationName:"paciente_to_paciente",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:7,
+typeid:34,
+uuid:"1C4D04CA-C952-4F64-BFF4-73B9EE68DDFA",
+valueListType:1

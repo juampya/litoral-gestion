@@ -1,0 +1,8 @@
+addEmptyValue:1,
+customValues:"Caja de Ahorro|0\
+Cuenta Corriente|1",
+name:"tipo_cuenta",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"76781A8C-161A-4993-8FA2-6390DA3EAC89"

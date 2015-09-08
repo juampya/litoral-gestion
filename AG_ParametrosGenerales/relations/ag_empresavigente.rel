@@ -1,0 +1,9 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/empresas",
+items:[
+{foreignColumnName:"emp_id",primaryDataProviderID:"scopes.globals.mx_empresa_id",typeid:23,uuid:"9AC9BAF1-B5BB-4CBC-A176-343FEC540E9D"}
+],
+name:"ag_empresavigente",
+primaryDataSource:"db:/sistemas/empresas",
+typeid:22,
+uuid:"8AB7361F-58D1-40DC-9EAB-9DCA8A7D7528"

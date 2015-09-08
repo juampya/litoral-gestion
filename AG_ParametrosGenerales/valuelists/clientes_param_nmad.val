@@ -1,0 +1,10 @@
+addEmptyValue:1,
+customValues:"No Modifica|N\
+Modifica|M\
+Aumenta|A\
+Disminuye|D",
+name:"clientes_param_nmad",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"58CDE789-7B54-4310-BEA8-52F65BAD87ED"

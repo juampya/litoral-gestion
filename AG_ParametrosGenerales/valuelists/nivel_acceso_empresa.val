@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Administrador | 99\
+Operador | 98\
+Usuario | 80",
+name:"nivel_acceso_empresa",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"6EC90E0B-D438-4618-8A35-95DC3996433F"

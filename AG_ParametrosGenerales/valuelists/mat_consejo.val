@@ -1,0 +1,9 @@
+dataProviderID1:"consejo_id",
+dataProviderID2:"consejo_descripcion",
+dataSource:"db:/sistemas/mat_consejo",
+name:"mat_consejo",
+returnDataProviders:1,
+showDataProviders:2,
+typeid:34,
+uuid:"227BC1A6-6D40-4E12-B49D-6A21F118F742",
+valueListType:1

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/paciente",
+items:[
+{foreignColumnName:"paciente_id",primaryDataProviderID:"paciente_id",typeid:23,uuid:"6D5D0196-2664-48B4-A004-F12A87784342"}
+],
+joinType:1,
+name:"visita_to_paciente",
+primaryDataSource:"db:/sistemas/visita",
+typeid:22,
+uuid:"91A76F7F-B853-4789-A7C0-D39EFEB035C4"

@@ -1,0 +1,10 @@
+addEmptyValue:1,
+customValues:"Libre|0\
+Ocupado|1\
+No Atiende|2\
+Sobreturno|3",
+name:"vl_agenda_estado",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"CE4CBDBF-41E4-44E8-9171-C4CABE1592A3"

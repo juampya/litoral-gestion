@@ -1,0 +1,10 @@
+addEmptyValue:1,
+customValues:"Feriado|1\
+No Laborable|4\
+\
+",
+name:"vl_tipo_dias_no_laborables_gral",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"83767854-2BC8-404E-B7DA-F5B1E7F89F30"

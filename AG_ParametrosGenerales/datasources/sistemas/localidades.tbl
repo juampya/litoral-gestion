@@ -1,0 +1,12 @@
+dataSource:"db:/sistemas/localidades",
+items:[
+{
+dataProviderIDToAggregate:"localidad_id",
+name:"aggr_cant_reg",
+typeid:40,
+uuid:"E63EBE96-FBBE-4166-90A5-D953241D3B38"
+}
+],
+onUpdateMethodID:"B3C9C787-0A74-453A-880C-04212354166C",
+typeid:39,
+uuid:"148BF7D0-5D56-42F2-8F44-6ED6D266F15F"

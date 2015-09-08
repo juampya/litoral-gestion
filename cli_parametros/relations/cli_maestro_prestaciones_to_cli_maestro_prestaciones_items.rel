@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/cli_maestro_prestaciones_items",
+items:[
+{foreignColumnName:"mae_presta_id",primaryDataProviderID:"mae_presta_id",typeid:23,uuid:"31754A22-9BF1-4C4E-B595-92A56702A8E4"}
+],
+joinType:1,
+name:"cli_maestro_prestaciones_to_cli_maestro_prestaciones_items",
+primaryDataSource:"db:/sistemas/cli_maestro_prestaciones",
+typeid:22,
+uuid:"16E35F90-1C3B-45B8-970F-61831C9C1613"

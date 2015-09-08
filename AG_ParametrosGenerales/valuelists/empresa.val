@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"emp_id",
+dataProviderID2:"emp_nombre",
+dataSource:"db:/sistemas/empresas",
+name:"empresa",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"71B18F08-F96F-4C11-83D3-5D7DB02EDEE0",
+valueListType:1

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_clientes",
+items:[
+{foreignColumnName:"suc_id",primaryDataProviderID:"suc_id",typeid:23,uuid:"1881A9B3-E8C7-4933-9279-2F108CB8FF93"}
+],
+joinType:1,
+name:"sucursales_to_vc_clientes",
+primaryDataSource:"db:/sistemas/sucursales",
+typeid:22,
+uuid:"2EF54A0C-34D5-4747-B34E-505AEA10A16B"

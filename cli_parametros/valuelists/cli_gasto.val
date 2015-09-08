@@ -1,0 +1,10 @@
+dataProviderID1:"gasto_id",
+dataProviderID2:"gasto_descripcion",
+dataSource:"db:/sistemas/cli_gastos",
+name:"cli_gasto",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"438D2863-DF92-4E93-9AFC-7779345A7F14",
+valueListType:1

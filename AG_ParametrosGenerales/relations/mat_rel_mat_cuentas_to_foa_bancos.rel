@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/foa_bancos",
+items:[
+{foreignColumnName:"banco_id",primaryDataProviderID:"banco_id",typeid:23,uuid:"A8850BA3-8175-4A04-A1E3-86C13593ADCA"}
+],
+joinType:1,
+name:"mat_rel_mat_cuentas_to_foa_bancos",
+primaryDataSource:"db:/sistemas/mat_rel_mat_cuentas",
+typeid:22,
+uuid:"A3288479-24BA-4D2C-9251-920673C57EC0"

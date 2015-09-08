@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_resarcimientos",
+items:[
+{foreignColumnName:"res_id",primaryDataProviderID:"res_id",typeid:23,uuid:"7638EBA0-B72A-42CF-A3AF-D458B303E060"}
+],
+joinType:1,
+name:"mat_movimientos_det_to_mat_resarcimientos",
+primaryDataSource:"db:/sistemas/mat_movimientos_det",
+typeid:22,
+uuid:"A98F7617-540D-47AC-800D-59242DB2053C"

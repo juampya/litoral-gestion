@@ -1,0 +1,10 @@
+addEmptyValue:1,
+dataProviderID1:"usu_id",
+dataProviderID2:"usu_nombre",
+dataSource:"db:/sistemas/usuarios",
+name:"cli_usuarios",
+returnDataProviders:1,
+showDataProviders:2,
+typeid:34,
+uuid:"501FEF5A-648B-4546-AC89-56E56AA17EF1",
+valueListType:1

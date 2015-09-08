@@ -1,0 +1,15 @@
+addEmptyValue:1,
+customValues:"Sin Confirmar|0\
+Confirmado|1\
+En Sala|2\
+En Consultorio|3\
+Atendido|4\
+Cancelado|5 \
+Ausente|6\
+Retiro|7\
+",
+name:"cli_turno_estados",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"92539733-4421-40BA-8176-336CB261E2D1"

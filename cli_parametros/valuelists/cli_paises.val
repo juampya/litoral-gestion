@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"pais_id",
+dataProviderID2:"pais_nombre",
+dataSource:"db:/sistemas/paises",
+name:"cli_paises",
+returnDataProviders:1,
+showDataProviders:2,
+sortOptions:"pais_nombre asc",
+typeid:34,
+uuid:"C531EF9B-C0B4-4DC7-9B26-B50DD06A35C9",
+valueListType:1

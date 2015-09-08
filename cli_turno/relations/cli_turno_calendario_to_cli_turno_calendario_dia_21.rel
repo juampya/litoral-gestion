@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/cli_turno_calendario_dia",
+items:[
+{foreignColumnName:"cli_turno_dia_id",primaryDataProviderID:"cal_turno_id_21",typeid:23,uuid:"C862A532-9673-40F4-9A86-B419EBFB7B45"}
+],
+joinType:1,
+name:"cli_turno_calendario_to_cli_turno_calendario_dia_21",
+primaryDataSource:"db:/sistemas/cli_turno_calendario",
+typeid:22,
+uuid:"D8100F04-3CDB-4EA7-8C63-16F5FD125369"

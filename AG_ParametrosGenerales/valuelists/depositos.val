@@ -1,0 +1,10 @@
+addEmptyValue:1,
+dataProviderID1:"deposito_id",
+dataProviderID2:"deposito_nombre",
+dataSource:"db:/sistemas/sp_depositos",
+name:"depositos",
+returnDataProviders:1,
+showDataProviders:3,
+typeid:34,
+uuid:"8793B694-ED4E-4EFF-9DDD-F1B24C768A9D",
+valueListType:1

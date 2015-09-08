@@ -1,0 +1,8 @@
+addEmptyValue:1,
+customValues:"Sanatoriales|0\
+Quirurgicos|1",
+name:"cli_nomen_item_tipo",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"F4E9EED7-5663-4165-981B-D89A631987E9"

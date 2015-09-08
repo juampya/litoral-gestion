@@ -1,0 +1,10 @@
+dataProviderID1:"medico_id",
+dataProviderID2:"medico_apellido",
+dataProviderID3:"medico_nombre",
+dataSource:"db:/sistemas/medico",
+name:"vl_medico",
+returnDataProviders:1,
+showDataProviders:7,
+typeid:34,
+uuid:"6DC9B751-6D9E-4A43-B3D3-66B4D6350D32",
+valueListType:1

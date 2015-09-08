@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"paciente_id",
+dataProviderID2:"paciente_apellido",
+dataProviderID3:"paciente_nombre",
+name:"vl_paciente",
+relationName:"visita_to_paciente",
+returnDataProviders:1,
+showDataProviders:7,
+typeid:34,
+uuid:"B4E0D493-A30B-4DE1-8D47-89E7FAEF1907",
+valueListType:1

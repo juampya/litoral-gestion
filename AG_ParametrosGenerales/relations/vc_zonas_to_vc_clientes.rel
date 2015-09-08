@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_clientes",
+items:[
+{foreignColumnName:"zona_id",primaryDataProviderID:"zona_id",typeid:23,uuid:"7DCF277A-EBCC-4151-92B9-9C6DC3F8D950"}
+],
+joinType:1,
+name:"vc_zonas_to_vc_clientes",
+primaryDataSource:"db:/sistemas/vc_zonas",
+typeid:22,
+uuid:"9804A3C0-6F20-4EBD-95D9-FE274970BB85"

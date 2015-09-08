@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_solicitudes",
+items:[
+{foreignColumnName:"sol_id",primaryDataProviderID:"sol_id",typeid:23,uuid:"B922F344-1DFD-41B9-8264-C03B02AE6636"}
+],
+joinType:1,
+name:"mat_rel_mat_sol_to_mat_solicitudes",
+primaryDataSource:"db:/sistemas/mat_rel_mat_sol",
+typeid:22,
+uuid:"71D39B5D-CF44-4BB6-AC5B-2F16842DBE4D"

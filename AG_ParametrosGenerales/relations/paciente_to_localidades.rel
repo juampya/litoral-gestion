@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/localidades",
+items:[
+{foreignColumnName:"localidad_id",primaryDataProviderID:"cod_postal_id",typeid:23,uuid:"BC311567-9519-489A-B710-73F05CB393C3"}
+],
+joinType:1,
+name:"paciente_to_localidades",
+primaryDataSource:"db:/sistemas/paciente",
+typeid:22,
+uuid:"538E3F33-1037-45EA-B883-6E0B7529AFBA"

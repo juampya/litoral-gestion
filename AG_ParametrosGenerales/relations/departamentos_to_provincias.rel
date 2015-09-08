@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/provincias",
+items:[
+{foreignColumnName:"provincia_id",primaryDataProviderID:"provincia_id",typeid:23,uuid:"55204779-C333-4456-985D-CE637A594801"}
+],
+joinType:1,
+name:"departamentos_to_provincias",
+primaryDataSource:"db:/sistemas/departamentos",
+typeid:22,
+uuid:"C024FA64-6B04-4366-AA91-A7C8BD4352CB"

@@ -1,0 +1,10 @@
+addEmptyValue:1,
+customValues:"Menu Principal|1\
+Formulario|2\
+SubMenu|3\
+",
+name:"tipo_menu",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"BB415FAC-DE37-4BD7-8F5C-7C811AEE2F13"

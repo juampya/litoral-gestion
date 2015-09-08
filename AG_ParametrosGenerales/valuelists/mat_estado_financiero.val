@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Todos|0\
+Con Deuda|1\
+Sin Deuda|2",
+name:"mat_estado_financiero",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"E7CAC4E3-E125-4F6E-AC54-CBB2FF76E9CB"

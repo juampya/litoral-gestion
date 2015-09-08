@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/mensajes",
+items:[
+{
+dataProviderIDToAggregate:"mensaje_id",
+name:"aggr_cant",
+typeid:40,
+uuid:"60D56F6A-B358-4141-B81B-3F877C615C1C"
+}
+],
+typeid:39,
+uuid:"05E45045-F731-4DC2-95BB-03F115728C7D"

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_clientes",
+items:[
+{foreignColumnName:"condivta_id",primaryDataProviderID:"condivta_id",typeid:23,uuid:"F8B53837-DD72-4961-B6FB-7DF9AAD0A865"}
+],
+joinType:1,
+name:"vc_condiciones_vta_to_vc_clientes",
+primaryDataSource:"db:/sistemas/vc_condiciones_vta",
+typeid:22,
+uuid:"506C8751-0082-45AE-980B-7EA503AB5884"

@@ -1,0 +1,11 @@
+addEmptyValue:1,
+dataProviderID1:"cativa_id",
+dataProviderID2:"cativa_descripcion",
+dataSource:"db:/sistemas/lg_categorias_iva",
+name:"lg_categorias_iva",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"159C97EB-F14D-4085-84F7-22C87C2FBCDA",
+valueListType:1

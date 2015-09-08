@@ -1,0 +1,10 @@
+dataProviderID1:"paciente_nombre",
+dataProviderID2:"paciente_doc_nro",
+dataProviderID3:"docu_id",
+dataSource:"db:/sistemas/paciente",
+name:"cli_pacientes",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"390F1F8D-2066-40D8-9259-FA9CFE3E01DA",
+valueListType:1

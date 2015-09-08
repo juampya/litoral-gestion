@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/localidades",
+items:[
+{foreignColumnName:"localidad_id",primaryDataProviderID:"mat_codigo_postal_real",typeid:23,uuid:"BEED1342-D041-4BC2-A5EE-2FC67A908E4F"}
+],
+joinType:1,
+name:"mat_matriculados_to_localidades_real",
+primaryDataSource:"db:/sistemas/mat_matriculados",
+typeid:22,
+uuid:"8DBC5334-CEF8-4B04-B273-D5AB5C556C7A"

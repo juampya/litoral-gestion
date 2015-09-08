@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/movedb/tbldatoslocalidades",
+items:[
+{foreignColumnName:"idloc",primaryDataProviderID:"idlocalidad",typeid:23,uuid:"27BA114B-0AB2-49D0-B13C-5B421DC540F5"}
+],
+joinType:1,
+name:"tbldpacientes_to_tbldatoslocalidades",
+primaryDataSource:"db:/movedb/tbldpacientes",
+typeid:22,
+uuid:"15E2DE02-CC3E-4485-B3BF-DE1CCCE472AD"

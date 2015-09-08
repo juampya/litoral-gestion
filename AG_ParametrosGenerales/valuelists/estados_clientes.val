@@ -1,0 +1,9 @@
+addEmptyValue:1,
+customValues:"Activa | 1\
+Suspendida | 2\
+Cancelada | 3",
+name:"estados_clientes",
+returnDataProviders:1,
+showDataProviders:1,
+typeid:34,
+uuid:"C3062C84-C4E6-4E54-9209-6E813E2C18AE"

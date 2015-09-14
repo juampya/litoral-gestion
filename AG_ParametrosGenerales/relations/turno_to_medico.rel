@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/medico",
+items:[
+{foreignColumnName:"medico_id",primaryDataProviderID:"medico_id",typeid:23,uuid:"0EE45ACD-5FDB-4885-84B3-A4B387DAAA0F"}
+],
+joinType:1,
+name:"turno_to_medico",
+primaryDataSource:"db:/sistemas/turno",
+typeid:22,
+uuid:"F00E2441-9B0C-4E6B-833D-126E55CBAAC4"

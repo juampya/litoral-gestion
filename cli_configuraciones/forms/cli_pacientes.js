@@ -1,4 +1,53 @@
 /**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"63DD264E-892A-409D-A4AE-7333ABD98C16",variableType:93}
+ */
+var vl_ultimaconsulta_hasta = null;
+
+/**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"5E73BD81-0A0A-4035-9C8B-E4AD49FDEFA1",variableType:93}
+ */
+var vl_ultimaconsulta_desde = null;
+
+/**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"2CBBD731-0EDA-4041-8745-0E0578B73080",variableType:93}
+ */
+var vl_fingreso_hasta = null;
+
+/**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"43D29A22-7BA5-46B8-8614-DFB29CB7C992",variableType:93}
+ */
+var vl_fingreso_desde = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"6669C77A-79B7-4D2E-A4C6-565919180477",variableType:4}
+ */
+var vl_documento = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"90B0BD66-1588-4216-99EB-DF1F60853E03"}
+ */
+var vl_nombre = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"621EE3EC-31D2-4223-98DD-3FED4DE31E68",variableType:4}
+ */
+var vl_nro_ficha = null;
+
+/**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
@@ -118,4 +167,41 @@ function copia()
 		}
 	}
 	plugins.busy.unblock();
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"5826DFB8-1B0B-42EE-9206-0184E20B26EF"}
+ * @AllowToRunInFind
+ */
+function onActionFiltro(event)
+{
+	controller.find()
+	if(vl_nombre!=null) paciente_nombre = vl_nombre
+	if(vl_nro_ficha!=null) paciente_nro_ficha = vl_nro_ficha
+	if(vl_documento!=null) paciente_doc_nro = vl_documento
+	controller.search()
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"8D6428AC-FC3C-4D02-9055-87A5146837C6"}
+ */
+function onActionRefrescar(event) 
+{
+	vl_documento 			= null
+	vl_fingreso_desde 		= null
+	vl_fingreso_hasta 		= null
+	vl_nombre 				= null
+	vl_nro_ficha 			= null
+	vl_ultimaconsulta_desde = null
+	vl_ultimaconsulta_hasta = null
+	
+	onActionFiltro(event)
 }

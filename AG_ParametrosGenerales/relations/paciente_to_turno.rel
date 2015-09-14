@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/turno",
+items:[
+{foreignColumnName:"paciente_id",primaryDataProviderID:"paciente_id",typeid:23,uuid:"9B16A3AB-F686-4D60-9812-90484E4B79F7"}
+],
+joinType:1,
+name:"paciente_to_turno",
+primaryDataSource:"db:/sistemas/paciente",
+typeid:22,
+uuid:"DFE1852B-891A-487D-8F02-46A760D17D1B"

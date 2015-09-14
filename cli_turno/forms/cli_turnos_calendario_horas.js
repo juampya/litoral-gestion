@@ -152,6 +152,8 @@ function cargaTurnos()
 	controller.search()	
 	databaseManager.setAutoSave(true)
 	
+	
+	
 	/** @type {JSFoundSet<db:/sistemas/medico>} */
 	var fs_medico = databaseManager.getFoundSet('sistemas','medico')
 	fs_medico.loadRecords(vl_medico)
@@ -205,14 +207,13 @@ function cargarDatos(doc)
 	}
 	if(cant == 1)
 	{
-		
 		record = foundset.getSelectedRecord()
+		record.paciente_id = fs_pac.getRecord(1).paciente_id
 		record.turno_paciente_nombre = fs_pac.getRecord(1).calc_nombre_apellido_paciente
 		record.turno_paciente_tel = fs_pac.getRecord(1).paciente_telefono_1
 		record.turno_paciente_obra_social = fs_pac.getRecord(1).obsoc_id_1
 		record.turno_dia_estado = 1
 	}	
-	
 }
 
 /**
@@ -363,6 +364,7 @@ function onDataChangeCambioEstado(oldValue, newValue, event)
 
 /**
  * @properties={typeid:24,uuid:"819EC050-2E08-49D5-9FFE-435B872B9254"}
+ * @AllowToRunInFind
  */
 function calcularCantTurnos()
 {
@@ -371,10 +373,24 @@ function calcularCantTurnos()
 	vl_turnos_confirmados = 0
 	vl_turnos_no_atiende  = 0
 	vl_sobreturnos 		  = 0
-	
+
+	/** @type {JSFoundSet<db:/sistemas/paciente>} */
+	var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
+
 	for(var i=1;i<=foundset.getSize();i++)
 	{
 		var record = foundset.getRecord(i)
+		
+		fs_pac.find()
+		fs_pac.paciente_doc_nro = record.turno_paciente_nro_docu
+		var cant = fs_pac.search()
+		
+		if(cant == 1)
+		{
+			record.paciente_id = fs_pac.paciente_id
+		}	
+	
+		
 		if(record.turno_dia_estado == 0)
 		{
 			vl_turnos_libre++

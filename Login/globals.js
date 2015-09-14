@@ -133,6 +133,8 @@ function onSolutionOpenLogin()
 {
 	globals.mx_empresa_id = 1
 	
+	application.putClientProperty(APP_UI_PROPERTY.TABLEVIEW_WC_DEFAULT_SCROLLABLE, true);
+	
     if (application.getApplicationType() == 5){
         application.output('Login: Formulario de Inicio',LOGGINGLEVEL.INFO)
         forms.Login.controller.show()

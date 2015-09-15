@@ -107,6 +107,7 @@ function Imprimir()
  * @returns {Boolean}
  *
  * @properties={typeid:24,uuid:"7408035A-133B-4C61-B04D-CF57D0C94C5E"}
+ * @AllowToRunInFind
  */
 function onDataChangeMedico(oldValue, newValue, event) 
 {
@@ -115,6 +116,63 @@ function onDataChangeMedico(oldValue, newValue, event)
 	{
 		elements.btn_sobreturno.enabled = true
 	}
+	
+	/** @type {JSFoundSet<db:/sistemas/agenda_parametros>} */
+	var fs_age_param = databaseManager.getFoundSet('sistemas','agenda_parametros')	
+	fs_age_param.find()
+	fs_age_param.medico_id = vl_medico
+	var cant = fs_age_param.search()
+	
+	/**@type {Array}*/
+	var array = new Array()
+		
+	if(cant>0)
+	{
+		if(fs_age_param.age_lun==1)
+		{
+			array.push("Lunes")
+		}
+		
+		if(fs_age_param.age_mar==1)
+		{
+			array.push("Martes")
+		}
+		
+		if(fs_age_param.age_mie==1)
+		{
+			array.push("Miércoles")
+		}
+		
+		if(fs_age_param.age_jue==1)
+		{
+			array.push("Jueves")
+		}
+		
+		if(fs_age_param.age_vie==1)
+		{
+			array.push("Viernes")
+		}
+		
+		if(fs_age_param.age_sab==1)
+		{
+			array.push("Sábado")
+		}
+		
+		if(fs_age_param.age_dom==1)
+		{
+			array.push("Domingo")
+		}
+	}
+	
+	if(array.length>0)
+	{
+		elements.lbl_dias_atencion.text = array.join(" - ")
+	}
+	else
+	{
+		elements.lbl_dias_atencion.text = "No configurado."
+	}
+
 	cargaTurnos(vl_dia)
 	return true
 }

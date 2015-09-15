@@ -192,9 +192,12 @@ function cargarDatos(doc)
 	var record = null
 	/** @type {JSFoundSet<db:/sistemas/paciente>} */
 	var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
+	
+	databaseManager.setAutoSave(false)
 	fs_pac.find()
 	fs_pac.paciente_doc_nro = doc
 	var cant = fs_pac.search()
+	databaseManager.setAutoSave(true)
 	if(cant <= 0)
 	{
 		record = foundset.getSelectedRecord()
@@ -203,6 +206,7 @@ function cargarDatos(doc)
 	}
 	if(cant > 1)
 	{
+		scopes.globals.ventanaAceptar("Existe mas de una persona con ese DNI. Por favor verifique.",controller.getName())
 		return
 	}
 	if(cant == 1)
@@ -381,9 +385,11 @@ function calcularCantTurnos()
 	{
 		var record = foundset.getRecord(i)
 		
+		databaseManager.setAutoSave(false)
 		fs_pac.find()
 		fs_pac.paciente_doc_nro = record.turno_paciente_nro_docu
 		var cant = fs_pac.search()
+		databaseManager.setAutoSave(true)
 		
 		if(cant == 1)
 		{

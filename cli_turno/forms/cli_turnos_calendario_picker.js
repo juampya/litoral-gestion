@@ -1,4 +1,11 @@
 /**
+ * @type {Array}
+ *
+ * @properties={typeid:35,uuid:"716F04D2-D725-4CB0-B27F-A76B43DBE84C",variableType:-4}
+ */
+var vl_meses = null;
+
+/**
  * @type {Date}
  *
  * @properties={typeid:35,uuid:"65EB0EC8-3EE3-4D42-AB29-980B9FD1EECF",variableType:93}

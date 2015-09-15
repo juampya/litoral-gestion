@@ -361,6 +361,8 @@ function onDataChangeCambioEstado(oldValue, newValue, event)
 		record.turno_paciente_obra_social = null
 		record.turno_paciente_nro_docu = null
 		record.turno_estado = null
+		record.paciente_id = 0
+		databaseManager.saveData()
 	}
 	calcularCantTurnos()
 	return true

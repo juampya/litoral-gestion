@@ -145,6 +145,8 @@ function onShow(firstShow, event)
  */
 function onActionDate(event) 
 {
+	databaseManager.saveData()
+	
 	if(vl_mes_anio[0]==vl_dia_actual.getMonth() && vl_mes_anio[1]==vl_dia_actual.getFullYear())
 	{
 		elements[vl_btn_hoy].bgcolor = '#ffff9d'

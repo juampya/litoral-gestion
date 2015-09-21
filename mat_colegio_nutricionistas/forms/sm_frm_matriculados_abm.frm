@@ -2,6 +2,19 @@ dataSource:"db:/sistemas/mat_matriculados",
 initialSort:"mat_nro_matricula asc",
 items:[
 {
+dataProviderID:"calc_smp",
+editable:false,
+formIndex:61,
+horizontalAlignment:0,
+location:"1182,196",
+name:"calc_smp",
+size:"49,20",
+styleClass:"table_field",
+typeid:4,
+uuid:"021799C4-B842-4DC8-AF17-0FFD8D67BD48",
+valuelistID:"3FBFA379-1922-4C33-81F9-0CE2B1D64861"
+},
+{
 formIndex:47,
 labelFor:"mat_fecha_graduacion",
 location:"1417,176",
@@ -83,7 +96,7 @@ onDataChangeMethodID:"8225D3AB-AC12-40BF-B7D4-0E1BC8952225",
 size:"140,20",
 typeid:4,
 uuid:"1589F65D-4A5D-49F4-B6D3-E512B5F30B64",
-valuelistID:"DE02F4D5-E77B-4A54-AE76-E26EE21445FF"
+valuelistID:"4C34EE76-51D8-4FCD-BD19-C14E668448C0"
 },
 {
 formIndex:3,
@@ -197,11 +210,11 @@ displayType:2,
 editable:false,
 formIndex:56,
 location:"377,145",
-onDataChangeMethodID:"6F40201B-BA36-4ECF-906E-F40DAA223296",
+onDataChangeMethodID:"8225D3AB-AC12-40BF-B7D4-0E1BC8952225",
 size:"62,20",
 typeid:4,
 uuid:"35BE79D8-3705-45EC-BEB5-13F02917FD26",
-valuelistID:"B3FE674D-9EAC-4380-A15A-54871819F3ED"
+valuelistID:"3FBFA379-1922-4C33-81F9-0CE2B1D64861"
 },
 {
 formIndex:55,
@@ -333,7 +346,7 @@ uuid:"63EDB028-3DE7-4C61-865D-35045E2CC543"
 {
 anchors:11,
 location:"0,0",
-size:"1509,80",
+size:"1551,80",
 styleClass:"banner",
 text:"Matriculados",
 transparent:true,
@@ -406,6 +419,7 @@ name:"calc_smp_label",
 size:"46,20",
 styleClass:"table_label",
 text:"SMP",
+toolTipText:"Seguro de Mala Praxis",
 typeid:7,
 uuid:"797245AC-3279-432A-AE1A-A6B1D01BB4C2"
 },
@@ -661,19 +675,6 @@ styleClass:"label_black",
 text:"Estado Financiero:",
 typeid:7,
 uuid:"C8C103C2-91E6-40C6-9523-D2E8B8BA0FB2"
-},
-{
-dataProviderID:"calc_smp",
-editable:false,
-formIndex:60,
-horizontalAlignment:0,
-location:"1182,196",
-name:"calc_smp",
-size:"46,20",
-styleClass:"table_field",
-typeid:4,
-uuid:"D49B55F6-51FE-49DE-B74C-A4EA7FFAEEF9",
-valuelistID:"B3FE674D-9EAC-4380-A15A-54871819F3ED"
 },
 {
 dataProviderID:"vl_cant_web_regis",

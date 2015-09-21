@@ -297,3 +297,14 @@ function ConsultaCuotasAdeudadas()
 	forms.mat_consultas_cuotas_adeudadas.vl_frm_anterior = controller.getName()
 	forms.mat_consultas_cuotas_adeudadas.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"4CA6891F-392D-4F85-AF75-AFA247FDF064"}
+ */
+function ConsultaSeguroMalaPraxis()
+{
+	scopes.globals.SacarMenu()
+	forms.mat_consultas_smp.vl_frm_anterior = controller.getName()
+	forms.mat_consultas_smp.controller.show()
+}
+

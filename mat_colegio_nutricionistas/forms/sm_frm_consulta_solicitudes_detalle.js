@@ -187,7 +187,7 @@ function onActionImprimir(event)
 			varm_ente   = rel_observasiones
 		break;
 	}
-	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente, ppresidente:tmp_presidente, pvicepresidente:tmp_vicepresidente, psecretario:tmp_secretario})
+	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente, ppresidente:tmp_presidente, pvicepresidente:tmp_vicepresidente, psecretario:tmp_secretario, psolicitud_id:rel_id.toString()})
 }
 
 /**

@@ -59,13 +59,13 @@ function onShow(firstShow, event)
 	if(vl_nuevo==1)
 	{	
 		controller.newRecord(false)
-		emp_id = scopes.globals.mx_empresa_id
+		//emp_id = scopes.globals.mx_empresa_id
 	}
 	
 	if(vl_nuevo==2)
 	{	
 		controller.duplicateRecord(false)
-		emp_id = scopes.globals.mx_empresa_id
+		//emp_id = scopes.globals.mx_empresa_id
 	}
 }
 

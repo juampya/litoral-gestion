@@ -557,7 +557,8 @@ function LG_Auditoria(record)
 		var campo 		= dataset.getValue(i,1)
 		var valor_viejo = dataset.getValue(i,2)
 		var valor_nuevo = dataset.getValue(i,3)
-		if(tabla != "mat_matriculados" && campo != "calc_cuotas_adeud")
+		//if(tabla != "mat_matriculados" && utils.stringLeft(campo,5) != "calc_")
+		if(utils.stringLeft(campo,5) != "calc_") // verifico que no sea un calculation stored
 		{
 			fs_auditoria.newRecord()
 			fs_auditoria.audit_tabla 		  = tabla

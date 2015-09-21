@@ -213,10 +213,7 @@ function filtrar()
 			vl_cant_pendientes++ 
 		}
 		
-		record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.find()
-		record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.ingr_id = 2
-		record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.rel_estado = 1
-		if(record.mat_rel_mat_obsoc_to_mat_matriculados.mat_matriculados_to_mat_matriculado_rel_ingresos.search()>0)
+		if(record.mat_rel_mat_obsoc_to_mat_matriculados.calc_smp == 1)
 		{
 			record.mat_rel_mat_obsoc_to_mat_matriculados.calc_smp = 1
 			vl_cant_smp ++

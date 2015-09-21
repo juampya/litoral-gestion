@@ -132,6 +132,7 @@ function onShow(firstShow, event)
 {
 	if(firstShow)
 	{
+		CalcularSMP()
 		filtrar()
 	}
 	plugins.window.getMenuBar().removeAllMenus()
@@ -178,6 +179,7 @@ function onActionRefrescar(event)
 	vl_estado_web		 = 0
 	vl_seguro_mp		 = null
 	controller.loadAllRecords()
+	CalcularSMP()
 	filtrar()
 }
 
@@ -214,9 +216,9 @@ function onActionCopiar(event)
 function filtrar()
 {
 	controller.find()
-	mat_id = vl_matriculado
-	mat_dni = vl_documento
-	mat_estado = vl_estado
+	if(vl_matriculado!=null) mat_id = vl_matriculado
+	if(vl_documento!=null) mat_dni = vl_documento
+	if(vl_estado!=null)	mat_estado = vl_estado
 	switch (vl_tipo_fecha) 
 	{
 		case 0:
@@ -241,9 +243,7 @@ function filtrar()
 	}	
 	
 	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
-	
-	if(vl_seguro_mp!=null && vl_seguro_mp!=0) mat_matriculados_to_mat_matriculado_rel_ingresos.ingr_id = 2
-	if(vl_seguro_mp!=null && vl_seguro_mp!=0) mat_matriculados_to_mat_matriculado_rel_ingresos.rel_estado = 1
+	if(vl_seguro_mp!=null) calc_smp = vl_seguro_mp
 	controller.search()
 	
 	vl_cant_activos    = 0
@@ -257,6 +257,11 @@ function filtrar()
 	{
 		/**@type {JSRecord}*/
 		var record = foundset.getRecord(i)
+		
+		if(record.calc_smp==1)
+		{
+			vl_cant_smp ++
+		}
 		
 		if(record.mat_estado == 1)
 		{
@@ -282,19 +287,7 @@ function filtrar()
 		{
 			vl_cant_pendientes++ 
 		}
-		
-		if(vl_seguro_mp!=null && vl_seguro_mp!=0)
-		{	
-			record.mat_matriculados_to_mat_matriculado_rel_ingresos.find()
-			record.mat_matriculados_to_mat_matriculado_rel_ingresos.ingr_id = 2
-			record.mat_matriculados_to_mat_matriculado_rel_ingresos.rel_estado = 1
-			if(record.mat_matriculados_to_mat_matriculado_rel_ingresos.search()>0)
-			{
-				record.calc_smp = 1
-				vl_cant_smp ++
-			}
-		}	
-	}	
+	}
 }
 
 /**
@@ -540,5 +533,33 @@ function filtro_seguro_mp()
 			controller.loadAllRecords()
 			filtrar()
 		break;
+	}
+}
+
+/**
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"A1E3B672-D2BF-4104-AABD-987305C861D6"}
+ */
+function CalcularSMP()
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
+	var fs_smp = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')	
+		
+	for (var i = 1; i <= databaseManager.getFoundSetCount(foundset); i++) 
+	{
+		/**@type {JSRecord}*/
+		var record = foundset.getRecord(i)
+		
+		fs_smp.find()
+		fs_smp.ingr_id = 2
+		fs_smp.rel_estado = 1
+		fs_smp.mat_id = record.mat_id
+		if(fs_smp.search()>0)
+		{
+			record.calc_smp = 1
+			record.calc_smp_inicio = fs_smp.rel_fec_inicial
+			databaseManager.saveData(record)
+		}
 	}
 }

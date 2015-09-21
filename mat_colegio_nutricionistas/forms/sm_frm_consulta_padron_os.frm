@@ -223,7 +223,7 @@ styleClass:"table_field",
 toolTipText:"Seguro Mala Praxis",
 typeid:4,
 uuid:"53D69949-8B23-498C-8F35-3F3D40249A22",
-valuelistID:"B3FE674D-9EAC-4380-A15A-54871819F3ED"
+valuelistID:"3FBFA379-1922-4C33-81F9-0CE2B1D64861"
 },
 {
 formIndex:1,

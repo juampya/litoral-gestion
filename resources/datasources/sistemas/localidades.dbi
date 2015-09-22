@@ -16,12 +16,6 @@ name:"depar_id"
 },
 {
 allowNull:true,
-creationOrderIndex:6,
-dataType:4,
-name:"emp_id"
-},
-{
-allowNull:true,
 creationOrderIndex:3,
 dataType:12,
 length:6,

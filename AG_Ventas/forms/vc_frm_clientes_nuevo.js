@@ -51,8 +51,7 @@ function onShow(firstShow, event)
 	if(vl_nuevo==1)
 	{	
 		controller.newRecord(false)
-		emp_id=1
-		suc_id=1
+		emp_id= scopes.globals.mx_empresa_id
 		cliente_estado = 1
 		cliente_bonificacion = 0
 		cliente_limite_credito = 0
@@ -61,5 +60,28 @@ function onShow(firstShow, event)
 	{
 		controller.duplicateRecord(false)
 	}
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"89E4DA1B-FA90-4DEB-8AEE-1AC9172564CA"}
+ */
+function onActionBorrar(event)
+{
+	var nombre = cliente_nombre
 	
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el cliente: '+ nombre +'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
+}
+
+
+/**
+ * @properties={typeid:24,uuid:"C00F5ECB-DF89-47DE-B815-7E615D0E9FAC"}
+ */
+function Borrar()
+{
+	controller.deleteRecord()
+	forms.vc_frm_clientes_abm.controller.show()
 }

@@ -313,6 +313,20 @@ typeid:7,
 uuid:"BA2BC13F-A640-43AF-BA12-AEF833CF1A3E"
 },
 {
+formIndex:25,
+imageMediaID:"914FDFA0-7C3E-4468-8671-B96FACB2917B",
+location:"0,55",
+mediaOptions:1,
+onActionMethodID:"61913DC0-F0F3-4C8E-BEED-CC336893771B",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"20,20",
+toolTipText:"Detalle del turno",
+transparent:true,
+typeid:7,
+uuid:"C8A0E03C-B166-4CD7-9113-D4965E6F8E74"
+},
+{
 background:"#ff8080",
 dataProviderID:"vl_turnos_no_atiende",
 editable:false,
@@ -362,6 +376,7 @@ uuid:"FFCB3685-5930-48BA-8DE6-CADA402DE095"
 }
 ],
 name:"cli_turnos_calendario_horas",
+namedFoundSet:"separate",
 onRecordSelectionMethodID:"D84214AE-626E-4492-B288-B28B4CFCCA48",
 onShowMethodID:"73573560-1F62-45B6-8E3E-511C07733B25",
 showInMenu:true,

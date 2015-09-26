@@ -1,0 +1,17 @@
+items:[
+{
+height:729,
+partType:5,
+typeid:19,
+uuid:"99C488C5-2791-4CF4-ADC5-5D5B8B913F12"
+}
+],
+name:"cli_turnos",
+navigatorID:"-1",
+showInMenu:true,
+size:"1214,480",
+styleClass:"formulario",
+styleName:"id_style",
+typeid:3,
+uuid:"2D6CB4D2-5A99-4534-8ECA-0859159A2AC0",
+view:5

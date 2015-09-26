@@ -9,7 +9,7 @@ function calc_tiempo_espera()
 		var  t2 = new Date()
 		 
 		t1.setHours(turno_hora_entra.getHours(), turno_hora_entra.getMinutes());
-		t2.setHours(turno_hora.getHours(), turno_hora.getMinutes());
+		t2.setHours(turno_hora_llegada.getHours(), turno_hora_llegada.getMinutes());
 		 
 		//Aquí hago la resta
 		t1.setHours(t1.getHours() - t2.getHours(), t1.getMinutes() - t2.getMinutes());

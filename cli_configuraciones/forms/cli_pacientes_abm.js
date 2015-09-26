@@ -27,6 +27,9 @@ function onActionVolver(event) {
  */
 function onShow(firstShow, event) 
 {
+	scopes.globals.vg_archivo_funcion_codigo = 2
+	scopes. globals.vg_archivo_tabla_id		 = paciente_id
+	
 	if (vl_abm == 1)
 	{
 		controller.newRecord(false)

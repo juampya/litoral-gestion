@@ -32,9 +32,11 @@ function onActionGrabar(event)
 {
 	/** @type {JSFoundSet<db:/sistemas/paciente>} */
 	var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
+	databaseManager.setAutoSave(false)
 	fs_pac.find()
 	fs_pac.paciente_doc_nro = turno_paciente_nro_docu
 	var cant = fs_pac.search()
+	databaseManager.setAutoSave(true)
 	if(cant<=0)
 	{	
 		fs_pac.newRecord()

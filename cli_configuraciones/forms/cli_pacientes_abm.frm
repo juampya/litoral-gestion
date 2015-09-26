@@ -11,8 +11,29 @@ anchors:15,
 formIndex:4,
 items:[
 {
+containsFormID:"7553221B-FF9B-4E70-A129-AFA9B3AF4010",
+location:"125,144",
+text:"Antecedentes Médicos",
+typeid:15,
+uuid:"111ED9C9-4B9D-4AAA-A508-637BC6572CCE"
+},
+{
+containsFormID:"13669F06-A924-43D5-83FA-045E4CAE7110",
+location:"71,124",
+text:"Obras Sociales",
+typeid:15,
+uuid:"36AFDBAF-78C9-4905-917F-F24394AACC33"
+},
+{
+containsFormID:"4BFD86F1-81E9-4D22-8033-73391F08F3CD",
+location:"324,205",
+text:"Archivos Adjuntos",
+typeid:15,
+uuid:"3AF9AD1B-1A60-4101-BF6C-04C43847D73A"
+},
+{
 containsFormID:"08CA7305-2F34-493F-8C48-F9976352CF2E",
-location:"145,146",
+location:"206,177",
 relationName:"paciente_to_turno",
 text:"Historial de Consultas",
 typeid:15,

@@ -127,10 +127,12 @@ function onActionVolver(event)
  */
 function Filtro()
 {
+	databaseManager.setAutoSave(false)
 	controller.find()
 	if(vl_medico!=null) medico_id = vl_medico
 	turno_dia = vl_dia
 	controller.search()
+	databaseManager.setAutoSave(true)
 	calcularCantTurnos()
 }
 
@@ -158,10 +160,8 @@ function cargaTurnos()
 	var fs_medico = databaseManager.getFoundSet('sistemas','medico')
 	fs_medico.loadRecords(vl_medico)
 	
-
 	calcularCantTurnos()
 	plugins.busy.unblock();
-
 }
 
 /**
@@ -487,8 +487,10 @@ function confirmarTurno()
 	{
 		/** @type {JSFoundSet<db:/sistemas/paciente>} */
 		var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
+		databaseManager.setAutoSave(false)
 		fs_pac.find()
 		fs_pac.paciente_doc_nro = record.turno_paciente_nro_docu
+		databaseManager.setAutoSave(true)
 		var cant = fs_pac.search()
 		if(cant <= 0)
 		{
@@ -617,4 +619,18 @@ function onDataChangeEstado()
 		turno_hora_sale = application.getServerTimeStamp()
 	}
 	return true
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"61913DC0-F0F3-4C8E-BEED-CC336893771B"}
+ */
+function onActionDetalleTurnoo(event)
+{
+	forms.cli_turnos_calendario_detalle.vl_form_anterior = forms.cli_turnos_calendario.controller.getName()
+	forms.cli_turnos_calendario_detalle.controller.loadRecords(turno_id)
+	forms.cli_turnos_calendario_detalle.controller.show()
 }

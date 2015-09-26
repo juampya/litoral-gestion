@@ -1,14 +1,14 @@
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"6B44F041-AC35-489D-B846-6D1C758C067A",variableType:4}
+ * @properties={typeid:35,uuid:"86A83508-28CB-4C9B-B9FC-26B43039927B",variableType:4}
  */
 var vl_medico = null;
 
 /**
  * @type {Date}
  *
- * @properties={typeid:35,uuid:"29FCBC88-4060-48F7-B362-952FE0A9F7E1",variableType:93}
+ * @properties={typeid:35,uuid:"1E110D8A-0766-4E0A-80E3-46C30DE8933F",variableType:93}
  */
 var vl_dia = null;
 
@@ -18,7 +18,7 @@ var vl_dia = null;
  * @param {Boolean} firstShow form is shown first time after load
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"3EB7A1FF-15B3-4DB8-9A6A-00A3E8E5CA6A"}
+ * @properties={typeid:24,uuid:"D329FC4D-007A-483E-BD69-C1288718564C"}
  */
 function onShow(firstShow, event) 
 {
@@ -38,7 +38,7 @@ function onShow(firstShow, event)
 }
 
 /**
- * @properties={typeid:24,uuid:"A1C95474-4395-49C0-A513-09C84B478C3F"}
+ * @properties={typeid:24,uuid:"91E25CDF-E5B0-454F-A054-C0389320BA76"}
  */
 function crearDatePicker()
 {
@@ -59,7 +59,7 @@ function crearDatePicker()
 /**
  * TODO generated, please specify type and doc for the params
  * @param dia
- * @properties={typeid:24,uuid:"1731A21A-DE2A-4170-B238-1FB461A369D1"}
+ * @properties={typeid:24,uuid:"486CA4F8-2B15-48A9-87E5-6563DA505CE6"}
  */
 function cargaTurnos(dia)
 {
@@ -83,7 +83,7 @@ function cargaTurnos(dia)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"066CE1F2-0621-458F-A5B2-6455F5B83280"}
+ * @properties={typeid:24,uuid:"7706C4C1-6B9E-41B2-B585-1BB170ABADD0"}
  */
 function onActionVolver(event) 
 {
@@ -92,7 +92,7 @@ function onActionVolver(event)
 }
 
 /**
- * @properties={typeid:24,uuid:"A0B97CED-CE33-480A-88A0-CF1270060D42"}
+ * @properties={typeid:24,uuid:"AB2CF0C6-90D5-4A72-AA97-E1DC1B6C9142"}
  */
 function Imprimir() 
 {
@@ -108,7 +108,7 @@ function Imprimir()
  *
  * @returns {Boolean}
  *
- * @properties={typeid:24,uuid:"7408035A-133B-4C61-B04D-CF57D0C94C5E"}
+ * @properties={typeid:24,uuid:"AD5DE008-AE9B-4D44-8143-8DBDEA188D42"}
  * @AllowToRunInFind
  */
 function onDataChangeMedico(oldValue, newValue, event) 
@@ -186,7 +186,7 @@ function onDataChangeMedico(oldValue, newValue, event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"5C3EC1F9-4B87-405A-9D9F-9AF6335E7F82"}
+ * @properties={typeid:24,uuid:"8D7A6BC7-3544-4303-A103-2D5F0A4CC3C9"}
  */
 function onActionSobreturno(event) {
 	forms.cli_turnos_calendario_horas.sobreturno()

@@ -203,6 +203,7 @@ function inicializarBotones()
  */
 function onActionAdelante(event) 
 {
+	databaseManager.saveData()
 	vl_mes_anio[1] = vl_mes_anio[0]==11?vl_mes_anio[1]+1:vl_mes_anio[1]
 	vl_mes_anio[0] = vl_mes_anio[0]==11?0:vl_mes_anio[0]+1
 	vl_dia_seleccionado = new Date(vl_mes_anio[1],vl_mes_anio[0],new Number(elements[vl_btn_select]['text']),0,0,0)
@@ -222,6 +223,7 @@ function onActionAdelante(event)
  */
 function onActionAtras(event) 
 {
+	databaseManager.saveData()
 	vl_mes_anio[1] = vl_mes_anio[0]==0?vl_mes_anio[1]-1:vl_mes_anio[1]
 	vl_mes_anio[0] = vl_mes_anio[0]==0?11:vl_mes_anio[0]-1
 	vl_dia_seleccionado = new Date(vl_mes_anio[1],vl_mes_anio[0],new Number(elements[vl_btn_select]['text']),0,0,0)
@@ -240,5 +242,6 @@ function onActionAtras(event)
  */
 function onActionHoy(event) 
 {
+	databaseManager.saveData()
 	onShow(true,event)
 }

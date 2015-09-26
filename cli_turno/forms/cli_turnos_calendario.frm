@@ -150,6 +150,7 @@ uuid:"E694C7DC-FC15-422C-8334-051C9173C989"
 }
 ],
 name:"cli_turnos_calendario",
+namedFoundSet:"separate",
 navigatorID:"-1",
 onShowMethodID:"3EB7A1FF-15B3-4DB8-9A6A-00A3E8E5CA6A",
 showInMenu:true,

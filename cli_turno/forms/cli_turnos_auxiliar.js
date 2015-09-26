@@ -21,10 +21,12 @@ function generarTurno(doctor, dia, id)
 	
 	/** @type {JSFoundSet<db:/sistemas/turno>} */
 	var fs_turno = databaseManager.getFoundSet('sistemas','turno')		
+	databaseManager.setAutoSave(false)
 	fs_turno.find()
 	fs_turno.medico_id = doctor
 	fs_turno.turno_dia = dia
 	var cant1 = fs_turno.search()
+	databaseManager.setAutoSave(true)
 	if(cant1 > 0)
 	{
 		return
@@ -32,8 +34,11 @@ function generarTurno(doctor, dia, id)
 	
 	/** @type {JSFoundSet<db:/sistemas/agenda_parametros>} */
 	var fs_age_param = databaseManager.getFoundSet('sistemas','agenda_parametros')	
+	databaseManager.setAutoSave(false)
 	fs_age_param.find()
 	fs_age_param.medico_id = doctor
+	databaseManager.setAutoSave(true)
+	
 	var cant = fs_age_param.search()
 	if(cant <= 0)
 	{
@@ -179,8 +184,11 @@ function calcularCantTurnoXDia(doctor, dia, nomdia)
 
 	/** @type {JSFoundSet<db:/sistemas/agenda_parametros>} */
 	var fs_age_param = databaseManager.getFoundSet('sistemas','agenda_parametros')	
+	databaseManager.setAutoSave(false)
 	fs_age_param.find()
 	fs_age_param.medico_id = doctor
+	databaseManager.setAutoSave(true)
+	
 	var cant = fs_age_param.search()
 	
 	if(cant <= 0)

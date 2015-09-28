@@ -48,6 +48,12 @@ name:"mov_descripcion"
 },
 {
 allowNull:true,
+creationOrderIndex:25,
+dataType:4,
+name:"mov_enviado_mail"
+},
+{
+allowNull:true,
 creationOrderIndex:6,
 dataType:4,
 name:"mov_estado"

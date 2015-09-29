@@ -120,6 +120,16 @@ typeid:7,
 uuid:"418EFB93-2723-46DC-B1E2-422FB629922B"
 },
 {
+dataProviderID:"vl_prueba",
+displayType:1,
+editable:false,
+location:"448,256",
+size:"389,76",
+styleClass:"disable",
+typeid:4,
+uuid:"42F3EA28-0BDE-4529-8FD1-E1FA6BB5C0D7"
+},
+{
 dataProviderID:"emp_cert_digital_homologacion",
 location:"115,209",
 size:"242,20",
@@ -223,6 +233,18 @@ styleClass:"label_black",
 text:"Passw.:",
 typeid:7,
 uuid:"BF7B05AD-3467-4095-A156-38643229DDF3"
+},
+{
+imageMediaID:"749EAE6D-BF65-4B97-B9C6-DA999C2EA4D5",
+location:"551,222",
+mediaOptions:1,
+onActionMethodID:"F2871C35-EA84-4BB6-A22E-EA90BE5FBA68",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+size:"184,30",
+text:"Probar Configuración SMTP",
+typeid:7,
+uuid:"C51BDCAE-1E58-4183-A823-EC0822289D43"
 },
 {
 location:"10,297",

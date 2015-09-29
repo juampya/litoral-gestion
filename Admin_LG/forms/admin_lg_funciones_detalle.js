@@ -13,7 +13,7 @@ var vl_nuevo = null;
  */
 function onActionGrabar(event) 
 {
-	emp_id = 1
+	emp_id = scopes.globals.mx_empresa_id
 	databaseManager.saveData()
 	forms.admin_lg_funciones.controller.show()
 }

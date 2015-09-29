@@ -47,10 +47,12 @@ function onShow(firstShow, event)
 	}
 	
 	//Variables para adjuntos.
-	globals.vg_archivo_funcion_codigo = 1 //Codigo de adjuntos de comprobantes de proveedores.
-	globals.vg_archivo_tabla_id = emp_id //ID sobre la que se agrega el adjunto.
+	scopes.globals.vg_archivo_funcion_codigo = 1 //Codigo de adjuntos de comprobantes de proveedores.
+	scopes.globals.vg_archivo_tabla_id = emp_id //ID sobre la que se agrega el adjunto.
 	
-	globals.vg_auditoria_pk = emp_id
-	globals.vg_auditoria_tabla = new Array('empresas')
-	globals.vg_auditoria_campo = null
+	scopes.globals.vg_auditoria_pk = emp_id
+	scopes.globals.vg_auditoria_tabla = new Array('empresas')
+	scopes.globals.vg_auditoria_campo = null
+	
+	forms.admin_lg_empresas_detalle_configuracion.vl_prueba = null
 }

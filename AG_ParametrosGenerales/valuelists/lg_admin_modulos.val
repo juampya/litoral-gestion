@@ -1,4 +1,3 @@
-addEmptyValue:1,
 dataProviderID1:"modulo_id",
 dataProviderID2:"modulo_solution",
 dataSource:"db:/sistemas/modulos",

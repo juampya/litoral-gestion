@@ -27,8 +27,14 @@ function onActionVolver(event) {
  */
 function onShow(firstShow, event) 
 {
+	//Variables para archivos Adjuntos//
 	scopes.globals.vg_archivo_funcion_codigo = 2
-	scopes. globals.vg_archivo_tabla_id		 = paciente_id
+	scopes.globals.vg_archivo_tabla_id		 = paciente_id
+	
+	//Variables para Auditoría//
+	scopes.globals.vg_auditoria_pk    = paciente_id
+	scopes.globals.vg_auditoria_tabla = new Array('paciente')
+	scopes.globals.vg_auditoria_campo = null
 	
 	if (vl_abm == 1)
 	{

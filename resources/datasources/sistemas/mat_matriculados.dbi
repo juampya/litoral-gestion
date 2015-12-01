@@ -184,6 +184,12 @@ name:"mat_fecha_nacimiento"
 },
 {
 allowNull:true,
+creationOrderIndex:48,
+dataType:93,
+name:"mat_fecha_rematri"
+},
+{
+allowNull:true,
 creationOrderIndex:34,
 dataType:4,
 name:"mat_folio_matricula"

@@ -1,11 +1,5 @@
 columns:[
 {
-allowNull:true,
-creationOrderIndex:35,
-dataType:4,
-name:"calc_edad"
-},
-{
 allowNull:false,
 autoEnterSubType:2,
 autoEnterType:2,
@@ -13,6 +7,12 @@ creationOrderIndex:0,
 dataType:4,
 flags:1,
 name:"paciente_id"
+},
+{
+allowNull:true,
+creationOrderIndex:35,
+dataType:4,
+name:"calc_edad"
 },
 {
 allowNull:true,

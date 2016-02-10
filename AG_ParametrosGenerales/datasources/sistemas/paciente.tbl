@@ -1,4 +1,12 @@
 dataSource:"db:/sistemas/paciente",
+items:[
+{
+dataProviderIDToAggregate:"paciente_id",
+name:"aggr_cant",
+typeid:40,
+uuid:"973B5C8D-4DE6-4DDF-ABD3-FC5BD2370AAC"
+}
+],
 onUpdateMethodID:"B3C9C787-0A74-453A-880C-04212354166C",
 typeid:39,
 uuid:"34B77969-21F2-4A17-BB85-2D1CA77E265F"

@@ -17,7 +17,7 @@ function onShow(firstShow, event)
 	
 	controller.find()
 	adj_tabla_id = scopes.globals.vg_archivo_tabla_id
-	func_codigo = scopes.globals.vg_archivo_funcion_codigo
+	func_codigo  = scopes.globals.vg_archivo_funcion_codigo
 	controller.search()
 	
 //	if (globals.sca_usuariovigente.us_tipo_usr != 1) {
@@ -27,16 +27,16 @@ function onShow(firstShow, event)
 //		else elements.btn_editar.enabled = false
 //	}
 	
-	if (globals.vg_archivo_tabla_id == 0 || globals.vg_archivo_tabla_id == null) {
-		globals.VentanaGenerica(ag_usuariovigente.usu_id,'Info Adjuntos.', 'Falta declara variable global de tabla.\nPor favor, avise a Litoral Software!', 'info',controller.getName(),'OK', '',null,null,null,null,null,null)
+	if (scopes.globals.vg_archivo_tabla_id == 0 || scopes.globals.vg_archivo_tabla_id == null) {
+		scopes.globals.VentanaGenerica(ag_usuariovigente.usu_id,'Info Adjuntos.', 'Falta declara variable global de tabla.\nPor favor, avise a Litoral Software!', 'info',controller.getName(),'OK', '',null,null,null,null,null,null)
 		elements.btn_agregar.enabled = false
 		elements.btn_borrar.enabled = false
 		elements.btn_detalle.enabled = false
 		elements.btn_editar.enabled = false
 	}
 	
-	if (globals.vg_archivo_funcion_codigo == 0 || globals.vg_archivo_funcion_codigo == null) {
-		globals.VentanaGenerica(ag_usuariovigente.usu_id,'Info Adjuntos.', 'Falta declara variable global de funcion.\nPor favor, avise a Litoral Software!', 'info',controller.getName(),'OK', '',null,null,null,null,null,null)
+	if (scopes.globals.vg_archivo_funcion_codigo == 0 || scopes.globals.vg_archivo_funcion_codigo == null) {
+		scopes.globals.VentanaGenerica(ag_usuariovigente.usu_id,'Info Adjuntos.', 'Falta declara variable global de funcion.\nPor favor, avise a Litoral Software!', 'info',controller.getName(),'OK', '',null,null,null,null,null,null)
 		elements.btn_agregar.enabled = false
 		elements.btn_borrar.enabled = false
 		elements.btn_detalle.enabled = false

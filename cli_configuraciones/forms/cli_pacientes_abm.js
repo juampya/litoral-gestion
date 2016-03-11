@@ -39,12 +39,35 @@ function onShow(firstShow, event)
 	if (vl_abm == 1)
 	{
 		controller.newRecord(false)
-		elements.btnBorrar.visible 				= false
+		elements.btnBorrar.visible = false
 	}
 	else
 	{
-		databaseManager.saveData()
-		elements.btnBorrar.visible 				= true
+		if(paciente_fecha_naci!=null)
+		{
+			var anios = application.getServerTimeStamp().getFullYear() - paciente_fecha_naci.getFullYear()
+			var mes  = (application.getServerTimeStamp().getMonth()+1) - (paciente_fecha_naci.getMonth()+1)
+			if (mes < 0)
+			{
+				anios = anios - 1;
+			} 
+			else
+			{	
+				if (mes == 0) 
+				{
+					var dia = application.getServerTimeStamp().getDate() - paciente_fecha_naci.getDate()
+				    if (dia > 0)
+				    {
+				    	anios = anios - 1;
+				    }
+			    }
+			}
+
+			calc_edad = anios
+		}
+		
+		//databaseManager.saveData()
+		elements.btnBorrar.visible = true
 	}
 }
 
@@ -59,16 +82,40 @@ function onActionGrabar(event)
 {
 	if(vl_abm == 1)
 	{
-		if (paciente_nombre == null)
+		if(paciente_nro_ficha==null | paciente_to_paciente.paciente_nro_ficha==0)
 		{
-			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el nombre del Paciente.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','El número de ficha no puede quedar vacío.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
 			return
 		}
-//		if (paciente_apellido == null)
-//		{
-//			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Datos Incompletos','Debe completar el apellido del Paciente.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
-//			return
-//		}
+		
+		if(paciente_doc_nro==null | paciente_doc_nro==0)
+		{
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','El número de documento no puede quedar vacío.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			return
+		}
+		
+		if(paciente_nombre==null | paciente_nombre.length==0)
+		{
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','El nombre del paciente no puede quedar vacío.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			return
+		}
+		
+		if(paciente_fecha_naci==null)
+		{
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','La fecha de nacimiento no puede quedar vacía.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			return
+		}
+		
+		if(paciente_sexo==null)
+		{
+			scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','El sexo del paciente no puede quedar vacío.','warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+			return
+		}
+		
+		if(!onDataChangeNroFicha(null,paciente_nro_ficha,event))
+		{
+			return
+		}
 
 		emp_id = scopes.globals.mx_empresa_id
 	}
@@ -100,3 +147,32 @@ function Borrar()
 	controller.deleteRecord()
 	forms.cli_pacientes.controller.show()
 }
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"4C84CB00-7EDE-4B92-B67C-8AB6650D32BC"}
+ */
+function onDataChangeNroFicha(oldValue, newValue, event)
+{
+	/** @type {JSFoundSet<db:/sistemas/paciente>} */
+	var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
+	fs_pac.find()
+	fs_pac.paciente_nro_ficha = newValue
+	var cant = fs_pac.search()
+	if(cant>0)
+	{
+		scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','Ese número de ficha ya exite con el paciente: '+fs_pac.paciente_nombre +' DNI: '+fs_pac.paciente_doc_nro,'warning',controller.getName(),'OK',null,null,null,null,null,null,null)
+		return false
+	}
+	return true
+}
+

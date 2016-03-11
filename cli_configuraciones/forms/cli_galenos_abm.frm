@@ -198,6 +198,7 @@ uuid:"F37E38C8-291D-4E73-82D8-A4337659EEF0"
 }
 ],
 name:"cli_galenos_abm",
+namedFoundSet:"separate",
 navigatorID:"-1",
 onHideMethodID:"9A7CFAB0-21AD-4A89-9FAC-D9655D5C488F",
 onShowMethodID:"102B03C2-D09F-4B1A-8CB3-57645FED1D32",

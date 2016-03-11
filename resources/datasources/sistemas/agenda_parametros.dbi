@@ -420,6 +420,12 @@ name:"age_usu_modi"
 },
 {
 allowNull:true,
+creationOrderIndex:81,
+dataType:4,
+name:"age_utiliza_confirmacion"
+},
+{
+allowNull:true,
 creationOrderIndex:35,
 dataType:4,
 name:"age_vie"

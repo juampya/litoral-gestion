@@ -56,6 +56,7 @@ var vl_nro_ficha = null;
  */
 function onActionVolverInicio(event) 
 {
+	databaseManager.setAutoSave(true)
 	scopes.globals.CargarMenu()
 	forms['clinica_inicio_clinica'].controller.show()
 }
@@ -67,7 +68,8 @@ function onActionVolverInicio(event)
  *
  * @properties={typeid:24,uuid:"AE0942D6-E684-426F-9AC6-822A17180AA1"}
  */
-function onActionAgregarPaciente(event) {
+function onActionAgregarPaciente(event)
+{
 	forms.cli_pacientes_abm.vl_abm = 1
 	forms.cli_pacientes_abm.controller.show()
 }
@@ -100,7 +102,7 @@ function onActionCopiarDatos(event)
 	}
 	
 	var params = {
-		processFunction: copia(),
+		processFunction: copia,
 		message: 'Copiando Pacientes... espere un momento por favor.',
 		opacity: 0.5,
 		paneColor: '#000000',
@@ -123,7 +125,7 @@ function copia()
 	var fs_pacientes = databaseManager.getFoundSet('movedb','tbldpacientes')
 		fs_pacientes.loadAllRecords()
 		fs_pacientes.find()
-		fs_pacientes.nump = ' > 64120 '
+		fs_pacientes.nump = ' > 85096 '
 		fs_pacientes.search()
 		
 		/** @type {JSFoundSet<db:/sistemas/localidades>} */
@@ -134,7 +136,7 @@ function copia()
 	//for (var i = 1; i <= 10; i++) 
 	{
 		var record = fs_pacientes.getRecord(i);
-		if(record.nump > 64120)
+		if(record.nump > 85096)
 		{	
 			controller.newRecord(false)
 			paciente_nro_ficha = record.nump
@@ -204,4 +206,17 @@ function onActionRefrescar(event)
 	vl_ultimaconsulta_hasta = null
 	
 	onActionFiltro(event)
+}
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"B6D2C79A-E4EE-480E-8A6E-973AA21DAE85"}
+ */
+function onShow(firstShow, event)
+{
+	databaseManager.setAutoSave(false)
 }

@@ -6,6 +6,7 @@ typeid:19,
 uuid:"0A6DEFB8-4F53-47C5-BFB4-B559786E9C27"
 },
 {
+anchors:13,
 location:"5,158",
 name:"tabless",
 printable:false,

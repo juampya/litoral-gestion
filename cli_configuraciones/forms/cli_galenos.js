@@ -17,7 +17,7 @@ function onActionNuevo(event)
 	forms.cli_galenos_abm.vl_frm_anterior = controller.getName()
 	forms.cli_galenos_abm.vl_nuevo = 1
 	forms.cli_galenos_abm.vl_titulo = "Nuevo"
-	forms.cli_galenos_abm.controller.loadRecords(galeno_id)
+	//forms.cli_galenos_abm.controller.loadRecords(galeno_id)
 	
 	var win = application.createWindow("galenos", JSWindow.MODAL_DIALOG);
 		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);

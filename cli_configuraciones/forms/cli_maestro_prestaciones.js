@@ -17,7 +17,7 @@ function onActionNuevo(event)
 	forms.cli_maestro_prestaciones_abm.vl_frm_anterior = controller.getName()
 	forms.cli_maestro_prestaciones_abm.vl_nuevo = 1
 	forms.cli_maestro_prestaciones_abm.vl_titulo = "Nueva"
-	forms.cli_maestro_prestaciones_abm.controller.loadRecords(mae_presta_id)
+	//forms.cli_maestro_prestaciones_abm.controller.loadRecords(mae_presta_id)
 	
 	var win = application.createWindow("prestacion", JSWindow.MODAL_DIALOG);
 		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
@@ -58,4 +58,23 @@ function onActionVolver(event)
 {
 	scopes.globals.CargarMenu()
 	forms["clinica_inicio_clinica"].controller.show()
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"02555E40-A446-4F6E-92A5-2C489BB30F96"}
+ */
+function onActionBorrar(event) 
+{
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar este registro?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
+}
+
+/**
+ * @properties={typeid:24,uuid:"ECB1A3C9-30C1-4501-A6F6-414133747844"}
+ */
+function Borrar()
+{
+	controller.deleteRecord()
 }

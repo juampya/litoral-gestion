@@ -60,15 +60,19 @@ var vl_mes_anio = null;
 /**
  * @param {Date} diaSemilla
  * @properties={typeid:24,uuid:"7ACE6A7B-8A33-4CB7-AAC0-28269479E42F"}
+ * @AllowToRunInFind
  */
 function armaNumeracion(diaSemilla)
 {
+	if(vl_dia_actual==null) vl_dia_actual = vl_dia_actual = new Date(application.getServerTimeStamp().getFullYear(),application.getServerTimeStamp().getMonth(),application.getServerTimeStamp().getDate(),0,0,0);
+	
 	inicializarBotones()
 	diaSemilla.setHours(0,0,0)
 	var primerDia = new Date(diaSemilla.getFullYear(),diaSemilla.getMonth(),1);
 	var diaDeSemana = primerDia.getDay() + 1;
 	var ultimoDia = globals.ultimoDiaMes(diaSemilla.getMonth()+1,diaSemilla.getFullYear())
 	var diaNro = 0;
+	
 	for(var i=1;i<=6;i++)
 	{
 		var j = i==1?diaDeSemana:1;
@@ -79,8 +83,27 @@ function armaNumeracion(diaSemilla)
 			if(diaNro<ultimoDia)
 			{
 				diaNro++;
+				/**@type {Array}*/
+				var array = BuscaTurnos(diaNro,diaSemilla.getMonth(),diaSemilla.getFullYear());
+				
+				/**@type {Boolean}*/
+				var tmp_execpcion = false
+				
+				
 				elements[boton].visible = true;
 				elements[boton]['text'] = diaNro;
+				elements[boton]['toolTipText'] = array[0] 
+				
+				if(forms.cli_turnos_calendario.array_dias_atencion.indexOf(j)>0)
+				{
+					//elements[boton].bgcolor = '#80ff80'
+					elements[boton].bgcolor = array[1]
+				}
+				else
+				{
+					elements[boton]['toolTipText'] = 'No trabaja'
+				//	elements[boton].bgcolor = '#ffff9d'
+				}
 				
 				if(diaSemilla == vl_dia_actual && diaNro == diaSemilla.getDate())
 				{
@@ -93,7 +116,7 @@ function armaNumeracion(diaSemilla)
 				}
 				else
 				{
-					if(diaSemilla.getMonth() == vl_dia_actual.getMonth() && vl_btn_hoy != null && vl_btn_hoy != 0)
+					if((diaSemilla.getMonth() == vl_dia_actual.getMonth()) && vl_btn_hoy != null && vl_btn_hoy != 0)
 					{
 						elements[vl_btn_hoy].bgcolor = '#ffff9d'
 					}
@@ -120,7 +143,7 @@ function armaNumeracion(diaSemilla)
 function onShow(firstShow, event) 
 {
 	if(firstShow)
-	{	
+	{
 		vl_meses = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"]
 		vl_dia_actual = new Date(application.getServerTimeStamp().getFullYear(),application.getServerTimeStamp().getMonth(),application.getServerTimeStamp().getDate(),0,0,0);
 		vl_dia_seleccionado = vl_dia_actual
@@ -142,6 +165,7 @@ function onShow(firstShow, event)
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"B0B654D0-053E-4CCB-8C45-C3B76EADD615"}
+ * @AllowToRunInFind
  */
 function onActionDate(event) 
 {
@@ -151,6 +175,7 @@ function onActionDate(event)
 	{
 		elements[vl_btn_hoy].bgcolor = '#ffff9d'
 	}
+
 	if(vl_btn_select != vl_btn_hoy)
 	{
 		elements[vl_btn_select].bgcolor = "#eeeeee"
@@ -164,11 +189,15 @@ function onActionDate(event)
 	}
 	else
 	{
-		vl_dia_seleccionado = new Date(vl_mes_anio[1],vl_mes_anio[0],new Number(elements[vl_btn_select]['text']))
-	}
+		if(vl_btn_select!=null)
+		{	
+			vl_dia_seleccionado = new Date(vl_mes_anio[1],vl_mes_anio[0],new Number(elements[vl_btn_select]['text']))
+	
+		}
+	}	
 	
 	
-	if(vl_btn_select != vl_btn_hoy || vl_mes_anio[0]!=vl_dia_actual.getMonth())
+	if((vl_btn_select != vl_btn_hoy || vl_mes_anio[0]!=vl_dia_actual.getMonth()) && vl_btn_select!=null)
 	{
 		elements[vl_btn_select].bgcolor = '#b0b0ff'
 	}
@@ -245,3 +274,97 @@ function onActionHoy(event)
 	databaseManager.saveData()
 	onShow(true,event)
 }
+
+
+/**
+ * @AllowToRunInFind
+ * 
+ * TODO generated, please specify type and doc for the params
+ * @param pdia
+ * @param pmes
+ * @param panio
+ * @return {Array}
+ * @properties={typeid:24,uuid:"1F74CC82-E859-4E45-B34F-D7C24A8FD211"}
+ */
+function BuscaTurnos(pdia,pmes,panio)
+{
+	/** @type {JSFoundSet<db:/sistemas/turno>} */
+	var fs_turnos = databaseManager.getFoundSet('sistemas','turno')
+	
+	var vl_dia = new Date(panio,pmes,pdia,0,0,0);
+
+	databaseManager.setAutoSave(false)
+	fs_turnos.find()
+	fs_turnos.medico_id = forms.cli_turnos_calendario.vl_medico
+	fs_turnos.turno_dia = vl_dia
+	fs_turnos.search()	
+	databaseManager.setAutoSave(true)
+	
+	var vl_turnos_libre 	  = 0
+	var vl_turnos_ocupados 	  = 0
+	var vl_turnos_confirmados = 0
+	var vl_turnos_no_atiende  = 0
+	var vl_sobreturnos 		  = 0
+	
+	var libres 	  	= "     Libres: "
+	var ocupados 	= "   Ocupados: "
+	var confirmados = "Confirmados: "
+	var no_atiende  = " No Atiende: "
+	var sobreturnos = "Sobreturnos: "
+
+
+	for(var i=1;i<=fs_turnos.getSize();i++)
+	{
+		var record = fs_turnos.getRecord(i)
+		
+		if(record.turno_dia_estado == 0)
+		{
+			vl_turnos_libre++
+		}
+		if(record.turno_dia_estado == 1)
+		{
+		
+			if(record.turno_estado == 1)
+			{
+				vl_turnos_confirmados++
+			}
+			else
+			{
+				vl_turnos_ocupados++	
+			}
+		}
+		if(record.turno_dia_estado == 2)
+		{
+			vl_turnos_no_atiende++	
+		}
+		
+		if(record.turno_dia_estado == 3)
+		{
+			vl_sobreturnos++	
+		}
+	}
+	
+	var color = '#80ff80'
+	
+	if(fs_turnos.getSize()>0)
+	{	
+		if(vl_turnos_ocupados+vl_turnos_confirmados==fs_turnos.getSize())
+		{
+			color = '#ff0000' //rojo
+		}
+		else
+		{
+			if(vl_turnos_ocupados>0)
+			{
+				color = '#ffff80' //amarillo
+			}
+		}
+	}	
+	
+	libres = libres+utils.numberFormat(vl_turnos_libre,'##')+" "
+	ocupados = ocupados+utils.numberFormat(vl_turnos_ocupados,'##')+" "
+	confirmados = confirmados+utils.numberFormat(vl_turnos_confirmados,'##')+" "
+	sobreturnos = sobreturnos+utils.numberFormat(vl_sobreturnos,'##')+" "
+
+	return [libres+ocupados+confirmados+sobreturnos,color]
+} 

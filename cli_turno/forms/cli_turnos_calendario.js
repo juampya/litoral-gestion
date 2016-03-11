@@ -1,3 +1,8 @@
+/**@type {Array}
+ * @properties={typeid:35,uuid:"398F6BD4-1F05-4E5C-A216-7F07BB0086D3",variableType:-4}
+ */
+	var array_dias_atencion = null
+	
 /**
  * @type {Number}
  *
@@ -22,6 +27,7 @@ var vl_dia = null;
  */
 function onShow(firstShow, event) 
 {
+	array_dias_atencion = new Array()
 	if(firstShow)
 	{
 		//vl_dia = application.getServerTimeStamp()
@@ -34,6 +40,10 @@ function onShow(firstShow, event)
 		forms.cli_turnos_calendario_horas.vl_dia = vl_dia
 		forms.cli_turnos_calendario_horas.vl_medico = 0
 		forms.cli_turnos_calendario_horas.Filtro()
+	}
+	else
+	{
+		onDataChangeMedico(null,null,event)
 	}
 }
 
@@ -130,41 +140,79 @@ function onDataChangeMedico(oldValue, newValue, event)
 	/**@type {Array}*/
 	var array = new Array()
 		
+	array_dias_atencion = new Array()
+	
 	if(cant>0)
 	{
+		if(fs_age_param.age_dom==1)
+		{
+			array.push("Domingo")
+			array_dias_atencion.push(1)
+		}
+		else
+		{
+			array_dias_atencion.push(0)
+		}
+		
 		if(fs_age_param.age_lun==1)
 		{
 			array.push("Lunes")
+			array_dias_atencion.push(2)
 		}
+		else
+		{
+			array_dias_atencion.push(0)
+		}
+		
 		
 		if(fs_age_param.age_mar==1)
 		{
 			array.push("Martes")
+			array_dias_atencion.push(3)
+		}
+		else
+		{
+			array_dias_atencion.push(0)
 		}
 		
 		if(fs_age_param.age_mie==1)
 		{
 			array.push("Miércoles")
+			array_dias_atencion.push(4)
+		}
+		else
+		{
+			array_dias_atencion.push(0)
 		}
 		
 		if(fs_age_param.age_jue==1)
 		{
 			array.push("Jueves")
+			array_dias_atencion.push(5)
+		}
+		else
+		{
+			array_dias_atencion.push(0)
 		}
 		
 		if(fs_age_param.age_vie==1)
 		{
 			array.push("Viernes")
+			array_dias_atencion.push(6)
+		}
+		else
+		{
+			array_dias_atencion.push(0)
 		}
 		
 		if(fs_age_param.age_sab==1)
 		{
 			array.push("Sábado")
+			array_dias_atencion.push(7)
 		}
-		
-		if(fs_age_param.age_dom==1)
+		else
 		{
-			array.push("Domingo")
+			array_dias_atencion.push(0)
 		}
 	}
 	
@@ -176,7 +224,7 @@ function onDataChangeMedico(oldValue, newValue, event)
 	{
 		elements.lbl_dias_atencion.text = "No configurado."
 	}
-
+	crearDatePicker()
 	cargaTurnos(vl_dia)
 	return true
 }

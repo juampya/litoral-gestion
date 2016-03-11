@@ -217,6 +217,14 @@ function cargarDatos(doc)
 		record.turno_paciente_tel = fs_pac.getRecord(1).paciente_telefono_1
 		record.turno_paciente_obra_social = fs_pac.getRecord(1).obsoc_id_1
 		record.turno_dia_estado = 1
+		if(record.turno_to_medico.medico_to_agenda_parametros.age_utiliza_confirmacion==1)
+		{
+			record.turno_estado = 1
+		}
+		else
+		{
+			record.turno_estado = 0
+		}
 	}	
 }
 
@@ -425,6 +433,7 @@ function calcularCantTurnos()
 			vl_sobreturnos++	
 		}
 	}
+	forms.cli_turnos_calendario_picker.armaNumeracion(vl_dia)
 }
 
 /**
@@ -472,6 +481,7 @@ function onRightClick(event)
 function completarDatos()
 {
 	forms.cli_turnos_paciente_datos.vl_form_anterior = controller.getName()	
+	forms.cli_turnos_paciente_datos.vl_turno = turno_id
 	globals.ventanaFormulario('datosTurnos','Litoral Software',forms.cli_turnos_paciente_datos.controller.getName())
 }
 
@@ -538,9 +548,24 @@ function llamada()
  */
 function eliminarRegTurno()
 {
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Antención','Está seguro de eliminar el turno?','warning',controller.getName(),'No','','Si','eliminarTurno',null,null,null,null)
+	
+//	foundset.deleteRecord(foundset.getSelectedRecord())/
+//	vl_sobreturnos--
+//	forms.cli_turnos_calendario_picker.armaNumeracion(vl_dia)
+
+}
+
+/**
+ * @properties={typeid:24,uuid:"B83816C8-04B3-4D02-86D0-40B4F86306AC"}
+ */
+function eliminarTurno()
+{
 	foundset.deleteRecord(foundset.getSelectedRecord())
 	vl_sobreturnos--
+	forms.cli_turnos_calendario_picker.armaNumeracion(vl_dia)
 }
+
 
 /**
  * @properties={typeid:24,uuid:"86647ABA-3F44-4A2E-87B1-363438D60118"}
@@ -572,6 +597,7 @@ function sobreturno()
 	turno_hora = application.getServerTimeStamp()
 	databaseManager.saveData()
 	vl_sobreturnos++
+	forms.cli_turnos_calendario_picker.armaNumeracion(vl_dia)
 }
 
 /**

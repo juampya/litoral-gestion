@@ -14,10 +14,12 @@ uuid:"22D31E75-1B73-4BE4-AF1E-862691633272"
 },
 {
 dataProviderID:"gasto_descripcion",
+editable:false,
 formIndex:6,
 location:"78,127",
 name:"gasto_descripcion",
 size:"482,20",
+styleClass:"table_field",
 typeid:4,
 uuid:"27471148-0CB8-4484-A885-DD1C627F82FD"
 },
@@ -66,9 +68,11 @@ uuid:"B8CCBD7C-9F79-4C34-844D-BD6004856B7E"
 dataProviderID:"gasto_id",
 editable:false,
 formIndex:4,
+horizontalAlignment:0,
 location:"26,127",
 name:"gasto_id",
 size:"52,20",
+styleClass:"table_field",
 typeid:4,
 uuid:"BC9D2E7D-618C-447A-ACEE-429E1FB2F812"
 },
@@ -105,6 +109,7 @@ uuid:"EBFF7C97-A636-4B4D-B998-255469074C40"
 }
 ],
 name:"cli_unidades_gastos",
+namedFoundSet:"separate",
 navigatorID:"-1",
 showInMenu:true,
 styleClass:"table",

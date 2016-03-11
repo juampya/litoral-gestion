@@ -4,9 +4,11 @@ items:[
 dataProviderID:"galeno_id",
 editable:false,
 formIndex:4,
+horizontalAlignment:0,
 location:"26,127",
 name:"galeno_id",
 size:"46,20",
+styleClass:"table_field",
 typeid:4,
 uuid:"3A311145-193D-4B22-BF0E-C14BA7E2A3E1"
 },
@@ -78,10 +80,12 @@ uuid:"C8EFB2CE-0A28-4A42-A970-817D5F10B2BF"
 },
 {
 dataProviderID:"galeno_descripcion",
+editable:false,
 formIndex:6,
 location:"72,127",
 name:"galeno_descripcion",
 size:"413,20",
+styleClass:"table_field",
 typeid:4,
 uuid:"DAF3F85B-8FF4-4DE3-B252-B06076FEA52D"
 },

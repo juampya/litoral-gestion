@@ -47,3 +47,22 @@ function onActionDetalle(event)
 		win.title= 'Litoral Gestion';
 		win.show(forms.cli_nomencladores_items_abm);	
 }
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"FDFDADF1-BA08-480F-8B07-A1E1676CEB59"}
+ */
+function onActionBorrar(event) 
+{
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar este registro?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
+}
+
+/**
+ * @properties={typeid:24,uuid:"3B9C5B1F-21F4-4105-B70C-76E6F1CAAB98"}
+ */
+function Borrar()
+{
+	controller.deleteRecord()
+}

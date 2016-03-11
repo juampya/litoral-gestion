@@ -16,7 +16,6 @@ function onActionVolver(event)
 {
 	databaseManager.revertEditedRecords(foundset)
 	forms[vl_form_anterior].controller.show()
-
 }
 
 /**
@@ -30,6 +29,7 @@ function onActionVolver(event)
 function onActionGrabar(event) 
 {
 	databaseManager.saveData()
+	forms[vl_form_anterior].controller.show()
 }
 
 /**

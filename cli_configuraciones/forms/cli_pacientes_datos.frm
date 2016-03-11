@@ -1,6 +1,18 @@
 dataSource:"db:/sistemas/paciente",
 items:[
 {
+dataProviderID:"paciente_sexo",
+displayType:2,
+editable:false,
+location:"672,189",
+name:"paciente_sexo",
+size:"115,20",
+text:"Paciente Sexo",
+typeid:4,
+uuid:"06BA3F32-7AE6-427F-9149-77A1E7C208F4",
+valuelistID:"D35102A2-EA88-4F5D-8DF2-EE6E8B4E3843"
+},
+{
 dataProviderID:"paciente_email",
 location:"153,215",
 size:"381,20",
@@ -10,7 +22,7 @@ uuid:"0804DEEA-9A84-4975-B273-D93C0455AA4C"
 {
 dataProviderID:"paciente_usu_modi",
 editable:false,
-location:"638,315",
+location:"638,347",
 size:"149,20",
 styleClass:"disable",
 typeid:4,
@@ -44,7 +56,7 @@ uuid:"22BA516C-E80A-4700-8A67-5A6CAE26599D",
 valuelistID:"5D57F02C-E6E9-435F-BE85-C5087CDF4A98"
 },
 {
-location:"557,247",
+location:"557,279",
 size:"80,20",
 styleClass:"label_black",
 text:"Operador:",
@@ -62,7 +74,7 @@ uuid:"28C292A2-8D02-4DC3-87F2-DB00EB1F9A22",
 valuelistID:"5D57F02C-E6E9-435F-BE85-C5087CDF4A98"
 },
 {
-location:"557,315",
+location:"557,347",
 size:"80,20",
 styleClass:"label_black",
 text:"Operador:",
@@ -79,7 +91,7 @@ uuid:"30F02281-BCAA-46E5-8770-A40C38174F1C"
 {
 dataProviderID:"paciente_usu_crea",
 editable:false,
-location:"638,247",
+location:"638,279",
 size:"149,20",
 styleClass:"disable",
 typeid:4,
@@ -98,6 +110,7 @@ uuid:"3D056B51-F4DA-4F0E-A8F2-976A2649229D"
 dataProviderID:"paciente_nro_ficha",
 formIndex:5,
 format:"#",
+horizontalAlignment:0,
 location:"672,90",
 size:"115,20",
 typeid:4,
@@ -187,7 +200,7 @@ typeid:4,
 uuid:"6ABA0401-0F64-4BD0-B920-6CB9CAC61257"
 },
 {
-location:"557,293",
+location:"557,325",
 size:"80,20",
 styleClass:"label_black",
 text:"Fecha:",
@@ -196,7 +209,7 @@ uuid:"748FD743-6C36-4940-99D5-F288F2FFA5C8"
 },
 {
 horizontalAlignment:0,
-location:"557,204",
+location:"557,236",
 size:"230,20",
 styleClass:"label_black",
 text:"Grabación Inicial:",
@@ -240,7 +253,7 @@ typeid:7,
 uuid:"82E24CFE-8390-481C-A922-1E68F63A6C8F"
 },
 {
-location:"557,225",
+location:"557,257",
 size:"80,20",
 styleClass:"label_black",
 text:"Fecha:",
@@ -251,7 +264,7 @@ uuid:"83A42E40-BAD9-4B21-ACCA-D5C2488CBB34"
 dataProviderID:"paciente_fec_crea",
 editable:false,
 format:"dd-MM-yyyy HH:mm",
-location:"638,225",
+location:"638,257",
 size:"149,20",
 styleClass:"disable",
 typeid:4,
@@ -307,7 +320,7 @@ uuid:"AE97CC59-B0E0-43FE-BFF7-E02B0683C6F3"
 dataProviderID:"paciente_fec_modi",
 editable:false,
 format:"dd-MM-yyyy HH:mm",
-location:"638,293",
+location:"638,325",
 size:"149,20",
 styleClass:"disable",
 typeid:4,
@@ -354,7 +367,7 @@ uuid:"C60F8754-2E1E-4E90-94A2-2AEFC1E62643"
 },
 {
 horizontalAlignment:0,
-location:"557,272",
+location:"557,304",
 size:"230,20",
 styleClass:"label_black",
 text:"Última Modificación:",
@@ -442,6 +455,16 @@ styleClass:"label_black",
 text:"Departamento:",
 typeid:7,
 uuid:"EE6AB4E0-A647-40A5-94A5-E14BC5982383"
+},
+{
+horizontalAlignment:4,
+labelFor:"",
+location:"557,189",
+size:"111,20",
+styleClass:"label_black",
+text:"Sexo:",
+typeid:7,
+uuid:"F35461E5-FE92-4231-99A3-264B031B8797"
 },
 {
 formIndex:8,

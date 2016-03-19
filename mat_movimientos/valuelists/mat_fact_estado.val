@@ -1,0 +1,7 @@
+addEmptyValue:1,
+customValues:"Abierta|0\r\
+Cerrada|1\r\
+Anulada|9",
+name:"mat_fact_estado",
+typeid:34,
+uuid:"578A7F69-9251-45EA-9ECB-7A01B87B67A1"

@@ -157,6 +157,7 @@ uuid:"F50277F9-058D-4E51-9698-C8580482E949"
 ],
 name:"mat_inicio",
 navigatorID:"-1",
+onShowMethodID:"B9925DFD-BFDB-45F4-96FE-6C1E8F58D51C",
 showInMenu:true,
 size:"1025,480",
 styleClass:"formulario",

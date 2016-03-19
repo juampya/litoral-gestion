@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_fact_mensual_detalle",
+items:[
+{foreignColumnName:"fact_id",primaryDataProviderID:"fact_id",typeid:23,uuid:"CE659B97-64AD-4FFF-A4DF-0883FE78D35B"}
+],
+joinType:1,
+name:"mat_fact_mensual_to_mat_fact_mensual_detalle",
+primaryDataSource:"db:/sistemas/mat_fact_mensual",
+typeid:22,
+uuid:"B3AACB17-D935-42B1-B7A1-9A448259660A"

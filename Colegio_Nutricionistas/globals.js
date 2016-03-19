@@ -2,6 +2,7 @@
  * Callback method for when solution is opened.
  *
  * @properties={typeid:24,uuid:"0F56C0F2-1EB4-46EC-BEEE-6BEC634FDE14"}
+ * @AllowToRunInFind
  */
 function onSolutionOpen() 
 {
@@ -41,6 +42,6 @@ function onSolutionOpen()
 
 		scopes.globals.CargarMenu()
 	}
-	//plugins.busy.unblock();
+	plugins.busy.unblock();
 }
 

@@ -94,8 +94,8 @@ function onShow(firstShow, event)
 	{
 		filtrar()
 	}
-	plugins.window.getMenuBar().removeAllMenus()
-	plugins.window.setToolBarAreaVisible(false)	
+	//plugins.window.getMenuBar().removeAllMenus()
+	//plugins.window.setToolBarAreaVisible(false)	
 }
 
 /**
@@ -146,6 +146,7 @@ function onActionDetalle(event)
 {
 	forms.sm_frm_matriculados_tabpanel.vl_frm_anterior = controller.getName()
 	forms.sm_frm_matriculados_tabpanel.vl_nuevo = 0
+	forms.sm_frm_matriculados_tabpanel.controller.loadRecords(mat_id)
 	forms.sm_frm_matriculados_tabpanel.controller.show() 
 }
 

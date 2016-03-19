@@ -569,5 +569,11 @@ function CalcularSMP()
 			record.calc_smp_inicio = fs_smp.rel_fec_inicial
 			databaseManager.saveData(record)
 		}
+		else
+		{
+			record.calc_smp = 0
+			record.calc_smp_inicio = null
+			databaseManager.saveData(record)
+		}
 	}
 }

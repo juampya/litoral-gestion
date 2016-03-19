@@ -1,7 +1,7 @@
 /**
  * @properties={type:93,typeid:36,uuid:"8422B9F0-7D20-4513-B226-F49F50BEFB8D"}
  */
-function calc_smp_inicio()
+function calc_smp_inicio_old()
 {
 	return 0
 }
@@ -9,7 +9,7 @@ function calc_smp_inicio()
 /**
  * @properties={type:4,typeid:36,uuid:"B907E613-7A74-4907-9A0C-4B59BD380EAD"}
  */
-function calc_smp()
+function calc_smp_old()
 {
 	return 0
 }

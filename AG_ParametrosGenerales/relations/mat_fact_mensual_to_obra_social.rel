@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/obra_social",
+items:[
+{foreignColumnName:"obsoc_id",primaryDataProviderID:"obsoc_id",typeid:23,uuid:"CA745CF0-08D1-4527-ACA8-FA6C7F75A44C"}
+],
+joinType:1,
+name:"mat_fact_mensual_to_obra_social",
+primaryDataSource:"db:/sistemas/mat_fact_mensual",
+typeid:22,
+uuid:"AA717C3B-09D5-4A2E-B260-25D09D176499"

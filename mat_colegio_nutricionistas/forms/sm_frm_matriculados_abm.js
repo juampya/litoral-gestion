@@ -132,11 +132,11 @@ function onShow(firstShow, event)
 {
 	if(firstShow)
 	{
-		CalcularSMP()
+		//CalcularSMP()
 		filtrar()
 	}
-	plugins.window.getMenuBar().removeAllMenus()
-	plugins.window.setToolBarAreaVisible(false)	
+	//plugins.window.getMenuBar().removeAllMenus()
+	//plugins.window.setToolBarAreaVisible(false)	
 }
 
 /**
@@ -219,6 +219,9 @@ function filtrar()
 	if(vl_matriculado!=null) mat_id = vl_matriculado
 	if(vl_documento!=null) mat_dni = vl_documento
 	if(vl_estado!=null)	mat_estado = vl_estado
+	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
+	if(vl_seguro_mp!=null) calc_smp = vl_seguro_mp
+	
 	switch (vl_tipo_fecha) 
 	{
 		case 0:
@@ -241,9 +244,6 @@ function filtrar()
 			mat_web_login = '^= null'
 		break;
 	}	
-	
-	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
-	if(vl_seguro_mp!=null) calc_smp = vl_seguro_mp
 	controller.search()
 	
 	vl_cant_activos    = 0
@@ -342,15 +342,25 @@ function onActionExportarExcel(event)
 	                  '<tr>'+
 					  '<td width="100">Nº Matrícula</td>'+
 					  '<td width="300">Nombre</td>'+
-					  '<td width="150">Circunscripción</td>'+
-					  '<td width="100">Estado</td>'+
-					  '<td width="150">Teléfono</td>'+
+					  '<td width="100">DNI</td>'+
+					  '<td width="100">Fecha Nacimiento</td>'+
+					  '<td width="100">Lugar Nacimiento</td>'+
+					  '<td width="100">Domicilio Legal</td>'+
+					  '<td width="100">Domicilio Real</td>'+
+					  '<td width="150">Teléfono Fijo</td>'+
+					  '<td width="150">Teléfono Celular</td>'+
 					  '<td width="200">Mail</td>'+
-					  '<td width="300">Dirección</td>'+
-					  '<td width="300">Localidad</td>'+
-					  '<td width="200">Departamento</td>'+
+					  '<td width="100">Estado de Cuenta</td>'+
+					  '<td width="100">Monto Deudor</td>'+
+					  '<td width="100">Estado</td>'+
 					  '<td width="100">Fecha Matriculación</td>'+
-					  '<td width="100">Fecha de Baja</td>'+
+					  '<td width="100">Fecha Baja/Suspención</td>'+
+					  '<td width="100">Fecha Rematriculación</td>'+
+					  '<td width="100">SMP</td>'+
+					  '<td width="100">Fecha Alta SMP</td>'+
+					  '<td width="100">Habilitación</td>'+
+					  '<td width="100">Fecha Vto. Habilitación</td>'+
+					  '<td width="100">Cant.OS</td>'+
 					  '</tr>' +
 					  '</thead>' +
 					  '<tbody>' 
@@ -360,24 +370,42 @@ function onActionExportarExcel(event)
 		for(var i=1; i<=foundset.getSize(); i++)
 		{
 			var myRecord = foundset.getRecord(i)
-			var temp_departamento = ""
+			//var temp_departamento = ""
+			var temp_EDC		  = "NO DEBE"
+			/**@type {Number}*/
+			var temp_monto_deudor = CalcularDeuda(myRecord.mat_id)
+			/**@type {Array}*/
+			var temp_consultorios = BuscoConsultorioPrincipal(myRecord.mat_id)
+			
+			if(temp_monto_deudor>0)	temp_EDC = "DEBE"
+			
 			if(utils.hasRecords(myRecord,'mat_matriculados_to_localidades_real.localidades_to_departamentos'))
 				{
-					temp_departamento = myRecord.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion
+					//temp_departamento = myRecord.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion
 				}
 			
 				cuerpo = cuerpo + '<tr>' +
 				'<td align="right">'  + myRecord.mat_nro_matricula + '</td>' +
 				'<td align="left">'   + myRecord.mat_nombre + '</td>' +
-				'<td align="center">' + application.getValueListDisplayValue('mat_circunscripcion',myRecord.mat_circunscripcion) + '</td>' +
-				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_estado) + '</td>' +
-				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'+
-				'<td align="center">' + myRecord.mat_e_mail + '</td>' +
+				'<td align="left">'   + myRecord.mat_dni + '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_nacimiento),'dd/MM/yyyy') + '</td>' +
+				'<td align="left">'   + myRecord.mat_lugar_nacimiento + '</td>' +
+				'<td align="left">'   + myRecord.mat_direccion_legal+ '</td>' +
 				'<td align="left">'   + myRecord.mat_direccion_real+ '</td>' +
-				'<td align="left">'   + application.getValueListDisplayValue('localidades',myRecord.mat_codigo_postal_real)+ '</td>' +
-				'<td align="left">'   + temp_departamento + '</td>' +
+				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'+
+				'<td align="center">' + myRecord.mat_celular+ '</td>'+
+				'<td align="center">' + myRecord.mat_e_mail + '</td>' +
+				'<td align="center">' + temp_EDC + '</td>' +
+				'<td align="right">' + utils.numberFormat(temp_monto_deudor,'#,##0.00') + '</td>' +
+				'<td align="center">' + application.getValueListDisplayValue('mat_estado_matriculado',myRecord.mat_estado) + '</td>' +
 				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_matriculacion),'dd/MM/yyyy') + '</td>' +
-				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_baja),'dd/MM/yyyy') + '</td>'
+				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_baja),'dd/MM/yyyy') + '</td>' +
+				'<td align="center">' + " " + '</td>' +
+				'<td align="center">' + application.getValueListDisplayValue('lg_si_no',myRecord.calc_smp) + '</td>' +
+				'<td align="center">' + utils.dateFormat((myRecord.calc_smp_inicio),'dd/MM/yyyy') + '</td>'+
+				'<td align="center">' + temp_consultorios[0] + '</td>' +
+				'<td align="center">' + temp_consultorios[1] + '</td>'+
+				'<td align="center">' + myRecord.mat_matriculados_to_mat_rel_mat_obsoc.aggr_cant + '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'
 	}
@@ -562,4 +590,63 @@ function CalcularSMP()
 			databaseManager.saveData(record)
 		}
 	}
+}
+
+/**
+ * @AllowToRunInFind
+ * @param {Number} p_mat_id
+ * @properties={typeid:24,uuid:"22817335-68B8-493E-8044-68B362CFC4EF"}
+ */
+function CalcularDeuda(p_mat_id)
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
+	var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')	
+		fs_mov.find()
+		fs_mov.mat_id = p_mat_id
+		fs_mov.mov_estado = 0
+		if(fs_mov.search()>0)
+		{
+			return fs_mov.mov_importe 
+		}
+		else
+		{
+			return 0
+		}
+}
+
+
+/**
+ * @AllowToRunInFind
+ * 
+ * TODO generated, please specify type and doc for the params
+ * @param p_mat_id
+ *
+ * @properties={typeid:24,uuid:"FE6D5AE9-01F7-4656-B7D5-B3140DC59461"}
+ */
+function BuscoConsultorioPrincipal(p_mat_id)
+{
+	/**@type {Array}*/
+	var tmp_array = new Array
+	/**@type {String}*/
+	var tmp_estado="NO HABILITADO"
+	/**@type {String}*/
+	var tmp_fec_habilita=""
+	
+	/** @type {JSFoundSet<db:/sistemas/mat_consultorios>} */
+	var fs_consultorios = databaseManager.getFoundSet('sistemas','mat_consultorios')	
+		fs_consultorios.find()
+		fs_consultorios.mat_id = p_mat_id
+		fs_consultorios.consultorio_principal = 1
+		if(fs_consultorios.search()>0)
+		{
+			if(fs_consultorios.consultorio_estado==1|fs_consultorios.consultorio_estado==2) 
+			{
+				tmp_estado = "HABILITADO"
+				tmp_fec_habilita = utils.dateFormat((fs_consultorios.consultorio_vto),'dd/MM/yyyy')	
+			}
+		}
+		
+	tmp_array.push(tmp_estado,tmp_fec_habilita)	
+	
+	return tmp_array
 }

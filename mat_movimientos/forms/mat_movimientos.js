@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"EAD58D65-409E-447C-9FDC-952CA8C503C1",variableType:4}
+ */
+var vl_enviada = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"2C6FBB1B-3059-4C8F-BAD3-717F0F55FB43",variableType:4}
  */
 var vl_enweb = null;
@@ -83,6 +90,7 @@ function filtrar()
 	}
 	
 	if(vl_enweb != null){mov_publicar_en_web = vl_enweb}
+	if(vl_enviada != null){mov_enviado_mail = vl_enviada}
 	controller.search()
 }
 
@@ -96,6 +104,10 @@ function filtrar()
  */
 function onShow(firstShow, event) 
 {
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) {
+	    plugins.busy.prepare();
+	}
+	
 	if(firstShow)
 	{
 		vl_matriculado = null
@@ -397,5 +409,93 @@ function Publicar()
 	else
 	{
 		scopes.globals.ventanaAceptar("Las boletas seleccionadas ya se encuentran publicadas en la WEB.",controller.getName())
+	}
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param event
+ *
+ * @properties={typeid:24,uuid:"8F0B283A-8E50-49DA-99B6-87671C12796E"}
+ * @AllowToRunInFind
+ */
+function onActionMail(event) 
+{
+	if(databaseManager.getFoundSetCount(foundset)>0)
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención","Está por enviar las boletas por mail.\nSólo se enviarán 30 boletas por vez.","atention",controller.getName(),"No",null,"Si","Mail",null,null,null,null)
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar("No existen boletas para enviar.",controller.getName())
+	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"4CE9DA2F-41B6-48CC-A295-B64525FC8AD8"}
+ */
+function Mail()
+{
+	var params = {
+		processFunction: Enviar,
+		message: 'Enviando boletas... espere un momento por favor.',
+		opacity: 0.5,
+		paneColor: '#000000',
+		showCancelButton: false,
+	cancelButtonText: 'Stop!'
+	};
+	plugins.busy.block(params);
+}	
+
+/**
+ * @properties={typeid:24,uuid:"DBABB987-9D6A-49C6-AE0A-B60F5E328C8F"}
+ */
+function Enviar()
+{
+	application.updateUI()
+	
+	var cant = databaseManager.getFoundSetCount(foundset)
+	var cant_enviados = 0
+	var cant_no_enviados = 0
+	
+	for (var i = 1; i <= cant; i++) 
+	{
+		/**@type {JSRecord}*/
+		var record = foundset.getRecord(i)
+		
+		if(cant_enviados>30)
+		{
+			scopes.globals.ventanaAceptar("Llegó al límite de envío de 30 mails.\nRecuerde esperar un tiempo para poder continuar enviando las boletas.",controller.getName())
+			plugins.busy.unblock()
+			return
+		}
+		
+		if(record.mov_enviado_mail!=1 && record.mov_publicar_en_web == 1)
+		{
+			scopes.globals.vg_destinatarios = record.mat_movimientos_to_mat_matriculados.mat_e_mail
+			scopes.globals.vg_asunto 		= scopes.globals.ag_empresavigente.emp_nombre +"- Boleta de Pago." 
+			scopes.globals.vg_cuerpo 		= " "
+			scopes.globals.vg_adjuntos 		= plugins.mail.createBinaryAttachment('BoletadePago.pdf',plugins.jasperPluginRMI.runReport('sistemas','boleta_de_pago.jasper', 'BoletadePago.pdf', plugins.jasperPluginRMI.OUTPUT_FORMAT.PDF, {pmov_id:mov_id}))
+
+			if (scopes.globals.enviarEmailPorFunciones(3,scopes.globals.vg_asunto,scopes.globals.vg_cuerpo,scopes.globals.vg_destinatarios)==true)
+			{
+				record.mov_enviado_mail = 1
+				cant_enviados++
+				databaseManager.saveData(record)
+			}
+			else
+			{
+				cant_no_enviados++
+			}
+		}
+	}
+	plugins.busy.unblock()
+	if(cant_enviados==0)
+	{
+		scopes.globals.ventanaAceptar("No se encontraron boletas para enviar con esos parámetros.\nRecuerde que también las boletas deben estar publicadas en la WEB.",controller.getName())
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar("Se enviaron "+cant_enviados+" boletas por mail.\nNo se pudieron enviar "+cant_no_enviados+" boletas.",controller.getName())
 	}
 }

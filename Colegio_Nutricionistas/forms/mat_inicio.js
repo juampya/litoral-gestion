@@ -308,3 +308,48 @@ function ConsultaSeguroMalaPraxis()
 	forms.mat_consultas_smp.controller.show()
 }
 
+
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"B9925DFD-BFDB-45F4-96FE-6C1E8F58D51C"}
+ * @AllowToRunInFind
+ */
+function onShow(firstShow, event) 
+{
+	/** @type {JSFoundSet<db:/sistemas/mat_matriculados>} */
+	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')	
+	
+	/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
+	var fs_smp = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')	
+			
+	for (var i = 1; i <= databaseManager.getFoundSetCount(fs_matriculados); i++) 
+	{
+		/**@type {JSRecord}*/
+		var record = fs_matriculados.getRecord(i)
+		
+		fs_smp.find()
+		fs_smp.ingr_id = 2
+		fs_smp.rel_estado = 1
+		fs_smp.mat_id = record.mat_id
+		if(fs_smp.search()>0)
+		{
+			record.calc_smp = 1
+			record.calc_smp_inicio = fs_smp.rel_fec_inicial
+			databaseManager.saveData(record)
+		}
+	}
+}
+
+/**
+ * @properties={typeid:24,uuid:"0CCFA49F-C455-4415-800B-1AFCA85EA23E"}
+ */
+function FacturacionMensualMat()
+{
+	scopes.globals.SacarMenu()
+	forms.mat_fact_mensual_mat.vl_frm_anterior = controller.getName()
+	forms.mat_fact_mensual_mat.controller.show()
+}

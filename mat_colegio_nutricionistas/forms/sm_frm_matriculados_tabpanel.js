@@ -103,11 +103,15 @@ function onShow(firstShow, event)
 		mat_matriculados_to_mat_rel_mat_cuentas.mat_id = mat_id
 		databaseManager.saveData(mat_matriculados_to_mat_rel_mat_cuentas)
 	}
-	globals.vg_auditoria_pk       = mat_id
-    globals.vg_auditoria_tabla    = new Array('mat_matriculados')
-    globals.vg_auditoria_campo    = null
-
 	
+	//Variables para Auditoría//
+	scopes.globals.vg_auditoria_pk    = mat_id
+	scopes.globals.vg_auditoria_tabla = new Array('mat_matriculados')
+	scopes.globals.vg_auditoria_campo = null
+	
+	//Variables para archivos Adjuntos//
+	scopes.globals.vg_archivo_funcion_codigo = 1
+	scopes.globals.vg_archivo_tabla_id		 = mat_id
 	verificarDeuda()
 }
 

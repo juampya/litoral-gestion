@@ -345,7 +345,7 @@ onActionMethodID:"-1",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 showClick:false,
-size:"128,128",
+size:"128,115",
 typeid:7,
 uuid:"4EBE11CE-B703-4ACB-A1C7-E102A21AD58F"
 },
@@ -722,7 +722,7 @@ formIndex:79,
 location:"632,173",
 onDataChangeMethodID:"B4F22E93-86F5-4A7E-9F2D-197F3329FF81",
 scrollbars:36,
-size:"140,140",
+size:"140,115",
 tabSeq:-2,
 typeid:4,
 uuid:"CCD2FE1D-0598-47A9-9B98-0249007E4160"
@@ -816,6 +816,15 @@ typeid:4,
 uuid:"EA3B8089-5B2F-450F-808B-7E3A8A0A50A3"
 },
 {
+formIndex:74,
+location:"529,293",
+size:"95,20",
+styleClass:"label_black",
+text:"Fecha ReMatri.:",
+typeid:7,
+uuid:"EDB9DF5A-3490-4A02-81A1-80F935FAB035"
+},
+{
 formIndex:32,
 location:"502,149",
 size:"125,20",
@@ -850,6 +859,18 @@ styleClass:"label_black",
 text:"Folio:",
 typeid:7,
 uuid:"EFDE5895-E865-41CB-8879-647D6090B835"
+},
+{
+dataProviderID:"mat_fecha_rematri",
+displayType:5,
+editable:false,
+formIndex:75,
+format:"dd/MM/yyyy|mask",
+horizontalAlignment:0,
+location:"626,293",
+size:"140,20",
+typeid:4,
+uuid:"EFE84E45-7744-46B6-AE08-607DC354415A"
 },
 {
 dataProviderID:"docu_id",

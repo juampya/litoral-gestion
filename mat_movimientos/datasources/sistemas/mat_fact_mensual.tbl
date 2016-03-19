@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/mat_fact_mensual",
+items:[
+{
+dataProviderIDToAggregate:"fact_id",
+name:"aggr_cant_reg",
+typeid:40,
+uuid:"0EDFF7DB-66FA-4677-A03B-DAF0A1471F47"
+}
+],
+typeid:39,
+uuid:"CA53B43A-972E-418F-801B-748E6FFFF1AB"

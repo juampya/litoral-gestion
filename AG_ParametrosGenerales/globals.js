@@ -661,10 +661,12 @@ function archivoAdjuntoMostrar(imagen_id)
  * @param lnk_funcion_email
  * @param lnk_asunto
  * @param lnk_cuerpo
- *
+ * @param lnk_mail
+ * @return {Boolean}
+ * 
  * @properties={typeid:24,uuid:"E7AF089D-8485-43B5-AE86-B443FF743213"}
  */
-function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo) 
+function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo, lnk_mail) 
 {
 	var smpt 		  = 'mail.smtp.host=' + scopes.globals.ag_empresavigente.emp_smtp_host
 	var smtp_port 	  = 'mail.smtp.port=' + scopes.globals.ag_empresavigente.emp_smtp_port
@@ -672,14 +674,16 @@ function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo)
 	var smtp_user 	  = 'mail.smtp.username=' + scopes.globals.ag_empresavigente.emp_smtp_username
 	var smtp_pasw 	  = 'mail.smtp.password=' + scopes.globals.ag_empresavigente.emp_smtp_password
 	var smtp_starttls = 'mail.smtp.starttls.enable=' + scopes.globals.ag_empresavigente.emp_smtp_starttls
-	var authorization = new Array(smpt, smtp_port,smtp_auth,smtp_user,smtp_pasw,smtp_starttls)
+	var smtp_from     = 'mail.smtp.from=' + scopes.globals.ag_empresavigente.emp_mail2
+	var authorization = new Array(smpt, smtp_port,smtp_auth,smtp_user,smtp_pasw,smtp_starttls,smtp_from)
 	
 	/** @type {JSFoundset<db:/sistemas/lg_funciones>}*/
 	var fs_funciones = databaseManager.getFoundSet('sistemas', 'lg_funciones')
 	fs_funciones.find()
 	fs_funciones.func_codigo = lnk_funcion_email
 	fs_funciones.search()
-	if (fs_funciones.getSize() < 1) {
+	if (fs_funciones.getSize() < 1) 
+	{
 		fs_funciones.find()
 		fs_funciones.func_codigo = 0
 		fs_funciones.search()
@@ -701,26 +705,51 @@ function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo)
 //	}
 	
 	remitente 	= fs_funciones.func_email_responsable
-	var subject	= 'Litoral Gestion Mail: ' + lnk_asunto
+	//var subject	= 'Litoral Gestion Mail: ' + lnk_asunto
+	var subject	= lnk_asunto
 	var cuerpo	= lnk_cuerpo
 	
-	if (utils.hasRecords(fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios)) {
-		for(var i = 1; i <= fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize(); i++)
+	if(lnk_mail==null)
+	{	
+		if (utils.hasRecords(fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios)) 
 		{
-			var rec_email = fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getRecord(i)
-
-			if (i == fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize()) {
-				destinatarios= destinatarios + rec_email.email_destinatario
-			} else {
-				destinatarios= destinatarios + rec_email.email_destinatario + ', '
+			for(var i = 1; i <= fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize(); i++)
+			{
+				var rec_email = fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getRecord(i)
+	
+				if (i == fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize()) 
+				{
+					destinatarios= destinatarios + rec_email.email_destinatario
+				} 
+				else
+				{
+					destinatarios= destinatarios + rec_email.email_destinatario + ', '
+				}
 			}
 		}
 	}
-	
-	if(destinatarios != '')
+	else
 	{
-		plugins.mail.sendMail(destinatarios, remitente, subject, cuerpo, null, null, null,authorization)  	
-	}   			
+		destinatarios = lnk_mail
+	}
+	
+	if(destinatarios != '' && destinatarios!=null)
+	{
+		var success = plugins.mail.sendMail(destinatarios, remitente, subject, cuerpo, null, null, scopes.globals.vg_adjuntos,authorization)
+
+		if (!success) 
+		{
+			return false
+		}
+		else
+		{
+			return true
+		}
+	}
+	else
+	{
+		return false
+	}
 }
 
 /**

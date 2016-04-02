@@ -32,9 +32,15 @@ name:"excep_fec_modi"
 },
 {
 allowNull:true,
+creationOrderIndex:12,
+dataType:91,
+name:"excep_fecha_fin"
+},
+{
+allowNull:true,
 creationOrderIndex:1,
 dataType:91,
-name:"excep_fecha"
+name:"excep_fecha_ini"
 },
 {
 allowNull:true,

@@ -86,22 +86,27 @@ function armaNumeracion(diaSemilla)
 				/**@type {Array}*/
 				var array = BuscaTurnos(diaNro,diaSemilla.getMonth(),diaSemilla.getFullYear());
 				
-				/**@type {Boolean}*/
-				var tmp_execpcion = false
-				
-				
 				elements[boton].visible = true;
 				elements[boton]['text'] = diaNro;
 				elements[boton]['toolTipText'] = array[0] 
 				
-				if(forms.cli_turnos_calendario.array_dias_atencion.indexOf(j)>0)
+				if(forms.cli_turnos_calendario.array_dias_atencion.indexOf(j)>0 && array[2]==null)
 				{
 					//elements[boton].bgcolor = '#80ff80'
 					elements[boton].bgcolor = array[1]
 				}
 				else
 				{
-					elements[boton]['toolTipText'] = 'No trabaja'
+					if(array[2]==null)
+					{
+						elements[boton]['toolTipText'] = 'No trabaja'
+					}
+					else
+					{
+						elements[boton]['toolTipText'] = array[2]
+						elements[boton].bgcolor = '#0080ff'
+					}
+					
 				//	elements[boton].bgcolor = '#ffff9d'
 				}
 				
@@ -192,7 +197,6 @@ function onActionDate(event)
 		if(vl_btn_select!=null)
 		{	
 			vl_dia_seleccionado = new Date(vl_mes_anio[1],vl_mes_anio[0],new Number(elements[vl_btn_select]['text']))
-	
 		}
 	}	
 	
@@ -201,7 +205,6 @@ function onActionDate(event)
 	{
 		elements[vl_btn_select].bgcolor = '#b0b0ff'
 	}
-	
 	
 	forms.cli_turnos_calendario.vl_dia = vl_dia_seleccionado
 	forms.cli_turnos_calendario.cargaTurnos(vl_dia_seleccionado)
@@ -291,6 +294,10 @@ function BuscaTurnos(pdia,pmes,panio)
 	/** @type {JSFoundSet<db:/sistemas/turno>} */
 	var fs_turnos = databaseManager.getFoundSet('sistemas','turno')
 	
+	/** @type {JSFoundSet<db:/sistemas/agenda_excepciones>} */
+	var fs_excepciones = databaseManager.getFoundSet('sistemas','agenda_excepciones')
+		fs_excepciones.loadAllRecords()
+		
 	var vl_dia = new Date(panio,pmes,pdia,0,0,0);
 
 	databaseManager.setAutoSave(false)
@@ -303,16 +310,53 @@ function BuscaTurnos(pdia,pmes,panio)
 	var vl_turnos_libre 	  = 0
 	var vl_turnos_ocupados 	  = 0
 	var vl_turnos_confirmados = 0
-	var vl_turnos_no_atiende  = 0
 	var vl_sobreturnos 		  = 0
+	var vl_turnos_no_atiende  = 0
 	
 	var libres 	  	= "     Libres: "
 	var ocupados 	= "   Ocupados: "
 	var confirmados = "Confirmados: "
-	var no_atiende  = " No Atiende: "
 	var sobreturnos = "Sobreturnos: "
 
-
+	var no_atiende  = null
+	
+	var j
+	var record1
+	
+	if(forms.cli_turnos_calendario.vl_medico==null)
+	{	
+		for (j = 1; j <= fs_excepciones.getSize(); j++)
+		{
+			record1 = fs_excepciones.getRecord(j);
+			if(record1.excep_fecha_ini.getFullYear()==vl_dia.getFullYear() && record1.excep_fecha_ini.getMonth()==vl_dia.getMonth())
+			{
+				if(vl_dia.getDate()>=record1.excep_fecha_ini.getDate() && vl_dia.getDate()<=record1.excep_fecha_fin.getDate() && record1.medico_id == null)
+				{
+					no_atiende = application.getValueListDisplayValue('vl_tipo_dias_no_laborables',record1.excep_tipo)
+				}
+			}
+		}
+	}
+	else
+	{
+		for (j = 1; j <= fs_excepciones.getSize(); j++)
+		{
+			record1 = fs_excepciones.getRecord(j);
+			if(record1.excep_fecha_ini.getFullYear()==vl_dia.getFullYear() && record1.excep_fecha_ini.getMonth()==vl_dia.getMonth())
+			{
+				if(vl_dia.getDate()>=record1.excep_fecha_ini.getDate() && vl_dia.getDate()<=record1.excep_fecha_fin.getDate() && (record1.medico_id == null||record1.medico_id == forms.cli_turnos_calendario.vl_medico))
+				{
+					no_atiende = application.getValueListDisplayValue('vl_tipo_dias_no_laborables',record1.excep_tipo)
+				}
+			}
+		}	
+	}
+	
+//	if(tmp_excepcion>0)
+//	{
+//		no_atiende = application.getValueListDisplayValue('vl_tipo_dias_no_laborables',fs_excepciones.excep_tipo)
+//	}
+	
 	for(var i=1;i<=fs_turnos.getSize();i++)
 	{
 		var record = fs_turnos.getRecord(i)
@@ -366,5 +410,5 @@ function BuscaTurnos(pdia,pmes,panio)
 	confirmados = confirmados+utils.numberFormat(vl_turnos_confirmados,'##')+" "
 	sobreturnos = sobreturnos+utils.numberFormat(vl_sobreturnos,'##')+" "
 
-	return [libres+ocupados+confirmados+sobreturnos,color]
+	return [libres+ocupados+confirmados+sobreturnos,color,no_atiende]
 } 

@@ -155,7 +155,6 @@ function cargaTurnos()
 	databaseManager.setAutoSave(true)
 	
 	
-	
 	/** @type {JSFoundSet<db:/sistemas/medico>} */
 	var fs_medico = databaseManager.getFoundSet('sistemas','medico')
 	fs_medico.loadRecords(vl_medico)

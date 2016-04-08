@@ -70,7 +70,7 @@ background:"#80ff00",
 borderType:"EmptyBorder,0,0,0,0",
 formIndex:5,
 lineSize:1,
-location:"20,404",
+location:"20,403",
 size:"30,30",
 typeid:21,
 uuid:"278BE3D1-ABA2-4AED-97BC-9F29B36DBE26"
@@ -197,7 +197,17 @@ uuid:"783DA27A-09FF-4A91-893D-9E339A228BE0",
 visible:false
 },
 {
-height:501,
+background:"#0080ff",
+borderType:"EmptyBorder,0,0,0,0",
+formIndex:5,
+lineSize:1,
+location:"20,502",
+size:"30,30",
+typeid:21,
+uuid:"7D1478EB-C97A-4065-8156-7E18DB2014C4"
+},
+{
+height:534,
 partType:5,
 typeid:19,
 uuid:"7F3E5977-1773-4153-A270-75DA669F3AAB"
@@ -248,6 +258,15 @@ uuid:"86BC8B9D-0A54-4654-BF5D-E378390E336D",
 visible:false
 },
 {
+formIndex:6,
+location:"55,504",
+size:"200,20",
+text:"Dias Feriados/Vacaciones/Cursos",
+transparent:true,
+typeid:7,
+uuid:"8739D56A-B706-4643-B392-FA62BF9BCBB7"
+},
+{
 location:"255,139",
 name:"nro_2_6",
 onActionMethodID:"B0B654D0-053E-4CCB-8C45-C3B76EADD615",
@@ -271,7 +290,7 @@ uuid:"8936C5E5-6F18-4FCF-B1F9-435A8B721FA7"
 },
 {
 formIndex:6,
-location:"55,472",
+location:"55,471",
 size:"200,20",
 text:"Tiene todos los turnos ocupados.",
 transparent:true,
@@ -420,7 +439,7 @@ visible:false
 },
 {
 formIndex:6,
-location:"55,440",
+location:"55,439",
 size:"159,20",
 text:"Tiene turnos dados.",
 transparent:true,
@@ -531,7 +550,7 @@ background:"#ff0000",
 borderType:"EmptyBorder,0,0,0,0",
 formIndex:5,
 lineSize:1,
-location:"20,470",
+location:"20,469",
 size:"30,30",
 typeid:21,
 uuid:"DC4BD536-4093-4514-94D4-4E1336F6AA99"
@@ -560,7 +579,7 @@ visible:false
 },
 {
 formIndex:6,
-location:"55,407",
+location:"55,406",
 size:"159,20",
 text:"Días que atiende.",
 transparent:true,
@@ -572,7 +591,7 @@ background:"#ffff00",
 borderType:"EmptyBorder,0,0,0,0",
 formIndex:5,
 lineSize:1,
-location:"20,437",
+location:"20,436",
 size:"30,30",
 typeid:21,
 uuid:"E04CCA52-70DD-4EC1-855A-3B0F8375F5B1"

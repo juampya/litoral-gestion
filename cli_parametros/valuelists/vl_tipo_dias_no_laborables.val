@@ -1,0 +1,11 @@
+addEmptyValue:1,
+customValues:"Feriado|1\r\
+Vacaciones|2\r\
+Congresos/Cursos|3\r\
+No Laborable|4\r\
+Franco/Licencias|5\r\
+\r\
+",
+name:"vl_tipo_dias_no_laborables",
+typeid:34,
+uuid:"5B40644D-E6FA-4091-AE49-095989B49114"

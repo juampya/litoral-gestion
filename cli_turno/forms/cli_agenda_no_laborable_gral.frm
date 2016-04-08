@@ -1,13 +1,14 @@
 dataSource:"db:/sistemas/agenda_excepciones",
 items:[
 {
-dataProviderID:"excep_fecha",
+dataProviderID:"excep_fecha_ini",
 editable:false,
 format:"dd-MM-yyyy|mask",
 horizontalAlignment:0,
 location:"27,112",
 name:"excep_fecha",
 size:"125,20",
+styleClass:"table_field",
 text:"Excep Fecha",
 typeid:4,
 uuid:"105EACEF-6489-4AE3-8ACF-68EFA505E808"
@@ -15,7 +16,7 @@ uuid:"105EACEF-6489-4AE3-8ACF-68EFA505E808"
 {
 horizontalAlignment:0,
 labelFor:"excep_observaciones",
-location:"371,92",
+location:"503,92",
 name:"excep_observaciones_label",
 size:"309,20",
 styleClass:"label_black",
@@ -26,9 +27,10 @@ uuid:"238359CC-17FB-487F-B8E9-B0E111E08EC8"
 {
 dataProviderID:"excep_observaciones",
 editable:false,
-location:"371,112",
+location:"503,112",
 name:"excep_observaciones",
 size:"309,20",
+styleClass:"table_field",
 text:"Excep Observaciones",
 typeid:4,
 uuid:"269BB32A-7104-4EE6-BB99-BCE21399D108"
@@ -40,16 +42,17 @@ location:"27,92",
 name:"excep_fecha_label",
 size:"125,20",
 styleClass:"label_black",
-text:"Fecha",
+text:" Fecha desde",
 typeid:7,
 uuid:"38230820-FF7F-49C0-BDA5-8AF905EC859B"
 },
 {
 dataProviderID:"excep_tipo",
 editable:false,
-location:"167,112",
+location:"299,112",
 name:"excep_tipo",
 size:"199,20",
+styleClass:"table_field",
 text:"Excep Tipo",
 typeid:4,
 uuid:"3A4F873A-96FF-4039-AA1A-A0D6F6378605",
@@ -76,6 +79,18 @@ height:480,
 partType:5,
 typeid:19,
 uuid:"839F8BE0-6096-4153-AF13-7F52D9F3D7EF"
+},
+{
+formIndex:27,
+horizontalAlignment:0,
+labelFor:"excep_fecha_fin",
+location:"154,92",
+name:"excep_fecha_fin_label",
+size:"125,20",
+styleClass:"label_black",
+text:"Fecha Hasta",
+typeid:7,
+uuid:"8F07EC67-1949-4A48-95AC-75F0E0248554"
 },
 {
 formIndex:26,
@@ -107,13 +122,26 @@ uuid:"A4761884-35B2-4F27-BE25-E1A8C8D75524"
 {
 horizontalAlignment:0,
 labelFor:"excep_tipo",
-location:"167,92",
+location:"299,92",
 name:"excep_tipo_label",
 size:"199,20",
 styleClass:"label_black",
 text:"Tipo",
 typeid:7,
 uuid:"B5BC66BC-84FF-4032-A5F8-F536079CC7EE"
+},
+{
+dataProviderID:"excep_fecha_fin",
+editable:false,
+formIndex:28,
+format:"dd-MM-yyyy|mask",
+horizontalAlignment:0,
+location:"154,112",
+name:"excep_fecha_fin",
+size:"125,20",
+styleClass:"table_field",
+typeid:4,
+uuid:"E3D8E7A7-F4C1-490D-8EF3-3DDDD8C89664"
 },
 {
 formIndex:10,

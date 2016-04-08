@@ -27,6 +27,7 @@ function generarTurno(doctor, dia, id)
 	fs_turno.turno_dia = dia
 	var cant1 = fs_turno.search()
 	databaseManager.setAutoSave(true)
+	
 	if(cant1 > 0)
 	{
 		return
@@ -37,19 +38,57 @@ function generarTurno(doctor, dia, id)
 	databaseManager.setAutoSave(false)
 	fs_age_param.find()
 	fs_age_param.medico_id = doctor
+	var cant = fs_age_param.search()
 	databaseManager.setAutoSave(true)
 	
-	var cant = fs_age_param.search()
+	/** @type {JSFoundSet<db:/sistemas/agenda_excepciones>} */
+	var fs_excepciones = databaseManager.getFoundSet('sistemas','agenda_excepciones')	
+		fs_excepciones.loadAllRecords()
+		
+	var j
+	var record1
+	
+	if(doctor==null)
+	{	
+		for (j = 1; j <= fs_excepciones.getSize(); j++)
+		{
+			record1 = fs_excepciones.getRecord(j);
+			if(record1.excep_fecha_ini.getFullYear()==dia.getFullYear() && record1.excep_fecha_ini.getMonth()==dia.getMonth())
+			{
+				if(dia.getDate()>=record1.excep_fecha_ini.getDate() && dia.getDate()<=record1.excep_fecha_fin.getDate() && record1.medico_id == null)
+				{
+					return
+				}
+			}
+		}
+	}
+	else
+	{
+		for (j = 1; j <= fs_excepciones.getSize(); j++)
+		{
+			record1 = fs_excepciones.getRecord(j);
+			if(record1.excep_fecha_ini.getFullYear()==dia.getFullYear() && record1.excep_fecha_ini.getMonth()==dia.getMonth())
+			{
+				if(dia.getDate()>=record1.excep_fecha_ini.getDate() && dia.getDate()<=record1.excep_fecha_fin.getDate() && (record1.medico_id == null||record1.medico_id == doctor))
+				{
+					return
+				}
+			}
+		}	
+	}
+	 
 	if(cant <= 0)
 	{
 		return
 	}
+	
 	var myRec = fs_age_param.getRecord(1)
 	
 	if(myRec.age_lun==0 && myRec.age_mar==0 && myRec.age_mie==0 && myRec.age_jue==0 && myRec.age_vie==0 && myRec.age_sab==0 && myRec.age_dom==0)
 	{
 		return
 	}
+	
 	
 	
 //	

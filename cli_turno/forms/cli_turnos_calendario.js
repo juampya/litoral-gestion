@@ -224,6 +224,7 @@ function onDataChangeMedico(oldValue, newValue, event)
 	{
 		elements.lbl_dias_atencion.text = "No configurado."
 	}
+	
 	crearDatePicker()
 	cargaTurnos(vl_dia)
 	return true

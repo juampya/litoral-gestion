@@ -21,12 +21,12 @@ function onShow(firstShow, event)
 	{
 		controller.newRecord()
 		excep_tipo = 2
-		excep_fecha = application.getServerTimeStamp()
+		excep_fecha_ini = application.getServerTimeStamp()
+		excep_fecha_fin = application.getServerTimeStamp()
 		emp_id = scopes.globals.mx_empresa_id
 		elements.btn_borrar.visible = false
 	}
 	medico_id = forms.cli_agenda_config_param.medico_id
-
 }
 
 /**
@@ -85,4 +85,36 @@ function onActionBorrar(event)
 	databaseManager.setAutoSave(true)
 	application.getWindow('age_fechas_no_laborables_med').hide()	
 	
+}
+
+/**
+ * Handle changed data.
+ *
+ * @param {Date} oldValue old value
+ * @param {Date} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"019E7E6F-5047-4F5E-801F-C983FC936C14"}
+ */
+function onDataChange(oldValue, newValue, event) 
+{
+	excep_fecha_fin = excep_fecha_ini
+	return true
+}
+
+/**
+ * @properties={typeid:24,uuid:"01B8809E-1BCA-4140-81E2-CBB58EFF6FE8"}
+ */
+function ControlFechaFin()
+{
+	if(utils.dateFormat(excep_fecha_ini,'dd-MM-yyyy')>utils.dateFormat(excep_fecha_fin,'dd-MM-yyyy'))
+	{
+		return false
+	}
+	else
+	{
+		return true
+	}
 }

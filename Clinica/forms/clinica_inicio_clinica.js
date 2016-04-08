@@ -22,7 +22,6 @@ function onActionGestion(event)
 {
 	scopes.globals.SacarMenu()
 	forms.cli_turnos_calendario.controller.show()
-	//forms.cli_turnos.controller.show()
 }
 
 /**

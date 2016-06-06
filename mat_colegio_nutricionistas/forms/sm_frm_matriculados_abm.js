@@ -346,7 +346,9 @@ function onActionExportarExcel(event)
 					  '<td width="100">Fecha Nacimiento</td>'+
 					  '<td width="100">Lugar Nacimiento</td>'+
 					  '<td width="100">Domicilio Legal</td>'+
+					  '<td width="200">Localidad Legal</td>'+
 					  '<td width="100">Domicilio Real</td>'+
+					  '<td width="200">Localidad Real</td>'+
 					  '<td width="150">Teléfono Fijo</td>'+
 					  '<td width="150">Teléfono Celular</td>'+
 					  '<td width="200">Mail</td>'+
@@ -360,6 +362,7 @@ function onActionExportarExcel(event)
 					  '<td width="100">Fecha Alta SMP</td>'+
 					  '<td width="100">Habilitación</td>'+
 					  '<td width="100">Fecha Vto. Habilitación</td>'+
+					  '<td width="100">CUIT</td>'+
 					  '<td width="100">Cant.OS</td>'+
 					  '</tr>' +
 					  '</thead>' +
@@ -376,6 +379,27 @@ function onActionExportarExcel(event)
 			var temp_monto_deudor = CalcularDeuda(myRecord.mat_id)
 			/**@type {Array}*/
 			var temp_consultorios = BuscoConsultorioPrincipal(myRecord.mat_id)
+			/**@type {String}*/
+			var temp_localidad_real='Falta localidad.'
+			/**@type {String}*/
+			var temp_localidad_legal='Falta localidad.'
+			/**@type {String}*/
+			var temp_cuit='Falta CUIT.'
+			
+			if(utils.hasRecords(myRecord,'mat_matriculados_to_mat_rel_mat_cuentas'))
+			{
+				temp_cuit = myRecord.mat_matriculados_to_mat_rel_mat_cuentas.rel_cuit_titular
+			}
+			
+			if(myRecord.mat_codigo_postal_legal!=null)
+			{
+				temp_localidad_legal = application.getValueListDisplayValue('localidades',myRecord.mat_codigo_postal_legal)
+			}
+			
+			if(myRecord.mat_codigo_postal_real!=null)
+			{
+				temp_localidad_real = application.getValueListDisplayValue('localidades',myRecord.mat_codigo_postal_real)
+			}
 			
 			if(temp_monto_deudor>0)	temp_EDC = "DEBE"
 			
@@ -391,7 +415,9 @@ function onActionExportarExcel(event)
 				'<td align="center">' + utils.dateFormat((myRecord.mat_fecha_nacimiento),'dd/MM/yyyy') + '</td>' +
 				'<td align="left">'   + myRecord.mat_lugar_nacimiento + '</td>' +
 				'<td align="left">'   + myRecord.mat_direccion_legal+ '</td>' +
+				'<td align="left">'   + temp_localidad_legal+ '</td>' +
 				'<td align="left">'   + myRecord.mat_direccion_real+ '</td>' +
+				'<td align="left">'   + temp_localidad_real+ '</td>' +
 				'<td align="center">' + myRecord.mat_telefono_fijo+ '</td>'+
 				'<td align="center">' + myRecord.mat_celular+ '</td>'+
 				'<td align="center">' + myRecord.mat_e_mail + '</td>' +
@@ -405,6 +431,7 @@ function onActionExportarExcel(event)
 				'<td align="center">' + utils.dateFormat((myRecord.calc_smp_inicio),'dd/MM/yyyy') + '</td>'+
 				'<td align="center">' + temp_consultorios[0] + '</td>' +
 				'<td align="center">' + temp_consultorios[1] + '</td>'+
+				'<td align="center">' + temp_cuit + '</td>'+
 				'<td align="center">' + myRecord.mat_matriculados_to_mat_rel_mat_obsoc.aggr_cant + '</td>'
 		}
 		cuerpo = cuerpo + '</tbody></table></html>'

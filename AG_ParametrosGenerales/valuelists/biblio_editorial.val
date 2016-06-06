@@ -1,0 +1,10 @@
+dataProviderID1:"edito_id",
+dataProviderID2:"edito_nombre",
+dataSource:"db:/sistemas/biblio_editorial",
+name:"biblio_editorial",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"DCCF5182-8EB5-4477-BE34-DB7564A8E0CC",
+valueListType:1

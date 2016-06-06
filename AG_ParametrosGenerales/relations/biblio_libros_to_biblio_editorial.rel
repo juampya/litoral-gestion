@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/biblio_editorial",
+items:[
+{foreignColumnName:"edito_id",primaryDataProviderID:"edito_id",typeid:23,uuid:"61325344-EBB9-4FFE-B981-8EE3EDD1D0B5"}
+],
+joinType:1,
+name:"biblio_libros_to_biblio_editorial",
+primaryDataSource:"db:/sistemas/biblio_libros",
+typeid:22,
+uuid:"29301343-6994-4FAA-A8C7-8AE5CBA5E548"

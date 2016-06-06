@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/biblio_libros",
+items:[
+{foreignColumnName:"libro_id",primaryDataProviderID:"libro_id",typeid:23,uuid:"64158188-A800-46AF-8153-A9A769185DB0"}
+],
+joinType:1,
+name:"mat_rel_mat_libros_to_biblio_libros",
+primaryDataSource:"db:/sistemas/mat_rel_mat_libros",
+typeid:22,
+uuid:"31F389A3-CBA6-49F3-806B-F8C06D50C1EE"

@@ -3,6 +3,7 @@
 	<buildpathentry excluding=".stp/|medias/" kind="src" path=""/>
 	<buildpathentry exported="true" kind="prj" path="/AG_ParametrosGenerales"/>
 	<buildpathentry exported="true" kind="prj" path="/Login"/>
+	<buildpathentry exported="true" kind="prj" path="/mat_biblioteca"/>
 	<buildpathentry exported="true" kind="prj" path="/mat_colegio_nutricionistas"/>
 	<buildpathentry exported="true" kind="prj" path="/mat_configuraciones"/>
 	<buildpathentry exported="true" kind="prj" path="/mat_movimientos"/>

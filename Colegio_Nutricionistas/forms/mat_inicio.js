@@ -353,3 +353,33 @@ function FacturacionMensualMat()
 	forms.mat_fact_mensual_mat.vl_frm_anterior = controller.getName()
 	forms.mat_fact_mensual_mat.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"21ABFC3F-5488-47C6-BCDA-E89FAA81C25E"}
+ */
+function Autores()
+{
+	scopes.globals.SacarMenu()
+	forms.biblio_frm_autores.vl_frm_anterior = controller.getName()
+	forms.biblio_frm_autores.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"AE726F72-53D2-4EF4-A7AA-4E97D998E7CA"}
+ */
+function Editoriales()
+{
+	scopes.globals.SacarMenu()
+	forms.biblio_frm_editoriales.vl_frm_anterior = controller.getName()
+	forms.biblio_frm_editoriales.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"77E98712-F705-495C-99D3-325725714A3B"}
+ */
+function Libros()
+{
+	scopes.globals.SacarMenu()
+	forms.biblio_frm_libros.vl_frm_anterior = controller.getName()
+	forms.biblio_frm_libros.controller.show()
+}

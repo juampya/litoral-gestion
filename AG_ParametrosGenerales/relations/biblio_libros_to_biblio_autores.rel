@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/biblio_autores",
+items:[
+{foreignColumnName:"autor_id",primaryDataProviderID:"autor_id",typeid:23,uuid:"9295866F-DE3B-4F56-9445-56F54D46D481"}
+],
+joinType:1,
+name:"biblio_libros_to_biblio_autores",
+primaryDataSource:"db:/sistemas/biblio_libros",
+typeid:22,
+uuid:"4DCAF9F4-6508-43AB-B74F-3BACDACB7767"

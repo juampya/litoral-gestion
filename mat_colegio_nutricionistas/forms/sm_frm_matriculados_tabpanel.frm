@@ -138,6 +138,14 @@ typeid:15,
 uuid:"9CD7F1E2-6BE6-47B8-92BF-833C6865AD0A"
 },
 {
+containsFormID:"42B429A6-8A31-447A-835B-917AE2AFB735",
+location:"568,447",
+relationName:"mat_matriculados_to_mat_rel_mat_libros",
+text:"Registro de Libros",
+typeid:15,
+uuid:"B99B1F02-B599-47FA-8D80-86A63EE1D49F"
+},
+{
 containsFormID:"8B70EDB1-50CA-4285-AC3B-27A0029B5BDC",
 location:"52,197",
 relationName:"mat_matriculados_to_mat_matriculado_rel_ingresos",

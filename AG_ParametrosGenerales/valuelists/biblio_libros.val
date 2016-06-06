@@ -1,0 +1,11 @@
+dataProviderID1:"libro_id",
+dataProviderID2:"libro_codigo",
+dataProviderID3:"libro_titulo",
+dataSource:"db:/sistemas/biblio_libros",
+name:"biblio_libros",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:6,
+typeid:34,
+uuid:"7B85AF30-BEFE-4ED5-8F57-DD78666AA023",
+valueListType:1

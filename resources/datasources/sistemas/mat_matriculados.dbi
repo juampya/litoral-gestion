@@ -237,6 +237,12 @@ name:"mat_nombre"
 },
 {
 allowNull:true,
+creationOrderIndex:49,
+dataType:4,
+name:"mat_nro_cuit"
+},
+{
+allowNull:true,
 creationOrderIndex:24,
 dataType:4,
 name:"mat_nro_matricula"

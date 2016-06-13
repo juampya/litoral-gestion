@@ -1,21 +1,21 @@
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"64870445-828A-41E7-BF51-97D93B02962E"}
+ * @properties={typeid:35,uuid:"7F2E5950-2C7D-4367-A983-23039969072B"}
  */
 var vl_titulo = null;
 
 /**
  * @type {Number}
  *
- * @properties={typeid:35,uuid:"B04802C7-F310-47BF-A57E-522CBC3B1FC7",variableType:4}
+ * @properties={typeid:35,uuid:"42A9E310-B725-4EE7-AA36-707F8C2DA055",variableType:4}
  */
 var vl_nuevo = null;
 
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"C0D70CA2-582F-47A7-9917-8B420C0508FB"}
+ * @properties={typeid:35,uuid:"8AD12BA5-96B5-4E35-B3D0-281C67BF36CD"}
  */
 var vl_frm_anterior = null;
 
@@ -24,11 +24,13 @@ var vl_frm_anterior = null;
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"8A06A96F-107A-4710-8141-A7267169CEA8"}
+ * @properties={typeid:24,uuid:"DC9985E8-6E9F-44AC-A8B5-0CEF3D193CC6"}
  */
 function onActionAceptar(event) 
 {
-	databaseManager.saveData(foundset)
+	mat_rel_mat_libros_to_biblio_libros_por_relacion.rel_id = 0
+	mat_rel_mat_libros_to_biblio_libros_por_relacion.libro_estado = 0
+	databaseManager.saveData()
 	application.getWindow("libros").hide()
 }
 
@@ -37,7 +39,7 @@ function onActionAceptar(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"580B4A3B-1181-4DCE-B2EB-354299F8B427"}
+ * @properties={typeid:24,uuid:"671AF557-8419-4D39-B09D-16D863090FCB"}
  */
 function onActionCancelar(event) 
 {
@@ -51,17 +53,12 @@ function onActionCancelar(event)
  * @param {Boolean} firstShow form is shown first time after load
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"B1C6AE52-40F0-4289-9506-BC0CDD80DC5C"}
+ * @properties={typeid:24,uuid:"1893C58A-E4DD-4BD7-9111-EF427088321E"}
  * @AllowToRunInFind
  */
 function onShow(firstShow, event) 
 {
-	if(vl_nuevo==1)
-	{	
-		controller.newRecord(false)
-		emp_id = scopes.globals.mx_empresa_id
-		libro_estado = 0
-	}
+	rel_fecha_devol = application.getServerTimeStamp()
 }
 
 /**
@@ -71,7 +68,7 @@ function onShow(firstShow, event)
  *
  * @returns {Boolean}
  *
- * @properties={typeid:24,uuid:"97360FA5-DBA3-48BD-8F15-E6D237DDA008"}
+ * @properties={typeid:24,uuid:"FCAE6CC3-21C0-46A1-95AE-3C4C16991B2A"}
  */
 function onHide(event) 
 {
@@ -83,7 +80,7 @@ function onHide(event)
  * TODO generated, please specify type and doc for the params
  * @param event
  *
- * @properties={typeid:24,uuid:"952616B6-8812-4CC9-A988-CAB70A6B6984"}
+ * @properties={typeid:24,uuid:"6079C425-6313-47E6-91E3-4CC3CF80A2D2"}
  */
 function onActionBorrar(event) 
 {
@@ -91,7 +88,7 @@ function onActionBorrar(event)
 }
 
 /**
- * @properties={typeid:24,uuid:"7CE391F7-CE05-4E9D-83B3-820BB7B0A2A2"}
+ * @properties={typeid:24,uuid:"683BDA29-1BB9-4BC3-9599-800F791C41B0"}
  */
 function borrarRegistro()
 {

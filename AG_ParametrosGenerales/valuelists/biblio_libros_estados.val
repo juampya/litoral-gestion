@@ -1,0 +1,7 @@
+addEmptyValue:1,
+customValues:"Disponible|0\r\
+Prestado|1\r\
+De Baja|9",
+name:"biblio_libros_estados",
+typeid:34,
+uuid:"B61510B7-E8DA-4257-881C-BE95AF860AB8"

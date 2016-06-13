@@ -44,7 +44,8 @@ name:"libro_id",
 size:"323,20",
 styleClass:"table_field",
 typeid:4,
-uuid:"29663C3A-113A-4198-B772-FBFD853D6EA0"
+uuid:"29663C3A-113A-4198-B772-FBFD853D6EA0",
+valuelistID:"7B85AF30-BEFE-4ED5-8F57-DD78666AA023"
 },
 {
 height:262,

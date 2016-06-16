@@ -97,17 +97,20 @@ function onActionRefrescar(event)
  */
 function onActionDetalle(event) 
 {
-	forms.biblio_frm_libros_abm.vl_frm_anterior = controller.getName()
-	forms.biblio_frm_libros_abm.vl_nuevo = 0
-	forms.biblio_frm_libros_abm.vl_titulo = "Modifica"
-	forms.biblio_frm_libros_abm.controller.loadRecords(libro_id)
-	
-	var win = application.createWindow("libros", JSWindow.MODAL_DIALOG);
-		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
-		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
-		win.resizable = false
-		win.title= 'Litoral Gestion';
-		win.show(forms.biblio_frm_libros_abm);	
+//	forms.biblio_frm_libros_abm.vl_frm_anterior = controller.getName()
+//	forms.biblio_frm_libros_abm.vl_nuevo = 0
+//	forms.biblio_frm_libros_abm.vl_titulo = "Modifica"
+//	forms.biblio_frm_libros_abm.controller.loadRecords(libro_id)
+//	
+//	var win = application.createWindow("libros", JSWindow.MODAL_DIALOG);
+//		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+//		win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+//		win.resizable = false
+//		win.title= 'Litoral Gestion';
+//		win.show(forms.biblio_frm_libros_abm);	
+
+	forms.biblio_frm_libros_detalle.vl_frm_anterior = controller.getName()
+	forms.biblio_frm_libros_detalle.controller.show()
 }
 
 

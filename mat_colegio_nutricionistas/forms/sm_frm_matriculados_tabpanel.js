@@ -182,3 +182,27 @@ function verificarDeuda()
 	}
 }
 
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"D1B335FD-BF40-4821-900A-F1E7F8F0661B"}
+ */
+function onActionImprimirFicha(event) 
+{
+	plugins.jasperPluginRMI.runReport('sistemas','mat_matriculado_ficha.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmat_id:mat_id})
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"14CD50F7-E596-4C3E-86D7-878A31E8978A"}
+ */
+function onActionImprimirCarnet(event) 
+{
+	plugins.jasperPluginRMI.runReport('sistemas','mat_matriculado_carnet.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmat_id:mat_id})
+}

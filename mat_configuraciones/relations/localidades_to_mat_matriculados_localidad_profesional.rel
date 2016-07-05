@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_matriculados",
+items:[
+{foreignColumnName:"mat_codigo_postal_profesional",primaryDataProviderID:"localidad_id",typeid:23,uuid:"730AFD46-B747-4720-B3C4-3556344FD44E"}
+],
+joinType:1,
+name:"localidades_to_mat_matriculados_localidad_profesional",
+primaryDataSource:"db:/sistemas/localidades",
+typeid:22,
+uuid:"7C1337CD-CA62-4825-9A64-4FE932150B83"

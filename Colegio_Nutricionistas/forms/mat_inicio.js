@@ -308,6 +308,19 @@ function ConsultaSeguroMalaPraxis()
 	forms.mat_consultas_smp.controller.show()
 }
 
+/**
+ * @properties={typeid:24,uuid:"B8037AFC-E445-45CE-A546-3AB96ABCE3B5"}
+ */
+function Mapa()
+{
+	var win = application.createWindow("mapa", JSWindow.MODAL_DIALOG);
+	win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+	win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+	win.resizable = false
+	win.title= 'Litoral Gestion';
+	win.show(forms.mat_mapa);	
+	
+}
 
 /**
  * Callback method for when form is shown.

@@ -123,6 +123,15 @@ typeid:4,
 uuid:"1601ED83-E89F-44BD-B1FF-98754CB4FB48"
 },
 {
+displayType:9,
+formIndex:94,
+location:"827,347",
+name:"code_qr",
+size:"140,108",
+typeid:4,
+uuid:"176B5172-A26B-4570-890D-ABF95FCDB463"
+},
+{
 formIndex:38,
 location:"5,317",
 size:"127,20",

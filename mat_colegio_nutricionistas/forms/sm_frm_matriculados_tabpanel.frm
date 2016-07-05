@@ -122,7 +122,7 @@ formIndex:4,
 items:[
 {
 containsFormID:"4BFD86F1-81E9-4D22-8033-73391F08F3CD",
-location:"507,410",
+location:"643,474",
 text:"Archivos Adjuntos",
 typeid:15,
 uuid:"10F044F7-1657-4F29-B45A-EB0DD34D6B1C"
@@ -160,14 +160,22 @@ uuid:"7650CE55-8375-44FC-AE8C-37754EA8F633"
 },
 {
 containsFormID:"F91524F1-2DE6-419F-BC17-B4938AD669FD",
-location:"446,373",
+location:"604,439",
 text:"Auditoría",
 typeid:15,
 uuid:"9CD7F1E2-6BE6-47B8-92BF-833C6865AD0A"
 },
 {
+containsFormID:"B7C4C60A-281C-460F-BFC8-6B95CD21AE15",
+location:"500,405",
+relationName:"mat_matriculados_to_mat_declaracion_jurada",
+text:"Declaraciones Juradas",
+typeid:15,
+uuid:"B71D6B1D-9FD5-4C78-AB53-A0F33C54A1D9"
+},
+{
 containsFormID:"42B429A6-8A31-447A-835B-917AE2AFB735",
-location:"568,447",
+location:"441,370",
 relationName:"mat_matriculados_to_mat_rel_mat_libros",
 text:"Registro de Libros",
 typeid:15,

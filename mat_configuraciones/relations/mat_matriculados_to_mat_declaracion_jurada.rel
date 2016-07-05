@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_declaracion_jurada",
+items:[
+{foreignColumnName:"mat_id",primaryDataProviderID:"mat_id",typeid:23,uuid:"E58BB003-2213-402D-B83A-8FA578E3D98E"}
+],
+joinType:1,
+name:"mat_matriculados_to_mat_declaracion_jurada",
+primaryDataSource:"db:/sistemas/mat_matriculados",
+typeid:22,
+uuid:"0C7E1D2C-ECEE-421B-89D9-AAA8F89DF27B"

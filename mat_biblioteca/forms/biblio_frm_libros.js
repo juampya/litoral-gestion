@@ -182,13 +182,14 @@ function onActionPrestarLibro(event)
 	var record = foundset.getSelectedRecord()
 	if(record.libro_estado == 0)
 	{
-		forms.biblio_frm_libros_abm_prestamo.vl_frm_anterior = controller.getName()
+		forms.biblio_frm_libros_abm_prestamo.vl_frm_anterior  = controller.getName()
 		forms.biblio_frm_libros_abm_prestamo.controller.newRecord()
-		forms.biblio_frm_libros_abm_prestamo.emp_id   	  = scopes.globals.mx_empresa_id
-		forms.biblio_frm_libros_abm_prestamo.rel_observa  = null
+		forms.biblio_frm_libros_abm_prestamo.emp_id   	  	  = scopes.globals.mx_empresa_id
+		forms.biblio_frm_libros_abm_prestamo.rel_observa  	  = null
 		forms.biblio_frm_libros_abm_prestamo.rel_fecha_salida = application.getServerTimeStamp()
-		forms.biblio_frm_libros_abm_prestamo.libro_id     = libro_id
-		forms.biblio_frm_libros_abm_prestamo.vl_titulo    = "Nuevo"
+		forms.biblio_frm_libros_abm_prestamo.libro_id     	  = libro_id
+		forms.biblio_frm_libros_abm_prestamo.vl_titulo    	  = "Nuevo"
+		forms.biblio_frm_libros_abm_prestamo.rel_dias_prestamo= 10
 		
 		var win = application.createWindow("libros", JSWindow.MODAL_DIALOG);
 			win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);

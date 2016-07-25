@@ -174,3 +174,117 @@ function onDataChangeCargo(oldValue, newValue, event)
 		return true
 	}
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"F21B10CA-9D75-43D5-98E4-EF7063E5AF13"}
+ */
+function onActionMapLocation(event) 
+{
+	//scopes.globals.googleMaps_x_cliente(mat_id)
+
+//
+//	var vm_cant_A = 0
+//	var vm_cant_B = 0
+//	var vm_cant_C = 0
+//	var vm_cant_sin_cate = 0
+//	
+	var vm_center = foundset.mat_direccion_real+","+foundset.mat_matriculados_to_localidades_real.localidad_nombre+","+foundset.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion+",Santa Fe,Argentina"
+	var vm_size = "800x900"
+//	var vm_markers_C = "&markers=color:red|label:C|"
+//	var vm_markers_B = "&markers=color:yellow|label:B|"
+//	var vm_markers_A = "&markers=color:green|label:A|"
+//	var vm_markers_sin_categoria = "&markers=color:white|label:S|"
+	var vm_markers = "&markers=color:red|label:M|"+foundset.mat_direccion_real+","+foundset.mat_matriculados_to_localidades_real.localidad_nombre+","+foundset.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion+",Santa Fe,Argentina"	
+//	
+//	for(var i = 1; i<=databaseManager.getFoundSetCount(foundset); i++ )
+//	{
+//		foundset.setSelectedIndex(i)
+//		if(foundset.enc_categoria == "CATEGORIA A")
+//		{
+//			vm_cant_A = vm_cant_A + 1
+//			
+//			if(vm_cant_A >= 2)
+//			{
+//				vm_markers_A = vm_markers_A +"|"+foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//			}
+//			else
+//			{
+//				vm_markers_A = vm_markers_A + foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//			}
+//		}
+//		else
+//		{
+//			if(foundset.enc_categoria == "CATEGORIA B")
+//			{
+//				vm_cant_B = vm_cant_B + 1
+//			
+//				if(vm_cant_B >= 2)
+//				{
+//					vm_markers_B = vm_markers_B+"|"+foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//				}
+//				else
+//				{
+//					vm_markers_B = vm_markers_B+foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//				}
+//			}
+//			else
+//			{
+//				if(foundset.enc_categoria == "CATEGORIA C")
+//				{
+//					vm_cant_C= vm_cant_C + 1
+//			
+//					if(vm_cant_C >= 2)
+//					{
+//						vm_markers_C = vm_markers_C+"|"+foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//					}
+//					else
+//					{
+//						vm_markers_C = vm_markers_C+foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//					}
+//				}
+//				else
+//				{
+//					vm_cant_sin_cate= vm_cant_sin_cate + 1
+//			
+//					if(vm_cant_sin_cate >= 2)
+//					{
+//						vm_markers_sin_categoria = vm_markers_sin_categoria+"|"+foundset.enc_calle+" "+foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//					}
+//					else
+//					{
+//						vm_markers_sin_categoria = vm_markers_sin_categoria+foundset.enc_calle +" "+ foundset.enc_calle_nro+foundset.crm_encuestas_to_crm_ciudad.ciu_nombre+",Argentina"
+//					}
+//				}
+//			}
+//		}
+//	}
+//	
+//	if(vm_cant_A > 0)
+//	{
+//		vm_markers = vm_markers + vm_markers_A
+//	}
+//	
+//	if(vm_cant_B > 0)
+//	{
+//		vm_markers = vm_markers + vm_markers_B
+//	}
+//
+//	if(vm_cant_C > 0)
+//	{
+//		vm_markers = vm_markers + vm_markers_C
+//	}
+//
+//	if(vm_cant_sin_cate > 0)
+//	{
+//		vm_markers = vm_markers + vm_markers_sin_categoria
+//	}
+
+	var url = 'http://maps.google.com/maps/api/staticmap?center='+vm_center+'&visible='+vm_markers+'&size='+vm_size+'&sensor=false'
+	
+	application.showURL( url, '_blank')
+
+}

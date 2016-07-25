@@ -816,6 +816,23 @@ typeid:7,
 uuid:"E7405A05-40F5-4ADA-8490-ADB84DF88B86"
 },
 {
+borderType:"EmptyBorder,0,0,0,0",
+formIndex:80,
+imageMediaID:"0D3D856B-30AE-4E93-B2B8-3F7AFC2A3E53",
+location:"392,56",
+mediaOptions:1,
+onActionMethodID:"F21B10CA-9D75-43D5-98E4-EF7063E5AF13",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+showClick:false,
+size:"16,16",
+toolTipText:"Enviar E-Mail",
+transparent:true,
+typeid:7,
+uuid:"E8A1DC2F-04F9-46EB-8D96-3E5D4F8B3E7E",
+verticalAlignment:0
+},
+{
 dataProviderID:"mat_telefono_fijo",
 formIndex:69,
 location:"191,125",

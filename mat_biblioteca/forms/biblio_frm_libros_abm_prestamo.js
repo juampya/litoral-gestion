@@ -244,3 +244,17 @@ function ControlaCuotas()
 		elements.btn_grabar.enabled  = true
 	}
 }
+/**
+ * @properties={typeid:24,uuid:"14C6D6EA-E959-4005-8D17-85B4D119B555"}
+ */
+function onDataChangeDiasPrestamo() 
+{
+	if(rel_fecha_salida!=null && rel_dias_prestamo!=null)
+	{
+		calc_libro_fecha_est_devol= plugins.DateUtils.addDays(rel_fecha_salida,rel_dias_prestamo)
+	}
+	else
+	{
+		calc_libro_fecha_est_devol= null
+	}
+}

@@ -102,7 +102,6 @@ uuid:"D6B9F4A2-DB9F-4D70-849C-A2E8C2826491"
 }
 ],
 name:"mat_mapa_departamentos",
-namedFoundSet:"separate",
 navigatorID:"-1",
 onRecordSelectionMethodID:"EE64D9BE-DAB7-4C1D-88CA-5EE865F73642",
 onShowMethodID:"018441FC-C69B-4945-8874-BC698BBCD4FB",

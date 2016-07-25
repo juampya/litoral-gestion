@@ -1,12 +1,24 @@
 dataSource:"db:/sistemas/biblio_libros",
 items:[
 {
+formIndex:51,
+labelFor:"calc_libro_fecha_est_devol",
+location:"797,206",
+name:"calc_libro_fecha_est_devol_label",
+size:"96,20",
+styleClass:"label_black",
+text:"A Devolver el:",
+typeid:7,
+uuid:"04D8F6A1-1E4A-4308-8765-BC73321BE83F"
+},
+{
+background:"#ffff80",
 dataProviderID:"biblio_libros_to_mat_rel_mat_libros_por_relacion.rel_fecha_salida",
 editable:false,
 formIndex:48,
 format:"dd-MM-yyyy HH:mm",
 horizontalAlignment:0,
-location:"644,231",
+location:"649,181",
 name:"rel_fecha_salida",
 size:"140,20",
 styleClass:"disable",
@@ -42,6 +54,20 @@ size:"1101,412",
 transparent:true,
 typeid:16,
 uuid:"1935336C-90E3-49E6-953D-15DD0507C65C"
+},
+{
+background:"#ffff80",
+dataProviderID:"biblio_libros_to_mat_rel_mat_libros_por_relacion.calc_libro_fecha_est_devol",
+editable:false,
+formIndex:52,
+format:"dd/MM/yyyy",
+horizontalAlignment:0,
+location:"898,206",
+name:"calc_libro_fecha_est_devol",
+size:"101,20",
+styleClass:"disable",
+typeid:4,
+uuid:"1CC4BEFE-DD77-41DC-8A68-829C2154077F"
 },
 {
 formIndex:33,
@@ -81,6 +107,17 @@ styleClass:"label_black",
 text:"Edición:",
 typeid:7,
 uuid:"2B714B27-3883-4AC8-9DB6-2B85DA30A8D6"
+},
+{
+formIndex:49,
+labelFor:"rel_dias_prestamo",
+location:"538,206",
+name:"rel_dias_prestamo_label",
+size:"108,20",
+styleClass:"label_black",
+text:"# Días Prestamo:",
+typeid:7,
+uuid:"30283626-8339-43DE-826A-E3D14E1EBAC5"
 },
 {
 dataProviderID:"libro_edicion",
@@ -172,6 +209,16 @@ typeid:7,
 uuid:"5B713C5E-C4D4-4C44-9ED4-AACE12B9D131"
 },
 {
+formIndex:86,
+labelFor:"",
+location:"711,206",
+size:"81,20",
+text:"de corrido.",
+transparent:true,
+typeid:7,
+uuid:"6ADD6912-7F58-4350-8A16-2EFB7F2FCAD6"
+},
+{
 dataProviderID:"libro_volumen",
 formIndex:28,
 horizontalAlignment:0,
@@ -185,6 +232,19 @@ height:96,
 partType:1,
 typeid:19,
 uuid:"86224C5D-B6E3-4AF0-A3DC-3179CF7D77B0"
+},
+{
+background:"#ffff80",
+dataProviderID:"biblio_libros_to_mat_rel_mat_libros_por_relacion.rel_dias_prestamo",
+editable:false,
+formIndex:50,
+horizontalAlignment:0,
+location:"649,206",
+name:"rel_dias_prestamo",
+size:"57,20",
+styleClass:"disable",
+typeid:4,
+uuid:"8B4DF533-8386-4923-9486-184EEEEB4845"
 },
 {
 anchors:11,
@@ -222,11 +282,12 @@ uuid:"AC86E72C-532D-4EAB-8A8E-CD729E7F0D98",
 valuelistID:"DCCF5182-8EB5-4477-BE34-DB7564A8E0CC"
 },
 {
+background:"#ffff80",
 dataProviderID:"biblio_libros_to_mat_rel_mat_libros_por_relacion.mat_rel_mat_libros_to_mat_matriculados.mat_nombre",
 editable:false,
 formIndex:46,
-location:"644,206",
-size:"411,20",
+location:"649,156",
+size:"350,20",
 styleClass:"disable",
 typeid:4,
 uuid:"AF6BE8AB-FE09-45FA-B848-FBEAAB11F0C2"
@@ -264,8 +325,8 @@ uuid:"C81EA1BA-9BAF-4211-8211-5B93D6FD6E1D"
 {
 formIndex:47,
 labelFor:"",
-location:"538,231",
-size:"101,20",
+location:"538,181",
+size:"108,20",
 styleClass:"label_black",
 text:"Fecha Salida:",
 typeid:7,
@@ -304,8 +365,8 @@ uuid:"DB0248E0-703C-4DF2-9985-0AE83E48D087"
 {
 formIndex:45,
 labelFor:"",
-location:"538,206",
-size:"101,20",
+location:"538,156",
+size:"108,20",
 styleClass:"label_black",
 text:"En Poder de:",
 typeid:7,

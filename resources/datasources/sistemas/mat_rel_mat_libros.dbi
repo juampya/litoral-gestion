@@ -28,6 +28,12 @@ name:"mat_id"
 },
 {
 allowNull:true,
+creationOrderIndex:12,
+dataType:4,
+name:"rel_dias_prestamo"
+},
+{
+allowNull:true,
 autoEnterSubType:8,
 autoEnterType:1,
 creationOrderIndex:8,

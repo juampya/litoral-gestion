@@ -789,3 +789,212 @@ function ValidarCuit(cuit)
 	
 	return digito
 }
+
+
+
+
+
+
+
+
+
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"53580703-4C79-4518-87F2-78436F926311"}
+ */
+var controlHtml = '';
+
+/**
+ * Variable containing the X value of the current map coordinate. Only used for displaying in the UI
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"0C6BAE26-A1A7-493D-82F5-B42433E719D5"}
+ */
+var coordinateX = null;
+
+/**
+ * Variable containing the Y value of the current map coordinate. Only used for displaying in the UI
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"521A6C33-BA92-4F54-866F-C4DAF20457B6"}
+ */
+var coordinateY = null;
+
+/**
+ * @type {String}
+ *
+ * @properties={typeid:35,uuid:"2B25C890-C231-4661-BEC0-FB2ECADDFB5E"}
+ */
+var googleMap = stripCDataTags(<html>
+			<head>
+			<script type="text/javascript" src="http://maps.google.com/maps?file=api&amp;v=2.143&amp;key=AIzaSyDbYthByPt5IbgRKANhJTKhsRUNftgVi0k"></script>
+			<script type="text/javascript">
+			    <![CDATA[
+			    var map = null;
+			    var geocoder = new GClientGeocoder();
+			    var x, y;
+			    var firstCall = true;
+				function load() {
+					if (GBrowserIsCompatible()) {
+						map = new GMap2(document.getElementById("map"));
+						map.enableScrollWheelZoom();
+						map.doubleClickZoomEnabled();
+						map.continuousZoomEnabled();
+						map.addControl(new GLargeMapControl());
+						map.addControl(new GMapTypeControl());
+//						geocoder = new GClientGeocoder();
+						GEvent.addListener(map, "click", function(marker, point) {
+							if (marker) {
+								marker.hide();
+							} else {
+								map.clearOverlays();
+								map.addOverlay(new GMarker(point));
+								updateCoordinates(point);
+							}
+						});
+					}
+				}
+			
+			    /**
+			     * function that gets called from Servoy, by updating the HTML in the controlHTML field
+			     */
+				function showAddress(x, y, address, markertext, id) {
+					if (firstCall){
+						load();
+						firstCall = false;
+					}
+						
+					markertext = unescape(markertext);
+					if (geocoder) {
+						map.clearOverlays();
+						if (x && y) {
+							showPoint(new GLatLng(y, x), markertext);
+						} else {
+							geocoder.getLatLng(address, function(point) {
+								if (!point) {
+									alert(address + " not found");
+								} else {
+									showPoint(point, markertext);
+								}
+							});
+						}
+					}
+				}
+			
+			    /**
+			     * function that shows a marker at the requested coordinates
+			     */
+				function showPoint(point, markertext) {
+					map.setCenter(point, 13);
+					var marker = new GMarker(point);
+					GEvent.addListener(marker, "click", function() {
+						window.setTimeout("document.getElementById('updateCoordinatesClicker').click()", 1)
+					});
+					updateCoordinates(point);
+					map.addOverlay(marker);
+					marker.openInfoWindowHtml(markertext);
+					//IE hack to prevent Google Map from going blank. Still required or already fixed by Google?
+					//window.setTimeout("document.getElementsByTagName('body')[0].style.display = 'block'; document.getElementsByTagName('body')[0].style.display = '';",1);
+				}
+			
+			    function updateCoordinates(point) {
+			    	x = point.x;
+			    	y = point.y;
+			    	
+			    	var el = document.getElementById("map");
+			    	if (el != null) {
+			    		el.click();
+			    	}
+			    }
+			    ]]>
+			</script>
+			</head>
+			<body>
+				<div id="map" style="width: 100%; height: 100%;" onclick="javascript:globals.updateCoordinates(browser:x, browser:y);"></div>			
+			</body>
+			</html>);
+
+/**
+ * Converts an XML object to a String and removes CData tags.
+ * @param {XML} html
+ * 
+ * @returns {String}
+ *
+ * @properties={typeid:24,uuid:"F981418D-8FCA-4544-88E6-2DEB1ACB1B42"}
+ */
+function stripCDataTags(html) {
+	return html.toXMLString().replace(']]>', '').replace('<![CDATA[', '');
+}
+
+/**
+ * @param {String} lnk_mat_id
+ * @param {boolean} [firstTime]
+ * 
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"C3772DBC-AFAD-49B3-8FCE-62C5FDB5C07E"}
+ */
+function feedback(lnk_mat_id, firstTime) {
+	if (!lnk_mat_id) {
+		return;
+	}
+
+	/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
+	var fs_mat_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')
+		fs_mat_matriculados.find()
+		fs_mat_matriculados.mat_id = lnk_mat_id
+		fs_mat_matriculados.search()
+	if (fs_mat_matriculados.getSize() == 0) {
+		return
+	}
+	
+	var uuid = application.getUUID().toString();
+
+	
+	var coordinates = null
+	
+	//fs_mat_matriculados.mat_direccion_real+","+fs_mat_matriculados.mat_matriculados_to_localidades_real.localidad_nombre+","+fs_mat_matriculados.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion+",Santa Fe,Argentina"
+	
+	var tmp = <html><body><div>Dynamic Control Field </div></body></html>;
+	if (!firstTime) {
+//		var args = [fs_ccc_clientes.ccc_clientes_to_adn.adn_dom_calle + ',' + fs_ccc_clientes.ccc_clientes_to_adn.adn_to_adn_cod_postales.cpos_codigo + ',' + fs_ccc_clientes.ccc_clientes_to_adn.adn_to_adn_cod_postales.cpos_nombre + ',' + fs_ccc_clientes.ccc_clientes_to_adn.adn_to_adn_cod_postales.adn_cod_postales_to_adn_provincias.prv_nombre + ',' + fs_ccc_clientes.ccc_clientes_to_adn.adn_to_adn_cod_postales.adn_cod_postales_to_adn_provincias.adn_provincias_to_adn_paises.pais_nombre];
+		var args = [fs_mat_matriculados.mat_direccion_real + ',' + fs_mat_matriculados.mat_matriculados_to_localidades_real.localidad_nombre + ',' + fs_mat_matriculados.mat_matriculados_to_localidades_real.localidades_to_departamentos.departamentos_to_provincias.provincia_nombre + ',Argentina'];
+		args.push('Esta es la ubicacion de ' + escape(fs_mat_matriculados.mat_nombre));
+		args.push(fs_mat_matriculados.mat_id.toString());
+		tmp.body.@onload = 'showAddress(' + ((coordinates) ? coordinates : 'null,null') + ',\'' + args.join("\',\'") + '\')';
+		tmp.body.div.text = uuid;
+	}
+	controlHtml = stripCDataTags(tmp);
+}
+
+/**
+ * Callback function from within HMTL in the Web Client to get the coordinates back into Servoy
+ * 
+ * TODO generated, please specify type and doc for the params
+ * @param x
+ * @param y
+ *
+ * @properties={typeid:24,uuid:"67D62179-601C-4196-8E43-8FB96776FBF2"}
+ */
+function updateCoordinates(x, y) {
+	coordinateX = x 
+	coordinateY = y;
+}
+
+/**
+ * @param {Number} lnk_mat_id
+ *
+ * @properties={typeid:24,uuid:"F5AC6E3C-C4BD-47CC-A57A-352E8F04F79E"}
+ */
+function googleMaps_x_cliente(lnk_mat_id) 
+{
+	globals.feedback(lnk_mat_id.toString())
+	var win = application.createWindow("Dialog", JSWindow.MODAL_DIALOG);
+		win.setInitialBounds(JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT, JSWindow.DEFAULT);
+	    win.setSize(JSWindow.DEFAULT,JSWindow.DEFAULT)
+		win.resizable = false
+	    win.title= 'Mapa';
+	    win.show(forms.lg_maps);
+}

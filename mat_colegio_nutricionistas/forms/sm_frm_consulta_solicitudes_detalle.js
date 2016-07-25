@@ -134,6 +134,35 @@ function CambiaTipoSolicitud(oldValue, newValue, event)
  */
 function onActionImprimir(event) 
 {
+	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Litoral Software','Seleccione la opción que desea Imprimir.','question',controller.getName(),'Original','ImprimirOriginal','Copia p/Archivo','ImprimirCopia',null,null,null,null)
+}
+
+/**
+ * @AllowToRunInFind
+ *
+ * @properties={typeid:24,uuid:"22410688-8765-4139-8E79-2DC45C32F169"}
+ */
+function ImprimirOriginal()
+{
+	Imprimir(1)
+}
+
+/**
+ * @properties={typeid:24,uuid:"81E9C753-3A24-4F56-9B37-F9A9E87D7C6A"}
+ */
+function ImprimirCopia()
+{
+	Imprimir(2)
+}	
+
+
+/**
+ * @AllowToRunInFind
+ * @param {Number} pcopia
+ * @properties={typeid:24,uuid:"8223FEFA-6ECE-41ED-A34F-28EFD58CFA31"}
+ */
+function Imprimir(pcopia)
+{
 	var nom_reporte = null
 	var varm_ente   = null
 	var tmp_presidente = null
@@ -167,7 +196,6 @@ function onActionImprimir(event)
 		}	
 	}	
 
-	
 	switch (sol_id) 
 	{
 		case 2:
@@ -188,8 +216,7 @@ function onActionImprimir(event)
 		break;
 	}
 	
-	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente, ppresidente:tmp_presidente, pvicepresidente:tmp_vicepresidente, psecretario:tmp_secretario, psolicitud_id:rel_id.toString(), ncopia:1})
-	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente, ppresidente:tmp_presidente, pvicepresidente:tmp_vicepresidente, psecretario:tmp_secretario, psolicitud_id:rel_id.toString(), ncopia:2})
+	plugins.jasperPluginRMI.runReport('sistemas',nom_reporte ,null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pmatriculado:mat_id, pente:varm_ente, ppresidente:tmp_presidente, pvicepresidente:tmp_vicepresidente, psecretario:tmp_secretario, psolicitud_id:rel_id.toString(), ncopia:pcopia})
 }
 
 /**

@@ -1,0 +1,12 @@
+dataSource:"db:/sistemas/mat_sugerencias",
+items:[
+{
+dataProviderIDToAggregate:"sugerencia_id",
+name:"aggr_cant_reg",
+typeid:40,
+uuid:"3B24FF02-6168-401C-878D-9FDDB01D07BF"
+}
+],
+onUpdateMethodID:"B3C9C787-0A74-453A-880C-04212354166C",
+typeid:39,
+uuid:"A3A11DDD-A419-4CC0-A00D-A1087B36D1B2"

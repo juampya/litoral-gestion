@@ -192,13 +192,14 @@ function onActionMapLocation(event)
 //	var vm_cant_C = 0
 //	var vm_cant_sin_cate = 0
 //	
-	var vm_center = foundset.mat_direccion_real+","+foundset.mat_matriculados_to_localidades_real.localidad_nombre+","+foundset.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion+",Santa Fe,Argentina"
+	var vm_center = foundset.mat_direccion_real+","+foundset.mat_matriculados_to_localidades_real.localidad_nombre+",Santa Fe,Argentina"
+	var vm_zoom = "16"
 	var vm_size = "800x900"
 //	var vm_markers_C = "&markers=color:red|label:C|"
 //	var vm_markers_B = "&markers=color:yellow|label:B|"
 //	var vm_markers_A = "&markers=color:green|label:A|"
 //	var vm_markers_sin_categoria = "&markers=color:white|label:S|"
-	var vm_markers = "&markers=color:red|label:M|"+foundset.mat_direccion_real+","+foundset.mat_matriculados_to_localidades_real.localidad_nombre+","+foundset.mat_matriculados_to_localidades_real.localidades_to_departamentos.depar_descripcion+",Santa Fe,Argentina"	
+	var vm_markers = "&markers=color:red|label:M|"+foundset.mat_direccion_real+","+foundset.mat_matriculados_to_localidades_real.localidad_nombre+",Santa Fe,Argentina"	
 //	
 //	for(var i = 1; i<=databaseManager.getFoundSetCount(foundset); i++ )
 //	{
@@ -283,8 +284,9 @@ function onActionMapLocation(event)
 //		vm_markers = vm_markers + vm_markers_sin_categoria
 //	}
 
-	var url = 'http://maps.google.com/maps/api/staticmap?center='+vm_center+'&visible='+vm_markers+'&size='+vm_size+'&sensor=false'
+	//var url = 'http://maps.google.com/maps/api/staticmap?center='+vm_center+'&zoom='+vm_zoom+'&size='+vm_size+vm_markers+'&sensor=false'	
 	
+	var url ='http://maps.google.com/maps?&z={INSERT_MAP_ZOOM}&mrt={INSERT_TYPE_OF_SEARCH}&t={INSERT_MAP_TYPE}&q={INSERT_MAP_LAT_COORDINATES}+{INSERT_MAP_LONG_COORDINATES}'
 	application.showURL( url, '_blank')
 
 }

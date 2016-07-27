@@ -396,3 +396,13 @@ function Libros()
 	forms.biblio_frm_libros.vl_frm_anterior = controller.getName()
 	forms.biblio_frm_libros.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"B23E2BF7-7B85-4634-8A7A-38E1FFD67AD9"}
+ */
+function ConsultaSugerencias()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_consulta_sugerencias.vl_frm_anterior = controller.getName()
+	forms.sm_frm_consulta_sugerencias.controller.show()
+}

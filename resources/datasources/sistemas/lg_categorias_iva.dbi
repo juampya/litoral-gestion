@@ -1,5 +1,12 @@
 columns:[
 {
+allowNull:true,
+creationOrderIndex:3,
+dataType:12,
+length:4,
+name:"cativa_abreviatura"
+},
+{
 allowNull:false,
 autoEnterSubType:2,
 autoEnterType:2,

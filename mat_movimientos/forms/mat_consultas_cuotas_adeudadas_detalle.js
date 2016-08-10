@@ -75,7 +75,7 @@ function onShow(firstShow, event)
 {
 	controller.find()
 	mat_id = vl_mat_id
-	mov_estado=[0,2]
+//	mov_estado=[0,2]
 	controller.search()
 }
 

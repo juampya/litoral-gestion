@@ -106,7 +106,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		
 		var qry = 		
 		"SELECT * FROM mat_matriculados as a " +
-		"where a.mat_estado = 1 and a.mat_id not in (select mat_id from mat_movimientos as b where b.mov_anio_emision = " + anio + " and b.mov_mes_emision =" + mes + " and b.mov_tipo_de_movimiento = 1) "
+		"where a.mat_estado = 1 and (a.mat_consejo_id = 0 OR a.mat_consejo_id is null) and a.mat_id not in (select mat_id from mat_movimientos as b where b.mov_anio_emision = " + anio + " and b.mov_mes_emision =" + mes + " and b.mov_tipo_de_movimiento = 1) "
 		
 		/** @type {JSDataSet<id:number>}*/
 		var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
@@ -119,6 +119,7 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		fs_matriculados.find()
 		fs_matriculados.mat_id = matriculado
 		fs_matriculados.mat_estado = 1
+		fs_matriculados.mat_consejo_id ^=
 		fs_matriculados.search()		
 	}
 

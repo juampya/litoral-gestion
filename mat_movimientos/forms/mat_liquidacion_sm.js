@@ -49,6 +49,8 @@ function onActionGenerarCuotas(event)
 	var fs_mat = databaseManager.getFoundSet('sistemas','mat_matriculados')
 	fs_mat.find()
 	fs_mat.mat_estado = 1
+	fs_mat.mat_consejo_id  ^= 0
+	
 	var cant = fs_mat.search()
 	if(cant > 0)
 	{

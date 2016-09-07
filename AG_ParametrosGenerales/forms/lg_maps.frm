@@ -1,5 +1,14 @@
 items:[
 {
+location:"112,63",
+onActionMethodID:"-1",
+onDoubleClickMethodID:"-1",
+onRightClickMethodID:"-1",
+text:"button",
+typeid:7,
+uuid:"3F75A5AC-FEC3-45BA-B35F-F61A888797E1"
+},
+{
 anchors:15,
 dataProviderID:"scopes.globals.googleMap",
 displayType:8,

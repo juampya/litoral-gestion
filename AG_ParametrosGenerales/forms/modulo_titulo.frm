@@ -77,7 +77,7 @@ typeid:19,
 uuid:"D8EC23F0-D953-471E-B3F3-6631B35445C3"
 }
 ],
-name:"modulo_titulo_copy",
+name:"modulo_titulo",
 navigatorID:"-1",
 onShowMethodID:"9BFF1BBE-796E-4B3E-A667-271629B9785E",
 styleClass:"table",

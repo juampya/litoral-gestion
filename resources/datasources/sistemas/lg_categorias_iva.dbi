@@ -17,6 +17,13 @@ name:"cativa_id"
 },
 {
 allowNull:true,
+creationOrderIndex:3,
+dataType:12,
+length:4,
+name:"cativa_abreviatura"
+},
+{
+allowNull:true,
 creationOrderIndex:2,
 dataType:12,
 length:100,

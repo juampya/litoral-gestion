@@ -100,7 +100,7 @@ function onActionDetalle(event)
 {
 	forms.sm_frm_consulta_sugerencias_detalle.vl_frm_anterior = controller.getName()
 	forms.sm_frm_consulta_sugerencias_detalle.vl_nuevo = 0
-	forms.sm_frm_consulta_sugerencias_detalle.vl_titulo = "Modifica"
+	forms.sm_frm_consulta_sugerencias_detalle.vl_titulo = ""
 	forms.sm_frm_consulta_sugerencias_detalle.controller.loadRecords(sugerencia_id)
 	
 	var win = application.createWindow("dialog", JSWindow.MODAL_DIALOG);

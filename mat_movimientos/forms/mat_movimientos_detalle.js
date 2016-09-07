@@ -194,6 +194,8 @@ function onShow(firstShow, event)
 	
 	if(mov_estado == 9)
 	{
+		elements.mov_fec_vto1.enabled = false
+		elements.mov_fec_vto2.enabled = false
 		elements.btn_imprimir.enabled = false
 		elements.btn_mail.enabled = false
 	}
@@ -209,6 +211,8 @@ function onShow(firstShow, event)
 				forms.mat_movimientos_detalle_conceptos.elements.det_importe.editable = true
 			}
 		}
+		elements.mov_fec_vto1.enabled = true
+		elements.mov_fec_vto2.enabled = true
 		elements.btn_imprimir.enabled = true
 		elements.btn_mail.enabled = true
 	}

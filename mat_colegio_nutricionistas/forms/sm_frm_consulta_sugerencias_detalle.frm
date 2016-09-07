@@ -4,6 +4,7 @@ items:[
 dataProviderID:"mat_sugerencias_to_mat_matriculados.calc_semaforo",
 displayType:9,
 editable:false,
+enabled:false,
 formIndex:32,
 horizontalAlignment:0,
 location:"358,101",
@@ -15,6 +16,7 @@ uuid:"1A19A77D-84FF-4813-AA06-B749D2B8BA07"
 {
 dataProviderID:"mat_id",
 displayType:10,
+editable:false,
 formIndex:10,
 location:"124,76",
 size:"355,20",
@@ -49,7 +51,7 @@ uuid:"3A283B69-6758-4ACE-8149-642373BF26D5"
 {
 formIndex:3,
 horizontalAlignment:0,
-imageMediaID:"5C432BE9-5CB5-48FB-A4BE-25A25C33D471",
+imageMediaID:"77B3503E-2FCC-4AD9-9889-F5F1F007091A",
 location:"179,453",
 mediaOptions:1,
 name:"btn_grabar",
@@ -57,11 +59,12 @@ onActionMethodID:"814DB4A8-8C4A-45D8-991C-36286BE1795B",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"130,30",
-text:"Grabar",
+text:"Aceptar",
 typeid:7,
 uuid:"3CCD2446-400F-414F-A370-329FFC45EABA"
 },
 {
+enabled:false,
 formIndex:2,
 imageMediaID:"D9B98FB7-FA26-4B94-9344-A8F3D7B883AD",
 location:"314,453",
@@ -74,7 +77,8 @@ size:"130,30",
 text:"Imprimir",
 toolTipText:"Imprimir",
 typeid:7,
-uuid:"532F95CC-3A06-4254-B04D-2DEF1E684AB3"
+uuid:"532F95CC-3A06-4254-B04D-2DEF1E684AB3",
+visible:false
 },
 {
 formIndex:19,
@@ -123,11 +127,12 @@ uuid:"7D9A4A7B-5438-42B5-BE69-1613D6A34F21"
 {
 dataProviderID:"sugerencia_detalle",
 displayType:1,
+editable:false,
 formIndex:30,
 location:"5,195",
 scrollbars:32,
 size:"473,244",
-styleClass:"table_field",
+styleClass:"disable",
 typeid:4,
 uuid:"8C3ACC40-7327-426B-9493-4F1EC4397D5B"
 },
@@ -149,6 +154,7 @@ uuid:"96A8AE9F-11E3-40FC-86CA-1839285BCDF7"
 {
 dataProviderID:"sugerencia_fec_crea",
 displayType:5,
+editable:false,
 formIndex:16,
 format:"dd-MM-yyyy HH:mm",
 horizontalAlignment:0,

@@ -31,6 +31,10 @@ function onShow(firstShow, event)
 	{	
 		controller.newRecord(false)
 	}
+	else
+	{
+		sugerencia_estado = 1
+	}
 }
 
 /**

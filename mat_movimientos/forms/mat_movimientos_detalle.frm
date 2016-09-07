@@ -61,7 +61,6 @@ uuid:"0D023513-FFA3-465B-985A-D45D7C52ADE3"
 {
 background:"#ffffa4",
 dataProviderID:"mov_fec_vto2",
-editable:false,
 format:"dd-MM-yyyy|mask",
 horizontalAlignment:4,
 location:"349,135",
@@ -148,7 +147,6 @@ uuid:"60A93ACF-4823-4771-9AD1-92737FB06D9A"
 {
 background:"#ffffa4",
 dataProviderID:"mov_fec_vto1",
-editable:false,
 format:"dd-MM-yyyy|mask",
 horizontalAlignment:4,
 location:"99,135",

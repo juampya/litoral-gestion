@@ -150,7 +150,7 @@ function ControlaNroMatricula(oldValue, newValue, event)
  */
 function onDataChangeCargo(oldValue, newValue, event) 
 {
-	if(newValue != 0 && newValue != 5 && newValue != null)
+	if(newValue != 0 && newValue != 5 && newValue != null  && newValue != 7)
 	{	
 		/** @type {JSFoundset<db:/sistemas/mat_matriculados>}*/
 		var fs_matriculados = databaseManager.getFoundSet('Sistemas','mat_matriculados')

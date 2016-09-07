@@ -42,9 +42,9 @@ function onActionVolver(event)
  */
 function onActionNuevo(event) 
 {
-	forms.vc_frm_clientes_nuevo.vl_frm_anterior = controller.getName()
-	forms.vc_frm_clientes_nuevo.vl_nuevo = 1
-	forms.vc_frm_clientes_nuevo.controller.show() 
+	forms.pp_frm_prov_nuevo.vl_frm_anterior = controller.getName()
+	forms.pp_frm_prov_nuevo.vl_nuevo = 1
+	forms.pp_frm_prov_nuevo.controller.show() 
 }
 
 /**
@@ -67,9 +67,9 @@ function onActionRefrescar(event) {
  */
 function onActionDetalle(event) 
 {
-	forms.vc_frm_clientes_nuevo.vl_frm_anterior = controller.getName()
-	forms.vc_frm_clientes_nuevo.vl_nuevo = 0
-	forms.vc_frm_clientes_nuevo.controller.show() 
+	forms.pp_frm_prov_nuevo.vl_frm_anterior = controller.getName()
+	forms.pp_frm_prov_nuevo.vl_nuevo = 0
+	forms.pp_frm_prov_nuevo.controller.show() 
 }
 
 /**
@@ -81,7 +81,7 @@ function onActionDetalle(event)
  */
 function onActionCopiar(event) 
 {
-	forms.vc_frm_clientes_nuevo.vl_frm_anterior = controller.getName()
-	forms.vc_frm_clientes_nuevo.vl_nuevo = 2
-	forms.vc_frm_clientes_nuevo.controller.show() 
+	forms.pp_frm_prov_nuevo.vl_frm_anterior = controller.getName()
+	forms.pp_frm_prov_nuevo.vl_nuevo = 2
+	forms.pp_frm_prov_nuevo.controller.show() 
 }

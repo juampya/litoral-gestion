@@ -52,9 +52,7 @@ function onShow(firstShow, event)
 	{	
 		controller.newRecord(false)
 		emp_id= scopes.globals.mx_empresa_id
-		cliente_estado = 1
-		cliente_bonificacion = 0
-		cliente_limite_credito = 0
+		provee_estado = 1
 	}
 	if(vl_nuevo==2)
 	{
@@ -71,7 +69,7 @@ function onShow(firstShow, event)
  */
 function onActionBorrar(event)
 {
-	var nombre = cliente_nombre
+	var nombre = provee_nombre
 	
 	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el cliente: '+ nombre +'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
 }
@@ -82,5 +80,5 @@ function onActionBorrar(event)
 function Borrar()
 {
 	controller.deleteRecord()
-	forms.vc_frm_clientes_abm.controller.show()
+	forms.pp_frm_prov_abm.controller.show()
 }

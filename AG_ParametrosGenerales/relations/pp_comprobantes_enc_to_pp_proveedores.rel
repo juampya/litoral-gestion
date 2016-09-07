@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/pp_proveedores",
+items:[
+{foreignColumnName:"provee_id",primaryDataProviderID:"provee_id",typeid:23,uuid:"C1FEA85E-BA36-452B-B31C-4DF153A3C0B4"}
+],
+joinType:1,
+name:"pp_comprobantes_enc_to_pp_proveedores",
+primaryDataSource:"db:/sistemas/pp_comprobantes_enc",
+typeid:22,
+uuid:"17A5B6BA-0BE0-4F41-BBF3-1D5A4155094A"

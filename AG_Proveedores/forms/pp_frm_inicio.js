@@ -157,10 +157,10 @@ function Salir()
 /**
  * @properties={typeid:24,uuid:"D16E4567-B89C-4710-8A15-7E66DC198148"}
  */
-function Clientes() 
+function Proveedores() 
 {
-	forms.vc_frm_clientes_abm.vl_frm_anterior = controller.getName()
-	forms.vc_frm_clientes_abm.controller.show()
+	forms.pp_frm_prov_abm.vl_frm_anterior = controller.getName()
+	forms.pp_frm_prov_abm.controller.show()
 }
 
 /**
@@ -218,12 +218,68 @@ function Talonarios()
 }
 
 /**
+ * @properties={typeid:24,uuid:"7669C689-FD22-4551-A297-354B3B77220C"}
+ */
+function ComprobantesNCND() 
+{
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"EECB4E42-57C5-49C4-9132-50E5B93E0842"}
+ */
+function TipoAsientos() 
+{
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"E193FA4C-E40C-439E-AAC2-1E0924E78ED3"}
+ */
+function Retenciones() 
+{
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"A129CDFA-ABC7-4C71-B6DD-F7E855D977EB"}
+ */
+function DatosComprobantesReten() 
+{
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"C4B5FC92-DF86-4065-A520-BACEE3ABA85D"}
+ */
+function RetencionGanancias() 
+{
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"C9FCB839-96D6-4295-9246-54F5CD2F3F57"}
+ */
+function RetencionIngBrutos() 
+{
+	
+}
+
+/**
+ * @properties={typeid:24,uuid:"32C4A9C4-F7AB-4338-8B4C-A3EDD40F7EFC"}
+ */
+function RetencionIVA() 
+{
+	
+}
+
+/**
  * @properties={typeid:24,uuid:"3DA5866E-2369-4F09-AE64-3DC87137071C"}
  */
 function Parametros() 
 {
-	forms.vc_frm_parametros.vl_frm_anterior = controller.getName()
-	forms.vc_frm_parametros.controller.show()
+	forms.pp_frm_parametros.vl_frm_anterior = controller.getName()
+	forms.pp_frm_parametros.controller.show()
 }
 
 /**
@@ -259,70 +315,70 @@ function onShow(firstShow, event)
  * @properties={typeid:24,uuid:"34954A22-DC96-44B7-B16A-D5AE4C30CCB0"}
  */
 function cargarMenuNivel1() {
-	
-	//elements.grp_btn_n1.visible = false
-	
-	menunivel1 = new Array()
-
-	/** @type {JSFoundset<db:/Sistemas/menus>}*/
-	var fs_n1 = cargarOpciones(1,null)
-			
-	//Variables para cargar la imagen1
-	var serverName = 'sistemas'
-	var tableName  = 'menus'
-	var columnName = 'menu_icon'
-	var mimeType   = 'application/jpg' 
-		
-	//Calcular cuantos botones entran por linea
-	/**@type {Number} */
-	var btn_limit1 = ((vl_ancho_form - 20) / 205)
-	var vArr = btn_limit1.toString().split('.')
-	var btn_limit = vArr[0]
-	
-	//Capacidad maxima de proyectos 15
-	var cant = databaseManager.getFoundSetCount(fs_n1)
-	if (cant > 15) cant = 15
-	
-	for (var i=1; i <= cant; i++) {
-		var myRecord = fs_n1.getRecord(i)
-		
-		//arrayMenuN1.push(myRecord.home_id)
-		menunivel1.push(myRecord.menu_id)
-		
-		var URL = 'media:///servoy_blobloader?servername=' + serverName
-		URL += '&tablename=' + tableName;
-		URL += '&dataprovider=' + columnName;
-		URL += '&rowid1=' + myRecord.menu_id;
-		URL += '&mimetype=' + mimeType;
-		
-		var tmp_html = 
-			'<html>'
-			+'<table style="width:100%">' 
-			+'<tr>' 
-			+'<td style="height:32px;" align="center"><img src="' + URL + '"></td>'
-			+'</tr>' 
-			+'<tr>' 
-			+'<td align="center"><a style="">' + myRecord.menu_titulo + '</a>' 
-			+'</td>' 
-			+'</tr>'
-			+'</table>' 
-			+'</html>'
-		
-		var pun = utils.numberFormat(i,'0')
-
-		elements['btn_menu'+pun].visible = true
-		elements['btn_menu'+pun].toolTipText = myRecord.menu_titulo
-		
-		forms[controller.getName()]['dt_n1_0'+pun] = tmp_html
-	
-		if (i <= btn_limit) {
-			vl_cant_reng_n1 = 1
-			elements['btn_menu'+pun].setLocation(((i - 1) * 120) + 20,elements.btn_menu1.getLocationY())
-		} else {
-			vl_cant_reng_n1 = 2
-			elements['btn_menu'+pun].setLocation(((i - btn_limit - 1) * 120) + 20,elements.btn_menu1.getLocationY() + 105)
-		}
-	}
+//	
+//	//elements.grp_btn_n1.visible = false
+//	
+//	menunivel1 = new Array()
+//
+//	/** @type {JSFoundset<db:/Sistemas/menus>}*/
+//	var fs_n1 = cargarOpciones(1,null)
+//			
+//	//Variables para cargar la imagen1
+//	var serverName = 'sistemas'
+//	var tableName  = 'menus'
+//	var columnName = 'menu_icon'
+//	var mimeType   = 'application/jpg' 
+//		
+//	//Calcular cuantos botones entran por linea
+//	/**@type {Number} */
+//	var btn_limit1 = ((vl_ancho_form - 20) / 205)
+//	var vArr = btn_limit1.toString().split('.')
+//	var btn_limit = vArr[0]
+//	
+//	//Capacidad maxima de proyectos 15
+//	var cant = databaseManager.getFoundSetCount(fs_n1)
+//	if (cant > 15) cant = 15
+//	
+//	for (var i=1; i <= cant; i++) {
+//		var myRecord = fs_n1.getRecord(i)
+//		
+//		//arrayMenuN1.push(myRecord.home_id)
+//		menunivel1.push(myRecord.menu_id)
+//		
+//		var URL = 'media:///servoy_blobloader?servername=' + serverName
+//		URL += '&tablename=' + tableName;
+//		URL += '&dataprovider=' + columnName;
+//		URL += '&rowid1=' + myRecord.menu_id;
+//		URL += '&mimetype=' + mimeType;
+//		
+//		var tmp_html = 
+//			'<html>'
+//			+'<table style="width:100%">' 
+//			+'<tr>' 
+//			+'<td style="height:32px;" align="center"><img src="' + URL + '"></td>'
+//			+'</tr>' 
+//			+'<tr>' 
+//			+'<td align="center"><a style="">' + myRecord.menu_titulo + '</a>' 
+//			+'</td>' 
+//			+'</tr>'
+//			+'</table>' 
+//			+'</html>'
+//		
+//		var pun = utils.numberFormat(i,'0')
+//
+//		elements['btn_menu'+pun].visible = true
+//		elements['btn_menu'+pun].toolTipText = myRecord.menu_titulo
+//		
+//		forms[controller.getName()]['dt_n1_0'+pun] = tmp_html
+//	
+//		if (i <= btn_limit) {
+//			vl_cant_reng_n1 = 1
+//			elements['btn_menu'+pun].setLocation(((i - 1) * 120) + 20,elements.btn_menu1.getLocationY())
+//		} else {
+//			vl_cant_reng_n1 = 2
+//			elements['btn_menu'+pun].setLocation(((i - btn_limit - 1) * 120) + 20,elements.btn_menu1.getLocationY() + 105)
+//		}
+//	}
 }
 
 /**
@@ -367,33 +423,33 @@ function cargarOpciones(lnk_nivel, lnk_padre)
  */
 function onActionEjecutarN1(event) {
 	
-	elements.grp_btn_n2.visible = false
-	elements.grp_btn_n3.visible = false
-	
-	/**@type {Number} */
-	vl_btn_n1 = event.getElementName().substr(6,2)
-	var id_home_menu = arrayMenuN1[vl_btn_n1 - 1]
-	
-	//Utilizado en click derecho para permisos
-	globals.vg_home_id = arrayMenuN1[vl_btn_n1 - 1]
-
-//	application.output('event:' + event.getElementName() + ' Boton:' + vl_btn_n1 + '  ID:' + id_home_menu)
-	
-	if (vl_btn_n1_anterior != null) {
-		elements[vl_btn_n1_anterior].bgcolor = '#0080ff'
-	}
-	elements[event.getElementName()].bgcolor = '#ff8000'
-	vl_btn_n1_anterior = event.getElementName()
-
-	/** @type {JSFoundset<db:/Interdata/adn_home_menu>}*/
-	var fs_adn_home_menu = databaseManager.getFoundSet('Interdata','adn_home_menu')
-	fs_adn_home_menu.loadRecords(id_home_menu)
-
-	if (fs_adn_home_menu.home_tipo_ejecucion == 1) { //Es un menu, mostrar submenu
-//		elements.lbl_titulo_n2.text = fs_adn_home_menu.home_btn_title
-		cargarMenuNivel2(fs_adn_home_menu.home_v2_producto, fs_adn_home_menu.home_btn_title)
-	} else { //Ejecutar solucion
-		setearUltimaSeleccion(vl_btn_n1,0,0)
-		application.closeSolution(fs_adn_home_menu.home_solution,'MetodoInicioIntegra')
-	}
+//	elements.grp_btn_n2.visible = false
+//	elements.grp_btn_n3.visible = false
+//	
+//	/**@type {Number} */
+//	vl_btn_n1 = event.getElementName().substr(6,2)
+//	var id_home_menu = arrayMenuN1[vl_btn_n1 - 1]
+//	
+//	//Utilizado en click derecho para permisos
+//	globals.vg_home_id = arrayMenuN1[vl_btn_n1 - 1]
+//
+////	application.output('event:' + event.getElementName() + ' Boton:' + vl_btn_n1 + '  ID:' + id_home_menu)
+//	
+//	if (vl_btn_n1_anterior != null) {
+//		elements[vl_btn_n1_anterior].bgcolor = '#0080ff'
+//	}
+//	elements[event.getElementName()].bgcolor = '#ff8000'
+//	vl_btn_n1_anterior = event.getElementName()
+//
+//	/** @type {JSFoundset<db:/Interdata/adn_home_menu>}*/
+//	var fs_adn_home_menu = databaseManager.getFoundSet('Interdata','adn_home_menu')
+//	fs_adn_home_menu.loadRecords(id_home_menu)
+//
+//	if (fs_adn_home_menu.home_tipo_ejecucion == 1) { //Es un menu, mostrar submenu
+////		elements.lbl_titulo_n2.text = fs_adn_home_menu.home_btn_title
+//		cargarMenuNivel2(fs_adn_home_menu.home_v2_producto, fs_adn_home_menu.home_btn_title)
+//	} else { //Ejecutar solucion
+//		setearUltimaSeleccion(vl_btn_n1,0,0)
+//		application.closeSolution(fs_adn_home_menu.home_solution,'MetodoInicioIntegra')
+//	}
 }

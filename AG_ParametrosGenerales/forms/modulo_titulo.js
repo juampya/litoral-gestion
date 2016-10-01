@@ -64,5 +64,7 @@ function onActionSalir(event)
  */
 function onActionSugerencias(event) 
 {
+	scopes.globals.SacarMenu()
 	forms['sm_frm_consulta_sugerencias'].controller.show()
+	forms['sm_frm_consulta_sugerencias'].vl_frm_anterior = scopes.globals.ag_solucionvigente.modulo_form_start
 }

@@ -22,6 +22,12 @@ name:"mat_id"
 },
 {
 allowNull:true,
+creationOrderIndex:9,
+dataType:4,
+name:"medio_cobro_id"
+},
+{
+allowNull:true,
 creationOrderIndex:8,
 dataType:4,
 name:"rel_aplica_vigencia"

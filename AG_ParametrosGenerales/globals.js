@@ -719,7 +719,7 @@ function enviarEmailPorFunciones(lnk_funcion_email, lnk_asunto, lnk_cuerpo, lnk_
 	
 				if (i == fs_funciones.lg_funciones_to_lg_funciones_email_destinatarios.getSize()) 
 				{
-					destinatarios= destinatarios + rec_email.email_destinatario
+					destinatarios= destinatarios + rec_email.email_destinatario					
 				} 
 				else
 				{

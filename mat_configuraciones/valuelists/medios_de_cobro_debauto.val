@@ -1,0 +1,10 @@
+dataProviderID1:"medios_cobro_id",
+dataProviderID2:"medios_cobro_descripcion",
+name:"medios_de_cobro_debauto",
+relationName:"vc_medios_de_cobro_to_vc_medios_de_cobro",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"D17FF93E-BBB0-412F-9F3F-3BEF2FB2BB53",
+valueListType:1

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_medios_de_cobro",
+items:[
+{foreignColumnName:"medios_cobro_debauto",primaryDataProviderID:"LITERAL:1",typeid:23,uuid:"E2F5C30A-1B0E-417F-BCCC-7BD64511155E"}
+],
+joinType:1,
+name:"vc_medios_de_cobro_to_vc_medios_de_cobro",
+primaryDataSource:"db:/sistemas/vc_medios_de_cobro",
+typeid:22,
+uuid:"217B5C8A-A989-4837-BECC-DECE853E9633"

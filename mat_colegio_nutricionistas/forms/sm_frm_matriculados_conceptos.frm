@@ -184,7 +184,7 @@ uuid:"F56F5668-ADFB-47FB-B0CA-7EECD1D794E2"
 {
 anchors:11,
 location:"0,0",
-size:"983,27",
+size:"1004,27",
 styleClass:"sub_banner",
 text:"Conceptos para Liquidación de Cuotas",
 transparent:true,
@@ -194,7 +194,7 @@ uuid:"F6294D01-115A-4284-A238-C0B4AC4BC978"
 ],
 name:"sm_frm_matriculados_conceptos",
 showInMenu:true,
-size:"1004,480",
+size:"1046,480",
 styleClass:"table",
 styleName:"id_style",
 typeid:3,

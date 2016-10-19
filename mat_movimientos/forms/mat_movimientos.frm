@@ -16,6 +16,18 @@ typeid:7,
 uuid:"032AF7BC-D683-46E6-8E72-DC861B8261BF"
 },
 {
+dataProviderID:"vl_forma_de_pago",
+displayType:2,
+editable:false,
+location:"635,149",
+onDataChangeMethodID:"FB42A121-B6B0-48C9-A5D1-8A0763C914C0",
+size:"359,20",
+text:"Vl Tipo Movim",
+typeid:4,
+uuid:"1A8CFF5A-A2E9-4D8C-9220-50651BE43384",
+valuelistID:"A193ADC1-E106-4B67-9729-73428B2920B0"
+},
+{
 dataProviderID:"vl_enviada",
 displayType:2,
 editable:false,
@@ -397,7 +409,7 @@ uuid:"956FC55D-F9D6-40D1-92BA-175F3258AC9B"
 {
 horizontalAlignment:0,
 labelFor:"",
-location:"709,129",
+location:"854,85",
 size:"140,20",
 styleClass:"label_black",
 text:"Total Cobrado",
@@ -421,7 +433,7 @@ dataProviderID:"ag_importe_cobrado",
 editable:false,
 format:"#,###.00",
 horizontalAlignment:4,
-location:"709,149",
+location:"854,105",
 size:"140,20",
 text:"Ag Importe",
 typeid:4,
@@ -466,6 +478,16 @@ styleClass:"table_label",
 text:"Imp. Cobrado",
 typeid:7,
 uuid:"A787821B-8950-471B-A49D-FA025CF4F606"
+},
+{
+horizontalAlignment:2,
+labelFor:"",
+location:"635,129",
+size:"359,20",
+styleClass:"label_black",
+text:"Medio de Cobro",
+typeid:7,
+uuid:"A96409B6-D0D4-4617-B1F4-4E4D80CE80F9"
 },
 {
 background:"#ffffb3",

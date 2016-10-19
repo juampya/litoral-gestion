@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"08440DDA-788F-4050-A38B-31B35BE08924",variableType:4}
+ */
+var vl_forma_de_pago = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"EAD58D65-409E-447C-9FDC-952CA8C503C1",variableType:4}
  */
 var vl_enviada = null;
@@ -91,6 +98,7 @@ function filtrar()
 	
 	if(vl_enweb != null){mov_publicar_en_web = vl_enweb}
 	if(vl_enviada != null){mov_enviado_mail = vl_enviada}
+	if(vl_forma_de_pago != null){mat_movimientos_to_mat_rendiciones.medios_cobro_id = vl_forma_de_pago}
 	controller.search()
 }
 

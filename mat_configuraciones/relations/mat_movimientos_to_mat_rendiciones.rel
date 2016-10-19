@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_rendiciones",
+items:[
+{foreignColumnName:"ren_id",primaryDataProviderID:"ren_id",typeid:23,uuid:"601461C6-A474-4448-8DAA-FB59AC07956E"}
+],
+joinType:1,
+name:"mat_movimientos_to_mat_rendiciones",
+primaryDataSource:"db:/sistemas/mat_movimientos",
+typeid:22,
+uuid:"8120DCD9-E431-4DD3-B986-87FA4DC3B640"

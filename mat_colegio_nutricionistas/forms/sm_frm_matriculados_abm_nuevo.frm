@@ -2,6 +2,15 @@ dataSource:"db:/sistemas/mat_matriculados",
 extendsID:"-1",
 items:[
 {
+borderType:"TitledBorder,Pertenece al Consejo,2,0",
+location:"623,516",
+shapeType:1,
+size:"323,68",
+transparent:true,
+typeid:21,
+uuid:"040ED623-8FBF-4317-AAE0-86738C97AB44"
+},
+{
 dataProviderID:"mat_nro_matricula",
 formIndex:65,
 format:"##########",
@@ -24,6 +33,16 @@ tabSeq:24,
 typeid:4,
 uuid:"04FA3735-215F-453A-82E9-6828A75B8115",
 valuelistID:"1B8188D4-B797-4D64-8FAB-BE1BD1263389"
+},
+{
+formIndex:95,
+labelFor:"mat_debauto_adhesion",
+location:"700,339",
+size:"102,20",
+styleClass:"label_black",
+text:"Fecha Adhesión:",
+typeid:7,
+uuid:"05B3B2E2-B956-4FEC-9A82-B988109F60C3"
 },
 {
 dataProviderID:"mat_universidad",
@@ -103,7 +122,7 @@ uuid:"10C645ED-54D3-4CE7-943F-13D566854C5D"
 {
 formIndex:92,
 labelFor:"consejo_utiliza_firma",
-location:"631,511",
+location:"631,560",
 name:"consejo_utiliza_firma_label",
 size:"123,20",
 styleClass:"label_black",
@@ -116,7 +135,7 @@ dataProviderID:"mat_matriculados_to_mat_consejo.consejo_utiliza_firma",
 displayType:4,
 formIndex:93,
 horizontalAlignment:0,
-location:"759,511",
+location:"759,560",
 name:"consejo_utiliza_firma",
 size:"43,20",
 typeid:4,
@@ -125,7 +144,7 @@ uuid:"1601ED83-E89F-44BD-B1FF-98754CB4FB48"
 {
 displayType:9,
 formIndex:94,
-location:"827,347",
+location:"827,399",
 name:"code_qr",
 size:"140,108",
 typeid:4,
@@ -253,7 +272,7 @@ uuid:"3A8D514D-6B7F-44A0-89F7-DCA46B98FF82"
 dataProviderID:"mat_web_password",
 displayType:6,
 formIndex:89,
-location:"655,424",
+location:"655,476",
 size:"140,20",
 typeid:4,
 uuid:"3DC3656A-1A38-4895-9476-645ADF2806C0"
@@ -270,7 +289,7 @@ uuid:"3E1CDB9C-98F2-4523-A23D-83C2E0257C9A"
 {
 formIndex:16,
 horizontalAlignment:0,
-location:"655,364",
+location:"655,416",
 size:"140,20",
 styleClass:"label_black",
 text:"Web Login",
@@ -478,7 +497,7 @@ valuelistID:"5D57F02C-E6E9-435F-BE85-C5087CDF4A98"
 {
 formIndex:16,
 horizontalAlignment:0,
-location:"655,407",
+location:"655,459",
 size:"140,20",
 styleClass:"label_black",
 text:"Web Password",
@@ -488,7 +507,7 @@ uuid:"707E738E-350C-4FB4-AD6F-A3A30B40E1BA"
 {
 dataProviderID:"mat_web_login",
 formIndex:87,
-location:"655,384",
+location:"655,436",
 size:"140,20",
 typeid:4,
 uuid:"7695F8AF-0EB3-4028-AFDB-90B66767F378"
@@ -669,6 +688,17 @@ typeid:7,
 uuid:"A3F6DAC3-3E01-4E4B-8A89-260CD7E1B02D"
 },
 {
+dataProviderID:"mat_debito_automatico",
+displayType:4,
+formIndex:98,
+horizontalAlignment:0,
+location:"651,339",
+name:"mat_debito_automatico",
+size:"42,20",
+typeid:4,
+uuid:"AD06248F-D506-4E37-859F-6D8AC229888E"
+},
+{
 formIndex:78,
 location:"502,173",
 size:"125,20",
@@ -696,6 +726,16 @@ typeid:4,
 uuid:"BE156A16-701B-49C5-BD6D-E78B3804CC06"
 },
 {
+dataProviderID:"mat_debauto_adhesion",
+displayType:5,
+formIndex:96,
+location:"805,339",
+name:"mat_debauto_adhesion",
+size:"140,20",
+typeid:4,
+uuid:"BEA89755-F6CF-4AB8-8F1A-F2B207BF75A5"
+},
+{
 dataProviderID:"mat_folio_matricula",
 formIndex:53,
 horizontalAlignment:0,
@@ -707,9 +747,9 @@ uuid:"C1CDFBB0-D326-4745-B784-DE3A2F3FEB13"
 },
 {
 borderType:"TitledBorder,Acceso WEB,2,0",
-location:"631,340",
+location:"623,392",
 shapeType:1,
-size:"191,115",
+size:"199,115",
 transparent:true,
 typeid:21,
 uuid:"C20124D9-53C9-468F-A3B4-1A1E6D6A3588"
@@ -750,7 +790,7 @@ dataProviderID:"mat_consejo_id",
 displayType:2,
 editable:false,
 formIndex:91,
-location:"759,486",
+location:"759,535",
 name:"mat_consejo_id",
 onDataChangeMethodID:"AF764B76-5929-445A-928F-4A144F0ACF1A",
 size:"180,20",
@@ -807,7 +847,7 @@ uuid:"E11B7ACF-57A7-4E3F-874F-C91BE5EB4AC2"
 {
 formIndex:90,
 labelFor:"mat_consejo_id",
-location:"632,486",
+location:"632,535",
 name:"mat_consejo_id_label",
 size:"122,20",
 styleClass:"label_black",
@@ -844,11 +884,21 @@ uuid:"EA3B8089-5B2F-450F-808B-7E3A8A0A50A3"
 {
 formIndex:74,
 location:"529,293",
-size:"95,20",
+size:"119,20",
 styleClass:"label_black",
 text:"Fecha ReMatri.:",
 typeid:7,
 uuid:"EDB9DF5A-3490-4A02-81A1-80F935FAB035"
+},
+{
+formIndex:97,
+labelFor:"mat_debito_automatico",
+location:"529,339",
+size:"119,20",
+styleClass:"label_black",
+text:"Débito Automático:",
+typeid:7,
+uuid:"EF3A6BB7-3696-44A3-81B6-E031A6B6A0F3"
 },
 {
 formIndex:32,
@@ -893,7 +943,7 @@ editable:false,
 formIndex:75,
 format:"dd/MM/yyyy|mask",
 horizontalAlignment:0,
-location:"626,293",
+location:"651,293",
 size:"140,20",
 typeid:4,
 uuid:"EFE84E45-7744-46B6-AE08-607DC354415A"

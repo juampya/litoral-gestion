@@ -27,6 +27,13 @@ var vl_html = null;
 var vl_archivo = null;
 
 /**
+/* @type {JSFoundSet} 
+ *
+ * @properties={typeid:35,uuid:"6BBD1D11-FA09-43C1-9832-BF39CFC174F4",variableType:-4}
+ */
+var vl_founset = null
+
+/**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
@@ -37,7 +44,6 @@ function onActionCancelar(event)
 {
 	databaseManager.revertEditedRecords(foundset)
 	forms.mat_rendiciones.controller.show()
-	//application.getWindow("nuevarendicion").hide()
 }
 
 /**
@@ -50,6 +56,15 @@ function onActionCancelar(event)
  */
 function onShow(firstShow, event) 
 {
+	elements.tabs.visible 		   	   	= false
+	elements.vl_html.visible 	   	   	= false
+	elements.vl_html_label.visible 	   	= false
+	elements.vl_archivo.enabled	   	   	= false
+	elements.btn_busca_archivo.enabled 	= false
+	elements.ren_fecha_captura.enabled  = false
+	elements.ren_fecha_proceso.enabled  = false
+	elements.ren_nro_lote.enabled 		= false
+
 	vl_archivo 					 = null
 	vl_html 					 = null
 	vl_boletas_inexistentes 	 = 0
@@ -70,61 +85,68 @@ function onShow(firstShow, event)
  */
 function onActionGrabar(event) 
 {
-	if(vl_archivo !=null)
+	if(mat_rendiciones_to_vc_medios_de_cobro.medios_cobro_debauto==0)
 	{
-		switch (medios_cobro_id) //Controlo que el archivo corresponda al medio de cobro seleccionado. 
+		if(vl_archivo !=null)
 		{
-			case 1:
-				if(utils.stringLeft(vl_archivo.getName(),8) != "330ENTES") //NUEVO BCO SANTA FE
-				{
-					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
-					vl_html = null
+			switch (medios_cobro_id) //Controlo que el archivo corresponda al medio de cobro seleccionado. 
+			{
+				case 1:
+					if(utils.stringLeft(vl_archivo.getName(),8) != "330ENTES") //NUEVO BCO SANTA FE
+					{
+						scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+						vl_html = null
+						return
+					}
+					else
+					{
+						ProcesarNuevoBcoSantaFe()
+					}
+						
+				break;
+				case 2:
+					if(utils.stringLeft(vl_archivo.getName(),4) != "0116") //RED LINK
+					{
+						scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+						return
+					}
+					else
+					{
+						ProcesarRedLink()
+					}
+				break;
+				case 3:
+					if(utils.stringLeft(vl_archivo.getName(),2) != "RP") //RapiPago
+					{
+						scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+						vl_html = null
+						return
+					}
+					else
+					{
+						ProcesarRapiPago()
+					}
+				break;
+				
+				default:
+					scopes.globals.ventanaAceptar("Este archivo no corresponde con ningun medio de cobro existente.",controller.getName())
 					return
-				}
-				else
-				{
-					ProcesarNuevoBcoSantaFe()
-				}
-					
-			break;
-			case 2:
-				if(utils.stringLeft(vl_archivo.getName(),4) != "0116") //RED LINK
-				{
-					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
-					return
-				}
-				else
-				{
-					ProcesarRedLink()
-				}
-			break;
-			case 3:
-				if(utils.stringLeft(vl_archivo.getName(),2) != "RP") //RapiPago
-				{
-					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
-					vl_html = null
-					return
-				}
-				else
-				{
-					ProcesarRapiPago()
-				}
-			break;
+				break;
+			}
 			
-			default:
-				scopes.globals.ventanaAceptar("Este archivo no corresponde con ningun medio de cobro existente.",controller.getName())
-				return
-			break;
+			//ren_estado = 1
+			//databaseManager.saveData()
+			//application.getWindow("nuevarendicion").hide()
+			forms.mat_rendiciones.controller.show()
 		}
-		
-		//ren_estado = 1
-		//databaseManager.saveData()
-		//application.getWindow("nuevarendicion").hide()
-		forms.mat_rendiciones.controller.show()
+		else
+		{
+			scopes.globals.ventanaAceptar("No seleccionó un archivo.",controller.getName())
+		}
 	}
 	else
 	{
-		scopes.globals.ventanaAceptar("No seleccionó un archivo.",controller.getName())
+		ProcesarDebitoAutomatico()
 	}
 }
 
@@ -155,60 +177,70 @@ function onActionBuscar(event)
 {
 	vl_boletas_inexistentes = 0
 	vl_matriculados_inexistentes = 0
-	vl_archivo = plugins.file.showFileOpenDialog()
-	
-	if(vl_archivo!=null)
+
+	if(mat_rendiciones_to_vc_medios_de_cobro.medios_cobro_debauto==0)
 	{
-		switch (medios_cobro_id) //Controlo que el archivo corresponda al medio de cobro seleccionado. 
+		vl_boletas_inexistentes = 0
+		vl_matriculados_inexistentes = 0
+		vl_archivo = plugins.file.showFileOpenDialog()
+		
+		if(vl_archivo!=null)
 		{
-			case 1:
-				if(utils.stringLeft(vl_archivo.getName(),8) != "330ENTES") //NUEVO BCO SANTA FE
-				{
-					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
-					elements.btn_grabar.enabled=false
-					vl_html = null
+			switch (medios_cobro_id) //Controlo que el archivo corresponda al medio de cobro seleccionado. 
+			{
+				case 1:
+					if(utils.stringLeft(vl_archivo.getName(),8) != "330ENTES") //NUEVO BCO SANTA FE
+					{
+						scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+						elements.btn_grabar.enabled=false
+						vl_html = null
+						return
+					}
+					else
+					{		
+						GeneraNuevoBcoSantaFeHTML()
+						//ProcesarNuevoBcoSantaFe()
+					}
+						
+				break;
+				case 2:
+					if(utils.stringLeft(vl_archivo.getName(),4) != "0116") //RED LINK
+					{
+						scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+						elements.btn_grabar.enabled=false
+						return
+					}
+					else
+					{
+						ProcesarRedLink()
+					}
+				break;
+				case 3:
+					if(utils.stringLeft(vl_archivo.getName(),2) != "RP") //RapiPago
+					{
+						scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
+						elements.btn_grabar.enabled=false
+						vl_html = null
+						return
+					}
+					else
+					{
+						GeneraRapiPagoHTML()
+						//ProcesarRapiPago()
+					}
+				break;
+				
+				default:
+					scopes.globals.ventanaAceptar("Este archivo no corresponde con ningun medio de cobro existente.",controller.getName())
 					return
-				}
-				else
-				{		
-					GeneraNuevoBcoSantaFeHTML()
-					//ProcesarNuevoBcoSantaFe()
-				}
-					
-			break;
-			case 2:
-				if(utils.stringLeft(vl_archivo.getName(),4) != "0116") //RED LINK
-				{
-					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
-					elements.btn_grabar.enabled=false
-					return
-				}
-				else
-				{
-					ProcesarRedLink()
-				}
-			break;
-			case 3:
-				if(utils.stringLeft(vl_archivo.getName(),2) != "RP") //RapiPago
-				{
-					scopes.globals.ventanaAceptar("Este archivo no corresponde a ese medio de cobro.",controller.getName())
-					elements.btn_grabar.enabled=false
-					vl_html = null
-					return
-				}
-				else
-				{
-					GeneraRapiPagoHTML()
-					//ProcesarRapiPago()
-				}
-			break;
-			
-			default:
-				scopes.globals.ventanaAceptar("Este archivo no corresponde con ningun medio de cobro existente.",controller.getName())
-				return
-			break;
+				break;
+			}
 		}
 	}	
+	else
+	{
+		
+	}
 }
 
 /**
@@ -859,3 +891,71 @@ function onActionVolver(event)
 	databaseManager.revertEditedRecords(foundset)
 	forms.mat_rendiciones.controller.show()
 }
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"EA61CAE4-12DF-4C5B-80FF-3800B7341FC9"}
+ */
+function onDataChange(oldValue, newValue, event) 
+{
+	if(mat_rendiciones_to_vc_medios_de_cobro.medios_cobro_debauto==0)
+	{
+		elements.tabs.visible 		   	   = false
+		elements.vl_html.visible 	   	   = true
+		elements.vl_html_label.visible 	   = true
+		elements.vl_archivo.enabled	   	   = true
+		elements.btn_busca_archivo.enabled = true
+		elements.ren_fecha_captura.enabled = false
+		elements.ren_fecha_proceso.enabled = false
+		elements.ren_nro_lote.enabled 		= false
+	}
+	else
+	{
+		elements.tabs.visible 		   	   = true
+		elements.vl_html.visible 	   	   = false
+		elements.vl_html_label.visible 	   = false
+		elements.vl_archivo.enabled	   	   = false
+		elements.btn_busca_archivo.enabled = false
+		elements.ren_fecha_captura.enabled = true
+		elements.ren_fecha_proceso.enabled = true
+		elements.ren_nro_lote.enabled 		= true
+	}
+	return true
+}
+
+/**
+ * @properties={typeid:24,uuid:"D9F9B6D3-436B-4663-829D-4A7D5628BF2B"}
+ */
+function ProcesarDebitoAutomatico()
+{
+	if(ren_cant_registros > 0)
+	{	
+		ren_estado = 1
+		databaseManager.saveData(foundset)
+		
+		for (var i = 1; i <= databaseManager.getFoundSetCount(forms.mat_rendiciones_nueva_detalle.foundset); i++) 
+		{
+			var record = forms.mat_rendiciones_nueva_detalle.foundset.getRecord(i);
+			
+			if (record.calc_selecciona==1)
+			{
+				record.ren_id = ren_id
+				record.mov_estado = 1
+				databaseManager.saveData(record)
+			}
+		}
+		forms.mat_rendiciones.controller.show()
+	}
+	else
+	{
+		scopes.globals.ventanaAceptar("No seleccionó boletas para cancelar.",controller.getName())
+		
+	}
+}
+

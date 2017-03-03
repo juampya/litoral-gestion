@@ -2,6 +2,7 @@ addEmptyValue:1,
 customValues:"Pendiente|0\r\
 Pagada|1\r\
 No Pagada en termino|2\r\
+Exento|4\r\
 Anulada|9",
 name:"estado_del_movimiento_sel",
 typeid:34,

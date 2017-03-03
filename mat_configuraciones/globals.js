@@ -270,7 +270,15 @@ function existeMovimiento(mes, anio, mat, tipo, estado)
 	fs_mov.mov_mes_emision = mes
 	fs_mov.mat_id = mat
 	fs_mov.mov_tipo_de_movimiento = tipo
-	fs_mov.mov_estado = estado
+	if(estado != null)
+	{
+		fs_mov.mov_estado = estado
+	}
+	else
+	{
+		fs_mov.mov_estado='< 9' 
+	}
+	
 	var cant = fs_mov.search()
 	if(cant > 0)
 	{
@@ -335,7 +343,16 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		fs_movim_aux.mov_mes_emision = mes
 		fs_movim_aux.mov_anio_emision = anio
 		fs_movim_aux.mov_descripcion = "Cuota Mensual " + mes + "/" + anio
-		fs_movim_aux.mov_estado = 0 //Deuda
+		if(fs_matriculados.mat_consejo_id==0 | fs_matriculados.mat_consejo_id==null)
+		{
+			fs_movim_aux.mov_estado = 0 //Deuda
+			fs_movim_aux.mov_observacion = fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
+		}
+		else
+		{
+			fs_movim_aux.mov_estado = 4 //Exento del pago por pertenecer al concejo
+			fs_movim_aux.mov_observacion = fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_pago_exento_obs
+		}
 		fs_movim_aux.mov_fecha_emision = new Date(anio, mes - 1, 15)
 		fs_movim_aux.mov_tipo_de_movimiento = 0 // Cuota mensual
 		fs_movim_aux.mov_grab_fec = application.getServerTimeStamp()
@@ -343,7 +360,8 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_1_dia)
 		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_venc_cuota_2_dia)
 		fs_movim_aux.mov_recargo  = fs_conf.conf_interes_x_atraso
-		fs_movim_aux.mov_observacion = fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
+		//fs_movim_aux.mov_observacion = fs_movim_aux.mat_movimientos_to_mat_configuraciones.conf_observaciones_boletas
+		
 		databaseManager.saveData(fs_movim_aux) 
 		//fin Graba Encabezado del movimiento--------------------------------------------------------
 		
@@ -428,12 +446,12 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 		}
 		//Fin Graba Detalle del Movimiento--------------------------------------------------------------------------------------------------------
 		
-		//Busca cuotas con deuda-------------------------------------------------------------------------------
+		//Busca cuotas con deuda. No tiene en cuenta las de tipo convenio (3)-------------------------------------------------------------------------------
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.find()	
-		//fs_mov.mov_estado = 0
-		fs_mov.mov_estado = "0||2"
+		fs_mov.mov_estado = 0
+		fs_mov.mov_tipo_de_movimiento='!=3' 
 		fs_mov.mat_id = rec.mat_id
 		fs_mov.search()
 		
@@ -519,7 +537,7 @@ function generar_cuotas_mensuales_confirmadas(mes, anio, matriculado)
 			cod_barra = cod_barra+cod_barra_digverif
 			
 		/**@type {String}*/
-	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
+	    var url = 'https://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
 		
 	    fs_movim_aux.mov_cod_barra =  plugins.http.getMediaData(url)
 		databaseManager.saveData(fs_movim_aux) // Graba importe del movimiento
@@ -600,7 +618,7 @@ function grabarPrimerMovimiento(matriculado, mes, anio)
 		cod_barra = cod_barra+cod_barra_digverif
 		
 	/**@type {String}*/
-    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
+    var url = 'https://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
 	
     fs_movim.mov_cod_barra =  plugins.http.getMediaData(url)
 	

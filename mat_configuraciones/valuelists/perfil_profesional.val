@@ -1,0 +1,10 @@
+dataProviderID1:"perfil_id",
+dataProviderID2:"perfil_descripcion",
+dataSource:"db:/sistemas/mat_perfiles",
+name:"perfil_profesional",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"074E788D-0D95-494A-AAD7-0FD86EFC500D",
+valueListType:1

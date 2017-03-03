@@ -1,6 +1,20 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"52383DF4-58C8-4ED0-982D-1AEDE54E68F3",variableType:8}
+ */
+var vl_importe_fin = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"DAEA7CD3-1349-4249-88B8-23E1EFC7E75E",variableType:8}
+ */
+var vl_importe_ini = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"08440DDA-788F-4050-A38B-31B35BE08924",variableType:4}
  */
 var vl_forma_de_pago = null;
@@ -85,7 +99,7 @@ function filtrar()
 	mat_id = vl_matriculado
 	if(vl_estado != null && vl_estado != 3)
 	{mov_estado = vl_estado}
-	if(vl_tipo_movim != null && vl_tipo_movim != 3)
+	if(vl_tipo_movim != null && vl_tipo_movim != 4)
 	{mov_tipo_de_movimiento = vl_tipo_movim}
 	if(vl_tipo_fecha == 0)
 	{
@@ -95,7 +109,8 @@ function filtrar()
 	{
 		mov_fecha_cobro = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 	}
-	
+	if(vl_importe_ini != null && vl_importe_ini != 0) mov_importe =' >='+ vl_importe_ini
+	if(vl_importe_fin != null && vl_importe_fin != 0) mov_importe =' <='+ vl_importe_fin
 	if(vl_enweb != null){mov_publicar_en_web = vl_enweb}
 	if(vl_enviada != null){mov_enviado_mail = vl_enviada}
 	if(vl_forma_de_pago != null){mat_movimientos_to_mat_rendiciones.medios_cobro_id = vl_forma_de_pago}
@@ -120,11 +135,13 @@ function onShow(firstShow, event)
 	{
 		vl_matriculado = null
 		vl_estado 	   = 3
-		vl_tipo_movim  = 3
+		vl_tipo_movim  = 4
 		vl_tipo_fecha  = 0
 		vl_enweb 	   = null
 		vl_fec_ini 	   = application.getServerTimeStamp()
 		vl_fec_fin 	   = application.getServerTimeStamp()
+		vl_importe_fin = null
+		vl_importe_ini = null
 		filtrar()
 	}
 }
@@ -210,7 +227,7 @@ function crearFormularioConceptos()
 		args.push(vl_estado)
 	}
 		
-	if(vl_tipo_movim!=null && vl_tipo_movim !=3)
+	if(vl_tipo_movim!=null && vl_tipo_movim !=4)
 	{
 		tmp_tipo_mov = ' and c.mov_tipo_de_movimiento = ? '
 		args.push(vl_tipo_movim)

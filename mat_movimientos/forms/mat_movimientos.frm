@@ -16,6 +16,16 @@ typeid:7,
 uuid:"032AF7BC-D683-46E6-8E72-DC861B8261BF"
 },
 {
+horizontalAlignment:2,
+labelFor:"",
+location:"999,130",
+size:"129,20",
+styleClass:"label_black",
+text:"Importes Menores a:",
+typeid:7,
+uuid:"1474340C-4685-4C31-9C80-8317119795A1"
+},
+{
 dataProviderID:"vl_forma_de_pago",
 displayType:2,
 editable:false,
@@ -379,6 +389,17 @@ typeid:4,
 uuid:"837A57E1-59F0-4D09-AEDB-A85C4CE7BA90"
 },
 {
+dataProviderID:"vl_importe_ini",
+format:"#,##0.00|#,##0.00",
+horizontalAlignment:4,
+location:"999,105",
+onDataChangeMethodID:"FB42A121-B6B0-48C9-A5D1-8A0763C914C0",
+size:"129,20",
+text:"Vl Fec Ini",
+typeid:4,
+uuid:"88020837-F991-49C4-B86D-5614FE2F2E4A"
+},
+{
 height:444,
 partType:5,
 typeid:19,
@@ -490,6 +511,16 @@ typeid:7,
 uuid:"A96409B6-D0D4-4617-B1F4-4E4D80CE80F9"
 },
 {
+horizontalAlignment:2,
+labelFor:"",
+location:"999,86",
+size:"129,20",
+styleClass:"label_black",
+text:"Importes Mayores a:",
+typeid:7,
+uuid:"A985EE7C-B1A8-48C6-B1B1-5E84C33387DE"
+},
+{
 background:"#ffffb3",
 dataProviderID:"ag_importe",
 editable:false,
@@ -565,6 +596,17 @@ styleClass:"table_label",
 text:"Matriculado",
 typeid:7,
 uuid:"C4D61A57-5E64-4FD9-87E2-201A2FE9907B"
+},
+{
+dataProviderID:"vl_importe_fin",
+format:"#,##0.00|#,##0.00",
+horizontalAlignment:4,
+location:"999,149",
+onDataChangeMethodID:"FB42A121-B6B0-48C9-A5D1-8A0763C914C0",
+size:"129,20",
+text:"Vl Fec Fin",
+typeid:4,
+uuid:"C8CC5E1E-C687-4039-9E58-199F64772DFD"
 },
 {
 anchors:11,

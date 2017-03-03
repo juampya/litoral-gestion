@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_perfiles",
+items:[
+{foreignColumnName:"perfil_id",primaryDataProviderID:"perfil_id",typeid:23,uuid:"1F537138-7294-42AF-9ABD-8E8399169885"}
+],
+joinType:1,
+name:"mat_rel_mat_perfiles_to_mat_perfiles",
+primaryDataSource:"db:/sistemas/mat_rel_mat_perfiles",
+typeid:22,
+uuid:"0630A253-F81D-4FE9-BB58-665BCD68FCCF"

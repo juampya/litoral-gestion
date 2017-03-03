@@ -1,4 +1,33 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"A529AC3D-DB9D-4F77-A15B-59F6B81916A9",variableType:8}
+ */
+var vl_saldo_consolidado = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"76A32376-4328-4B7E-825A-BF92AA3CBF6A",variableType:8}
+ */
+var vl_total_saldo_anterior = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"EA3D5ACD-6DA1-4341-9FBE-53E8D3804895",variableType:8}
+ */
+var vl_total_haber_anterior = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"E77E8CFC-B84D-41A2-9B87-BBD2460C1A39",variableType:8}
+ */
+var vl_total_debe_anterior = null;
+
+
+/**
  * @type {Date}
  *
  * @properties={typeid:35,uuid:"E57D6E38-DE03-485F-94DF-A9C0CE90C368",variableType:93}
@@ -149,7 +178,7 @@ function filtrar()
 	ingr_id = vl_concepto
 	if(vl_tipo_caja != 2)
 	{caja_tipo = vl_tipo_caja}
-	caja_fecha = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-28')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+	caja_fecha = utils.dateFormat(vl_fec_ini,'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin,'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
 	controller.search()
 	calcularTotales()
 }
@@ -177,12 +206,28 @@ function onShow(firstShow, event)
 
 /**
  * @properties={typeid:24,uuid:"E36303B8-803C-4166-8B30-9C347D7E4D1F"}
+ * @AllowToRunInFind
  */
 function calcularTotales()
 {
-	vl_total_debe = 0
-	vl_total_haber = 0
-	vl_total_saldo = 0
+	/** @type {JSFoundset<db:/sistemas/mat_caja>}*/
+	var fs_caja = databaseManager.getFoundSet('sistemas','mat_caja')
+		fs_caja.find()
+		fs_caja.ingr_id = vl_concepto
+		if(vl_tipo_caja != 2)fs_caja.caja_tipo = vl_tipo_caja
+		fs_caja.caja_fecha ='<'+utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00|yyyy-MM-dd HH:mm:ss'
+		fs_caja.search()
+
+	
+	vl_total_debe 	  = 0
+	vl_total_haber    = 0
+	vl_total_saldo 	  = 0
+	
+	vl_total_debe_anterior  = 0
+	vl_total_haber_anterior = 0
+	vl_total_saldo_anterior = 0
+	
+	vl_saldo_consolidado    = 0
 	
 	for (var i = 1; i <= foundset.getSize(); i++) 
 	{
@@ -190,5 +235,26 @@ function calcularTotales()
 		vl_total_debe += rec.calc_caja_debe
 		vl_total_haber += rec.calc_caja_haber
 	}
+		
+	for (i = 1; i <= fs_caja.getSize(); i++) 
+	{
+		rec = fs_caja.getRecord(i)
+		vl_total_debe_anterior  += rec.calc_caja_debe
+		vl_total_haber_anterior += rec.calc_caja_haber
+	}
+	
 	vl_total_saldo = vl_total_debe - vl_total_haber
+	vl_total_saldo_anterior = vl_total_debe_anterior - vl_total_haber_anterior
+	vl_saldo_consolidado = (vl_total_debe+vl_total_debe_anterior) - (vl_total_haber+vl_total_haber_anterior)
+}
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"4F2B472E-57CD-4623-8D79-F8866FD2957E"}
+ */
+function onActionImprimir(event) {
+	// TODO Auto-generated method stub
 }

@@ -121,8 +121,16 @@ anchors:15,
 formIndex:4,
 items:[
 {
+containsFormID:"F2723CF1-FBFB-474A-A81A-EA1D23ABFD59",
+location:"732,516",
+relationName:"mat_matriculados_to_mat_rel_mat_conv",
+text:"Convenios",
+typeid:15,
+uuid:"0DBE1F76-3720-4ECC-9B14-DCC2CAFD8E5D"
+},
+{
 containsFormID:"4BFD86F1-81E9-4D22-8033-73391F08F3CD",
-location:"643,474",
+location:"795,552",
 text:"Archivos Adjuntos",
 typeid:15,
 uuid:"10F044F7-1657-4F29-B45A-EB0DD34D6B1C"
@@ -159,8 +167,16 @@ typeid:15,
 uuid:"7650CE55-8375-44FC-AE8C-37754EA8F633"
 },
 {
+containsFormID:"2FC6537B-DC49-4097-BBF1-482BF7E2DC1F",
+location:"690,480",
+relationName:"mat_matriculados_to_mat_rel_mat_perfiles",
+text:"Perfiles Profesionales",
+typeid:15,
+uuid:"8682C9D1-EF69-4157-A182-ED8F8F88EF08"
+},
+{
 containsFormID:"F91524F1-2DE6-419F-BC17-B4938AD669FD",
-location:"604,439",
+location:"862,591",
 text:"Auditoría",
 typeid:15,
 uuid:"9CD7F1E2-6BE6-47B8-92BF-833C6865AD0A"
@@ -180,6 +196,14 @@ relationName:"mat_matriculados_to_mat_rel_mat_libros",
 text:"Registro de Libros",
 typeid:15,
 uuid:"B99B1F02-B599-47FA-8D80-86A63EE1D49F"
+},
+{
+containsFormID:"8976CCDB-4C8C-4E18-ACFA-E04B5C54DF67",
+location:"615,441",
+relationName:"mat_matriculados_to_mat_rel_mat_posgrados",
+text:"Posgrados Universitarios",
+typeid:15,
+uuid:"BC2C20A3-9459-4281-A716-82E39D7DD2B4"
 },
 {
 containsFormID:"8B70EDB1-50CA-4285-AC3B-27A0029B5BDC",

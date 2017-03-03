@@ -1,0 +1,7 @@
+customValues:"Caido|0\r\
+Activo|1\r\
+Cancelado|2\r\
+Anulado|9",
+name:"estados_convenios",
+typeid:34,
+uuid:"74260160-0789-4C78-B706-93AE7DD771F2"

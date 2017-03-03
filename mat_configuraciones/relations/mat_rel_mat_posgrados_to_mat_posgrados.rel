@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_posgrados",
+items:[
+{foreignColumnName:"posgrado_id",primaryDataProviderID:"posgrado_id",typeid:23,uuid:"8644DC7B-6E83-4C9F-8A40-F780584CF54F"}
+],
+joinType:1,
+name:"mat_rel_mat_posgrados_to_mat_posgrados",
+primaryDataSource:"db:/sistemas/mat_rel_mat_posgrados",
+typeid:22,
+uuid:"76B0BCDF-0955-442E-8F0A-1E1284C414D5"

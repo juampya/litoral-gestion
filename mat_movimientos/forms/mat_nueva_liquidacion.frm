@@ -1,8 +1,19 @@
 items:[
 {
+formIndex:1,
+horizontalAlignment:0,
+labelFor:"vl_observacion",
+location:"5,350",
+name:"vl_observacion_labelc",
+size:"632,20",
+styleClass:"label_black",
+text:"Observación a salir en Boletas de Pago por Matricualdo perteneciente al Consejo por pago EXENTO",
+typeid:7,
+uuid:"0415AFE4-2106-4984-90A9-874BD52BF67F"
+},
+{
 dataProviderID:"vl_observacion",
 displayType:1,
-formIndex:4,
 location:"5,192",
 name:"vl_observacion",
 scrollbars:32,
@@ -20,6 +31,17 @@ styleClass:"label_black",
 text:"Mes",
 typeid:7,
 uuid:"685EA29E-F586-4918-824A-72A7038498B8"
+},
+{
+dataProviderID:"vl_observacion_exentos",
+displayType:1,
+formIndex:4,
+location:"5,372",
+name:"vl_observacionc",
+scrollbars:32,
+size:"632,84",
+typeid:4,
+uuid:"6BC21881-CCC9-4FE3-B390-C41B53C70F3B"
 },
 {
 formIndex:2,
@@ -94,7 +116,7 @@ typeid:7,
 uuid:"D175A538-DC5E-4209-B879-D92DC25E3F31"
 },
 {
-height:345,
+height:461,
 partType:5,
 typeid:19,
 uuid:"E33FE402-C671-459D-BE3B-9BB4F44403B9"

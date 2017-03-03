@@ -91,8 +91,7 @@ function onActionGrabar(event)
 //	{
 		/**@type {String}*/
 	    //var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
-	    var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
-	
+	    var url = 'https://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
 	    mov_cod_barra =  plugins.http.getMediaData(url)
 //	}
 //		// Creates a Code 3 of 9 (Code 39) linear barcode...

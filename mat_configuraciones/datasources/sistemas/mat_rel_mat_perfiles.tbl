@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/mat_rel_mat_perfiles",
+items:[
+{
+dataProviderIDToAggregate:"rel_id",
+name:"aggr_cant",
+typeid:40,
+uuid:"9A20C2AA-04CC-49B2-87F4-4C7C770B4731"
+}
+],
+typeid:39,
+uuid:"406AC337-3A5B-48D0-B3B8-F5E2F3CDF12B"

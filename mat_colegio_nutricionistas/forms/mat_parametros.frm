@@ -15,6 +15,15 @@ typeid:7,
 uuid:"00D63CC0-7055-4A81-8901-AD814F872817"
 },
 {
+horizontalAlignment:0,
+location:"21,373",
+size:"590,20",
+styleClass:"label_black",
+text:"Observación para Matriculados con Pago Exento pertenecientes al Consejo",
+typeid:7,
+uuid:"03FE21E1-185B-4C40-B698-5A9F554DF4E3"
+},
+{
 horizontalAlignment:4,
 location:"21,183",
 name:"conf_venc_cuota_2_dia_label",
@@ -46,7 +55,7 @@ uuid:"2D06AAFE-4B8D-427B-8509-2A87C72A0D5C"
 },
 {
 horizontalAlignment:0,
-location:"22,407",
+location:"21,445",
 size:"590,20",
 styleClass:"label_black",
 text:"Observación general en Boleta de Pago",
@@ -285,7 +294,7 @@ uuid:"E5C5D52F-8F08-4AA2-A750-4C58E3B488E8"
 dataProviderID:"conf_observaciones_boletas",
 displayType:1,
 formIndex:9,
-location:"21,432",
+location:"21,470",
 name:"conf_observaciones_boletas",
 scrollbars:32,
 size:"591,69",
@@ -318,6 +327,16 @@ height:541,
 partType:5,
 typeid:19,
 uuid:"F7FF273A-6B41-4EFC-9F03-44140BF44F0D"
+},
+{
+dataProviderID:"conf_pago_exento_obs",
+displayType:1,
+formIndex:9,
+location:"21,398",
+scrollbars:32,
+size:"591,42",
+typeid:4,
+uuid:"FA3F0A63-47A3-4ECF-9137-4F9BA18DFEAB"
 }
 ],
 name:"mat_parametros",

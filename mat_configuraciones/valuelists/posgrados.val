@@ -1,0 +1,10 @@
+dataProviderID1:"posgrado_id",
+dataProviderID2:"posgrado_descripcion",
+dataSource:"db:/sistemas/mat_posgrados",
+name:"posgrados",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"DD2997B3-82C1-47ED-92BF-CEE3C917F71F",
+valueListType:1

@@ -1,0 +1,10 @@
+dataProviderID1:"convenio_id",
+dataProviderID2:"convenio_descripcion",
+dataSource:"db:/sistemas/mat_convenios",
+name:"convenios",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"10EDE4B6-E83A-4827-B515-650E0E87E76A",
+valueListType:1

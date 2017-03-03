@@ -106,7 +106,9 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		
 		var qry = 		
 		"SELECT * FROM mat_matriculados as a " +
-		"where a.mat_estado = 1 and (a.mat_consejo_id = 0 OR a.mat_consejo_id is null) and a.mat_id not in (select mat_id from mat_movimientos as b where b.mov_anio_emision = " + anio + " and b.mov_mes_emision =" + mes + " and b.mov_tipo_de_movimiento = 1) "
+		"where a.mat_estado = 1 and a.mat_id not in (select mat_id from mat_movimientos as b where b.mov_anio_emision = " + anio + " and b.mov_mes_emision =" + mes + " and b.mov_tipo_de_movimiento = 1) "
+		
+		//"where a.mat_estado = 1 and (a.mat_consejo_id = 0 OR a.mat_consejo_id is null) and a.mat_id not in (select mat_id from mat_movimientos as b where b.mov_anio_emision = " + anio + " and b.mov_mes_emision =" + mes + " and b.mov_tipo_de_movimiento = 1) "
 		
 		/** @type {JSDataSet<id:number>}*/
 		var ds = databaseManager.getDataSetByQuery('sistemas', qry, new Array(), -1);
@@ -119,8 +121,10 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		fs_matriculados.find()
 		fs_matriculados.mat_id = matriculado
 		fs_matriculados.mat_estado = 1
-		fs_matriculados.mat_consejo_id ^=
-		fs_matriculados.search()		
+		fs_matriculados.search()
+		
+		//fs_matriculados.mat_consejo_id ^=
+
 	}
 
 	var maximo = databaseManager.getFoundSetCount(fs_matriculados)
@@ -145,7 +149,14 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		fs_movim_aux.mov_mes_emision = mes
 		fs_movim_aux.mov_anio_emision = anio
 		fs_movim_aux.mov_descripcion = "Cuota Mensual " + mes + "/" + anio
-		fs_movim_aux.mov_estado = 0 //Deuda
+		if(rec.mat_consejo_id==0 | rec.mat_consejo_id==null)
+		{
+			fs_movim_aux.mov_estado = 0 //Deuda
+		}
+		else
+		{
+			fs_movim_aux.mov_estado = 4 //Exento del pago por pertenecer al concejo
+		}
 		fs_movim_aux.mov_fecha_emision = new Date(anio, mes - 1, 15)
 		fs_movim_aux.mov_fec_vto1 = new Date(anio, mes - 1, fs_conf.conf_venc_cuota_1_dia)
 		fs_movim_aux.mov_fec_vto2 = new Date(anio, mes - 1, fs_conf.conf_venc_cuota_2_dia)
@@ -235,12 +246,13 @@ function generar_cuotas_mensuales(mes, anio, matriculado)
 		}
 		//Fin Graba Detalle del Movimiento--------------------------------------------------------------------------------------------------------
 		
-		//Busca cuotas con deuda-------------------------------------------------------------------------------
+		//Busca cuotas con deuda. No tiene en cuenta las de tipo convenio (3)-------------------------------------------------------------------------------
 		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
 		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
 		fs_mov.find()	
 		fs_mov.mov_estado = 0
 		fs_mov.mat_id = rec.mat_id
+		fs_mov.mov_tipo_de_movimiento=[0,1,2]
 		fs_mov.search()
 		
 		var deuda = 0

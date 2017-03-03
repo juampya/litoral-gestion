@@ -41,10 +41,10 @@ name:"convenio_fec_modi"
 },
 {
 allowNull:true,
-compatibleColumnTypes:"[[3,2,2]]",
+compatibleColumnTypes:"[[3,2,2],[3,4,2]]",
 creationOrderIndex:9,
 dataType:3,
-length:2,
+length:4,
 name:"convenio_interes",
 scale:2
 },
@@ -72,6 +72,12 @@ allowNull:true,
 creationOrderIndex:10,
 dataType:4,
 name:"emp_id"
+},
+{
+allowNull:true,
+creationOrderIndex:11,
+dataType:4,
+name:"ingr_id"
 }
 ],
 name:"mat_convenios",

@@ -112,7 +112,7 @@ onActionMethodID:"51331E02-FEB5-405E-8424-07A81D6E025A",
 onDoubleClickMethodID:"-1",
 onRightClickMethodID:"-1",
 size:"105,30",
-text:"Vovler",
+text:"Volver",
 typeid:7,
 uuid:"DBB1F34D-CD93-4700-9929-6BB06ACE7EF2"
 }

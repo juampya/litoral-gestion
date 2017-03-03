@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/mat_rel_conv_movi",
+items:[
+{foreignColumnName:"rel_mat_conv_id",primaryDataProviderID:"rel_id",typeid:23,uuid:"95AD8436-C6D3-45FF-ADB8-984D8980536D"}
+],
+joinType:1,
+name:"mat_rel_mat_conv_to_mat_rel_conv_movi",
+primaryDataSource:"db:/sistemas/mat_rel_mat_conv",
+typeid:22,
+uuid:"0C519D52-28B8-4383-BADB-3C88DE442DEB"

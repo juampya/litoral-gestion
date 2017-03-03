@@ -1,11 +1,10 @@
 addEmptyValue:1,
-customValues:"Cuota Mensual|0\r
-Primer Movimiento|1\r
-Movimiento Manual|2\r
-\r
+customValues:"Cuota Mensual|0\r\
+Primer Movimiento|1\r\
+Movimiento Manual|2\r\
+Convenio|3\r\
+\r\
 ",
 name:"tipo_de_movimiento_sel",
-returnDataProviders:1,
-showDataProviders:1,
 typeid:34,
 uuid:"25F8FEDD-B71E-49E2-B321-CAC05746902A"

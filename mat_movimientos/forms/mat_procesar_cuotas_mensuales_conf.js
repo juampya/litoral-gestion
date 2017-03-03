@@ -1,6 +1,13 @@
 /**
  * @type {String}
  *
+ * @properties={typeid:35,uuid:"3620D5DE-3BD9-4A9A-9813-8E0F18A5CD98"}
+ */
+var vl_observacion_exentos = null;
+
+/**
+ * @type {String}
+ *
  * @properties={typeid:35,uuid:"3E930612-7EA2-4523-A333-2F0C3E843A04"}
  */
 var vl_observacion = null;
@@ -119,7 +126,16 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 		fs_mov.mov_tipo_de_movimiento = rec.mov_tipo_de_movimiento
 		fs_mov.mov_grab_fec 		  = rec.mov_grab_fec
 		fs_mov.mov_grab_ope 		  = rec.mov_grab_ope
-		fs_mov.mov_observacion		  = vl_observacion
+		if(rec.mat_movimientos_aux_to_mat_matriculados.mat_consejo_id==0 | rec.mat_movimientos_aux_to_mat_matriculados.mat_consejo_id==null)
+		{
+			fs_mov.mov_observacion		  = vl_observacion
+		}
+		else
+		{
+			fs_mov.mov_observacion		  = vl_observacion_exentos
+		}
+		
+		//fs_mov.mov_observacion		  = vl_observacion
 		
 		databaseManager.saveData(fs_mov)
 		
@@ -146,7 +162,7 @@ function confirmar_cuotas_mensuales(mes, anio, reliquidacion)
 			cod_barra = cod_barra+cod_barra_digverif
 		
 		//var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=197&type=I25&width=900&height=60&xres=2&font=4'
-		var url = 'http://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
+		var url = 'https://www.mbcestore.com.mx/generador_codigo_de_barras/codigo_de_barras.html?code='+cod_barra+'&style=453&type=I25&width=500&height=70&xres=1&font=3'
 			fs_mov.mov_cod_barra =  plugins.http.getMediaData(url)
 		
 		databaseManager.saveData(fs_mov)
@@ -191,6 +207,7 @@ function pasarMovimientosNoPagados(mat_id)
 	fs_mov.find()
 	fs_mov.mat_id = mat_id
 	fs_mov.mov_estado = 0
+	fs_mov.mov_tipo_de_movimiento=[0,1,2]
 	fs_mov.search()
 	for (var i = 1; i <= fs_mov.getSize(); i++) 
 	{

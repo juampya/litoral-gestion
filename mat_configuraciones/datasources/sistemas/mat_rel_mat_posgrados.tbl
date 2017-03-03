@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/mat_rel_mat_posgrados",
+items:[
+{
+dataProviderIDToAggregate:"rel_id",
+name:"aggr_cant",
+typeid:40,
+uuid:"FEED1E5D-88E9-49AB-8460-DD04C27B6D3F"
+}
+],
+typeid:39,
+uuid:"987A0D7D-B292-4F83-B982-5F2FC337D4C8"

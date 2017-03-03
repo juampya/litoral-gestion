@@ -1,6 +1,13 @@
 /**
  * @type {String}
  *
+ * @properties={typeid:35,uuid:"DEEB384F-DFF3-4406-8280-4CC90A7E602E"}
+ */
+var vl_observacion_exentos = null;
+
+/**
+ * @type {String}
+ *
  * @properties={typeid:35,uuid:"33FB52B9-9764-417B-AAB3-A5479C3FB69C"}
  */
 var vl_observacion = null;
@@ -48,9 +55,7 @@ function onActionLiquidar(event)
 	{
 		forms.mat_liquidacion_resumen.vl_es_reliquidacion = 0
 		generarCuotas()
-		
 	}	
-
 }
 
 /**
@@ -102,6 +107,7 @@ function onShow(firstShow, event)
 		vl_anio = application.getServerTimeStamp().getFullYear()
 		vl_mes = application.getServerTimeStamp().getMonth() + 1
 		vl_observacion = fs_config.conf_observaciones_boletas
+		vl_observacion_exentos = fs_config.conf_pago_exento_obs
 	}
 
 }
@@ -143,5 +149,6 @@ function generarCuotas()
 	forms.mat_liquidacion_resumen.vl_anio = vl_anio
 	forms.mat_liquidacion_resumen.vl_mes = vl_mes
 	forms.mat_liquidacion_resumen.vl_observacion = vl_observacion
+	forms.mat_liquidacion_resumen.vl_observacion_exentos = vl_observacion_exentos
 	forms.mat_liquidacion_resumen.controller.show()
 }

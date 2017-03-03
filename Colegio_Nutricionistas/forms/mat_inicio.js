@@ -406,3 +406,42 @@ function ConsultaSugerencias()
 	forms.sm_frm_consulta_sugerencias.vl_frm_anterior = controller.getName()
 	forms.sm_frm_consulta_sugerencias.controller.show()
 }
+
+/**
+ * @properties={typeid:24,uuid:"EBB5320A-D112-48DA-A292-4DAE29B68B34"}
+ */
+function Posgrados()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_posgrados.vl_frm_anterior = controller.getName()
+	forms.sm_frm_posgrados.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"C97C86F1-2AFD-458E-8226-E99AFA4C7F86"}
+ */
+function PerfilesProfesionales()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_perfiles_profesionales.vl_frm_anterior = controller.getName()
+	forms.sm_frm_perfiles_profesionales.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"66A0E4BA-B34D-40DC-AD86-FDD476F3157E"}
+ */
+function Convenios()
+{
+	scopes.globals.SacarMenu()
+	forms.sm_frm_convenios.vl_frm_anterior = controller.getName()
+	forms.sm_frm_convenios.controller.show()
+}
+
+/**
+ * @properties={typeid:24,uuid:"EA8AB2E5-4268-4660-A720-AA1B5ABDCED9"}
+ */
+function ConsultaConvenios()
+{
+	scopes.globals.SacarMenu()
+	forms.mat_consultas_convenios.controller.show()
+}

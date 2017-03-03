@@ -219,7 +219,8 @@ function filtrar()
 	if(vl_matriculado!=null) mat_id = vl_matriculado
 	if(vl_documento!=null) mat_dni = vl_documento
 	if(vl_estado!=null)	mat_estado = vl_estado
-	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
+	//if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id = [1,2,3,4,5]
+	if(vl_solo_consejo!=null && vl_solo_consejo!=0) mat_consejo_id= '> 0'
 	if(vl_seguro_mp!=null) calc_smp = vl_seguro_mp
 	
 	switch (vl_tipo_fecha) 

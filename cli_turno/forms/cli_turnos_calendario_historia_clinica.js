@@ -1,14 +1,7 @@
 /**
  * @type {String}
  *
- * @properties={typeid:35,uuid:"69E3AD3D-E395-4013-BD82-9AF6A83EEBD3"}
- */
-var vl_nro_afiliado = null;
-
-/**
- * @type {String}
- *
- * @properties={typeid:35,uuid:"B5A6C608-8C07-46D1-B84D-5E96290CD113"}
+ * @properties={typeid:35,uuid:"8049B36F-5D9E-49FD-8A89-C3299BB5E3BD"}
  */
 var vl_form_anterior = null;
 
@@ -17,7 +10,7 @@ var vl_form_anterior = null;
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"3959CCD2-4C2D-4516-8829-FF81A56A9C9E"}
+ * @properties={typeid:24,uuid:"9D05696A-C22A-4A74-869A-C1590AE2C4C1"}
  */
 function onActionVolver(event) 
 {
@@ -30,7 +23,7 @@ function onActionVolver(event)
  *
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"8BB8C943-D714-4A0A-9B95-6F229FC9BDF1"}
+ * @properties={typeid:24,uuid:"F897FB43-E13A-4A22-BCD7-1522046203A0"}
  * @AllowToRunInFind
  */
 function onActionGrabar(event) 
@@ -45,7 +38,7 @@ function onActionGrabar(event)
  * @param newValue
  * @param event
  *
- * @properties={typeid:24,uuid:"B2EA44BA-B562-4180-9EAE-D3D32308A2DE"}
+ * @properties={typeid:24,uuid:"86880479-F1C1-4168-B6FF-C5CE4E04A5D9"}
  */
 function onDataChangeEstado(oldValue, newValue, event) 
 {
@@ -81,29 +74,21 @@ function onDataChangeEstado(oldValue, newValue, event)
  * @param {Boolean} firstShow form is shown first time after load
  * @param {JSEvent} event the event that triggered the action
  *
- * @properties={typeid:24,uuid:"29ADE969-E8B1-4FE1-A4DA-FB1EE1266504"}
+ * @properties={typeid:24,uuid:"1F5D7FBF-5082-4B53-9FC0-15CEF8A2F057"}
+ * @AllowToRunInFind
  */
-function onShow(firstShow, event) 
+function onShow(firstShow, event)
 {
-	//Variables para archivos Adjuntos//
-	scopes.globals.vg_archivo_funcion_codigo = 2
-	scopes.globals.vg_archivo_tabla_id		 = paciente_id
-	vl_nro_afiliado = null
-	
-	if(utils.hasRecords(turno_to_paciente))
+	if( forms.cli_turnos_calendario_detalle.paciente_id!=null)
+	{	
+		databaseManager.setAutoSave(false)
+		controller.find()
+		paciente_id = forms.cli_turnos_calendario_detalle.paciente_id
+		controller.search()
+		databaseManager.setAutoSave(true)
+	}
+	else
 	{
-		if(turno_paciente_obra_social==turno_to_paciente.obsoc_id_1)
-		{
-			vl_nro_afiliado = turno_to_paciente.paciente_obsoc_1_nro_afil
-		}
-		
-		if(turno_paciente_obra_social==turno_to_paciente.obsoc_id_2)
-		{
-			vl_nro_afiliado = turno_to_paciente.paciente_obsoc_2_nro_afil
-		}
-		if(turno_paciente_obra_social==turno_to_paciente.obsoc_id_3)
-		{
-			vl_nro_afiliado = turno_to_paciente.paciente_obsoc_3_nro_afil
-		}
+		foundset.clear()
 	}
 }

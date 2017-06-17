@@ -166,10 +166,19 @@ function onShow(firstShow, event)
 		fs_pac.paciente_doc_nro = turno_paciente_nro_docu
 		fs_pac.paciente_nombre  = turno_paciente_nombre
 		fs_pac.emp_id			= scopes.globals.mx_empresa_id
+		fs_pac.paciente_nro_ficha = scopes.globals.UltimoNroFicha()+1
+		
 		databaseManager.saveData(fs_pac)
 		paciente_id = fs_pac.paciente_id
+		
 		databaseManager.saveData(foundset.getSelectedRecord())
+		
 	}
+	if(fs_pac.paciente_nro_ficha==null)
+	{
+		fs_pac.paciente_nro_ficha = scopes.globals.UltimoNroFicha()+1
+		databaseManager.saveData(fs_pac)
+	}	
 }
 
 /**

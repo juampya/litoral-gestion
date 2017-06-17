@@ -75,3 +75,19 @@ function ventanaSiNo(mensaje,metodoSi,MetodoNo,formulario)
 {
 	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion",mensaje,"atention",formulario,"No",MetodoNo,"Si",metodoSi,null,null,null,null)
 }
+
+/**
+ * @AllowToRunInFind
+ * @return {Number}
+ * @properties={typeid:24,uuid:"7DDF7555-6BEC-4CF0-BBC8-EC2E0BEF3A42"}
+ */
+function UltimoNroFicha()
+{
+	/** @type {JSFoundSet<db:/sistemas/paciente>} */
+	var fs_pac = databaseManager.getFoundSet('sistemas','paciente')
+		fs_pac.loadAllRecords()
+		fs_pac.sort('paciente_nro_ficha desc')
+		fs_pac.getRecord(1)
+		
+		return fs_pac.paciente_nro_ficha
+}

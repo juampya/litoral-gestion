@@ -40,6 +40,7 @@ function onShow(firstShow, event)
 	{
 		controller.newRecord(false)
 		elements.btnBorrar.visible = false
+		paciente_nro_ficha = scopes.globals.UltimoNroFicha()+1
 	}
 	else
 	{
@@ -64,6 +65,11 @@ function onShow(firstShow, event)
 			}
 
 			calc_edad = anios
+		}
+		
+		if(paciente_nro_ficha==null)
+		{
+			paciente_nro_ficha = scopes.globals.UltimoNroFicha()+1
 		}
 		
 		//databaseManager.saveData()
@@ -112,14 +118,18 @@ function onActionGrabar(event)
 			return
 		}
 		
-		if(!onDataChangeNroFicha(null,paciente_nro_ficha,event))
+		if(onDataChangeNroFicha(null,paciente_nro_ficha,event))
 		{
-			return
+			paciente_nro_ficha = scopes.globals.UltimoNroFicha()+1
 		}
 
 		emp_id = scopes.globals.mx_empresa_id
 	}
 	
+	if(onDataChangeNroFicha(null,paciente_nro_ficha,event))
+	{
+		paciente_nro_ficha = scopes.globals.UltimoNroFicha()+1
+	}
 	databaseManager.saveData()
 	forms.cli_pacientes.controller.show()
 }

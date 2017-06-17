@@ -119,56 +119,56 @@ function onActionCopiarDatos(event)
  */
 function copia()	
 {	
-	application.updateUI()
-	
-	/** @type {JSFoundSet<db:/movedb/tbldpacientes>} */
-	var fs_pacientes = databaseManager.getFoundSet('movedb','tbldpacientes')
-		fs_pacientes.loadAllRecords()
-		fs_pacientes.find()
-		fs_pacientes.nump = ' > 85096 '
-		fs_pacientes.search()
-		
-		/** @type {JSFoundSet<db:/sistemas/localidades>} */
-	var fs_localidades = databaseManager.getFoundSet('sistemas','localidades')
-		fs_localidades.loadAllRecords()
-
-	for (var i = 1; i <= databaseManager.getFoundSetCount(fs_pacientes); i++)
-	//for (var i = 1; i <= 10; i++) 
-	{
-		var record = fs_pacientes.getRecord(i);
-		if(record.nump > 85096)
-		{	
-			controller.newRecord(false)
-			paciente_nro_ficha = record.nump
-			paciente_nombre = record.apep
-			paciente_domicilio = record.domicp
-			paciente_telefono_1 = record.telefonop
-			paciente_doc_nro = utils.stringToNumber(record.docump)
-			if(record.sexop=="M")
-			{
-				paciente_sexo = 1
-			}
-			else
-			{
-				paciente_sexo = 2
-			}
-			
-			fs_localidades.find()
-			fs_localidades.localidad_cod_postal = record.tbldpacientes_to_tbldatoslocalidades.cplocalidad
-			if(fs_localidades.search()>0)
-			{
-				cod_postal_id = fs_localidades.localidad_id
-			}
-			docu_id = 1
-			paciente_fec_ingreso = record.fechaingp
-			paciente_fecha_naci  = record.fechanacp
-			paciente_fec_ultima_consulta = record.fechaultp
-			emp_id = 2
-			
-			databaseManager.saveData(foundset)
-		}
-	}
-	plugins.busy.unblock();
+//	application.updateUI()
+//	
+//	/** @type {JSFoundSet<db:/movedb/tbldpacientes>} */
+//	var fs_pacientes = databaseManager.getFoundSet('movedb','tbldpacientes')
+//		fs_pacientes.loadAllRecords()
+//		fs_pacientes.find()
+//		fs_pacientes.nump = ' > 85096 '
+//		fs_pacientes.search()
+//		
+//		/** @type {JSFoundSet<db:/sistemas/localidades>} */
+//	var fs_localidades = databaseManager.getFoundSet('sistemas','localidades')
+//		fs_localidades.loadAllRecords()
+//
+//	for (var i = 1; i <= databaseManager.getFoundSetCount(fs_pacientes); i++)
+//	//for (var i = 1; i <= 10; i++) 
+//	{
+//		var record = fs_pacientes.getRecord(i);
+//		if(record.nump > 85096)
+//		{	
+//			controller.newRecord(false)
+//			paciente_nro_ficha = record.nump
+//			paciente_nombre = record.apep
+//			paciente_domicilio = record.domicp
+//			paciente_telefono_1 = record.telefonop
+//			paciente_doc_nro = utils.stringToNumber(record.docump)
+//			if(record.sexop=="M")
+//			{
+//				paciente_sexo = 1
+//			}
+//			else
+//			{
+//				paciente_sexo = 2
+//			}
+//			
+//			fs_localidades.find()
+//			fs_localidades.localidad_cod_postal = record.tbldpacientes_to_tbldatoslocalidades.cplocalidad
+//			if(fs_localidades.search()>0)
+//			{
+//				cod_postal_id = fs_localidades.localidad_id
+//			}
+//			docu_id = 1
+//			paciente_fec_ingreso = record.fechaingp
+//			paciente_fecha_naci  = record.fechanacp
+//			paciente_fec_ultima_consulta = record.fechaultp
+//			emp_id = 2
+//			
+//			databaseManager.saveData(foundset)
+//		}
+//	}
+//	plugins.busy.unblock();
 }
 
 /**

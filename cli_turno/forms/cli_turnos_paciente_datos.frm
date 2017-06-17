@@ -56,6 +56,7 @@ uuid:"1B23BFDE-4FD8-4369-BA6F-AAD18798BE11"
 {
 dataProviderID:"turno_to_paciente.paciente_nro_ficha",
 formIndex:36,
+horizontalAlignment:0,
 location:"291,73",
 name:"paciente_nro_ficha",
 onDataChangeMethodID:"0B9EA1AC-833C-44C6-8680-CBE342A839AE",

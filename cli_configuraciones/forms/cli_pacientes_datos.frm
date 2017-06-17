@@ -112,6 +112,7 @@ formIndex:5,
 format:"#",
 horizontalAlignment:0,
 location:"672,90",
+onDataChangeMethodID:"6DF83EDA-C060-41D4-BA00-B5BF4B628A69",
 size:"115,20",
 typeid:4,
 uuid:"410388E8-286F-44BD-AB30-608408C8CC11"

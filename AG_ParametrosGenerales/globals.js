@@ -151,7 +151,7 @@ function InicializaParametros(){
 	application.setNumpadEnterAsFocusNextEnabled(true)
 	
 	scopes.globals.mx_usuario_id = security.getUserUID()
-	scopes.globals.mx_empresa_id = ag_usuariovigente.emp_id
+	scopes.globals.mx_empresa_id = scopes.globals.ag_usuariovigente.emp_id
 	
 	//Si el usuario es Juampy o German saco los filtros por empresa.
 	if(scopes.globals.mx_usuario_id != 1 && scopes.globals.mx_usuario_id != 2)

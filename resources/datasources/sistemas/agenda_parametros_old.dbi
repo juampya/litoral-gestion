@@ -1,7 +1,7 @@
 columns:[
 {
 allowNull:false,
-autoEnterSubType:0,
+autoEnterSubType:2,
 autoEnterType:2,
 creationOrderIndex:0,
 dataType:4,

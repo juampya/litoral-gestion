@@ -66,26 +66,26 @@ function onActionMenu(event)
  */
 function onShow(firstShow, event) 
 {
-	/** @type {JSFoundSet<db:/sistemas/mat_matriculados>} */
-	var fs_matriculados = databaseManager.getFoundSet('sistemas','mat_matriculados')	
-	
-	/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
-	var fs_smp = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')	
-			
-	for (var i = 1; i <= databaseManager.getFoundSetCount(fs_matriculados); i++) 
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
 	{
-		/**@type {JSRecord}*/
-		var record = fs_matriculados.getRecord(i)
-		
-		fs_smp.find()
-		fs_smp.ingr_id = 2
-		fs_smp.rel_estado = 1
-		fs_smp.mat_id = record.mat_id
-		if(fs_smp.search()>0)
-		{
-			record.calc_smp = 1
-			record.calc_smp_inicio = fs_smp.rel_fec_inicial
-			databaseManager.saveData(record)
-		}
+		elements.btn_menu1.visible  = true
+		elements.btn_menu2.visible  = true
+		elements.btn_menu3.visible  = true
+		elements.btn_menu4.visible  = true
+		elements.btn_menu5.visible  = true
+		elements.btn_menu6.visible  = true
+		elements.btn_menu7.visible  = true
+		scopes.globals.vg_fs_menu=scopes.globals.CargarMenuWeb()
+	}
+	else
+	{
+		elements.btn_menu1.visible  = false
+		elements.btn_menu2.visible  = false
+		elements.btn_menu3.visible  = false
+		elements.btn_menu4.visible  = false
+		elements.btn_menu5.visible  = false
+		elements.btn_menu6.visible  = false
+		elements.btn_menu7.visible  = false
+		scopes.globals.CargarMenu()
 	}
 }

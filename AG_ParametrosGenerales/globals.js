@@ -349,9 +349,11 @@ function CargarMenuWeb()
 {
 	var menu_principal = new Array()
 	var name = ''
-	for(var k=0; k<forms[globals.mx_modulo_inicio].elements.allnames.length;k++)
+	//for(var k=0; k<forms[globals.mx_modulo_inicio].elements.allnames.length;k++)
+	for(var k=0; k<forms.modulo_menu.elements.allnames.length;k++)
 	{
-		var name_btn = forms[globals.mx_modulo_inicio].elements.allnames[k];
+		//var name_btn = forms[globals.mx_modulo_inicio].elements.allnames[k];
+		var name_btn = forms.modulo_menu.elements.allnames[k];
 		name = name_btn.substr(0,8)
 		if(name=='btn_menu')
 		{
@@ -370,9 +372,13 @@ function CargarMenuWeb()
 	for(var i=1; i<=fs_menus.getSize();i++)
 	{
 		var record = fs_menus.getRecord(i)
-		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].text=record.menu_titulo
-		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].fgcolor='#ffffff'
-		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].font= 'Microsoft Sans Serif,1,11'
+//		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].text=record.menu_titulo
+//		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].fgcolor='#ffffff'
+//		 forms[globals.mx_modulo_inicio].elements[menu_principal[i-1]].font= 'Microsoft Sans Serif,1,11'
+
+		 forms.modulo_menu.elements[menu_principal[i-1]].text=record.menu_titulo
+		 forms.modulo_menu.elements[menu_principal[i-1]].fgcolor='#ffffff'
+		 forms.modulo_menu.elements[menu_principal[i-1]].font= 'Microsoft Sans Serif,1,11'
 	}	
 	
 	return fs_menus

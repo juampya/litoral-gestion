@@ -208,6 +208,9 @@ function crearFormularioConceptos()
 	var tmp_estado = ' and c.mov_estado <> 9 ' 
 	var tmp_tipo_mov = null
 	var tmp_matriculado = null
+	var tmp_fecha = null
+	
+	
 	scopes.globals.vg_fec_desde = utils.dateFormat(vl_fec_ini, 'MM') +"-"+utils.dateFormat(vl_fec_ini, 'yyyy')
 	scopes.globals.vg_fec_hasta = utils.dateFormat(vl_fec_fin, 'MM') +"-"+utils.dateFormat(vl_fec_fin, 'yyyy')
 	scopes.globals.vg_matriculado = vl_matriculado
@@ -216,12 +219,28 @@ function crearFormularioConceptos()
 	
 	
 	var args = new Array()
-		args.push(utils.dateFormat(vl_fec_ini, 'yyyy'))
-		args.push(utils.dateFormat(vl_fec_fin, 'yyyy'))
-		args.push(utils.dateFormat(vl_fec_ini, 'MM'))
-		args.push(utils.dateFormat(vl_fec_fin, 'MM'))
+//		args.push(utils.dateFormat(vl_fec_ini, 'yyyy'))
+//		args.push(utils.dateFormat(vl_fec_fin, 'yyyy'))
+//		args.push(utils.dateFormat(vl_fec_ini, 'MM'))
+//		args.push(utils.dateFormat(vl_fec_fin, 'MM'))
+
+	args.push(utils.dateFormat(vl_fec_ini, 'yyyy-MM')+'-01 00:00:00')
+	args.push(utils.dateFormat(vl_fec_fin, 'yyyy-MM')+'-31 23:59:59')
+	args.push(utils.dateFormat(vl_fec_ini, 'yyyy-MM')+'-01 00:00:00')
+	args.push(utils.dateFormat(vl_fec_fin, 'yyyy-MM')+'-31 23:59:59')
+		
+	if(vl_tipo_fecha == 0)
+	{
+		//mov_fecha_emision = utils.dateFormat(vl_fec_ini, 'yyyy-MM')+'-01 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM')+'-28 23:59:59|yyyy-MM-dd HH:mm:ss'
+		tmp_fecha = ' c.eliminado=0 and c.mov_fecha_emision between ? and ? and c.mov_fecha_emision between ? and ? '
+	}
+	else
+	{
+		//mov_fecha_cobro = utils.dateFormat(vl_fec_ini, 'yyyy-MM-dd')+' 00:00:00 ... '+utils.dateFormat(vl_fec_fin, 'yyyy-MM-dd')+' 23:59:59|yyyy-MM-dd HH:mm:ss'
+		tmp_fecha = ' c.eliminado=0 and c.mov_fecha_cobro between ? and ? and c.mov_fecha_cobro between ? and ? '
+	}
 	
-	if(vl_estado!=null && vl_estado!=3)
+	if(vl_estado!=null && vl_estado!=3) //SI ES DISTINTO DE NULL Y DISTINTO DE "TODOS"
 	{
 		tmp_estado = ' and c.mov_estado = ? '
 		args.push(vl_estado)
@@ -245,13 +264,15 @@ function crearFormularioConceptos()
 			'		b.ingr_nombre as concepto, '+
 			'	    count(*) as cantidad, '+
 			'	    sum(a.det_importe) as total, '+
-			'	    sum(a.det_importe_cobrado) as cobrado, '+
-			'	    sum(a.det_importe)-sum(a.det_importe_cobrado) as pendiente '+
+			'	    if(det_importe_cobrado is null,0,sum(a.det_importe_cobrado)) as cobrado, '+
+			'	    if(det_importe_cobrado is null,sum(a.det_importe),sum(a.det_importe)-sum(a.det_importe_cobrado)) as pendiente '+
 			'from mat_movimientos_det as a '+
 			'inner join mat_movimientos as c on a.mov_id = c.mov_id '+
 			'inner join mat_ingresos as b on a.ingr_id = b.ingr_id '+
-			'where c.mov_anio_emision between ? and ? '+
-			'and c.mov_mes_emision between ? and ? '+ tmp_estado + tmp_tipo_mov + tmp_matriculado +
+			'where '+ tmp_fecha + tmp_estado + tmp_tipo_mov + tmp_matriculado +
+			//'where c.mov_anio_emision between ? and ? '+
+			//'and c.mov_mes_emision between ? and ? '+ tmp_estado + tmp_tipo_mov + tmp_matriculado +
+			
 			'group by c.mov_mes_emision,c.mov_anio_emision,a.ingr_id' 
 
 	/** @type {JSDataSet<anio:Number, mes:Number, cod:Number, concepto:number, cantidad:number, total:Number, cobrado:Number, pendiente:Number>}*/

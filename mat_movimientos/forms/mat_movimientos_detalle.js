@@ -1,4 +1,18 @@
 /**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"32AC7FE4-2D27-4F45-857B-323771374898",variableType:4}
+ */
+var vl_viejo_nro_boleta = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"909FD180-CE2C-49BD-A220-927E5F49A2B1",variableType:4}
+ */
+var vl_nuevo_nro_boleta = null;
+
+/**
  * Perform the element default action.
  *
  * @param {JSEvent} event the event that triggered the action
@@ -20,7 +34,8 @@ function onActionVolver(event)
  */
 function onActionAnular(event) 
 {
-	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","Desea Borrar el Movimiento","atention",controller.getName(),"No",null,"Si","BorrarMovim",null,null,null,null)
+	var tmp_descripcion=mov_id.toString()+' - '+mat_movimientos_to_mat_matriculados.mat_nombre
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","Desea Borrar el Movimiento: "+tmp_descripcion,"atention",controller.getName(),"No",null,"Si","BorrarMovim",null,null,null,null)
 }
 
 /**
@@ -28,10 +43,25 @@ function onActionAnular(event)
  */
 function BorrarMovim()
 {
-	foundset.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
-	controller.deleteRecord()
+	for (var i = 1; i <= mat_movimientos_to_mat_movimientos_det.getSize(); i++) 
+	{
+		var record = mat_movimientos_to_mat_movimientos_det.getRecord(i);
+		
+		record.eliminado = 1
+		record.eliminado_usu_id = scopes.globals.mx_usuario_id
+		record.eliminado_fecha  = application.getServerTimeStamp()
+		databaseManager.saveData(record)
+	}
+
+	databaseManager.refreshRecordFromDatabase(mat_movimientos_to_mat_movimientos_det,-1)
+	
+	eliminado = 1
+	eliminado_usu_id = scopes.globals.mx_usuario_id
+	eliminado_fecha  = application.getServerTimeStamp()
+	databaseManager.saveData()
+	databaseManager.refreshRecordFromDatabase(foundset,-1)
+	
 	forms[scopes.globals.vg_formulario_anterior].controller.show()
-	//forms.mat_movimientos.controller.show()
 }
 
 /**
@@ -40,9 +70,37 @@ function BorrarMovim()
  * @param {JSEvent} event the event that triggered the action
  *
  * @properties={typeid:24,uuid:"FB8CC65C-9B43-48F0-9E60-2E6206E9B80D"}
+ * @AllowToRunInFind
  */
 function onActionGrabar(event) 
 {
+	if(mov_id != vl_viejo_nro_boleta && vl_nuevo_nro_boleta!=null)
+	{
+		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El número de boleta fue modificado.\nNúmero anterior: "+vl_viejo_nro_boleta+"\nNúmero nuevo: "+vl_nuevo_nro_boleta+"\nDesea grabar?","atention",controller.getName(),"No","onActionVolver","Si",null,null,null,null,null)
+		
+		/** @type {JSFoundSet<db:/sistemas/mat_movimientos>} */
+		var fs_mov = databaseManager.getFoundSet('sistemas','mat_movimientos')
+			fs_mov.find()
+			fs_mov.mov_id = vl_nuevo_nro_boleta
+			if(fs_mov.search()>0)		
+			{
+				globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atencion","El número de boleta "+vl_nuevo_nro_boleta+" ya existe.","atention",controller.getName(),"OK","onActionVolver",null,null,null,null,null,null)
+				return
+			}
+		
+		/** @type {JSFoundSet<db:/sistemas/mat_movimientos_det>} */
+		var fs_mov_det = databaseManager.getFoundSet('sistemas','mat_movimientos_det')
+			fs_mov_det.find()
+			fs_mov_det.mov_id = vl_viejo_nro_boleta
+			fs_mov_det.search()
+			for (var k = 1; k <= fs_mov_det.getSize(); k++) 
+			{
+				var record1 = fs_mov_det.getRecord(k);
+				record1.mov_id = vl_nuevo_nro_boleta
+			}
+			databaseManager.saveData()
+	}
+	
 	/**@type {Number}*/
 	var tmp_importe = 0
 	/**@type {Number}*/
@@ -186,6 +244,9 @@ function onActionMail(event)
  */
 function onShow(firstShow, event)
 {
+	vl_nuevo_nro_boleta = null
+	vl_viejo_nro_boleta = mov_id
+	
 	forms.mat_movimientos_detalle_conceptos.elements.btn_agregar.enabled = false
 	forms.mat_movimientos_detalle_conceptos.elements.btn_borrar.enabled = false
 	forms.mat_movimientos_detalle_conceptos.elements.ingr_id.editable = false
@@ -215,4 +276,22 @@ function onShow(firstShow, event)
 		elements.btn_imprimir.enabled = true
 		elements.btn_mail.enabled = true
 	}
+}
+
+/**
+ * Handle changed data.
+ *
+ * @param {Number} oldValue old value
+ * @param {Number} newValue new value
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @returns {Boolean}
+ *
+ * @properties={typeid:24,uuid:"3B7239FD-E580-4154-B102-BE534BDE0FB2"}
+ */
+function onDataChange(oldValue, newValue, event)
+{
+	vl_nuevo_nro_boleta = newValue
+	vl_viejo_nro_boleta = oldValue
+	return true
 }

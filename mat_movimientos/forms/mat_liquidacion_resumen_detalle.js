@@ -297,7 +297,6 @@ function onActionBorrar(event)
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', 'Desea borrar la Liquidacion?', 'question', controller.getName(), 'No', '', 'Si', 'borrarLiquidacion', null, null, null, null)
 	}	
-
 }
 
 /**
@@ -313,12 +312,29 @@ function borrarLiquidacion()
 	fs_mov.mov_mes_emision = vl_mes
 	fs_mov.mov_tipo_de_movimiento = 0
 	fs_mov.search()
-	for(var i=1;i<=fs_mov.getSize();i++)
+	for(var i=1;i<=databaseManager.getFoundSetCount(fs_mov);i++)
 	{
 		var rec = fs_mov.getRecord(i)
-		rec.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
+		
+		for(var j=1;j<=databaseManager.getFoundSetCount(rec.mat_movimientos_to_mat_movimientos_det);j++)
+		{
+			var rec1 = rec.mat_movimientos_to_mat_movimientos_det.getRecord(j)
+				rec1.eliminado = 1
+				rec1.eliminado_usu_id = scopes.globals.mx_usuario_id
+				rec1.eliminado_fecha  = application.getServerTimeStamp()
+			databaseManager.saveData(rec1)
+		}
+		databaseManager.refreshRecordFromDatabase(rec.mat_movimientos_to_mat_movimientos_det,-1)
+		//rec.mat_movimientos_to_mat_movimientos_det.deleteAllRecords()
+		rec.eliminado = 1
+		rec.eliminado_usu_id = scopes.globals.mx_usuario_id
+		rec.eliminado_fecha  = application.getServerTimeStamp()
+		databaseManager.saveData(rec)
 	}
-	fs_mov.deleteAllRecords()
+	
+	databaseManager.refreshRecordFromDatabase(fs_mov,-1)	
+
+	//fs_mov.deleteAllRecords()
 	forms.mat_liquidacion.controller.show()
 }
 

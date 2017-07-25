@@ -121,14 +121,14 @@ function getQuery()
 	"( " +
 	"SELECT mov_mes_emision as mes, mov_anio_emision as anio,  sum(mov_importe) as pendiente, 0 as cobrado, mov_grab_fec, mov_grab_ope " +
 	"FROM mat_movimientos " +
-	"where mov_tipo_de_movimiento = 0 and (mov_estado = 0 or mov_estado = 2) AND mov_anio_emision>=" + globals.vg_mat_anio_inicial + " AND mov_anio_emision<="+ globals.vg_mat_anio_final + 
+	"where (eliminado is null or eliminado=0) and mov_tipo_de_movimiento = 0 and (mov_estado = 0 or mov_estado = 2) AND mov_anio_emision>=" + globals.vg_mat_anio_inicial + " AND mov_anio_emision<="+ globals.vg_mat_anio_final + 
 	" group by mov_mes_emision,mov_anio_emision order by mov_anio_emision asc,mov_mes_emision asc " +
 	") " +
 	"union " +
  	"( " +
 	"SELECT mov_mes_emision as mes, mov_anio_emision as anio, 0  as pendiente, sum(mov_importe) as cobrado, mov_grab_fec, mov_grab_ope " +
 	"FROM mat_movimientos " +
-	"where mov_tipo_de_movimiento = 0 and mov_estado = 1 AND mov_anio_emision>=" + globals.vg_mat_anio_inicial + " AND mov_anio_emision<=" + globals.vg_mat_anio_final +  
+	"where (eliminado is null or eliminado=0) and mov_tipo_de_movimiento = 0 and mov_estado = 1 AND mov_anio_emision>=" + globals.vg_mat_anio_inicial + " AND mov_anio_emision<=" + globals.vg_mat_anio_final +  
 	" group by mov_mes_emision,mov_anio_emision order by mov_anio_emision asc,mov_mes_emision asc " +
 	") " +
 	") as aux, usuarios where mov_grab_ope = usu_id group by mes, anio order by anio asc, mes asc "  

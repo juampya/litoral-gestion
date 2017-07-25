@@ -111,7 +111,13 @@ function onActionBorrar(event)
  */
 function borrarRegistro()
 {
-	controller.deleteRecord()
+	eliminado = 1
+	eliminado_usu_id = scopes.globals.mx_usuario_id
+	eliminado_fecha  = application.getServerTimeStamp()
+	databaseManager.saveData()
+	databaseManager.refreshRecordFromDatabase(foundset,-1)
+	
+	//controller.deleteRecord()
 	application.getWindow("caja").hide()
 	forms.sm_frm_caja.filtrar()
 }

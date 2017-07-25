@@ -29,7 +29,15 @@ function borrarRegistro()
 {
 	forms.mat_movimientos_nuevo_manual.vl_importe -= det_importe
 	forms.mat_movimientos_nuevo_manual.mov_importe_2vto = forms.mat_movimientos_nuevo_manual.vl_importe+(forms.mat_movimientos_nuevo_manual.vl_importe*forms.mat_movimientos_nuevo_manual.mat_movimientos_to_mat_configuraciones.conf_interes_x_atraso)/100
-	controller.deleteRecord()
+	
+	eliminado = 1
+	eliminado_usu_id = scopes.globals.mx_usuario_id
+	eliminado_fecha  = application.getServerTimeStamp()
+	databaseManager.saveData()
+	databaseManager.refreshRecordFromDatabase(foundset,-1)
+	
+	//controller.deleteRecord()
+
 }
 
 /**

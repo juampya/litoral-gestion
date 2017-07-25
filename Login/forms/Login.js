@@ -144,6 +144,7 @@ function onActionLogin(event) {
 			databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
 		}
 		
+		databaseManager.addTableFilterParam('sistemas',null,'eliminado','!=',1)
 		//databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
 	}
 }

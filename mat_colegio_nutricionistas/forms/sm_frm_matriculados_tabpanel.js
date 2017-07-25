@@ -149,15 +149,42 @@ function BorrarRegistro()
 	}
 	else
 	{
-		if(utils.hasRecords(mat_matriculados_to_mat_resarcimientos))
+		for (var i = 1; i <= mat_matriculados_to_mat_resarcimientos.getSize(); i++) 
 		{
-			mat_matriculados_to_mat_resarcimientos.deleteAllRecords()
+			var record = mat_matriculados_to_mat_resarcimientos.getRecord(i);
+			
+			record.eliminado = 1
+			record.eliminado_usu_id = scopes.globals.mx_usuario_id
+			record.eliminado_fecha  = application.getServerTimeStamp()
+			databaseManager.saveData(record)
 		}
-		if(utils.hasRecords(mat_matriculados_to_mat_matriculado_rel_ingresos))
+		
+		for (var j = 1; j <= mat_matriculados_to_mat_matriculado_rel_ingresos.getSize(); j++) 
 		{
-			mat_matriculados_to_mat_matriculado_rel_ingresos.deleteAllRecords()
+			var record1 = mat_matriculados_to_mat_matriculado_rel_ingresos.getRecord(j);
+			
+			record1.eliminado = 1
+			record1.eliminado_usu_id = scopes.globals.mx_usuario_id
+			record1.eliminado_fecha  = application.getServerTimeStamp()
+			databaseManager.saveData(record1)
 		}
-		controller.deleteRecord()
+		
+//		if(utils.hasRecords(mat_matriculados_to_mat_resarcimientos))
+//		{
+//			mat_matriculados_to_mat_resarcimientos.deleteAllRecords()
+//		}
+//		if(utils.hasRecords(mat_matriculados_to_mat_matriculado_rel_ingresos))
+//		{
+//			mat_matriculados_to_mat_matriculado_rel_ingresos.deleteAllRecords()
+//		}
+		
+		eliminado = 1
+		eliminado_usu_id = scopes.globals.mx_usuario_id
+		eliminado_fecha  = application.getServerTimeStamp()
+		databaseManager.saveData()
+		databaseManager.refreshRecordFromDatabase(foundset,-1)
+		
+		//controller.deleteRecord()
 		forms[vl_frm_anterior].controller.show()
 	}
 }

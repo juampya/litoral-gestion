@@ -80,19 +80,59 @@ function borrarRegistro()
 	fs_detalle.find()
 	fs_detalle.ingr_id = ingr_id
 	var cant = fs_detalle.search()
+	
 	if(cant == 0)
 	{
-		mat_ingresos_to_mat_matriculado_rel_ingresos.deleteAllRecords()
-		mat_ingresos_to_mat_resarcimientos.deleteAllRecords()
-		controller.deleteRecord()
+		/** @type {JSFoundSet<db:/sistemas/mat_matriculado_rel_ingresos>} */
+		var fs_rel_ingresos = databaseManager.getFoundSet('sistemas','mat_matriculado_rel_ingresos')
+			fs_rel_ingresos.find()
+			fs_rel_ingresos.ingr_id = ingr_id
+		var cant1 = fs_rel_ingresos.search()
+		
+		/** @type {JSFoundSet<db:/sistemas/mat_resarcimientos>} */
+		var fs_resarcimientos = databaseManager.getFoundSet('sistemas','mat_resarcimientos')
+			fs_resarcimientos.find()
+			fs_resarcimientos.ingr_id = ingr_id
+		var cant2 = fs_resarcimientos.search()
+		
+		for (var i = 1; i <= databaseManager.getFoundSetCount(fs_rel_ingresos); i++) 
+		{
+			var record = fs_rel_ingresos.getRecord(i);
+			
+			record.eliminado = 1
+			record.eliminado_usu_id = scopes.globals.mx_usuario_id
+			record.eliminado_fecha  = application.getServerTimeStamp()
+			databaseManager.saveData(record)
+		}
+
+		for (var j = 1; j <= databaseManager.getFoundSetCount(fs_resarcimientos); j++) 
+		{
+			var record1 = fs_resarcimientos.getRecord(j);
+			
+			record1.eliminado = 1
+			record1.eliminado_usu_id = scopes.globals.mx_usuario_id
+			record1.eliminado_fecha  = application.getServerTimeStamp()
+			databaseManager.saveData(record1)
+		}
+		
+		databaseManager.refreshRecordFromDatabase(fs_rel_ingresos,-1)
+		databaseManager.refreshRecordFromDatabase(fs_resarcimientos,-1)
+		
+		eliminado = 1
+		eliminado_usu_id = scopes.globals.mx_usuario_id
+		eliminado_fecha  = application.getServerTimeStamp()
+		databaseManager.saveData()
+		databaseManager.refreshRecordFromDatabase(foundset,-1)
+		
+		//mat_ingresos_to_mat_matriculado_rel_ingresos.deleteAllRecords()
+		//mat_ingresos_to_mat_resarcimientos.deleteAllRecords()
+		//controller.deleteRecord()
 		forms.mat_ingresos_abm.controller.show()
 	}
 	else
 	{
 		globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,'Atención', "El Registro no se puede Borrar.\n Existen movimientos asociados al mismo", 'info', controller.getName(), 'Aceptar',null,null,null, null, null, null, null) 
-		
 	}
-		
 }
 
 /**

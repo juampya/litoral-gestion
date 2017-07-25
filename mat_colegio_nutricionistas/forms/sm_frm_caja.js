@@ -255,6 +255,18 @@ function calcularTotales()
  *
  * @properties={typeid:24,uuid:"4F2B472E-57CD-4623-8D79-F8866FD2957E"}
  */
-function onActionImprimir(event) {
-	// TODO Auto-generated method stub
+function onActionImprimir(event)
+{
+	var fecha_inicial = null
+	var fecha_final   = null
+		
+	fecha_inicial = utils.dateFormat(vl_fec_ini, 'dd-MM-yyyy')
+	fecha_final   = utils.dateFormat(vl_fec_fin, 'dd-MM-yyyy')
+	
+//	if(vl_tipo_movim!=null)
+//	{
+//		tipo_movi = application.getValueListDisplayValue('tipo_de_movimiento',mov_tipo_de_movimiento)
+//	}
+	
+	plugins.jasperPluginRMI.runReport(foundset,'mat_caja.jasper',null,plugins.jasperPluginRMI.OUTPUT_FORMAT.VIEW,{pfecha_inicial:fecha_inicial, pfecha_final:fecha_final, pingresosant:vl_total_debe_anterior, pegresosant:vl_total_haber_anterior})
 }

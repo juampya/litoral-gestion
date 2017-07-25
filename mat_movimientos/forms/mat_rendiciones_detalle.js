@@ -37,7 +37,15 @@ function anularMovim()
 		row.ren_id = 0
 	}
 	databaseManager.saveData()
-	controller.deleteRecord()
+	
+	eliminado = 1
+	eliminado_usu_id = scopes.globals.mx_usuario_id
+	eliminado_fecha  = application.getServerTimeStamp()
+	databaseManager.saveData()
+	databaseManager.refreshRecordFromDatabase(foundset,-1)
+	
+	//controller.deleteRecord()
+
 }
 
 /**

@@ -42,6 +42,7 @@ function onSolutionOpen()
 
 		scopes.globals.CargarMenu()
 	}
+	databaseManager.addTableFilterParam('sistemas',null,'eliminado','!=',1)
 	plugins.busy.unblock();
 }
 

@@ -28,7 +28,14 @@ function borrarRegistro()
 {
 	forms.mat_movimientos_detalle.mov_importe -= det_importe
 	forms.mat_movimientos_detalle.mov_importe_2vto = forms.mat_movimientos_detalle.mov_importe+(forms.mat_movimientos_detalle.mov_importe*forms.mat_movimientos_detalle.mov_recargo)/100
-	controller.deleteRecord()
+	
+	eliminado = 1
+	eliminado_usu_id = scopes.globals.mx_usuario_id
+	eliminado_fecha  = application.getServerTimeStamp()
+	databaseManager.saveData()
+	databaseManager.refreshRecordFromDatabase(foundset,-1)
+	
+	//controller.deleteRecord()
 }
 
 

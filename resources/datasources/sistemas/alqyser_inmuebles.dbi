@@ -181,6 +181,12 @@ name:"localidad_id"
 },
 {
 allowNull:true,
+creationOrderIndex:28,
+dataType:4,
+name:"propietario_id"
+},
+{
+allowNull:true,
 creationOrderIndex:23,
 dataType:4,
 name:"suc_id"

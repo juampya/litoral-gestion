@@ -39,12 +39,6 @@ allowNull:true,
 creationOrderIndex:5,
 dataType:4,
 name:"eliminado_usu_id"
-},
-{
-allowNull:true,
-creationOrderIndex:1,
-dataType:4,
-name:"emp_id"
 }
 ],
 name:"lg_categorias_iva",

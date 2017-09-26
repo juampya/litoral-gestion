@@ -18,12 +18,6 @@ dataType:4,
 name:"eliminado_usu_id"
 },
 {
-allowNull:false,
-creationOrderIndex:1,
-dataType:4,
-name:"emp_id"
-},
-{
 allowNull:true,
 creationOrderIndex:17,
 dataType:4,

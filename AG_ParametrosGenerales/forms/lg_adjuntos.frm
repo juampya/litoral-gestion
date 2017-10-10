@@ -46,7 +46,6 @@ location:"0,0",
 size:"827,30",
 styleClass:"sub_banner",
 text:"Archivos Adjuntos",
-transparent:true,
 typeid:7,
 uuid:"3630336C-C15D-4EEE-B819-B7FB203C5D8F"
 },

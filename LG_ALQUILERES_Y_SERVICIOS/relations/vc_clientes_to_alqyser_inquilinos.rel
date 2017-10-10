@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/alqyser_inquilinos",
+items:[
+{foreignColumnName:"cliente_id",primaryDataProviderID:"cliente_id",typeid:23,uuid:"76FED9C8-0190-40E0-903C-F6887CE2E635"}
+],
+joinType:1,
+name:"vc_clientes_to_alqyser_inquilinos",
+primaryDataSource:"db:/sistemas/vc_clientes",
+typeid:22,
+uuid:"8BE142F9-2B4D-40A6-B2D8-65E9A25E58FE"

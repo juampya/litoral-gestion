@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_garantes",
+items:[
+{
+dataProviderIDToAggregate:"garante_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"8C78CC71-734D-4FED-949D-7CCE480052C5"
+}
+],
+typeid:39,
+uuid:"180044BE-E3D2-468E-A87D-275C377921AC"

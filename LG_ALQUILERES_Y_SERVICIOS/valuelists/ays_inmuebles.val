@@ -1,0 +1,10 @@
+dataProviderID1:"inmueble_id",
+dataProviderID2:"inmueble_calle",
+dataProviderID3:"inmueble_nro",
+dataSource:"db:/sistemas/alqyser_inmuebles",
+name:"ays_inmuebles",
+returnDataProviders:1,
+showDataProviders:6,
+typeid:34,
+uuid:"7610A525-DCE0-4265-87F6-76E705042CD3",
+valueListType:1

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/alqyser_inmuebles_documentacion",
+items:[
+{foreignColumnName:"inmueble_id",primaryDataProviderID:"inmueble_id",typeid:23,uuid:"4650AEF1-46A0-49E2-B7C1-32C5B4EC90F2"}
+],
+joinType:1,
+name:"alqyser_inmuebles_to_alqyser_inmuebles_documentacion",
+primaryDataSource:"db:/sistemas/alqyser_inmuebles",
+typeid:22,
+uuid:"4632FD6F-4A5A-4734-9E76-3757F0077942"

@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_conceptos",
+items:[
+{
+dataProviderIDToAggregate:"concepto_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"B95711E1-4FDF-4342-8429-A8B81841BD1D"
+}
+],
+typeid:39,
+uuid:"9A40BF2E-69EB-4253-A793-9FA343BF8D37"

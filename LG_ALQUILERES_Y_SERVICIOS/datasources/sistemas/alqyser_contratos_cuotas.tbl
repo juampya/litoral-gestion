@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_contratos_cuotas",
+items:[
+{
+dataProviderIDToAggregate:"cuota_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"3F0D949E-4F83-4B26-95DB-C83500AA7634"
+}
+],
+typeid:39,
+uuid:"C62B8806-DA42-4FBC-BB69-F34D7763035F"

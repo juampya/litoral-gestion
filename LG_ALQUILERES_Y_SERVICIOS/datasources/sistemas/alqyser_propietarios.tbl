@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_propietarios",
+items:[
+{
+dataProviderIDToAggregate:"propietario_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"10DA7538-5600-4578-8517-2FAB58F0DBF6"
+}
+],
+typeid:39,
+uuid:"E54ECCF8-518A-4123-97F1-B015B5D07160"

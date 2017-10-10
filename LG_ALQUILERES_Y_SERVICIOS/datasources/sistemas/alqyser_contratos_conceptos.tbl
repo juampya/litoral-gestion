@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_contratos_conceptos",
+items:[
+{
+dataProviderIDToAggregate:"contrato_concepto_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"32D4B91B-2CF5-4529-B401-C1BF7B488939"
+}
+],
+typeid:39,
+uuid:"840C28EB-0B52-44D0-9464-0C14CBCEEFBA"

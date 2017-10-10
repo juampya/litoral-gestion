@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/alqyser_contratos",
+items:[
+{foreignColumnName:"propietario_id",primaryDataProviderID:"propietario_id",typeid:23,uuid:"CE0448D8-54F1-4B7A-844E-C9075AA255F9"}
+],
+joinType:1,
+name:"alqyser_propietarios_to_alqyser_contratos",
+primaryDataSource:"db:/sistemas/alqyser_propietarios",
+typeid:22,
+uuid:"0E47CE57-723F-4FF4-8BD7-CED585F8A79E"

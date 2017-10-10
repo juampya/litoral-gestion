@@ -1,0 +1,10 @@
+dataProviderID1:"propietario_id",
+dataProviderID2:"propietario_nombre",
+dataSource:"db:/sistemas/alqyser_propietarios",
+name:"ays_propietarios",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"A2DBDB98-74A5-4C58-A371-35751F27A501",
+valueListType:1

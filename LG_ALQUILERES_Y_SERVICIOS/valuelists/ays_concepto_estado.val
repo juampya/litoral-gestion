@@ -1,0 +1,6 @@
+addEmptyValue:1,
+customValues:"Activo|\r\
+Suspendido|1",
+name:"ays_concepto_estado",
+typeid:34,
+uuid:"2CAF1AFC-29AA-42D4-B29E-382663140D52"

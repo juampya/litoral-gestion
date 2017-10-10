@@ -1,0 +1,17 @@
+dataSource:"db:/sistemas/lg_adjuntos",
+encapsulation:60,
+items:[
+{
+height:480,
+partType:5,
+typeid:19,
+uuid:"EBE62FF4-324A-4562-B83F-FF80B8890936"
+}
+],
+name:"ays_frm_fotos",
+navigatorID:"-1",
+showInMenu:true,
+styleClass:"formulario",
+styleName:"id_style",
+typeid:3,
+uuid:"3543FE39-322C-429E-A338-3AB85BF1CD68"

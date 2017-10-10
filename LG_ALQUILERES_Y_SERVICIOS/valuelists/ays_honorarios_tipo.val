@@ -1,0 +1,7 @@
+addEmptyValue:1,
+customValues:"% Porcentual (Solo Alquiler)|1\r\
+% Porcentual (Alquiler+Punitorios)|2\r\
+$ Monto Fijo|3",
+name:"ays_honorarios_tipo",
+typeid:34,
+uuid:"1F43CA07-5836-4B6C-802C-18C0D5CC338F"

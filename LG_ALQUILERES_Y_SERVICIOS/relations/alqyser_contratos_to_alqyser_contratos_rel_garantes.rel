@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/alqyser_contratos_rel_garantes",
+items:[
+{foreignColumnName:"contrato_id",primaryDataProviderID:"contrato_id",typeid:23,uuid:"26ADEABD-88EE-417F-915A-DEA58936D78A"}
+],
+joinType:1,
+name:"alqyser_contratos_to_alqyser_contratos_rel_garantes",
+primaryDataSource:"db:/sistemas/alqyser_contratos",
+typeid:22,
+uuid:"2655DDBB-B990-4EFE-85BA-4ED251D3A79A"

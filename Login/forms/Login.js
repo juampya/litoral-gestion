@@ -111,6 +111,7 @@ function CargarDatosEmpresa(p_empresa) {
 		vl_emp_frase = datosEmpresa[2]
 		vl_emp_logo = datosEmpresa[3]
 	}
+	//#d9ecd5
 }
 
 /**

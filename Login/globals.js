@@ -1,4 +1,18 @@
 /**
+ * @type {Date}
+ *
+ * @properties={typeid:35,uuid:"C6804B8D-DB32-4BA4-823A-E2DFCF1B1A91",variableType:93}
+ */
+var mx_dia_a_mover = null;
+
+/**
+ * @type {Number}
+ *
+ * @properties={typeid:35,uuid:"3B012E2E-DB93-4FBB-9C38-0937B73F060A",variableType:4}
+ */
+var mx_medico_id = null;
+
+/**
  * @type {String}
  *
  * @properties={typeid:35,uuid:"34E99046-C235-44C4-BE74-B5A902AA89BD"}
@@ -131,7 +145,7 @@ var mx_modulo_nombre = null;
  */
 function onSolutionOpenLogin() 
 {
-	globals.mx_empresa_id = 1
+	globals.mx_empresa_id = 2
 	
 	application.putClientProperty(APP_UI_PROPERTY.TABLEVIEW_WC_DEFAULT_SCROLLABLE, true);
 	

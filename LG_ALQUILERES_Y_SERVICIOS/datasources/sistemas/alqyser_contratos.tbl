@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_contratos",
+items:[
+{
+dataProviderIDToAggregate:"contrato_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"AD628C8F-B589-43B4-86C3-50806FC371D0"
+}
+],
+typeid:39,
+uuid:"9957341D-B464-4BC9-9D17-5047734FCD0B"

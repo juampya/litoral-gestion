@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_inquilinos",
+items:[
+{
+dataProviderIDToAggregate:"inquilino_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"EE451C42-109B-49DA-8D15-FE09D1C2D392"
+}
+],
+typeid:39,
+uuid:"BECAA7B3-900F-409A-9D14-73BA6E585615"

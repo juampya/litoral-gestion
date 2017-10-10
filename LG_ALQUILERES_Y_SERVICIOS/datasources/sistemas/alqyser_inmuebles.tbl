@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_inmuebles",
+items:[
+{
+dataProviderIDToAggregate:"inmueble_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"406C77AC-E5C4-4D3C-AADE-F7BDD27B6699"
+}
+],
+typeid:39,
+uuid:"197FC8BF-64CF-4E3C-BE77-F52982FED179"

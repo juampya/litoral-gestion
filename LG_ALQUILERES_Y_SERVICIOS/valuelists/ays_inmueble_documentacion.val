@@ -1,0 +1,10 @@
+dataProviderID1:"documentacion_id",
+dataProviderID2:"documentacion_descripcion",
+dataSource:"db:/sistemas/alqyser_tipo_documentacion",
+name:"ays_inmueble_documentacion",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"E1893F4A-17E6-4292-A63A-6295A20CC453",
+valueListType:1

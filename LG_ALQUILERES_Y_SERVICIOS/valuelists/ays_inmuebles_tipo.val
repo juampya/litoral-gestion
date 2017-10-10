@@ -1,0 +1,10 @@
+dataProviderID1:"tipo_id",
+dataProviderID2:"tipo_descripcion",
+dataSource:"db:/sistemas/alqyser_tipo_inmueble",
+name:"ays_inmuebles_tipo",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"3791B6F2-7230-4918-90DD-5E97A7848307",
+valueListType:1

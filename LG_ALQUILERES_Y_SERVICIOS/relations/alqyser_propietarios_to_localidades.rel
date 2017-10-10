@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/localidades",
+items:[
+{foreignColumnName:"localidad_id",primaryDataProviderID:"localidad_id",typeid:23,uuid:"43710210-4471-43BB-AEF6-A9A2C32DED29"}
+],
+joinType:1,
+name:"alqyser_propietarios_to_localidades",
+primaryDataSource:"db:/sistemas/alqyser_propietarios",
+typeid:22,
+uuid:"AC5C0FA0-EF9C-422A-8372-01662D500CA3"

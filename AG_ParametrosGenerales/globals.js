@@ -389,9 +389,25 @@ function CargarSubMenuWeb(p_orden, p_coorx, p_coory)
 	var vl_submenu = new Array()
 	var name = ''
 
-	for(var k=0; k<forms[globals.mx_modulo_inicio].elements.allnames.length;k++)
+//	for(var k=0; k<forms[globals.mx_modulo_inicio].elements.allnames.length;k++)
+//	{
+//		var name_btn = forms[globals.mx_modulo_inicio].elements.allnames[k];
+//		name = name_btn.substr(0,11)
+//		if(name=='btn_submenu')
+//		{
+//			vl_submenu.push(name_btn)
+//		}
+//	}
+//	
+//	for(var j=0; j<vl_submenu.length;j++)
+//	{
+//		forms[globals.mx_modulo_inicio].elements[vl_submenu[j]].text=null
+//		forms[globals.mx_modulo_inicio].elements[vl_submenu[j]].visible = false
+//	}
+
+	for(var k=0; k<forms.modulo_menu.elements.allnames.length;k++)
 	{
-		var name_btn = forms[globals.mx_modulo_inicio].elements.allnames[k];
+		var name_btn = forms.modulo_menu.elements.allnames[k];
 		name = name_btn.substr(0,11)
 		if(name=='btn_submenu')
 		{
@@ -401,9 +417,10 @@ function CargarSubMenuWeb(p_orden, p_coorx, p_coory)
 	
 	for(var j=0; j<vl_submenu.length;j++)
 	{
-		forms[globals.mx_modulo_inicio].elements[vl_submenu[j]].text=null
-		forms[globals.mx_modulo_inicio].elements[vl_submenu[j]].visible = false
+		forms.modulo_menu.elements[vl_submenu[j]].text=null
+		forms.modulo_menu.elements[vl_submenu[j]].visible = false
 	}
+
 	
 	/** @type {JSFoundset<db:/Sistemas/menus>}*/
 	var fs_menus = databaseManager.getFoundSet('Sistemas','menus')	

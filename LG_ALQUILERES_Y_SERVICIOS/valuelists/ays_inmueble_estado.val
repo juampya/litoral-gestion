@@ -1,0 +1,6 @@
+customValues:"DISPONIBLE|0\r\
+ALQUILADO|1\r\
+SUSPENDIDO|9",
+name:"ays_inmueble_estado",
+typeid:34,
+uuid:"8D8ACD66-0BEA-4DA9-8F71-27748A064E8D"

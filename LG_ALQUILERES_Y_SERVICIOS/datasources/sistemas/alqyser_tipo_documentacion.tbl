@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/alqyser_tipo_documentacion",
+items:[
+{
+dataProviderIDToAggregate:"documentacion_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"D7F95A16-FCEC-40E5-B095-9B7EF14B0024"
+}
+],
+typeid:39,
+uuid:"7B9AC85D-22E5-478C-9B77-C97E6BC51020"

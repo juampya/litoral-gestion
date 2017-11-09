@@ -34,6 +34,12 @@ name:"eliminado_usu_id"
 },
 {
 allowNull:true,
+creationOrderIndex:10,
+dataType:4,
+name:"inmu_docu_estado"
+},
+{
+allowNull:true,
 creationOrderIndex:6,
 dataType:93,
 name:"inmu_docu_fec_crea"

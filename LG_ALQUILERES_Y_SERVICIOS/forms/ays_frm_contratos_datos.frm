@@ -3,7 +3,6 @@ extendsID:"-1",
 items:[
 {
 anchors:15,
-formIndex:4,
 items:[
 {
 containsFormID:"CF64AC15-CA5D-4119-88A9-8728A11AA4CD",
@@ -11,6 +10,14 @@ location:"101,155",
 text:"Montos del Contrato",
 typeid:15,
 uuid:"00F0D225-FE17-46B0-9FB4-846A076B13E4"
+},
+{
+containsFormID:"283F59F6-E6EE-409C-A404-9CBCE48E2081",
+location:"202,190",
+relationName:"alqyser_contratos_to_alqyser_contratos_conceptos",
+text:"Conceptos a Liquidar",
+typeid:15,
+uuid:"528B514B-1290-41AF-88E8-B89203CD0789"
 },
 {
 containsFormID:"E8EAB212-109A-43DB-802F-F522A84A31B1",

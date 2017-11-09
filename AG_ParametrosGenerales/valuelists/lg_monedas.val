@@ -1,0 +1,9 @@
+dataProviderID1:"moneda_id",
+dataProviderID2:"moneda_descripcion",
+dataSource:"db:/sistemas/lg_monedas",
+name:"lg_monedas",
+returnDataProviders:1,
+showDataProviders:2,
+typeid:34,
+uuid:"4C763645-150C-4411-B1C5-402D3A5ACC1C",
+valueListType:1

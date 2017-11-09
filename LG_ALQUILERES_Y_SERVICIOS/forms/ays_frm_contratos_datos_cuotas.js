@@ -6,7 +6,6 @@
  */
 function onActionBorrar(event) 
 {
-	
 	var nombre = utils.stringTrim(alqyser_contratos_rel_garantes_to_alqyser_garantes.garante_nombre)+" del contrato ID "+(contrato_id)
 	scopes.globals.VentanaGenerica(scopes.globals.mx_usuario_id,'Borrar Registro','¿Está seguro de eliminar el Contrato: '+ nombre +'?','question',controller.getName(),'No',null,'Si','Borrar',null,null,null,null)
 }

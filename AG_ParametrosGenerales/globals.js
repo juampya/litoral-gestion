@@ -244,7 +244,19 @@ function VentanaGenerica(usuario,titulo,mensaje,icono,formulario,btn1,metodo1,bt
 		win.title= titulo
 		win.show(forms.ventana_generica);		
 
-	}
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param mensaje
+ * @param formulario
+ *
+ * @properties={typeid:24,uuid:"F88FA8C3-C211-458B-B733-7C230ACC32BC"}
+ */
+function ventanaAceptar(mensaje,formulario) 
+{
+	globals.VentanaGenerica(globals.ag_usuariovigente.usu_id,"Atención",mensaje,"atention",formulario,"Aceptar","",null,null,null,null,null,null)
+}
 
 /**
  * @AllowToRunInFind

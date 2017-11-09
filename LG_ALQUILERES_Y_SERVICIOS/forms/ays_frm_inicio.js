@@ -210,6 +210,16 @@ function TipoInmueble()
 }
 
 /**
+ * @properties={typeid:24,uuid:"25AAABE5-4DC9-4838-BE6D-4EBE1E0CB2DA"}
+ */
+function TipoDocumentacion() 
+{
+	forms.ays_frm_documentacion_abm.vl_frm_anterior = controller.getName()
+	forms.ays_frm_documentacion_abm.controller.show()
+}
+
+
+/**
  * @properties={typeid:24,uuid:"07961F9A-3AB1-4C92-BAC0-B2C60CB3473D"}
  */
 function ConsultaContratos() 
@@ -278,6 +288,7 @@ function onShow(firstShow, event)
 {
 	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
 	{
+		elements.tabs_1.removeAllTabs()
 		elements.tabs_1.addTab(forms.modulo_menu.controller.getName())
 	}
 	else

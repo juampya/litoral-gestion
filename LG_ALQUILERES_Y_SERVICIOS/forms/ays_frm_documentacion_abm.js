@@ -42,9 +42,9 @@ function onActionVolver(event)
  */
 function onActionNuevo(event) 
 {
-	forms.ays_frm_tipos_inmueble_nuevo.vl_frm_anterior = controller.getName()
-	forms.ays_frm_tipos_inmueble_nuevo.vl_nuevo = 1
-	forms.ays_frm_tipos_inmueble_nuevo.controller.show() 
+	forms.ays_frm_documentacion_nuevo.vl_frm_anterior = controller.getName()
+	forms.ays_frm_documentacion_nuevo.vl_nuevo = 1
+	forms.ays_frm_documentacion_nuevo.controller.show() 
 }
 
 /**
@@ -67,9 +67,9 @@ function onActionRefrescar(event) {
  */
 function onActionDetalle(event) 
 {
-	forms.ays_frm_tipos_inmueble_nuevo.vl_frm_anterior = controller.getName()
-	forms.ays_frm_tipos_inmueble_nuevo.vl_nuevo = 0
-	forms.ays_frm_tipos_inmueble_nuevo.controller.show() 
+	forms.ays_frm_documentacion_nuevo.vl_frm_anterior = controller.getName()
+	forms.ays_frm_documentacion_nuevo.vl_nuevo = 0
+	forms.ays_frm_documentacion_nuevo.controller.show() 
 }
 
 /**
@@ -81,9 +81,9 @@ function onActionDetalle(event)
  */
 function onActionCopiar(event) 
 {
-	forms.ays_frm_tipos_inmueble_nuevo.vl_frm_anterior = controller.getName()
-	forms.ays_frm_tipos_inmueble_nuevo.vl_nuevo = 2
-	forms.ays_frm_tipos_inmueble_nuevo.controller.show() 
+	forms.ays_frm_documentacion_nuevo.vl_frm_anterior = controller.getName()
+	forms.ays_frm_documentacion_nuevo.vl_nuevo = 2
+	forms.ays_frm_documentacion_nuevo.controller.show() 
 }
 
 /**

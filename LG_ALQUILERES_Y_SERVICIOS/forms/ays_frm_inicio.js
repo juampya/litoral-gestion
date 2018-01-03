@@ -233,8 +233,8 @@ function ConsultaContratos()
  */
 function ConsultaMovimientos() 
 {
-	forms.vc_frm_condicionesvta_abm.vl_frm_anterior = controller.getName()
-	forms.vc_frm_condicionesvta_abm.controller.show()
+//	forms.vc_frm_condicionesvta_abm.vl_frm_anterior = controller.getName()
+//	forms.vc_frm_condicionesvta_abm.controller.show()
 }
 
 /**
@@ -242,8 +242,8 @@ function ConsultaMovimientos()
  */
 function Zonas() 
 {
-	forms.vc_frm_zonas_abm.vl_frm_anterior = controller.getName()
-	forms.vc_frm_zonas_abm.controller.show()
+//	forms.vc_frm_zonas_abm.vl_frm_anterior = controller.getName()
+//	forms.vc_frm_zonas_abm.controller.show()
 }
 
 /**
@@ -251,8 +251,8 @@ function Zonas()
  */
 function Talonarios() 
 {
-	forms.vc_frm_talonarios_abm.vl_frm_anterior = controller.getName()
-	forms.vc_frm_talonarios_abm.controller.show()
+	forms.ays_frm_talonarios_abm.vl_frm_anterior = controller.getName()
+	forms.ays_frm_talonarios_abm.controller.show()
 }
 
 /**
@@ -260,8 +260,8 @@ function Talonarios()
  */
 function Parametros() 
 {
-	forms.vc_frm_parametros.vl_frm_anterior = controller.getName()
-	forms.vc_frm_parametros.controller.show()
+//	forms.vc_frm_parametros.vl_frm_anterior = controller.getName()
+//	forms.vc_frm_parametros.controller.show()
 }
 
 /**

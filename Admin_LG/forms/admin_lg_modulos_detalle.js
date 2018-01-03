@@ -48,6 +48,7 @@ function onShow(firstShow, event)
 	if(vl_nuevo==1)
 	{
 		controller.newRecord(false)
+		emp_id = scopes.globals.mx_empresa_id
 	}
 	
 	elements.tabs.dividerLocation = 0.50

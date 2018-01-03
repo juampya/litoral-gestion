@@ -1,7 +1,7 @@
 dataSource:"db:/sistemas/empresas",
 items:[
 {
-location:"10,231",
+location:"10,263",
 size:"100,20",
 styleClass:"label_black",
 text:"Vencimiento:",
@@ -9,7 +9,7 @@ typeid:7,
 uuid:"070EA76D-B4F2-4E7E-A87E-5C7381C5A91B"
 },
 {
-height:337,
+height:356,
 partType:5,
 typeid:19,
 uuid:"0A82ADC4-CB6D-40F1-A5F9-0EA9F926F6F1"
@@ -27,21 +27,29 @@ dataProviderID:"emp_cat_iva",
 displayType:2,
 editable:false,
 location:"115,83",
-size:"242,20",
+size:"263,20",
 typeid:4,
 uuid:"14C1AE10-A973-41F1-8DD9-7FB8804852E5",
 valuelistID:"159C97EB-F14D-4085-84F7-22C87C2FBCDA"
 },
 {
+location:"11,193",
+size:"100,20",
+styleClass:"label_black",
+text:"N° R.Imp. y Exp.:",
+typeid:7,
+uuid:"156D40A9-950B-4FAB-BFB5-5C40CED57CEC"
+},
+{
 dataProviderID:"emp_cert_digital_homologacion_vto",
-location:"115,231",
+location:"115,263",
 size:"140,20",
 typeid:4,
 uuid:"17BA174E-BA06-42B8-BBC1-80ACC7084B1D"
 },
 {
-location:"10,127",
-size:"100,20",
+location:"195,105",
+size:"40,20",
 styleClass:"label_black",
 text:"Nro:",
 typeid:7,
@@ -59,7 +67,7 @@ uuid:"1AEFCBE0-D6F0-4D3F-96A5-3012E4B3334E"
 location:"10,149",
 size:"100,20",
 styleClass:"label_black",
-text:"Nro. Ing.B.:",
+text:"N°  Ing.B.:",
 typeid:7,
 uuid:"1B5D4F86-195E-4367-BAE0-7388A8CC4DEE"
 },
@@ -75,7 +83,17 @@ typeid:7,
 uuid:"1C373AF1-83F6-4567-978F-132269943401"
 },
 {
-location:"362,209",
+dataProviderID:"emp_incio_act",
+displayType:5,
+format:"dd/MM/yyyy",
+horizontalAlignment:0,
+location:"115,127",
+size:"140,20",
+typeid:4,
+uuid:"1F77B748-7196-4EEF-BB4D-04B64BC69CD3"
+},
+{
+location:"362,241",
 size:"37,20",
 text:"(crt)",
 transparent:true,
@@ -91,7 +109,7 @@ typeid:7,
 uuid:"2B48C162-C4B3-4546-89C5-C780A96F5C2F"
 },
 {
-location:"362,253",
+location:"362,285",
 size:"37,20",
 text:"(crt)",
 transparent:true,
@@ -100,7 +118,7 @@ uuid:"3045AA40-3984-41E2-B8F3-B7E86D98B0A5"
 },
 {
 dataProviderID:"emp_cert_digital_produccion",
-location:"115,253",
+location:"115,285",
 size:"242,20",
 typeid:4,
 uuid:"327DD763-5A82-4557-A83B-F3D2658BE059"
@@ -131,10 +149,17 @@ uuid:"42F3EA28-0BDE-4529-8FD1-E1FA6BB5C0D7"
 },
 {
 dataProviderID:"emp_cert_digital_homologacion",
-location:"115,209",
+location:"115,241",
 size:"242,20",
 typeid:4,
 uuid:"4A9C1E44-A0C9-4A11-B25B-BD168C42AD9D"
+},
+{
+dataProviderID:"emp_nro_dri",
+location:"115,171",
+size:"140,20",
+typeid:4,
+uuid:"5BA72C8B-259B-47F0-BC6A-843FB5658BD5"
 },
 {
 location:"10,105",
@@ -152,7 +177,7 @@ typeid:4,
 uuid:"720AD769-95A7-4B82-ABAC-CFF1C2FCC60B"
 },
 {
-location:"10,209",
+location:"10,241",
 size:"100,20",
 styleClass:"label_black",
 text:"Cert.Dig.Homo.:",
@@ -160,7 +185,7 @@ typeid:7,
 uuid:"72CC800D-D373-49FE-A267-3E052D130D55"
 },
 {
-location:"10,275",
+location:"10,307",
 size:"100,20",
 styleClass:"label_black",
 text:"Vencimiento:",
@@ -168,7 +193,15 @@ typeid:7,
 uuid:"739C67C5-0013-455E-839C-C3038CCF2BE2"
 },
 {
-location:"362,297",
+location:"10,127",
+size:"100,20",
+styleClass:"label_black",
+text:"Fec.Inicio Act.:",
+typeid:7,
+uuid:"768E9BBC-48D2-47EE-A2C4-23C2113245BF"
+},
+{
+location:"362,329",
 size:"37,20",
 text:"(key)",
 transparent:true,
@@ -185,15 +218,22 @@ typeid:7,
 uuid:"8496CC9C-4A27-45C2-A92E-0F19E9D701CA"
 },
 {
+dataProviderID:"emp_nro_rie",
+location:"116,193",
+size:"140,20",
+typeid:4,
+uuid:"9C6CD62F-115B-40EB-A86A-02243F06591B"
+},
+{
 dataProviderID:"emp_cert_digital_produccion_vto",
-location:"115,275",
+location:"115,307",
 size:"140,20",
 typeid:4,
 uuid:"A1B7FF51-D9BE-47ED-8B62-055FCFA9BEAA"
 },
 {
 horizontalAlignment:0,
-location:"10,187",
+location:"10,219",
 size:"389,20",
 styleClass:"label_black",
 text:"Configuración Facuracion Electrónica",
@@ -221,7 +261,7 @@ uuid:"A60E2D35-14F6-4869-BD08-B3966D9A8551"
 {
 dataProviderID:"emp_nro_cuit",
 format:"###########",
-location:"115,127",
+location:"238,105",
 size:"140,20",
 typeid:4,
 uuid:"B7E3A33A-468D-4C53-B754-AAC696CA2A02"
@@ -247,7 +287,7 @@ typeid:7,
 uuid:"C51BDCAE-1E58-4183-A823-EC0822289D43"
 },
 {
-location:"10,297",
+location:"10,329",
 size:"100,20",
 styleClass:"label_black",
 text:"KEY Cert.Digital:",
@@ -264,13 +304,13 @@ uuid:"C6787BC1-F86C-4FA4-95EA-7330FE4907D5"
 },
 {
 dataProviderID:"emp_cert_digital_key",
-location:"115,297",
+location:"115,329",
 size:"242,20",
 typeid:4,
 uuid:"C6862630-B5E0-4B7B-9CCE-17D5532DF224"
 },
 {
-location:"10,253",
+location:"10,285",
 size:"100,20",
 styleClass:"label_black",
 text:"Cert.Dig.Prod.:",
@@ -308,6 +348,14 @@ styleClass:"label_black",
 text:"STMTP:",
 typeid:7,
 uuid:"DA5E2B7C-A2EC-40F4-A690-8FB45478FBFA"
+},
+{
+location:"10,171",
+size:"100,20",
+styleClass:"label_black",
+text:"N°  D.R. e I.:",
+typeid:7,
+uuid:"EC0A1E09-4576-4ACF-B451-42E4296C7BFA"
 },
 {
 location:"440,105",

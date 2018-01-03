@@ -136,7 +136,6 @@ uuid:"4277F311-2B8D-48C7-B764-EAC3D9D4AC40"
 },
 {
 dataProviderID:"propietario_email",
-format:"|U",
 location:"128,262",
 size:"344,20",
 text:"Nombre",

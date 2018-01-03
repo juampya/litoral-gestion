@@ -21,7 +21,8 @@ name:"inmueble_id",
 size:"289,20",
 styleClass:"table_field",
 typeid:4,
-uuid:"0D34EC1B-9A06-44AD-BB3B-0754591B61CE"
+uuid:"0D34EC1B-9A06-44AD-BB3B-0754591B61CE",
+valuelistID:"7610A525-DCE0-4265-87F6-76E705042CD3"
 },
 {
 formIndex:21,

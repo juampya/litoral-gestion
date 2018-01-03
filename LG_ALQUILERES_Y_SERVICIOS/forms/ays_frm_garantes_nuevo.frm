@@ -14,7 +14,6 @@ uuid:"018E73D8-3A09-42DA-9F3D-7E054F61256B"
 },
 {
 dataProviderID:"garante_email",
-format:"|U",
 location:"128,262",
 size:"344,20",
 text:"Nombre",

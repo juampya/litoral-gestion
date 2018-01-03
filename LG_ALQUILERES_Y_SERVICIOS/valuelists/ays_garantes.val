@@ -1,0 +1,10 @@
+dataProviderID1:"garante_id",
+dataProviderID2:"garante_nombre",
+dataSource:"db:/sistemas/alqyser_garantes",
+name:"ays_garantes",
+returnDataProviders:1,
+separator:" - ",
+showDataProviders:3,
+typeid:34,
+uuid:"B1FD56FF-8447-4470-ABBC-B691D0DBB94F",
+valueListType:1

@@ -1,5 +1,5 @@
 addEmptyValue:1,
-customValues:"Activo|\r\
+customValues:"Activo|0\r\
 Suspendido|1",
 name:"ays_concepto_estado",
 typeid:34,

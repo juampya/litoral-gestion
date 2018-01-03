@@ -17,7 +17,7 @@ size:"284,20",
 styleClass:"table_field",
 typeid:4,
 uuid:"2B4AEE30-C6CF-4454-AD6A-38C8C0792346",
-valuelistID:"7EDC94DE-2494-421E-A21B-E0AE157B1BE8"
+valuelistID:"234E47FC-D47B-4307-8A01-C4718C821EF8"
 },
 {
 height:31,
@@ -86,7 +86,7 @@ name:"vl_concepto",
 size:"266,20",
 typeid:4,
 uuid:"BF49CEB9-029F-4F55-A6BF-09E79996B21E",
-valuelistID:"7EDC94DE-2494-421E-A21B-E0AE157B1BE8"
+valuelistID:"234E47FC-D47B-4307-8A01-C4718C821EF8"
 },
 {
 formIndex:14,

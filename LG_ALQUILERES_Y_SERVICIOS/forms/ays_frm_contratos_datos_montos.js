@@ -118,6 +118,7 @@ function onActionSimular(psimulacion)
 			forms.ays_frm_contratos_datos_cuotas.cuota_fec_vto = tmp_vto
 			forms.ays_frm_contratos_datos_cuotas.cuota_descuento = 0
 			forms.ays_frm_contratos_datos_cuotas.cuota_monto_pagado = 0
+			forms.ays_frm_contratos_datos_cuotas.emp_id = emp_id
 		}
 	}
 }

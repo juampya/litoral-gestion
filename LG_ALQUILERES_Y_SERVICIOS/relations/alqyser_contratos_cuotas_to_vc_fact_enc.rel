@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_fact_enc",
+items:[
+{foreignColumnName:"facte_id",primaryDataProviderID:"facte_id",typeid:23,uuid:"FFDD151E-0ACE-4D98-B7A6-BBFC21271410"}
+],
+joinType:1,
+name:"alqyser_contratos_cuotas_to_vc_fact_enc",
+primaryDataSource:"db:/sistemas/alqyser_contratos_cuotas",
+typeid:22,
+uuid:"3328F87F-730C-4B02-A5FB-8C46761A3924"

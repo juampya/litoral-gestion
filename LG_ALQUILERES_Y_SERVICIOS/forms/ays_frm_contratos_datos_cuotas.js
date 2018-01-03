@@ -22,3 +22,30 @@ function Borrar()
 	databaseManager.saveData()
 	databaseManager.refreshRecordFromDatabase(foundset,-1)
 }
+
+/**
+ * Perform the element default action.
+ *
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"89FF6F87-579C-44EA-A340-5C2D277FF904"}
+ */
+function GeneraComprobante(event)
+{
+	if(facte_id==0)
+	{
+		forms.ays_frm_comprobante_nuevo.vl_frm_anterior = forms.ays_frm_contratos_datos.controller.getName()
+		forms.ays_frm_comprobante_nuevo.vl_cliente = forms.ays_frm_contratos_datos.inquilino_id
+		forms.ays_frm_comprobante_nuevo.vl_contrato_id = forms.ays_frm_contratos_datos.contrato_id
+		forms.ays_frm_comprobante_nuevo.vl_nuevo = 1
+		forms.ays_frm_comprobante_nuevo.vl_importe_alquiler = cuota_monto
+		forms.ays_frm_comprobante_nuevo.controller.show()
+	}
+	else
+	{
+		forms.ays_frm_comprobante_nuevo.vl_frm_anterior = forms.ays_frm_contratos_datos.controller.getName()
+		forms.ays_frm_comprobante_nuevo.vl_facte_id = facte_id
+		forms.ays_frm_comprobante_nuevo.vl_nuevo = 0
+		forms.ays_frm_comprobante_nuevo.controller.show()
+	}
+}

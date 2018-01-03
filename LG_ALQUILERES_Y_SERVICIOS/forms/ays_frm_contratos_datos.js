@@ -35,7 +35,7 @@ function onShow(firstShow, event)
 	if(vl_nuevo==1)
 	{	
 		controller.newRecord(false)
-		//emp_id= scopes.globals.mx_empresa_id
+		emp_id= scopes.globals.mx_empresa_id
 	}
 	if(vl_nuevo==2)
 	{
@@ -52,7 +52,7 @@ function onShow(firstShow, event)
  */
 function onActionVolver(event) 
 {
-	databaseManager.revertEditedRecords(foundset)
+	databaseManager.revertEditedRecords()
 	forms[vl_frm_anterior].controller.show()
 }
 
@@ -142,6 +142,7 @@ function Borrar()
  *
  * @properties={typeid:24,uuid:"F38FB243-0043-4C9D-A9AC-1FBCF8615CF3"}
  */
-function onActionGrabar(event) {
-	// TODO Auto-generated method stub
+function onActionGrabar(event) 
+{
+	databaseManager.saveData()
 }

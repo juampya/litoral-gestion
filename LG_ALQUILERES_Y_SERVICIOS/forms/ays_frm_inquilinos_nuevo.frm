@@ -204,7 +204,6 @@ valuelistID:"5D57F02C-E6E9-435F-BE85-C5087CDF4A98"
 },
 {
 dataProviderID:"inquilino_email",
-format:"|U",
 location:"128,262",
 size:"344,20",
 text:"Nombre",

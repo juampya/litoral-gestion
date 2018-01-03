@@ -67,9 +67,9 @@ function onActionRefrescar(event) {
  */
 function onActionDetalle(event) 
 {
-//	forms.ays_frm_inmuebles_nuevo.vl_frm_anterior = controller.getName()
-//	forms.ays_frm_inmuebles_nuevo.vl_nuevo = 0
-//	forms.ays_frm_inmuebles_nuevo.controller.show() 
+	forms.ays_frm_contratos_datos.vl_frm_anterior = controller.getName()
+	forms.ays_frm_contratos_datos.vl_nuevo = 0
+	forms.ays_frm_contratos_datos.controller.show() 
 }
 
 /**

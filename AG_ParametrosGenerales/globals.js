@@ -1029,3 +1029,54 @@ function googleMaps_x_cliente(lnk_mat_id)
 	    win.title= 'Mapa';
 	    win.show(forms.lg_maps);
 }
+
+/**
+ * @AllowToRunInFind
+ * 
+ * TODO generated, please specify type and doc for the params
+ * @param {Number} ptalonario_id
+ * @param {Number} pactualiza 
+ * @properties={typeid:24,uuid:"37AE5C11-13A2-4D53-832B-8EF9ABFF5E99"}
+ */
+function BuscaProximoNro(ptalonario_id, pactualiza)
+{
+	var numero = 0
+	
+	/** @type {JSFoundSet<db:/sistemas/vc_talonarios>} */
+	var fs_numeros = databaseManager.getFoundSet('sistemas','vc_talonarios')
+	fs_numeros.loadAllRecords()
+	databaseManager.refreshRecordFromDatabase(fs_numeros,-1)
+	fs_numeros.find()
+	fs_numeros.talonario_id = ptalonario_id	
+	if(fs_numeros.search()==1)
+	{
+		fs_numeros.setSelectedIndex(1)
+		numero = fs_numeros.talonario_actual_nro
+		if (pactualiza==1)
+		{
+			var contador=0
+			var bloqueo=databaseManager.acquireLock(fs_numeros,0)
+			while (!bloqueo)
+			{
+				bloqueo=databaseManager.acquireLock(fs_numeros,0)
+				contador=contador+1
+				if(contador==4000)
+				{
+					contador=0
+					globals.VentanaGenerica(0,'Atención', 'Aguarde un momento', 'info', 'paragrales_frm_titulo', 'Ok', '',null,null,null,null,null,null)
+				}
+			}
+			
+			numero = fs_numeros.talonario_actual_nro + 1
+			fs_numeros.talonario_actual_nro=numero
+			
+			databaseManager.saveData(fs_numeros)
+//			databaseManager.releaseAllLocks()
+		}
+	}
+	else
+	{
+	}
+	
+	return numero
+}

@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_fact_items",
+items:[
+{foreignColumnName:"facte_id",primaryDataProviderID:"facte_id",typeid:23,uuid:"F8C21CCA-A8CC-4D46-B8B1-AA595FBD4C80"}
+],
+joinType:1,
+name:"vc_fact_enc_to_vc_fact_items",
+primaryDataSource:"db:/sistemas/vc_fact_enc",
+typeid:22,
+uuid:"168B7EF9-B210-4D9E-A80A-70AD4CFF5781"

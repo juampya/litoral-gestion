@@ -1,0 +1,10 @@
+allowCreationRelatedRecords:true,
+foreignDataSource:"db:/sistemas/vc_talonarios",
+items:[
+{foreignColumnName:"talonario_id",primaryDataProviderID:"facte_talonario",typeid:23,uuid:"1D9AA64E-2CF8-49D2-B410-35DA467FEAF3"}
+],
+joinType:1,
+name:"vc_fact_enc_to_vc_talonarios",
+primaryDataSource:"db:/sistemas/vc_fact_enc",
+typeid:22,
+uuid:"8078961E-F043-42EC-B09F-752147CCAB87"

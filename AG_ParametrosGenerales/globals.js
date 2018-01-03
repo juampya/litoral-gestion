@@ -153,7 +153,7 @@ function InicializaParametros(){
 	scopes.globals.mx_usuario_id = security.getUserUID()
 	scopes.globals.mx_empresa_id = scopes.globals.ag_usuariovigente.emp_id
 
-	databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id)
+	databaseManager.addTableFilterParam('sistemas',null,'emp_id','=',scopes.globals.mx_empresa_id,'filtroempresa')
 	
 	application.addClientInfo('Usuario: '+ ag_usuariovigente.usu_id +' - ' + ag_usuariovigente.usu_nombre)
 	application.addClientInfo('Empresa: '+ scopes.globals.mx_empresa_id   +' - ' + ag_empresavigente.emp_nombre)

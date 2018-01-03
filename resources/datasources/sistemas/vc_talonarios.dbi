@@ -46,6 +46,12 @@ name:"talonario_actual_nro"
 },
 {
 allowNull:true,
+creationOrderIndex:16,
+dataType:4,
+name:"talonario_afip"
+},
+{
+allowNull:true,
 creationOrderIndex:2,
 dataType:12,
 length:3,

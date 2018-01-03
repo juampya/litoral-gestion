@@ -138,7 +138,8 @@ name:"facte_notas"
 {
 allowNull:true,
 creationOrderIndex:5,
-dataType:4,
+dataType:12,
+length:15,
 name:"facte_numero"
 },
 {

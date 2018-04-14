@@ -152,6 +152,7 @@ uuid:"D6B60B00-9225-4442-A7A7-1FD9ACD2E7BD"
 }
 ],
 name:"lg_adjuntos",
+namedFoundSet:"separate",
 navigatorID:"-1",
 onShowMethodID:"DDD87E64-20D5-4CFF-990F-0C804D93347B",
 showInMenu:true,

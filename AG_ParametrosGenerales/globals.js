@@ -1067,16 +1067,12 @@ function BuscaProximoNro(ptalonario_id, pactualiza)
 				}
 			}
 			
-			numero = fs_numeros.talonario_actual_nro + 1
-			fs_numeros.talonario_actual_nro=numero
+			numero = fs_numeros.talonario_actual_nro
+			fs_numeros.talonario_actual_nro=numero+1
 			
 			databaseManager.saveData(fs_numeros)
-//			databaseManager.releaseAllLocks()
+			databaseManager.releaseAllLocks()
 		}
 	}
-	else
-	{
-	}
-	
 	return numero
 }

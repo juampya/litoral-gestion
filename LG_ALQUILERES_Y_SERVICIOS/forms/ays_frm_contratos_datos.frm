@@ -25,6 +25,13 @@ location:"0,120",
 text:"Datos Principales",
 typeid:15,
 uuid:"577AA229-2E22-489C-8905-EB9E4B31B1AF"
+},
+{
+containsFormID:"4BFD86F1-81E9-4D22-8033-73391F08F3CD",
+location:"303,225",
+text:"Adjuntos",
+typeid:15,
+uuid:"C5F33451-FF6B-449C-A58E-841F9870A41E"
 }
 ],
 location:"0,90",

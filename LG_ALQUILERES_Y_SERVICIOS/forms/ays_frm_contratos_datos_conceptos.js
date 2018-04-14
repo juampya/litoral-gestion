@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"593CD0AB-4A7D-45C4-B9DF-D6097F6A1361",variableType:8}
+ */
+var vl_valor = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"0527D2DF-DEBF-4988-A0CE-71DB163E0BBD",variableType:4}
  */
 var vl_concepto = null;

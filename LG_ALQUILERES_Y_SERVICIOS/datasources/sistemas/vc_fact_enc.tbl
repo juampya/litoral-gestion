@@ -1,0 +1,11 @@
+dataSource:"db:/sistemas/vc_fact_enc",
+items:[
+{
+dataProviderIDToAggregate:"facte_id",
+name:"aggr_cantidad",
+typeid:40,
+uuid:"42444094-020A-4FD5-A6B8-CBDD885065E4"
+}
+],
+typeid:39,
+uuid:"1E24047C-8C15-4319-8F0B-C951EA4A78DF"

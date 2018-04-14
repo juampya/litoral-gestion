@@ -247,7 +247,7 @@ function Zonas()
 }
 
 /**
- * @properties={typeid:24,uuid:"3ED743FB-FFD3-4DF5-9C45-B30C771B39C7"}
+ * @properties={typeid:24,uuid:"7CC62446-FE28-4754-9327-4B54CB11407F"}
  */
 function Talonarios() 
 {

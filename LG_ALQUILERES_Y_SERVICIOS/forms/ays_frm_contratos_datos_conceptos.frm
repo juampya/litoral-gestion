@@ -91,7 +91,7 @@ valuelistID:"234E47FC-D47B-4307-8A01-C4718C821EF8"
 {
 formIndex:14,
 imageMediaID:"382776FF-9225-46C5-9AB8-3377B48C7283",
-location:"551,4",
+location:"720,4",
 mediaOptions:1,
 name:"btn_agregar_concepto",
 onActionMethodID:"C76C0480-95DC-48C8-81D5-D47B45D6A119",

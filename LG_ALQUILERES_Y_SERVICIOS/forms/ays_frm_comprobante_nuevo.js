@@ -1,6 +1,13 @@
 /**
  * @type {Number}
  *
+ * @properties={typeid:35,uuid:"7A96905E-134B-4A76-AE25-77B2616E250E",variableType:4}
+ */
+var vl_cuota_id = null;
+
+/**
+ * @type {Number}
+ *
  * @properties={typeid:35,uuid:"D52FD2E7-C653-495A-9044-39CA26EC0925",variableType:4}
  */
 var vl_facte_id = null;
@@ -132,11 +139,22 @@ function onActionGrabar(event)
 	}
 	
 	vl_numero = scopes.globals.BuscaProximoNro(facte_talonario,1)
-	facte_numero = vl_letra+utils.numberFormat(vl_ptovta,'0000')+utils.numberFormat(vl_numero,'00000000')+'00'
+	facte_numero    = vl_letra+utils.numberFormat(vl_ptovta,'0000')+utils.numberFormat(vl_numero,'00000000')+'00'
 	facte_tot_total = vl_total
 	facte_tot_sb	= vl_total
-	
+	facte_cod_comp  = vc_fact_enc_to_vc_talonarios.talonario_cod_comp
 	databaseManager.saveData()
+	
+	
+	/** @type {JSFoundSet<db:/sistemas/alqyser_contratos_cuotas>} */
+	var fs_cuotas = databaseManager.getFoundSet('sistemas','alqyser_contratos_cuotas')
+		fs_cuotas.loadRecords(vl_cuota_id)
+		fs_cuotas.facte_id = facte_id
+	
+	databaseManager.saveData(fs_cuotas)
+	
+	onActionVolver(null)
+	
 }
 
 /**
@@ -152,9 +170,9 @@ function onActionGrabar(event)
  */
 function CambiaTalonario(oldValue, newValue, event) 
 {
-	vl_letra = vc_fact_enc_to_vc_talonarios.talonario_tipo_comp
+	vl_letra  = vc_fact_enc_to_vc_talonarios.talonario_tipo_comp
 	vl_ptovta = vc_fact_enc_to_vc_talonarios.talonario_suc_comp
-	vl_numero = vc_fact_enc_to_vc_talonarios.talonario_actual_nro
+	vl_numero = scopes.globals.BuscaProximoNro(facte_talonario,0)
 	
 	return true
 }
@@ -221,6 +239,7 @@ function BuscoConceptos()
 		var record = fs_conceptos.getRecord(i);
 		
 		vc_fact_enc_to_vc_fact_items.newRecord(false)
+		vc_fact_enc_to_vc_fact_items.emp_id = scopes.globals.mx_empresa_id
 		vc_fact_enc_to_vc_fact_items.facti_cantidad = 1
 		vc_fact_enc_to_vc_fact_items.facti_codigo = record.concepto_id
 		vc_fact_enc_to_vc_fact_items.facti_descripcion = record.alqyser_contratos_conceptos_to_alqyser_conceptos.concepto_descripcion

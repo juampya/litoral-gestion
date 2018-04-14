@@ -34,6 +34,7 @@ uuid:"B21BFE36-F7EE-40F2-A216-21F405ECF64E"
 ],
 name:"ays_frm_contratos_datos_garantes",
 navigatorID:"-1",
+scrollbars:32,
 showInMenu:true,
 size:"352,179",
 styleClass:"table",

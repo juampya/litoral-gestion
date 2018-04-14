@@ -48,7 +48,7 @@ function onShow(firstShow, event)
 	if(vl_nuevo==1)
 	{	
 		controller.newRecord(false)
-		emp_id=1
+		emp_id=scopes.globals.mx_empresa_id
 		suc_id=1
 		talonario_destino_impresion=0
 		talonario_cod_comp="FAC"

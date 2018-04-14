@@ -37,6 +37,7 @@ function GeneraComprobante(event)
 		forms.ays_frm_comprobante_nuevo.vl_frm_anterior = forms.ays_frm_contratos_datos.controller.getName()
 		forms.ays_frm_comprobante_nuevo.vl_cliente = forms.ays_frm_contratos_datos.inquilino_id
 		forms.ays_frm_comprobante_nuevo.vl_contrato_id = forms.ays_frm_contratos_datos.contrato_id
+		forms.ays_frm_comprobante_nuevo.vl_cuota_id = cuota_id
 		forms.ays_frm_comprobante_nuevo.vl_nuevo = 1
 		forms.ays_frm_comprobante_nuevo.vl_importe_alquiler = cuota_monto
 		forms.ays_frm_comprobante_nuevo.controller.show()

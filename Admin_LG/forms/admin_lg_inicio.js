@@ -36,7 +36,8 @@ function onActionSalir(event)
  */
 function onActionModulos(event) 
 {
-	forms.admin_lg_modulos.controller.show()
+	databaseManager.revertEditedRecords()
+	scopes.globals.AbrirGenerico(forms.admin_lg_modulos.controller.getName())
 }
 
 /**
@@ -48,7 +49,8 @@ function onActionModulos(event)
  */
 function onActionEmpresas(event) 
 {
-	forms.admin_lg_empresas.controller.show()
+	databaseManager.revertEditedRecords()
+	scopes.globals.AbrirGenerico(forms.admin_lg_empresas.controller.getName())
 }
 
 /**
@@ -60,7 +62,8 @@ function onActionEmpresas(event)
  */
 function onActionUsuarios(event) 
 {
-	forms.admin_lg_usuarios.controller.show()
+	databaseManager.revertEditedRecords()
+	scopes.globals.AbrirGenerico(forms.admin_lg_usuarios.controller.getName())
 }
 
 /**
@@ -71,7 +74,8 @@ function onActionUsuarios(event)
  */
 function onActionFunciones(event) 
 {
-	forms.admin_lg_funciones.controller.show()
+	databaseManager.revertEditedRecords()
+	scopes.globals.AbrirGenerico(forms.admin_lg_funciones.controller.getName())
 }
 
 /**
@@ -82,5 +86,27 @@ function onActionFunciones(event)
  */
 function onActionMensajes(event) 
 {
-	forms.admin_lg_mensajes.controller.show()
+	databaseManager.revertEditedRecords()
+	scopes.globals.AbrirGenerico(forms.admin_lg_mensajes.controller.getName())
+}
+/**
+ * Callback method for when form is shown.
+ *
+ * @param {Boolean} firstShow form is shown first time after load
+ * @param {JSEvent} event the event that triggered the action
+ *
+ * @properties={typeid:24,uuid:"AD3BBF31-4D63-4BB2-9102-5EA00122CCDB"}
+ */
+function onShow(firstShow, event)
+{
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+	{
+		elements.tabs_1.removeAllTabs()
+		elements.tabs_1.addTab(forms.modulo_menu.controller.getName())
+	}
+	else
+	{
+		elements.tabs_1.removeAllTabs()
+		scopes.globals.CargarMenu()
+	}
 }

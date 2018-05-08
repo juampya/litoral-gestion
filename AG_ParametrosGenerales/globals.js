@@ -1076,3 +1076,37 @@ function BuscaProximoNro(ptalonario_id, pactualiza)
 	}
 	return numero
 }
+
+/**
+ * @properties={typeid:24,uuid:"E7DE6429-6A64-43E6-8809-096203D242C5"}
+ */
+function VolverGenerico()
+{
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
+	{
+		forms[scopes.globals.ag_solucionvigente.modulo_form_start].elements.tabs_2.removeAllTabs()
+	}
+	else
+	{
+		forms[scopes.globals.ag_solucionvigente.modulo_form_start].controller.show()
+	}
+}
+
+/**
+ * TODO generated, please specify type and doc for the params
+ * @param pformulario
+ *
+ * @properties={typeid:24,uuid:"DB9411D4-4C4F-42FC-85F3-F6901E69C949"}
+ */
+function AbrirGenerico(pformulario)
+{
+	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT)
+	{
+		forms[scopes.globals.ag_solucionvigente.modulo_form_start].elements.tabs_2.removeAllTabs()
+		forms[scopes.globals.ag_solucionvigente.modulo_form_start].elements.tabs_2.addTab(pformulario)
+	}
+	else
+	{
+		forms[pformulario].controller.show()
+	}
+}

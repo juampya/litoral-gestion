@@ -36,7 +36,7 @@ var vl_empresa = null;
  */
 function onActionVolver(event) 
 {
-	forms.admin_lg_inicio.controller.show()
+	scopes.globals.VolverGenerico()
 }
 
 

@@ -22,7 +22,7 @@ var vl_tipo = null;
 function onActionDetalle(event) 
 {
 	forms.admin_lg_funciones_detalle.vl_nuevo = 0
-	forms.admin_lg_funciones_detalle.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_funciones_detalle.controller.getName())
 }
 
 /**
@@ -46,7 +46,7 @@ function onActionVolver(event)
 function onActionAgregar(event) 
 {
 	forms.admin_lg_funciones_detalle.vl_nuevo = 1
-	forms.admin_lg_funciones_detalle.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_funciones_detalle.controller.getName())
 }
 
 /**

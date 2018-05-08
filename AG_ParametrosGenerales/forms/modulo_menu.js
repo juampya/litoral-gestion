@@ -48,7 +48,7 @@ function onActionMenu(event)
 		
 	elements.btn_menu1.getLocationX()
 	/**@type {Number} */
-	var vl_btn = event.getElementName().substr(8,1)
+	var vl_btn = event.getElementName().substr(8,1)+"000"
 	scopes.globals.CargarSubMenuWeb(vl_btn,elements[event.getElementName()].getLocationX(),elements[event.getElementName()].getLocationY()+20) 
 	
 	///**@type {JSFoundSet<db:/Sistemas/menus>} */ 

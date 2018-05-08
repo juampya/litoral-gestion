@@ -15,6 +15,12 @@ function onSolutionOpen()
     scopes.globals.mx_modulo_inicio = ag_solucionvigente.modulo_form_start
 	if (application.getApplicationType() == APPLICATION_TYPES.WEB_CLIENT) 
 	{
-		
+		forms[scopes.globals.mx_modulo_inicio].elements.tabs_1.removeAllTabs()
+		forms[scopes.globals.mx_modulo_inicio].elements.tabs_1.addTab(forms.modulo_menu.controller.getName())
+	}
+	else
+	{
+		forms[scopes.globals.mx_modulo_inicio].elements.tabs_1.removeAllTabs()
+		scopes.globals.CargarMenu()
 	}
 }

@@ -15,7 +15,7 @@ function onActionGrabar(event)
 {
 	emp_id = scopes.globals.mx_empresa_id
 	databaseManager.saveData()
-	forms.admin_lg_funciones.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_funciones.controller.getName())
 }
 
 /**
@@ -27,7 +27,7 @@ function onActionGrabar(event)
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords()
-	forms.admin_lg_funciones.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_funciones.controller.getName())
 }
 
 /**

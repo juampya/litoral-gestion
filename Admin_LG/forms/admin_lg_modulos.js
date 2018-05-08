@@ -9,7 +9,7 @@
 function onActionDetalle(event) 
 {
 	forms.admin_lg_modulos_detalle.vl_nuevo = 0
-	forms.admin_lg_modulos_detalle.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_modulos_detalle.controller.getName())
 }
 
 /**
@@ -21,7 +21,7 @@ function onActionDetalle(event)
  */
 function onActionVolver(event) 
 {
-	forms.admin_lg_inicio.controller.show()
+	scopes.globals.VolverGenerico()
 }
 
 
@@ -34,7 +34,7 @@ function onActionVolver(event)
 function onActionAgregar(event) 
 {
 	forms.admin_lg_modulos_detalle.vl_nuevo = 1
-	forms.admin_lg_modulos_detalle.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_modulos_detalle.controller.getName())
 }
 /**
  * Callback method for when form is shown.

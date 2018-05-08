@@ -28,7 +28,7 @@ function onActionGrabar(event)
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords()
-	forms.admin_lg_empresas.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_empresas.controller.getName())
 }
 
 

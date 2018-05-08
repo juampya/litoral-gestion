@@ -15,7 +15,7 @@ var vl_nuevo = null;
 function onActionGrabar(event) 
 {
 	databaseManager.saveData()
-	forms.admin_lg_modulos.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_modulos.controller.getName())
 }
 
 /**
@@ -28,7 +28,7 @@ function onActionGrabar(event)
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords()
-	forms.admin_lg_modulos.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_modulos.controller.getName())
 }
 
 /**
@@ -48,7 +48,7 @@ function onShow(firstShow, event)
 	if(vl_nuevo==1)
 	{
 		controller.newRecord(false)
-		emp_id = scopes.globals.mx_empresa_id
+		empresa_id = scopes.globals.mx_empresa_id
 	}
 	
 	elements.tabs.dividerLocation = 0.50

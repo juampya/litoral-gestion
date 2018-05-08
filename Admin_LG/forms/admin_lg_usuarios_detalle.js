@@ -26,7 +26,7 @@ function onActionDetalle(event) {
 function onActionVolver(event) 
 {
 	databaseManager.revertEditedRecords()
-	forms.admin_lg_usuarios.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_usuarios.controller.getName())
 }
 
 
@@ -39,7 +39,7 @@ function onActionVolver(event)
 function onActionGrabar(event) 
 {
 	databaseManager.saveData()
-	forms.admin_lg_usuarios.controller.show()
+	scopes.globals.AbrirGenerico(forms.admin_lg_usuarios.controller.getName())
 }
 /**
  * Callback method for when form is shown.

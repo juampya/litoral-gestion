@@ -62,8 +62,9 @@ uuid:"263C104D-0839-48A7-AD7B-0A890BE63553"
 dataProviderID:"emp_logotipo2",
 displayType:9,
 horizontalAlignment:0,
-location:"400,373",
-size:"140,140",
+location:"559,249",
+scrollbars:36,
+size:"338,140",
 typeid:4,
 uuid:"2A1A620F-2275-4566-8675-6AF880976DEC"
 },
@@ -71,14 +72,14 @@ uuid:"2A1A620F-2275-4566-8675-6AF880976DEC"
 dataProviderID:"emp_fec_crea",
 editable:false,
 format:"dd-MM-yyyy HH:mm",
-location:"722,91",
+location:"722,424",
 size:"175,20",
 styleClass:"disable",
 typeid:4,
 uuid:"39C6AB03-A4F9-4D0A-9409-0877FA52555E"
 },
 {
-location:"559,141",
+location:"559,474",
 size:"153,20",
 styleClass:"label_black",
 text:"Fecha Modificación:",
@@ -94,7 +95,7 @@ uuid:"3D72A4AF-1945-46E3-8E96-1F5620D72E4C"
 },
 {
 horizontalAlignment:0,
-location:"559,66",
+location:"559,399",
 size:"338,20",
 styleClass:"label_black",
 text:"Auditoría",
@@ -110,7 +111,7 @@ uuid:"46D4D079-D78D-4554-8117-BF84E9B1DA84"
 {
 dataProviderID:"emp_usu_crea",
 editable:false,
-location:"722,116",
+location:"722,449",
 size:"175,20",
 styleClass:"disable",
 typeid:4,
@@ -118,10 +119,11 @@ uuid:"4DBE7C5B-8F88-4D67-81E3-C46AF7EB766A",
 valuelistID:"E3E8208D-A9A8-46A8-A644-9C1E57ECA03B"
 },
 {
-location:"295,373",
-size:"95,20",
+horizontalAlignment:0,
+location:"559,229",
+size:"338,20",
 styleClass:"label_black",
-text:"Logotipo 2:",
+text:"Logotipo 2",
 typeid:7,
 uuid:"4DEC5FE5-A039-4E17-9530-966043F2DC3B"
 },
@@ -141,7 +143,7 @@ typeid:4,
 uuid:"6C020C38-DA67-4F95-B07D-CF7F67B656C4"
 },
 {
-location:"559,116",
+location:"559,449",
 size:"153,20",
 styleClass:"label_black",
 text:"Usuario Creación:",
@@ -160,7 +162,7 @@ valuelistID:"5D57F02C-E6E9-435F-BE85-C5087CDF4A98"
 {
 dataProviderID:"emp_usu_modi",
 editable:false,
-location:"722,166",
+location:"722,499",
 size:"175,20",
 styleClass:"disable",
 typeid:4,
@@ -196,8 +198,9 @@ uuid:"9A3A1410-82B9-4865-B072-170EAA07686F"
 dataProviderID:"emp_logotipo1",
 displayType:9,
 horizontalAlignment:0,
-location:"110,373",
-size:"140,140",
+location:"559,81",
+scrollbars:36,
+size:"338,140",
 typeid:4,
 uuid:"9C22E252-8F53-462B-96C2-F661E42C60CB"
 },
@@ -213,14 +216,14 @@ uuid:"AD50641A-8A80-4347-B34F-8E8AC8E018E0"
 dataProviderID:"emp_fec_modi",
 editable:false,
 format:"dd-MM-yyyy HH:mm",
-location:"722,141",
+location:"722,474",
 size:"175,20",
 styleClass:"disable",
 typeid:4,
 uuid:"ADC7BE34-8FF3-4FE8-B15C-FA58BC5E5F47"
 },
 {
-location:"559,91",
+location:"559,424",
 size:"153,20",
 styleClass:"label_black",
 text:"Fecha Creación:",
@@ -228,10 +231,11 @@ typeid:7,
 uuid:"B96F66B8-0CD4-41F1-8C1E-5AD44CB7BD46"
 },
 {
-location:"8,373",
-size:"95,20",
+horizontalAlignment:0,
+location:"559,61",
+size:"338,20",
 styleClass:"label_black",
-text:"Logotipo 1:",
+text:"Logotipo 1",
 typeid:7,
 uuid:"BBB3B680-A38E-417B-921C-552AC4318705"
 },
@@ -274,7 +278,7 @@ typeid:4,
 uuid:"D768619A-8B5A-4C50-84D5-23DF8E3C8693"
 },
 {
-location:"559,166",
+location:"559,499",
 size:"153,20",
 styleClass:"label_black",
 text:"Usuario Modificación:",

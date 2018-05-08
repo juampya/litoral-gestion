@@ -1,6 +1,7 @@
 dataSource:"db:/sistemas/modulos",
 items:[
 {
+anchors:13,
 formIndex:3,
 items:[
 {
@@ -15,7 +16,7 @@ uuid:"9A49804C-33EE-460F-A9AC-E77BCF63D6BE"
 location:"0,326",
 name:"tabs",
 printable:false,
-size:"567,218",
+size:"567,342",
 transparent:true,
 typeid:16,
 uuid:"0B28F5A7-30E6-422D-BC32-4E09413404A9"
@@ -37,6 +38,8 @@ uuid:"1A0D974B-1EB6-4670-96D7-66EA802E716A"
 {
 dataProviderID:"modulo_id",
 editable:false,
+format:"#########",
+horizontalAlignment:4,
 location:"26,85",
 size:"59,20",
 text:"ID",
@@ -119,6 +122,8 @@ uuid:"C47F1B65-7D5E-41D3-8C55-F881287EE9DE"
 {
 dataProviderID:"modulo_orden",
 editable:false,
+format:"#########",
+horizontalAlignment:4,
 location:"100,85",
 size:"58,20",
 text:"Orden",

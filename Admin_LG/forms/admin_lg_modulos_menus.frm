@@ -63,6 +63,8 @@ uuid:"A3FAC390-1587-4744-B560-603C3C07B992"
 {
 dataProviderID:"menu_dependencia",
 editable:false,
+format:"#########",
+horizontalAlignment:4,
 location:"402,15",
 size:"61,20",
 text:"Depen.",
@@ -72,6 +74,8 @@ uuid:"C8EDC29F-6B1E-4754-A950-26D24F42D7DA"
 {
 dataProviderID:"menu_id",
 editable:false,
+format:"#########",
+horizontalAlignment:4,
 location:"21,15",
 size:"72,20",
 text:"ID",
@@ -81,6 +85,8 @@ uuid:"D7D44D84-21CA-4EC8-921B-FC916D10054E"
 {
 dataProviderID:"menu_orden",
 editable:false,
+format:"#########",
+horizontalAlignment:4,
 location:"91,15",
 size:"54,20",
 text:"Orden",
